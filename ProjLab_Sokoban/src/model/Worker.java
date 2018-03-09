@@ -10,7 +10,7 @@ public class Worker extends Placeholder {
 
 	@Override
 	public void Push(Placeholder obj, Direction dir) {
-		// TODO Auto-generated method stub
+		obj.PushedBy(this, dir);
 
 	}
 
@@ -22,8 +22,10 @@ public class Worker extends Placeholder {
 
 	@Override
 	public void PushedBy(Box box, Direction dir) {
-		// TODO Auto-generated method stub
-		
+		Tile from=tile;
+		TryMove(dir);
+		if (tile==from)
+			Destroy();		
 	}
 
 	@Override
@@ -36,6 +38,10 @@ public class Worker extends Placeholder {
 	public void ArrivedAt(LeverTile lt) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void Move(Direction dir) {
+		//TODO
 	}
 
 }

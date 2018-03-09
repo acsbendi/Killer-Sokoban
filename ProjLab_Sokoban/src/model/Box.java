@@ -4,20 +4,17 @@ public class Box extends Placeholder {
 
 	@Override
 	public void PushedBy(Worker w, Direction dir) {
-		// TODO Auto-generated method stub
-
+		TryMove(dir);
 	}
 
 	@Override
 	public void PushedBy(Box box, Direction dir) {
-		// TODO Auto-generated method stub
-
+		TryMove(dir);
 	}
 
 	@Override
 	public void Push(Placeholder obj, Direction dir) {
-		// TODO Auto-generated method stub
-
+		obj.PushedBy(this, dir);
 	}
 
 	@Override
@@ -36,6 +33,11 @@ public class Box extends Placeholder {
 	public void ArrivedAt(LeverTile lt) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public boolean IsStuck() {
+		//TODO
+		return false;
 	}
 
 }

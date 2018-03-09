@@ -22,7 +22,7 @@ public class Tile implements Field {
 		//TODO
 	}
 	
-	private boolean IsEmpty() {
+	protected boolean IsEmpty() {
 		return placeholder==null;
 	}
 	
@@ -43,12 +43,18 @@ public class Tile implements Field {
 			if (field==neighbour.get(dir))
 				return dir.Opposite();
 		}
+		return null;
 	}
 
 	@Override
 	public void Accept(Placeholder obj, Direction dir) {
-		// TODO Auto-generated method stub
-		
+		if (IsEmpty())
+			obj.SetField(this);
+		else {
+			obj.Push(placeholder, dir);
+			if (IsEmpty())
+				obj.SetField(this);
+		}
 	}
 
 }

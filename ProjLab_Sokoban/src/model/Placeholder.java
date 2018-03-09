@@ -19,7 +19,8 @@ public abstract class Placeholder {
 		//TODO
 	}
 	protected void TryMove(Direction dir) {
-		//TODO
+		Field to=tile.GetNeighbour(dir);
+		to.Accept(this, dir);
 	}
 	
 }
