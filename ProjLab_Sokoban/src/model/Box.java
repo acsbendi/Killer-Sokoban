@@ -25,7 +25,10 @@ public class Box extends Placeholder {
 
 	@Override
 	public void ArrivedAt(GoalTile gt) {
-		// TODO Auto-generated method stub
+		gt.Lock();
+		Direction dir=tile.GetOppositeDirectionOf(gt);
+		Field next=tile.GetNeighbour(dir);
+		((Tile) next).ForwardPoint(dir);
 		
 	}
 
