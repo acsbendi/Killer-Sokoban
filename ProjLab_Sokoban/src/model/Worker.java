@@ -36,7 +36,10 @@ public class Worker extends Placeholder {
 	}
 	
 	public void Move(Direction dir) {
-		//TODO
+		Tile old = tile;
+		TryMove(dir);
+		if(tile != null && tile != old)
+			tile.Check(dir);
 	}
 
 }
