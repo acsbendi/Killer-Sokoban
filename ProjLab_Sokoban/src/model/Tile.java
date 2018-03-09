@@ -27,7 +27,8 @@ public class Tile implements Field {
 	}
 	
 	public void ForwardPoint(Direction dir) {
-		//TODO
+		if (!IsEmpty())
+			placeholder.AcceptPoint(dir);
 	}
 	
 	public void SetNeighbour(Direction dir,Field field) {

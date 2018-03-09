@@ -19,8 +19,8 @@ public class Box extends Placeholder {
 
 	@Override
 	public void AcceptPoint(Direction dir) {
-		// TODO Auto-generated method stub
-
+		Field next=tile.GetNeighbour(dir);
+		((Tile)next).ForwardPoint(dir);
 	}
 
 	@Override
@@ -29,7 +29,6 @@ public class Box extends Placeholder {
 		Direction dir=tile.GetOppositeDirectionOf(gt);
 		Field next=tile.GetNeighbour(dir);
 		((Tile) next).ForwardPoint(dir);
-		
 	}
 
 	@Override
