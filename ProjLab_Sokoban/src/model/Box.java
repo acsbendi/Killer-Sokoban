@@ -33,8 +33,7 @@ public class Box extends Placeholder {
 
 	@Override
 	public void ArrivedAt(LeverTile lt) {
-		// TODO Auto-generated method stub
-		
+		lt.Press();
 	}
 	
 	public boolean IsStuck() {

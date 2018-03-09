@@ -9,7 +9,7 @@ public class HoleTile extends Tile {
 	
 	@Override
 	public void Check(Direction dir) {
-		//TODO
+
 	}
 
 }

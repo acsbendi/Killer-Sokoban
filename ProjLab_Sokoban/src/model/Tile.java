@@ -5,21 +5,21 @@ import java.util.Map;
 
 public class Tile implements Field {
 	
-	private Map<Direction,Field> neighbour=new EnumMap<Direction,Field>(Direction.class);
+	protected Map<Direction,Field> neighbours = new EnumMap<Direction,Field>(Direction.class);
 	protected Placeholder placeholder;
 	
 	@Override
 	public void Check(Direction dir) {
-		// TODO Auto-generated method stub
-
+		if(placeholder != null)
+			neighbours.get(dir).Check(dir);
 	}
 	
 	public Field GetNeighbour(Direction dir) {
-		return neighbour.get(dir);
+		return neighbours.get(dir);
 	}
 	
 	public void ReleaseObject() {
-		//TODO
+		placeholder = null;
 	}
 	
 	protected boolean IsEmpty() {
@@ -32,16 +32,16 @@ public class Tile implements Field {
 	}
 	
 	public void SetNeighbour(Direction dir,Field field) {
-		neighbour.put(dir, field);
+		neighbours.put(dir, field);
 	}
 	
 	public void InitializeObject(Placeholder obj) {
-		//TODO
+		placeholder = obj;
 	}
 	
 	public Direction GetOppositeDirectionOf(Field field) {
-		for (Direction dir:neighbour.keySet()) {
-			if (field==neighbour.get(dir))
+		for (Direction dir: neighbours.keySet()) {
+			if (field== neighbours.get(dir))
 				return dir.Opposite();
 		}
 		return null;

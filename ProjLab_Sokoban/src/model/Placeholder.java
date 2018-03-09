@@ -10,10 +10,11 @@ public abstract class Placeholder {
 	public abstract void ArrivedAt(LeverTile lt);
 	public abstract void AcceptPoint(Direction dir);
 	public void SetField(Tile tile) {
+		this.tile.ReleaseObject();
 		this.tile=tile;
 	}
-	public void InitializeField() {
-		//TODO
+	public void InitializeField(Tile tile) {
+		this.tile = tile;
 	}
 	public void Destroy() {
 		//TODO

@@ -10,23 +10,41 @@ public class LeverTile extends Tile {
 
 	@Override
 	public void Check(Direction dir) {
-		// TODO Auto-generated method stub
-		super.Check(dir);
+		if(placeholder != null){
+			if(IsPressed()){
+				for(TrapTile tt : trapTiles)
+					tt.Check();
+			}
+			neighbours.get(dir).Check(dir);
+		}
 	}
 
 	@Override
 	public void Accept(Placeholder obj, Direction dir) {
-		// TODO Auto-generated method stub
-		super.Accept(obj, dir);
+		if(IsEmpty()){
+			obj.ArrivedAt(this);
+			obj.SetField(this);
+		} else {
+			obj.Push(placeholder,dir);
+			if(IsEmpty()){
+				obj.ArrivedAt(this);
+				obj.SetField(this);
+			}
+		}
 	}
 	
 	public void ReleaseObject() {
-		//TODO
+		if(IsPressed()) {
+			for (TrapTile trapTile : trapTiles)
+				trapTile.SignOff();
+			Release();
+		}
 	}
 	
 	public void Press() {
 		pressed=true;
-		//TODO
+		for (TrapTile trapTile : trapTiles )
+			trapTile.SignOn();
 	}
 	
 	public void AddTrapdoor(TrapTile traptile) {
@@ -37,7 +55,6 @@ public class LeverTile extends Tile {
 	}
 	private void Release() {
 		pressed=false;
-		//TODO
 	}
 
 }
