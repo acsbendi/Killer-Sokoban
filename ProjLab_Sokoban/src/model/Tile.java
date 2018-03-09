@@ -1,10 +1,11 @@
 package model;
 
+import java.util.EnumMap;
 import java.util.Map;
 
 public class Tile implements Field {
 	
-	private Map<Direction,Field> neighbour;
+	private Map<Direction,Field> neighbour=new EnumMap<Direction,Field>(Direction.class);
 	protected Placeholder placeholder;
 	
 	@Override

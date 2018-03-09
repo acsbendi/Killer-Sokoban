@@ -8,4 +8,10 @@ public class Wall implements Field {
 
 	}
 
+	@Override
+	public void Accept(Placeholder obj, Direction dir) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

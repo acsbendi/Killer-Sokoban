@@ -20,4 +20,22 @@ public class Worker extends Placeholder {
 
 	}
 
+	@Override
+	public void PushedBy(Box box, Direction dir) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ArrivedAt(GoalTile gt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ArrivedAt(LeverTile lt) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

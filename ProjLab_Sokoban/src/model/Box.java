@@ -26,4 +26,16 @@ public class Box extends Placeholder {
 
 	}
 
+	@Override
+	public void ArrivedAt(GoalTile gt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ArrivedAt(LeverTile lt) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
