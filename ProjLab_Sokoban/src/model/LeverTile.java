@@ -35,6 +35,9 @@ public class LeverTile extends Tile {
 	private boolean IsPressed() {
 		return pressed;
 	}
-	
+	private void Release() {
+		pressed=false;
+		//TODO
+	}
 
 }
