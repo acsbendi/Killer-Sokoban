@@ -31,6 +31,6 @@ public abstract class Placeholder {
 		Logger.BeginMethod(this, "TryMove",dir);
 		Field to=tile.GetNeighbour(dir);
 		to.Accept(this, dir);
-		Logger.BeginMethod(this, "TryMove",dir);
+		Logger.EndMethod(this, "TryMove",dir);
 	}
 }
