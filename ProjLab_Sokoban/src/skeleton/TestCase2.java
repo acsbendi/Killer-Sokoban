@@ -20,7 +20,7 @@ public class TestCase2 implements TestCase{
         Direction dir = Direction.Right;
         Logger.Register(dir);
 
-        worker.InitializeField(from);
+        from.InitializeObject(worker);
 
         from.SetNeighbour(dir, to);
 
