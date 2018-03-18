@@ -66,7 +66,7 @@ public class Logger {
 
     static public void BeginMethod(Object callee, String methodName){
         for(int i = 0; i < indentLevel; i++) {
-            System.out.println("   ");
+            System.out.print("   ");
         }
         System.out.println("->" + objects.get(callee) + "." + methodName + "()");
         indentLevel++;
@@ -74,7 +74,7 @@ public class Logger {
 
     static public void BeginMethod(Object callee, String methodName, Object parameter){
         for(int i = 0; i < indentLevel; i++) {
-            System.out.println("   ");
+            System.out.print("   ");
         }
         System.out.println("->" + objects.get(callee) + "." + methodName + "(" + objects.get(parameter) + ")");
         indentLevel++;
@@ -82,34 +82,34 @@ public class Logger {
 
     static public void BeginMethod(Object callee, String methodName, Object parameter1, Object parameter2){
         for(int i = 0; i < indentLevel; i++) {
-            System.out.println("   ");
+            System.out.print("   ");
         }
         System.out.println("->" + objects.get(callee) + "." + methodName + "(" + objects.get(parameter1) + "," + objects.get(parameter2) + ")");
         indentLevel++;
     }
 
     static public void EndMethod(Object callee, String methodName){
+        indentLevel--;
         for(int i = 0; i < indentLevel; i++) {
-            System.out.println("   ");
+            System.out.print("   ");
         }
         System.out.println("<-" + objects.get(callee) + "." + methodName + "()");
-        indentLevel--;
     }
 
     static public void EndMethod(Object callee, String methodName, Object parameter){
+        indentLevel--;
         for(int i = 0; i < indentLevel; i++) {
-            System.out.println("   ");
+            System.out.print("   ");
         }
         System.out.println("<-" + objects.get(callee) + "." + methodName + "(" + objects.get(parameter) + ")");
-        indentLevel--;
     }
 
     static public void EndMethod(Object callee, String methodName, Object parameter1, Object parameter2){
+        indentLevel--;
         for(int i = 0; i < indentLevel; i++) {
-            System.out.println("   ");
+            System.out.print("   ");
         }
         System.out.println("<-" + objects.get(callee) + "." + methodName + "(" + objects.get(parameter1) + "," + objects.get(parameter2) + ")");
-        indentLevel--;
     }
 
     static public void Init(){
