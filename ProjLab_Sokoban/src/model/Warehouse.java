@@ -8,13 +8,13 @@ public class Warehouse {
 	private static List<Box> boxesInPlay = new ArrayList<>();
 
 	public static void Load(int id) {
-		//TODO
+		// TODO
 
 	}
 
 	public static boolean IsAllBoxStuck() {
-		for(Box box : boxesInPlay)
-			if(!box.IsStuck())
+		for (Box box : boxesInPlay)
+			if (!box.IsStuck())
 				return false;
 		return true;
 	}
