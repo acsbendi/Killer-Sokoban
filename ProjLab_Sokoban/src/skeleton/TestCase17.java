@@ -22,6 +22,7 @@ public class TestCase17 implements TestCase {
         Logger.Register(box);
         Logger.Register(to);
         Logger.Register(to2);
+        Logger.Register(wall);
         Logger.Register(trap);
         Logger.Register(dir);
 
