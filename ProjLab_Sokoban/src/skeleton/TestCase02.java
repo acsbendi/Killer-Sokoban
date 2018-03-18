@@ -5,7 +5,7 @@ import model.Tile;
 import model.Wall;
 import model.Worker;
 
-public class TestCase2 implements TestCase{
+public class TestCase02 implements TestCase{
     @Override
     public void Test() {
         Logger.Init();

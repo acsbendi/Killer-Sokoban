@@ -2,7 +2,7 @@ package skeleton;
 
 import model.*;
 
-public class TestCase3 implements TestCase {
+public class TestCase03 implements TestCase {
     @Override
     public void Test() {
         Logger.Init();
