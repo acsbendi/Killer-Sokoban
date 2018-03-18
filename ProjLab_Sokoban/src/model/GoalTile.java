@@ -6,7 +6,7 @@ public class GoalTile extends Tile {
 	
 	@Override
 	public void Accept(Placeholder obj,Direction dir) {
-		if (IsLocked())
+		if (!IsLocked())
 			if (IsEmpty()) {
 				obj.ArrivedAt(this);
 				obj.SetField(this);
