@@ -5,8 +5,7 @@ import model.Tile;
 import model.Wall;
 import model.Worker;
 
-public class TestCase1 implements TestCase{
-
+public class TestCase2 implements TestCase{
     @Override
     public void Test() {
         Logger.Init();
@@ -15,10 +14,8 @@ public class TestCase1 implements TestCase{
         Logger.Register(worker);
         Tile from = new Tile();
         Logger.Register(from);
-        Tile to = new Tile();
+        Wall to = new Wall();
         Logger.Register(to);
-        Wall wall = new Wall();
-        Logger.Register(wall);
 
         Direction dir = Direction.Right;
         Logger.Register(dir);
@@ -26,9 +23,6 @@ public class TestCase1 implements TestCase{
         from.InitializeObject(worker);
 
         from.SetNeighbour(dir, to);
-        to.SetNeighbour(dir.Opposite(), from);
-
-        to.SetNeighbour(dir, wall);
 
         worker.Move(dir);
     }

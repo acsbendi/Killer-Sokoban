@@ -2,7 +2,7 @@ package skeleton;
 
 public class Application {
     public static void main(String[] args) {
-       TestCase15 test15 = new TestCase15();
-       test15.Test();
+       TestCase4 test4 = new TestCase4();
+       test4.Test();
     }
 }

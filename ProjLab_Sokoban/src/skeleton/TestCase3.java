@@ -1,12 +1,8 @@
 package skeleton;
 
-import model.Direction;
-import model.Tile;
-import model.Wall;
-import model.Worker;
+import model.*;
 
-public class TestCase1 implements TestCase{
-
+public class TestCase3 implements TestCase {
     @Override
     public void Test() {
         Logger.Init();
@@ -17,6 +13,10 @@ public class TestCase1 implements TestCase{
         Logger.Register(from);
         Tile to = new Tile();
         Logger.Register(to);
+        Box box = new Box();
+        Logger.Register(box);
+        Tile boxNeighbour = new Tile();
+        Logger.Register(boxNeighbour);
         Wall wall = new Wall();
         Logger.Register(wall);
 
@@ -24,11 +24,15 @@ public class TestCase1 implements TestCase{
         Logger.Register(dir);
 
         from.InitializeObject(worker);
+        to.InitializeObject(box);
 
         from.SetNeighbour(dir, to);
         to.SetNeighbour(dir.Opposite(), from);
 
-        to.SetNeighbour(dir, wall);
+        to.SetNeighbour(dir, boxNeighbour);
+        boxNeighbour.SetNeighbour(dir.Opposite(), to);
+
+        boxNeighbour.SetNeighbour(dir, wall);
 
         worker.Move(dir);
     }
