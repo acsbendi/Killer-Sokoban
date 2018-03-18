@@ -35,6 +35,8 @@ public class TrapTile extends Tile {
 		Logger.BeginMethod(this,"IsClosed");
 
 		Logger.EndMethod(this,"IsClosed");
+		if(openCounter == 0)
+			return Logger.AskUser("Csukva legyen a csapdamező?");
 		return openCounter==0;
 	}
 

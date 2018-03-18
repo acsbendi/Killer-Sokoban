@@ -13,6 +13,7 @@ public class Tile implements Field {
 	@Override
 	public void Check(Direction dir) {
 		Logger.BeginMethod(this,"Check", dir);
+
 		if(placeholder != null)
 			neighbours.get(dir).Check(dir);
 

@@ -4,6 +4,7 @@ import model.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Logger {
     static private Map<Object,String> objects = new HashMap<>();
@@ -110,6 +111,18 @@ public class Logger {
             System.out.print("   ");
         }
         System.out.println("<-" + objects.get(callee) + "." + methodName + "(" + objects.get(parameter1) + "," + objects.get(parameter2) + ")");
+    }
+
+    static public boolean AskUser(String message){
+        for(int i = 0; i < indentLevel-1; i++) {
+            System.out.print("   ");
+        }
+        System.out.println(message + "i = igen, bármi más nem");
+        for(int i = 0; i < indentLevel-1; i++) {
+            System.out.print("   ");
+        }
+        Scanner reader = new Scanner(System.in);
+        return reader.next().charAt(0) == 'i';
     }
 
     static public void Init(){
