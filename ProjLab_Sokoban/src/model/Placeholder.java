@@ -23,5 +23,4 @@ public abstract class Placeholder {
 		Field to=tile.GetNeighbour(dir);
 		to.Accept(this, dir);
 	}
-	
 }
