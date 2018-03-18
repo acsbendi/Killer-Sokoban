@@ -13,9 +13,6 @@ public class Tile implements Field {
 	@Override
 	public void Check(Direction dir) {
 		Logger.BeginMethod(this,"Check", dir);
-
-		System.out.println("Tile.Check(Direction) called.");
-		System.out.println(placeholder != null);
 		if(placeholder != null)
 			neighbours.get(dir).Check(dir);
 

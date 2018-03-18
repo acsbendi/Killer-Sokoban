@@ -43,6 +43,7 @@ public class LeverTile extends Tile {
 	
 	public void ReleaseObject() {
 		Logger.BeginMethod(this, "ReleaseObject");
+		this.placeholder = null;
 		if(IsPressed()) {
 			for (TrapTile trapTile : trapTiles)
 				trapTile.SignOff();
