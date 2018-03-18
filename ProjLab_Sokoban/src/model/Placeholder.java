@@ -24,7 +24,9 @@ public abstract class Placeholder {
 	}
 	public void Destroy() {
 		Logger.BeginMethod(this, "Destroy");
-		//TODO
+
+		tile.ReleaseObject();
+
 		Logger.EndMethod(this, "Destroy");
 	}
 	protected void TryMove(Direction dir) {
