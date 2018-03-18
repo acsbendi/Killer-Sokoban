@@ -14,6 +14,8 @@ public class Tile implements Field {
 	public void Check(Direction dir) {
 		Logger.BeginMethod(this,"Check", dir);
 
+		System.out.println("Tile.Check(Direction) called.");
+		System.out.println(placeholder != null);
 		if(placeholder != null)
 			neighbours.get(dir).Check(dir);
 
@@ -87,12 +89,16 @@ public class Tile implements Field {
 	public void Accept(Placeholder obj, Direction dir) {
 		Logger.BeginMethod(this,"Accept", obj, dir);
 
-		if (IsEmpty())
+		if (IsEmpty()) {
+			this.placeholder = obj;
 			obj.SetField(this);
+		}
 		else {
 			obj.Push(placeholder, dir);
-			if (IsEmpty())
+			if (IsEmpty()) {
+				this.placeholder = obj;
 				obj.SetField(this);
+			}
 		}
 
 		Logger.EndMethod(this,"Accept", obj, dir);

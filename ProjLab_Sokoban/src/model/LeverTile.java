@@ -27,11 +27,13 @@ public class LeverTile extends Tile {
 	public void Accept(Placeholder obj, Direction dir) {
 		Logger.BeginMethod(this, "Accept",obj,dir);
 		if(IsEmpty()){
+			this.placeholder = obj;
 			obj.ArrivedAt(this);
 			obj.SetField(this);
 		} else {
 			obj.Push(placeholder,dir);
 			if(IsEmpty()){
+				this.placeholder = obj;
 				obj.ArrivedAt(this);
 				obj.SetField(this);
 			}

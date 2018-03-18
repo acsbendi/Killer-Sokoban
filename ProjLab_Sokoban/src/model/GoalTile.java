@@ -11,12 +11,14 @@ public class GoalTile extends Tile {
 		Logger.BeginMethod(this, "Accept", obj,dir);
 		if (!IsLocked())
 			if (IsEmpty()) {
+				this.placeholder = obj;
 				obj.ArrivedAt(this);
 				obj.SetField(this);
 			}
 			else {
 				obj.Push(placeholder, dir);
 				if (IsEmpty()) {
+					this.placeholder = obj;
 					obj.ArrivedAt(this);
 					obj.SetField(this);
 				}
