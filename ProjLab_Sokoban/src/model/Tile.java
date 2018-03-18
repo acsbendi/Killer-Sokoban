@@ -37,6 +37,7 @@ public class Tile implements Field {
 	
 	public void InitializeObject(Placeholder obj) {
 		placeholder = obj;
+		placeholder.InitializeField(this);
 	}
 	
 	public Direction GetOppositeDirectionOf(Field field) {
