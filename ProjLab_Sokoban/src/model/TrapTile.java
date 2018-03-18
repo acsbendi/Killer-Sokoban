@@ -46,6 +46,4 @@ public class TrapTile extends Tile {
 
 		Logger.EndMethod(this,"Check");
 	}
-	
-
 }

@@ -72,5 +72,4 @@ public class LeverTile extends Tile {
 		pressed=false;
 		Logger.EndMethod(this, "Release");
 	}
-
 }
