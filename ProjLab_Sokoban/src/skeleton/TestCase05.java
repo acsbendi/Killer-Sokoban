@@ -5,6 +5,7 @@ import model.*;
 public class TestCase05 implements TestCase{
 	@Override
 	public void Test() {
+		Logger.Init();
 		Tile tile = new Tile();
         Logger.Register(tile);
         HoleTile holeTile = new HoleTile();

@@ -4,6 +4,7 @@ import model.*;
 
 public class TestCase08 implements TestCase{
 	public void Test() {
+		Logger.Init();
 		Box box = new Box();
 		Logger.Register(box);
 		Tile tile1 = new Tile();
