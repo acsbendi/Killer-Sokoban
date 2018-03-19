@@ -40,4 +40,9 @@ public class TestCase17 implements TestCase {
 
         worker.Move(dir);
     }
+
+    @Override
+    public String GetName() {
+        return "Játékos kapcsolómezőről letolja a ládát";
+    }
 }

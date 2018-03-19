@@ -28,4 +28,9 @@ public class TestCase05 implements TestCase{
 
         worker.Move(direction1);
 	}
+
+    @Override
+    public String GetName() {
+        return "Munkás lyukba lép";
+    }
 }

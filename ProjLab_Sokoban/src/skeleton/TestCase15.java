@@ -49,4 +49,9 @@ public class TestCase15 implements TestCase {
 
         worker1.Move(direction1);
     }
+
+    @Override
+    public String GetName() {
+        return "Láda munkást fal melletti ládára tol";
+    }
 }

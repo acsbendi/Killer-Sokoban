@@ -7,6 +7,7 @@ import model.Worker;
 
 public class TestCase01 implements TestCase{
 
+
     @Override
     public void Test() {
         Logger.Init();
@@ -31,5 +32,10 @@ public class TestCase01 implements TestCase{
         to.SetNeighbour(dir, wall);
 
         worker.Move(dir);
+    }
+
+    @Override
+    public String GetName() {
+        return "Munkás üres padlómezőre lép";
     }
 }

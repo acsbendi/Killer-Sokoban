@@ -26,4 +26,9 @@ public class TestCase02 implements TestCase{
 
         worker.Move(dir);
     }
+
+    @Override
+    public String GetName() {
+        return "Munkás falnak ütközik";
+    }
 }

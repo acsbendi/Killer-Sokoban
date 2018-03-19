@@ -33,4 +33,9 @@ public class TestCase18 implements TestCase {
 
         worker.Move(dir);
     }
+
+    @Override
+    public String GetName() {
+        return "Játékos csapdamezőre tol ládát";
+    }
 }

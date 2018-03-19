@@ -29,4 +29,9 @@ public class TestCase04 implements TestCase {
 
         worker1.Move(dir);
     }
+
+    @Override
+    public String GetName() {
+        return "Munkás munkásnak ütközik";
+    }
 }

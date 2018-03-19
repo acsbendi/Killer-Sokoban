@@ -38,4 +38,9 @@ public class TestCase16 implements TestCase {
 
         worker1.PushedBy(box, dir);
     }
+
+    @Override
+    public String GetName() {
+        return "Láda munkást munkásra tol";
+    }
 }

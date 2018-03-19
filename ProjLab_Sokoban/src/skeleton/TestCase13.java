@@ -30,4 +30,9 @@ public class TestCase13 implements TestCase {
 
         worker.Move(direction1);
     }
+
+    @Override
+    public String GetName() {
+        return "Munkás fal melletti csapdamezőre lép";
+    }
 }

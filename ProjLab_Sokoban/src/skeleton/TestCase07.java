@@ -35,4 +35,9 @@ public class TestCase07 implements TestCase{
         tile2.Accept(box, direction1);
 	}
 
+    @Override
+    public String GetName() {
+        return "Doboz munkást tol";
+    }
+
 }

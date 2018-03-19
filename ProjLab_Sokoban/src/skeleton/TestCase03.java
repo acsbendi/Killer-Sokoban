@@ -36,4 +36,9 @@ public class TestCase03 implements TestCase {
 
         worker.Move(dir);
     }
+
+    @Override
+    public String GetName() {
+        return "Munkás dobozt tol";
+    }
 }
