@@ -7,6 +7,7 @@ public class Tile implements Field {
 	
 	protected Map<Direction,Field> neighbours = new EnumMap<Direction,Field>(Direction.class);
 	protected Placeholder placeholder;
+	private Liquid liquid;
 	
 	@Override
 	public void Check(Direction dir) {
@@ -47,7 +48,14 @@ public class Tile implements Field {
 		}
 		return null;
 	}
-
+	
+	public void Place(Liquid liquid) {
+		this.liquid=liquid;
+	}
+	public double GetFriction() {
+		if (liquid==null) return 1;
+		return liquid.GetFriction();
+	}
 	@Override
 	public void Accept(Placeholder obj, Direction dir) {
 		if (IsEmpty())
