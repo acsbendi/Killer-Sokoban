@@ -4,13 +4,13 @@ public class Worker extends Placeholder {
 	private int force; //TODO hogy kapjon értéket?
 
 	@Override
-	public void PushedBy(Worker w, Direction dir) {
+	public void PushedBy(Worker w, Direction dir,Move move) {
 
 	}
 
 	@Override
-	public void Push(Placeholder obj, Direction dir) {
-		obj.PushedBy(this, dir);
+	public void Push(Placeholder obj, Direction dir,Move move) {
+		obj.PushedBy(this, dir,move);
 	}
 
 	@Override
@@ -19,15 +19,15 @@ public class Worker extends Placeholder {
 	}
 
 	@Override
-	public void PushedBy(Box box, Direction dir) {
+	public void PushedBy(Box box, Direction dir,Move move) {
 		Tile from=tile;
-		TryMove(dir);
+		TryMove(dir,move);
 		if (tile==from)
 			Destroy();		
 	}
 
 	@Override
-	public void ArrivedAt(GoalTile gt) {
+	public void ArrivedAt(GoalTile gt,Move move) {
 
 	}
 
@@ -38,7 +38,8 @@ public class Worker extends Placeholder {
 	
 	public void Move(Direction dir) { //TODO
 		Tile old = tile;
-		TryMove(dir);
+		Move move = new Move(this);
+		TryMove(dir,move);
 		if(tile != null && tile != old)
 			tile.Check(dir);
 	}

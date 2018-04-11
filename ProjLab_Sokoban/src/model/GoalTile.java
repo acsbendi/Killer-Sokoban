@@ -5,16 +5,16 @@ public class GoalTile extends Tile {
 	private boolean locked=false;
 	
 	@Override
-	public void Accept(Placeholder obj,Direction dir) {
+	public void Accept(Placeholder obj,Direction dir,Move move) {
 		if (!IsLocked())
 			if (IsEmpty()) {
-				obj.ArrivedAt(this);
+				obj.ArrivedAt(this,move);
 				obj.SetField(this);
 			}
 			else {
-				obj.Push(placeholder, dir);
+				obj.Push(placeholder, dir,move);
 				if (IsEmpty()) {
-					obj.ArrivedAt(this);
+					obj.ArrivedAt(this,move);
 					obj.SetField(this);
 				}
 			}
