@@ -3,11 +3,11 @@ package model;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class Tile implements Field {
+public class Tile extends Field {
 	
-	protected Map<Direction,Field> neighbours = new EnumMap<Direction,Field>(Direction.class);
 	protected Placeholder placeholder;
 	private Liquid liquid;
+	
 	
 	@Override
 	public void Check(Direction dir) {
@@ -15,9 +15,6 @@ public class Tile implements Field {
 			neighbours.get(dir).Check(dir);
 	}
 	
-	public Field GetNeighbour(Direction dir) {
-		return neighbours.get(dir);
-	}
 	
 	public void ReleaseObject() {
 		placeholder = null;
@@ -32,9 +29,6 @@ public class Tile implements Field {
 			placeholder.AcceptPoint(dir);
 	}
 	
-	public void SetNeighbour(Direction dir,Field field) {
-		neighbours.put(dir, field);
-	}
 	
 	public void InitializeObject(Placeholder obj) {
 		placeholder = obj;
@@ -56,12 +50,14 @@ public class Tile implements Field {
 		if (liquid==null) return 1;
 		return liquid.GetFriction();
 	}
+
+
 	@Override
-	public void Accept(Placeholder obj, Direction dir) {
+	public void Accept(Placeholder obj, Direction dir, Move move) {
 		if (IsEmpty())
 			obj.SetField(this);
 		else {
-			obj.Push(placeholder, dir);
+			obj.Push(placeholder, dir,move);
 			if (IsEmpty())
 				obj.SetField(this);
 		}

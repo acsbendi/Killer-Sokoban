@@ -34,7 +34,7 @@ public class Logger {
         goalTileCounter++;
     }
 
-    static public void Register(HoleTile holeTile) {
+    static public void Register(Hole holeTile) {
         objects.put(holeTile,"holeTile" + Integer.toString(holeTileCounter+1));
         holeTileCounter++;
     }

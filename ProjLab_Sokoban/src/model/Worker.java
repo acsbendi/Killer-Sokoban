@@ -1,6 +1,7 @@
 package model;
 
 public class Worker extends Placeholder {
+	private int force; //TODO hogy kapjon értéket?
 
 	@Override
 	public void PushedBy(Worker w, Direction dir) {
@@ -35,11 +36,19 @@ public class Worker extends Placeholder {
 
 	}
 	
-	public void Move(Direction dir) {
+	public void Move(Direction dir) { //TODO
 		Tile old = tile;
 		TryMove(dir);
 		if(tile != null && tile != old)
 			tile.Check(dir);
 	}
 
+	public int GetForce() {
+		return force;
+	}
+
+	public void Place(Liquid liquid) {
+		//TODO
+	}
+	
 }

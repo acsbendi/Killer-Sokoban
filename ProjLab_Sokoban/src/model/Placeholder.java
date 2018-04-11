@@ -5,7 +5,7 @@ public abstract class Placeholder {
 	protected Tile tile;
 	public abstract void PushedBy(Worker w,Direction dir);	
 	public abstract void PushedBy(Box box,Direction dir);	
-	public abstract void Push(Placeholder obj,Direction dir);
+	public abstract void Push(Placeholder obj,Direction dir,Move move);
 	public abstract void ArrivedAt(GoalTile gt);
 	public abstract void ArrivedAt(LeverTile lt);
 	public abstract void AcceptPoint(Direction dir);
@@ -19,8 +19,12 @@ public abstract class Placeholder {
 	public void Destroy() {
 		//TODO
 	}
-	protected void TryMove(Direction dir) {
+	protected void TryMove(Direction dir,Move move) {
+		double friction=tile.GetFriction();
+		boolean success=move.DecreaseForce(friction);
+		if (success) {
 		Field to=tile.GetNeighbour(dir);
-		to.Accept(this, dir);
+		to.Accept(this, dir,move);
+		}
 	}
 }

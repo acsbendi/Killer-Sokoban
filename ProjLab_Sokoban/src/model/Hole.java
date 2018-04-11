@@ -1,9 +1,9 @@
 package model;
 
-public class HoleTile extends Tile {
+public class Hole extends Field {
 
 	@Override
-	public void Accept(Placeholder obj, Direction dir) {
+	public void Accept(Placeholder obj, Direction dir,Move move) {
 		obj.Destroy();
 	}
 	

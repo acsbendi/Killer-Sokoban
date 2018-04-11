@@ -1,16 +1,14 @@
 package model;
 
-public class Wall implements Field {
+public class Wall extends Field {
 
 	@Override
 	public void Check(Direction dir) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void Accept(Placeholder obj, Direction dir) {
-		// TODO Auto-generated method stub
+	public void Accept(Placeholder obj, Direction dir,Move move) {
 		
 	}
 
