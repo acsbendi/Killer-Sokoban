@@ -17,18 +17,11 @@ public class Box extends Placeholder {
 		obj.PushedBy(this, dir,move);
 	}
 
-	@Override
-	public void AcceptPoint(Direction dir) {
-		Field next=tile.GetNeighbour(dir);
-		((Tile)next).ForwardPoint(dir);
-	}
 
 	@Override
-	public void ArrivedAt(GoalTile gt) {
+	public void ArrivedAt(GoalTile gt,Move move) {
 		gt.Lock();
-		Direction dir=tile.GetOppositeDirectionOf(gt);
-		Field next=tile.GetNeighbour(dir);
-		((Tile) next).ForwardPoint(dir);
+		move.AcceptPoint();
 	}
 
 	@Override

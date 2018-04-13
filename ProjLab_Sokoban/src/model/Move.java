@@ -8,7 +8,7 @@ public Move(Worker worker) {
 	remainingForce=owner.GetForce();
 }
 public void AcceptPoint() {
-	//TODO
+	owner.AcceptPoint();
 }
 public boolean DecreaseForce(double decr) {
 	return (remainingForce-=decr)>=0;

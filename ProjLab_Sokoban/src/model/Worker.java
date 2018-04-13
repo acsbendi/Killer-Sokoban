@@ -23,7 +23,7 @@ public class Worker extends Placeholder {
 	}
 
 	@Override
-	public void AcceptPoint(Direction dir) {
+	public void AcceptPoint() {
 		// TODO Auto-generated method stub
 	}
 

@@ -19,7 +19,6 @@ public abstract class Placeholder {
 
 	public abstract void ArrivedAt(LeverTile lt);
 
-	public abstract void AcceptPoint(Direction dir);
 
 	public void SetField(Tile tile) {
 		this.tile.ReleaseObject();

@@ -20,12 +20,12 @@ public class LeverTile extends Tile {
 	}
 
 	@Override
-	public void Accept(Placeholder obj, Direction dir) {
+	public void Accept(Placeholder obj, Direction dir,Move move) {
 		if(IsEmpty()){
 			obj.ArrivedAt(this);
 			obj.SetField(this);
 		} else {
-			obj.Push(placeholder,dir);
+			obj.Push(placeholder,dir,move);
 			if(IsEmpty()){
 				obj.ArrivedAt(this);
 				obj.SetField(this);
