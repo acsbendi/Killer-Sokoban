@@ -1,8 +1,5 @@
 package model;
 
-import java.util.EnumMap;
-import java.util.Map;
-
 public class Tile extends Field {
 	
 	protected Placeholder placeholder;
@@ -24,10 +21,6 @@ public class Tile extends Field {
 		return placeholder==null;
 	}
 	
-	public void ForwardPoint(Direction dir) {
-		if (!IsEmpty())
-			placeholder.AcceptPoint(dir);
-	}
 	
 	
 	public void InitializeObject(Placeholder obj) {

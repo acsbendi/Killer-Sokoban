@@ -22,10 +22,6 @@ public class Worker extends Placeholder {
 		obj.PushedBy(this, dir,move);
 	}
 
-	@Override
-	public void AcceptPoint() {
-		// TODO Auto-generated method stub
-	}
 
 	@Override
 	public void PushedBy(Box box, Direction dir,Move move) {
@@ -58,7 +54,12 @@ public class Worker extends Placeholder {
 	}
 
 	public void Place(Liquid liquid) {
-		//TODO
+		tile.Place(liquid);
+	}
+
+	public void AcceptPoint() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
