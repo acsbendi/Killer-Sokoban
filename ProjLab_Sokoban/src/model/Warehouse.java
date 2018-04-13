@@ -61,14 +61,14 @@ public class Warehouse {
 					currentLever.AddTrapdoor(currentTrapTile);
 				}
 			}
+			fields.addAll(fieldsTemp.values());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassCastException e) {
-			// TODO
-			// broken az egész pálya
+			//TODO
+			//broken maga a fájl...
 		}
-
 	}
 
 	public static boolean IsAllBoxStuck() {
