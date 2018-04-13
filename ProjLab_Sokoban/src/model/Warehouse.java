@@ -18,42 +18,46 @@ import util.Position;
 
 public class Warehouse {
 	private static List<Field> fields = new ArrayList<>();
-	private static List<Box> boxesInPlay = new ArrayList<>(); //összes láda alapvetõen (?)
+	private static List<Box> boxesInPlay = new ArrayList<>(); // összes láda alapvetõen (?)
 
-	public static void Load(int id) {
+	public static void Load(int id) { //egyelõre mûködik negatív koordinátákkal is
 		try {
-			JsonReader jr=Json.createReader(new FileReader("maps/"+id+".json"));
-			JsonObject map=jr.readObject();
+			JsonReader jr = Json.createReader(new FileReader("maps/" + id + ".json"));
+			JsonObject map = jr.readObject();
 			jr.close();
-			Map<Position,Field> fieldsTemp=new HashMap<>();
-			for (JsonValue preField : (JsonArray)map.get("fields")) {
-				JsonObject field=(JsonObject)preField;
-				String type=((JsonString)field.get("type")).getString();
-				Field createdField=Field.create(type);
-				Liquid createdLiquid=Liquid.create(type);
-				//TODO beállítjuk a liquidet createField-en
-				Position currentPos=new Position(field.getJsonObject("position"));
-				for (Position neighbourPos : currentPos.neighbours()) {
-					Field neighbourField=fieldsTemp.get(neighbourPos);
-					if (neighbourField!=null) {
-						//TODO Kölcsönösen beállítjuk a szomszédságot
+			Map<Position, Field> fieldsTemp = new HashMap<>();
+			for (JsonValue preField : map.getJsonArray("fields")) {
+				JsonObject field = (JsonObject) preField;
+				String type = field.getString("type");
+				Field createdField = Field.create(type);
+				JsonString liquid = field.getJsonString("liquid");
+				if (liquid != null) {
+					Liquid createdLiquid = Liquid.create(liquid.getString());
+					((Tile) createdField).Place(createdLiquid);
+				}
+				Position currentPos = new Position(field.getJsonObject("position"));
+				for (Direction dir : Direction.values()) {
+					Field neighbourField = fieldsTemp.get(currentPos.dirOffset(dir));
+					if (neighbourField != null) {
+						neighbourField.SetNeighbour(dir.Opposite(), createdField);
+						createdField.SetNeighbour(dir, neighbourField);
 					}
 				}
 				fieldsTemp.put(currentPos, createdField);
 			}
 			for (JsonValue prePlaceholder : map.getJsonArray("placeholders")) {
-				JsonObject placeholder=(JsonObject)prePlaceholder;
-				String type=placeholder.getJsonString("type").getString();
-				Placeholder createdPlaceholder=Placeholder.create(type);
-				Position currentPos=new Position(placeholder.getJsonObject("on"));
-				((Tile)fieldsTemp.get(currentPos)).InitializeObject(createdPlaceholder);
+				JsonObject placeholder = (JsonObject) prePlaceholder;
+				String type = placeholder.getString("type");
+				Placeholder createdPlaceholder = Placeholder.create(type);
+				Position currentPos = new Position(placeholder.getJsonObject("on"));
+				((Tile) fieldsTemp.get(currentPos)).InitializeObject(createdPlaceholder);
 			}
-			for (JsonValue preWire:(JsonArray)map.get("wires")) {
-				JsonObject wire=(JsonObject)preWire;
-				LeverTile currentLever=(LeverTile)fieldsTemp.get(new Position(wire.getJsonObject("from")));
+			for (JsonValue preWire : (JsonArray) map.get("wires")) {
+				JsonObject wire = (JsonObject) preWire;
+				LeverTile currentLever = (LeverTile) fieldsTemp.get(new Position(wire.getJsonObject("from")));
 				for (JsonValue prePosition : wire.getJsonArray("to")) {
-					JsonObject position=(JsonObject)prePosition;
-					TrapTile currentTrapTile=fieldsTemp.get(new Position(position));
+					JsonObject position = (JsonObject) prePosition;
+					TrapTile currentTrapTile = (TrapTile) fieldsTemp.get(new Position(position));
 					currentLever.AddTrapdoor(currentTrapTile);
 				}
 			}
@@ -61,15 +65,15 @@ public class Warehouse {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassCastException e) {
-			//TODO
-			//broken az egész pálya
+			// TODO
+			// broken az egész pálya
 		}
 
 	}
 
 	public static boolean IsAllBoxStuck() {
-		for(Box box : boxesInPlay)
-			if(!box.IsStuck())
+		for (Box box : boxesInPlay)
+			if (!box.IsStuck())
 				return false;
 		return true;
 	}

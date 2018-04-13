@@ -1,5 +1,10 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import util.Factory;
+
 public abstract class Placeholder {
 
 	protected Tile tile;
@@ -36,5 +41,29 @@ public abstract class Placeholder {
 			Field to = tile.GetNeighbour(dir);
 			to.Accept(this, dir, move);
 		}
+	}
+	
+	private static Map<String, Factory<Placeholder>> prototypes = new HashMap<>();
+	static {
+		prototypes.put("Worker", new Factory<Placeholder>() {
+
+			@Override
+			public Placeholder create() {
+				return new Worker();
+			}
+
+		});
+		prototypes.put("Box", new Factory<Placeholder>() {
+
+			@Override
+			public Placeholder create() {
+				return new Box();
+			}
+
+		});
+	}
+
+	public static Placeholder create(String type) {
+		return prototypes.get(type).create();
 	}
 }

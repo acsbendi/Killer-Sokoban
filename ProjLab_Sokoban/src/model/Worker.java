@@ -1,7 +1,16 @@
 package model;
 
 public class Worker extends Placeholder {
-	private int force; //TODO hogy kapjon értéket?
+	private int force;
+	public static int defaultForce=80;
+	
+	public Worker(int force) {
+		this.force=force;
+	}
+
+	public Worker() {
+		force=defaultForce;
+	}
 
 	@Override
 	public void PushedBy(Worker w, Direction dir,Move move) {
