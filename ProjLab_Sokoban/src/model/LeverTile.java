@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.Direction;
+
 public class LeverTile extends Tile {
 	
 	private boolean pressed=false;

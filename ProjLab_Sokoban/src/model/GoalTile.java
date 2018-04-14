@@ -1,5 +1,7 @@
 package model;
 
+import util.Direction;
+
 public class GoalTile extends Tile {
 	
 	private boolean locked=false;

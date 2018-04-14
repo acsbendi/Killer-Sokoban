@@ -14,6 +14,7 @@ import javax.json.JsonReader;
 import javax.json.JsonString;
 import javax.json.JsonValue;
 
+import util.Direction;
 import util.Position;
 
 public class Warehouse {

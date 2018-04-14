@@ -1,5 +1,7 @@
 package model;
 
+import util.Direction;
+
 public class Tile extends Field {
 	
 	protected Placeholder placeholder;

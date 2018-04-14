@@ -1,5 +1,7 @@
 package model;
 
+import util.Direction;
+
 public class Box extends Placeholder {
 
 	@Override

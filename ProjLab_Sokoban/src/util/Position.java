@@ -2,8 +2,6 @@ package util;
 
 import javax.json.JsonObject;
 
-import model.Direction;
-
 public class Position {
 	public final int column;
 	public final int row;

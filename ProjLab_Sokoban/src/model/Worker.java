@@ -1,5 +1,7 @@
 package model;
 
+import util.Direction;
+
 public class Worker extends Placeholder {
 	private int force;
 	public static int defaultForce=80;

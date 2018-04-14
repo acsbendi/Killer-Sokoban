@@ -1,5 +1,7 @@
 package model;
 
+import util.Direction;
+
 public class TrapTile extends Tile {
 	private int openCounter=0;
 	public void SignOn() {

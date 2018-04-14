@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
+import util.Direction;
 import util.Factory;
 
 public abstract class Field {

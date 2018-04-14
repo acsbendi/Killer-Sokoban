@@ -1,6 +1,7 @@
 package skeleton;
 
 import model.*;
+import util.Direction;
 
 import java.util.HashMap;
 import java.util.Map;
