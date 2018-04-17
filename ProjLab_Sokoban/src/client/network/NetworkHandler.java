@@ -6,8 +6,10 @@ import common.messages.ClientMessageType;
 import common.messages.ServerMessage;
 import common.util.Direction;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 
@@ -23,6 +25,7 @@ public class NetworkHandler {
     private static final byte msg_invalid = (byte)255;
 
     private ControllerLogic controllerLogic;
+    private Selector connectSelector;
     private Selector readSelector;
     private Selector writeSelector;
     private SocketChannel channel;
@@ -32,13 +35,26 @@ public class NetworkHandler {
     public static NetworkHandler Create(ControllerLogic controllerLogic) {
         NetworkHandler networkHandler = new NetworkHandler();
         networkHandler.controllerLogic = controllerLogic;
-        networkHandler.reader = new MessageReader(networkHandler);
-        networkHandler.writer = new MessageWriter(networkHandler);
+        networkHandler.reader = new MessageReader(networkHandler, networkHandler.channel);
+        networkHandler.writer = new MessageWriter(networkHandler, networkHandler.channel);
         return networkHandler;
     }
 
     private NetworkHandler() {
-        // todo
+        try {
+            connectSelector = Selector.open();
+            readSelector = Selector.open();
+            writeSelector = Selector.open();
+
+            channel = SocketChannel.open();
+            channel.configureBlocking(false);
+            channel.register(connectSelector, SelectionKey.OP_CONNECT);
+            channel.register(readSelector, SelectionKey.OP_READ);
+            channel.register(writeSelector, SelectionKey.OP_WRITE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void MessageArrived(ServerMessage msg) {
