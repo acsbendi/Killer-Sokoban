@@ -33,6 +33,9 @@ public class NetworkHandler {
             case EnterResponse:
                 this.InterpretEnterResponse(msg.GetValue());
                 break;
+            case LeaveResponse:
+                this.InterpretLeaveResponse(msg.GetValue());
+                break;
             case CheckLevel:
                 this.InterpretCheckLevel(msg.GetValue());
                 break;
@@ -168,30 +171,88 @@ public class NetworkHandler {
             byte[] msg = new byte[value.length-1];
             System.arraycopy(value, 1, msg, 0, value.length-1);
             String message = new String(msg);
-            controllerLogic.RegistrationFailure(message);
+            controllerLogic.RegistrationFailure("Invalid password: " + message);
         }
         else if (res == (byte)255) {
             controllerLogic.RegistrationFailure("Not available");
         }
     }
 
-    private void InterpretLoginResponse(byte[] value) { }
+    private void InterpretLoginResponse(byte[] value) {
+        byte res = value[0];
+        if (res == (byte)0) {
+            controllerLogic.LoginSuccess();
+        }
+        else if (res == (byte)1) {
+            controllerLogic.LoginFailure("Unknown username or invalid password");
+        }
+        else if (res == (byte)255) {
+            controllerLogic.LoginFailure("Not available");
+        }
+    }
 
-    private void InterpretLogoutResponse(byte[] value) { }
+    private void InterpretLogoutResponse(byte[] value) {
+        byte res = value[0];
+        if (res == (byte)0) {
+            controllerLogic.LogoutSuccess();
+        }
+        else if (res == (byte)255) {
+            controllerLogic.LogoutFailure("Not available");
+        }
+    }
 
-    private void InterpretEnterResponse(byte[] value) { }
+    private void InterpretEnterResponse(byte[] value) {
+        byte res = value[0];
+        if (res == (byte)0) {
+            controllerLogic.EnterSuccess();
+        }
+        else if (res == (byte)255) {
+            controllerLogic.EnterFailure("Not available");
+        }
+    }
 
-    private void InterpretLeaveResponse(byte[] value) { }
+    private void InterpretLeaveResponse(byte[] value) {
+        byte res = value[0];
+        if (res == (byte)0) {
+            controllerLogic.LeaveSuccess();
+        }
+        else if (res == (byte)255) {
+            controllerLogic.EnterFailure("Not available");
+        }
+    }
 
-    private void InterpretCheckLevel(byte[] value) { }
+    private void InterpretCheckLevel(byte[] value) {
+        // todo
+    }
 
-    private void InterpretLevelData(byte[] value) { }
+    private void InterpretLevelData(byte[] value) {
+        // todo
+    }
 
-    private void InterpretGameStarted(byte[] value) { }
+    private void InterpretGameStarted(byte[] value) {
+        controllerLogic.GameStarted(value[0]);
+    }
 
-    private void InterpretWorkerMoved(byte[] value) { }
+    private void InterpretWorkerMoved(byte[] value) {
+        int worker = value[0];
+        int dir = value[1];
+        if (dir == 0) {
+            controllerLogic.WorkerMoved(worker, Direction.Down);
+        }
+        else if (dir == 1) {
+            controllerLogic.WorkerMoved(worker, Direction.Up);
+        }
+        else if (dir == 2) {
+            controllerLogic.WorkerMoved(worker, Direction.Right);
+        }
+        else if (dir == 3) {
+            controllerLogic.WorkerMoved(worker, Direction.Left);
+        }
+    }
 
-    private void InterpretOilPlaced(byte[] value) { }
+    private void InterpretOilPlaced(byte[] value) {
+        
+    }
 
     private void InterpretHoneyPlaced(byte[] value) { }
 

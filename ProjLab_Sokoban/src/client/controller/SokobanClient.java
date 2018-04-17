@@ -1,5 +1,6 @@
 package client.controller;
 
+import client.network.NetworkHandler;
 import common.model.Warehouse;
 import client.ui.UserInterface;
 import common.util.Direction;
@@ -26,7 +27,13 @@ public void RegistrationSuccess() {
 	// TODO Auto-generated method stub
 	
 }
-@Override
+
+    @Override
+    public void RegistrationFailure(String err) {
+
+    }
+
+    @Override
 public void LoginSuccess() {
 	// TODO Auto-generated method stub
 	
@@ -36,7 +43,18 @@ public void LoginFailure(String err) {
 	// TODO Auto-generated method stub
 	
 }
-@Override
+
+    @Override
+    public void LogoutSuccess() {
+
+    }
+
+    @Override
+    public void LogoutFailure(String err) {
+
+    }
+
+    @Override
 public void Results(String msg) {
 	// TODO Auto-generated method stub
 	
@@ -71,11 +89,12 @@ public void CheckLevel(int level_id) {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
-public void GameStarted() {
-	// TODO Auto-generated method stub
-	
+public void GameStarted(int worker) {
+
 }
+
 @Override
 public void WorkerMoved(int player, Direction dir) {
 	// TODO Auto-generated method stub
