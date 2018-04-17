@@ -30,20 +30,44 @@ public class NetworkHandler {
     }
 
     public void Register(String username, String password) {
-        byte username_length = (byte)username.length();
-        byte password_length = (byte)password.length();
         byte[] username_bytes = username.getBytes();
         byte[] password_bytes = password.getBytes();
-        writer.EnqueueMessage(new ClientMessage(ClientMessageType.Register, ""));
+        byte username_length = (byte)username_bytes.length;
+        byte password_length = (byte)password_bytes.length;
+        byte[] value = new byte[2+username_length+password_length];
+        value[0] = username_length;
+        value[1] = password_length;
+        System.arraycopy(username_bytes, 0, value, 2, username_length);
+        System.arraycopy(password_bytes, 0, value, 2+username_length, password_length);
+        writer.EnqueueMessage(new ClientMessage(ClientMessageType.Register, value));
     }
 
-    public void Login(String username, String password) {}
+    public void Login(String username, String password) {
+        byte[] username_bytes = username.getBytes();
+        byte[] password_bytes = password.getBytes();
+        byte username_length = (byte)username_bytes.length;
+        byte password_length = (byte)password_bytes.length;
+        byte[] value = new byte[2+username_length+password_length];
+        value[0] = username_length;
+        value[1] = password_length;
+        System.arraycopy(username_bytes, 0, value, 2, username_length);
+        System.arraycopy(password_bytes, 0, value, 2+username_length, password_length);
+        writer.EnqueueMessage(new ClientMessage(ClientMessageType.Login, value));
+    }
 
-    public void Logout() {}
+    public void Logout() {
+        writer.EnqueueMessage(new ClientMessage(ClientMessageType.Logout, new byte[0]));
+    }
 
-    public void Enter(int player) {}
+    public void Enter(int players) {
+        byte[] value = new byte[1];
+        value[0] = (byte)players;
+        writer.EnqueueMessage(new ClientMessage(ClientMessageType.Enter, value));
+    }
 
-    public void Leave() {}
+    public void Leave() {
+
+    }
 
     public void Move(Direction dir) {}
 
