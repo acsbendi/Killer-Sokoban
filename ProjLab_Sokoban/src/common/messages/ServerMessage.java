@@ -2,9 +2,9 @@ package common.messages;
 
 public class ServerMessage {
     private ServerMessageType type;
-    private String value;
+    private byte[] value;
 
-    public ServerMessage(ServerMessageType type, String value) {
+    public ServerMessage(ServerMessageType type, byte[] value) {
         this.type = type;
         this.value = value;
     }
@@ -14,10 +14,10 @@ public class ServerMessage {
     }
 
     public int GetLength() {
-        return value.length();
+        return value.length;
     }
 
-    public String GetValue() {
+    public byte[] GetValue() {
         return value;
     }
 }

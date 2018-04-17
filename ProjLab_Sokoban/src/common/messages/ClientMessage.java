@@ -2,9 +2,9 @@ package common.messages;
 
 public class ClientMessage {
     private ClientMessageType type;
-    private String value;
+    private byte[] value;
 
-    public ClientMessage(ClientMessageType type, String value) {
+    public ClientMessage(ClientMessageType type, byte[] value) {
         this.type = type;
         this.value = value;
     }
@@ -14,10 +14,10 @@ public class ClientMessage {
     }
 
     public int GetLength() {
-        return value.length();
+        return value.length;
     }
 
-    public String GetValue() {
+    public byte[] GetValue() {
         return value;
     }
 }

@@ -1,5 +1,7 @@
 package client.ui;
 
+import client.controller.SokobanClient;
+
 import java.util.ArrayList;
 import java.util.List;
 
