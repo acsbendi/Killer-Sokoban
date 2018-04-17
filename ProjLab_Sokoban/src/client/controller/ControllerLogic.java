@@ -6,6 +6,7 @@ public interface ControllerLogic {
 void ConnectionResult(boolean res);
 void Disconnected();
 void RegistrationSuccess();
+void RegistrationFailure(String err);
 void LoginSuccess();
 void LoginFailure(String err);
 void Results(String msg);
