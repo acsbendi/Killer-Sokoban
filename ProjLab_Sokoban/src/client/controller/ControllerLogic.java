@@ -20,7 +20,7 @@ void LeaveFailure(String err);
 void CheckLevel(int level_id);
 void GameStarted(int worker);
 void WorkerMoved(int player,Direction dir);
-void OilPlaced(int player,Direction dir);
-void HoneyPlaced(int player,Direction dir);
+void OilPlaced(int player);
+void HoneyPlaced(int player);
 void GameFinished();
 }

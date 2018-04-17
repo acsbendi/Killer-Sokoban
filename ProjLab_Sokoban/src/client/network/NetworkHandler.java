@@ -12,6 +12,16 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 
 public class NetworkHandler {
+    private static final byte down = 0;
+    private static final byte up = 1;
+    private static final byte right = 2;
+    private static final byte left = 3;
+
+    private static final byte msg_success = 0;
+    private static final byte msg_error1 = 1;
+    private static final byte msg_error2 = 2;
+    private static final byte msg_invalid = (byte)255;
+
     private ControllerLogic controllerLogic;
     private Selector readSelector;
     private Selector writeSelector;
@@ -55,7 +65,7 @@ public class NetworkHandler {
                 this.InterpretHoneyPlaced(msg.GetValue());
                 break;
             case GameFinished:
-                this.InterpretGameStarted(msg.GetValue());
+                this.InterpretGameFinished(msg.GetValue());
                 break;
             case ResultResponse:
                 this.InterpretResultResponse(msg.GetValue());
@@ -118,10 +128,10 @@ public class NetworkHandler {
     public void Move(Direction dir) {
         byte[] value = new byte[1];
         switch(dir) {
-            case Down: value[0] = 0; break;
-            case Up: value[0] = 1; break;
-            case Right: value[0] = 2; break;
-            case Left: value[0] = 3; break;
+            case Down: value[0] = down; break;
+            case Up: value[0] = up; break;
+            case Right: value[0] = right; break;
+            case Left: value[0] = left; break;
         }
         writer.EnqueueMessage(new ClientMessage(ClientMessageType.Move, value));
     }
@@ -161,62 +171,62 @@ public class NetworkHandler {
 
     private void InterpretRegisterResponse(byte[] value) {
         byte res = value[0];
-        if (res == (byte)0) {
+        if (res == msg_success) {
             controllerLogic.RegistrationSuccess();
         }
-        else if (res == (byte)1) {
+        else if (res == msg_error1) {
             controllerLogic.RegistrationFailure("Username already exists.");
         }
-        else if (res == (byte)2) {
+        else if (res == msg_error2) {
             byte[] msg = new byte[value.length-1];
             System.arraycopy(value, 1, msg, 0, value.length-1);
             String message = new String(msg);
             controllerLogic.RegistrationFailure("Invalid password: " + message);
         }
-        else if (res == (byte)255) {
+        else if (res == msg_invalid) {
             controllerLogic.RegistrationFailure("Not available");
         }
     }
 
     private void InterpretLoginResponse(byte[] value) {
         byte res = value[0];
-        if (res == (byte)0) {
+        if (res == msg_success) {
             controllerLogic.LoginSuccess();
         }
-        else if (res == (byte)1) {
+        else if (res == msg_error1) {
             controllerLogic.LoginFailure("Unknown username or invalid password");
         }
-        else if (res == (byte)255) {
+        else if (res == msg_invalid) {
             controllerLogic.LoginFailure("Not available");
         }
     }
 
     private void InterpretLogoutResponse(byte[] value) {
         byte res = value[0];
-        if (res == (byte)0) {
+        if (res == msg_success) {
             controllerLogic.LogoutSuccess();
         }
-        else if (res == (byte)255) {
+        else if (res == msg_invalid) {
             controllerLogic.LogoutFailure("Not available");
         }
     }
 
     private void InterpretEnterResponse(byte[] value) {
         byte res = value[0];
-        if (res == (byte)0) {
+        if (res == msg_success) {
             controllerLogic.EnterSuccess();
         }
-        else if (res == (byte)255) {
+        else if (res == msg_invalid) {
             controllerLogic.EnterFailure("Not available");
         }
     }
 
     private void InterpretLeaveResponse(byte[] value) {
         byte res = value[0];
-        if (res == (byte)0) {
+        if (res == msg_success) {
             controllerLogic.LeaveSuccess();
         }
-        else if (res == (byte)255) {
+        else if (res == msg_invalid) {
             controllerLogic.EnterFailure("Not available");
         }
     }
@@ -235,28 +245,45 @@ public class NetworkHandler {
 
     private void InterpretWorkerMoved(byte[] value) {
         int worker = value[0];
-        int dir = value[1];
-        if (dir == 0) {
+        byte dir = value[1];
+        if (dir == down) {
             controllerLogic.WorkerMoved(worker, Direction.Down);
         }
-        else if (dir == 1) {
+        else if (dir == up) {
             controllerLogic.WorkerMoved(worker, Direction.Up);
         }
-        else if (dir == 2) {
+        else if (dir == right) {
             controllerLogic.WorkerMoved(worker, Direction.Right);
         }
-        else if (dir == 3) {
+        else if (dir == left) {
             controllerLogic.WorkerMoved(worker, Direction.Left);
         }
     }
 
     private void InterpretOilPlaced(byte[] value) {
-        
+        int worker = value[0];
+        controllerLogic.OilPlaced(worker);
     }
 
-    private void InterpretHoneyPlaced(byte[] value) { }
+    private void InterpretHoneyPlaced(byte[] value) {
+        int worker = value[0];
+        controllerLogic.HoneyPlaced(worker);
+    }
 
-    private void InterpretGameFinished(byte[] value) { }
+    private void InterpretGameFinished(byte[] value) {
+        controllerLogic.GameFinished();
+    }
 
-    private void InterpretResultResponse(byte[] value) { }
+    private void InterpretResultResponse(byte[] value) {
+        byte res = value[0];
+        if (res == msg_success) {
+            byte[] msg = new byte[value.length-1];
+            System.arraycopy(value, 1, msg, 0, value.length-1);
+            String message = new String(msg);
+            controllerLogic.Results(message);
+        }
+        else if (res == msg_invalid) {
+            controllerLogic.ResultFailure("Not available");
+        }
+    }
 }
