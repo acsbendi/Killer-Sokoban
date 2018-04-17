@@ -22,6 +22,4 @@ public class TrapTile extends Tile {
 		if (!IsClosed() && placeholder != null)
 			placeholder.Destroy();
 	}
-	
-
 }
