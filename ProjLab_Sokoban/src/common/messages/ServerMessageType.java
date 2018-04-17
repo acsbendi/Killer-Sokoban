@@ -24,7 +24,7 @@ public enum ServerMessageType {
         map = new TreeMap<>();
         ServerMessageType[] values = ServerMessageType.values();
         for(ServerMessageType value : values) {
-            map.put((byte)value.ConvertToInt(), value);
+            map.put(value.ConvertToByte(), value);
         }
     }
 
@@ -36,7 +36,7 @@ public enum ServerMessageType {
         this.value = value;
     }
 
-    public int ConvertToInt() {
+    public byte ConvertToByte() {
         return value;
     }
 }

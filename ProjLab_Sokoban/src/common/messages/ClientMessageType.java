@@ -22,7 +22,7 @@ public enum ClientMessageType {
         map = new TreeMap<>();
         ClientMessageType[] values = ClientMessageType.values();
         for(ClientMessageType value : values) {
-            map.put((byte)value.ConvertToInt(), value);
+            map.put(value.ConvertToByte(), value);
         }
     }
 
@@ -34,7 +34,7 @@ public enum ClientMessageType {
         this.value = value;
     }
 
-    public int ConvertToInt() {
+    public byte ConvertToByte() {
         return value;
     }
 }

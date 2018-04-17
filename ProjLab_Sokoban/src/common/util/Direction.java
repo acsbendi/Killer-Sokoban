@@ -2,6 +2,7 @@ package common.util;
 
 public enum Direction {
 	Up, Down, Left, Right;
+
 	public Direction Opposite() {
 		switch (this) {
 		case Up:
