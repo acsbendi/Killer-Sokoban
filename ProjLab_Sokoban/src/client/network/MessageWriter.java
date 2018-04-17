@@ -8,6 +8,12 @@ public class MessageWriter {
     NetworkHandler networkHandler;
     SocketChannel channel;
 
+    public MessageWriter(NetworkHandler networkHandler, SocketChannel channel) {
+        this.networkHandler = networkHandler;
+        this.channel = channel;
+        // todo
+    }
+
     public void EnqueueMessage(ClientMessage msg) {}
 
     public void SendMessages() {}

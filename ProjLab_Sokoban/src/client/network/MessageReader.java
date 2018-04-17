@@ -11,5 +11,11 @@ public class MessageReader {
     private ByteBuffer header;
     private ByteBuffer value;
 
+    public MessageReader(NetworkHandler networkHandler, SocketChannel channel) {
+        this.networkHandler = networkHandler;
+        this.channel = channel;
+        // todo
+    }
+
     public void CollectMessages() {}
 }

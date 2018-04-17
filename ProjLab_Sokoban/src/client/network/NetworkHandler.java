@@ -29,6 +29,18 @@ public class NetworkHandler {
     private MessageReader reader;
     private MessageWriter writer;
 
+    public static NetworkHandler Create(ControllerLogic controllerLogic) {
+        NetworkHandler networkHandler = new NetworkHandler();
+        networkHandler.controllerLogic = controllerLogic;
+        networkHandler.reader = new MessageReader(networkHandler);
+        networkHandler.writer = new MessageWriter(networkHandler);
+        return networkHandler;
+    }
+
+    private NetworkHandler() {
+        // todo
+    }
+
     public void MessageArrived(ServerMessage msg) {
         switch(msg.GetType()) {
             case RegisterResponse:
@@ -75,11 +87,13 @@ public class NetworkHandler {
 
     public void SendMessages() {}
 
-    public synchronized boolean IsConnected() {
+    public boolean IsConnected() {
         return channel.isConnected();
     }
 
-    public void Connect() {}
+    public void Connect() {
+
+    }
 
     public void Disconnect() {
 

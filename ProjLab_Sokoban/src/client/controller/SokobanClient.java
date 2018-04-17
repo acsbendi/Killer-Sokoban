@@ -6,10 +6,22 @@ import client.ui.UserInterface;
 import common.util.Direction;
 
 public class SokobanClient implements UserInputExecutor,ControllerLogic {
-private UserInterface userInterface; //TODO ezt hogy �ll�tom be?
-private Warehouse warehouse=new Warehouse();
-private NetworkHandler networkHandler=new NetworkHandler();
-public void Iterate() {
+private UserInterface userInterface; //TODO ezt hogy állítom be?
+private Warehouse warehouse;
+private NetworkHandler networkHandler;
+
+public static SokobanClient Create(UserInterface userInterface) {
+    SokobanClient client = new SokobanClient();
+    client.userInterface = userInterface;
+    client.networkHandler = NetworkHandler.Create(client);
+    return client;
+}
+
+private SokobanClient() {
+    warehouse = new Warehouse();
+}
+
+public synchronized void Iterate() {
 	//TODO
 }
 @Override
@@ -18,7 +30,7 @@ public void ConnectionResult(boolean res) {
 	
 }
 @Override
-public void Disconnected() {
+public synchronized void Disconnected() {
 	// TODO Auto-generated method stub
 	
 }
@@ -101,12 +113,12 @@ public void WorkerMoved(int player, Direction dir) {
 	
 }
 @Override
-public void OilPlaced(int player, Direction dir) {
+public void OilPlaced(int player) {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void HoneyPlaced(int player, Direction dir) {
+public void HoneyPlaced(int player) {
 	// TODO Auto-generated method stub
 	
 }
@@ -116,62 +128,62 @@ public void GameFinished() {
 	
 }
 @Override
-public void Connect() {
+public synchronized void Connect() {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void Disconnect() {
+public synchronized void Disconnect() {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void Register(String username, String password) {
+public synchronized void Register(String username, String password) {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void Login(String username, String password) {
+public synchronized void Login(String username, String password) {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void Logout() {
+public synchronized void Logout() {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void Enter(int players) {
+public synchronized void Enter(int players) {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void Leave() {
+public synchronized void Leave() {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void Move(Direction dir) {
+public synchronized void Move(Direction dir) {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void PlaceHoney() {
+public synchronized void PlaceHoney() {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void PlaceOil() {
+public synchronized void PlaceOil() {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void OwnResults() {
+public synchronized void OwnResults() {
 	// TODO Auto-generated method stub
 	
 }
 @Override
-public void TopResults() {
+public synchronized void TopResults() {
 	// TODO Auto-generated method stub
 	
 }
