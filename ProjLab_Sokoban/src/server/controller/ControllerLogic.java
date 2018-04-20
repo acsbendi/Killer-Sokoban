@@ -13,5 +13,6 @@ public interface ControllerLogic {
     public void PlaceOil(Client client);
     public void Download(Client client, int level_id);
     public void WarehouseReady(Client client);
-    public void Askresult(Client client);
+    public void OwnResults(Client client);
+    public void TopResults(Client client);
 }
