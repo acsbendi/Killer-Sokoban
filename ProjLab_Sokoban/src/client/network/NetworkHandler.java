@@ -7,6 +7,7 @@ import common.messages.ServerMessage;
 import common.util.Direction;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.SelectionKey;
@@ -25,9 +26,6 @@ public class NetworkHandler {
     private static final byte msg_invalid = (byte)255;
 
     private ControllerLogic controllerLogic;
-    private Selector connectSelector;
-    private Selector readSelector;
-    private Selector writeSelector;
     private SocketChannel channel;
     private MessageReader reader;
     private MessageWriter writer;
@@ -42,17 +40,16 @@ public class NetworkHandler {
     private NetworkHandler(ControllerLogic controllerLogic) {
         this.controllerLogic = controllerLogic;
         try {
-            connectSelector = Selector.open();
-            readSelector = Selector.open();
-            writeSelector = Selector.open();
-
             channel = SocketChannel.open();
             channel.configureBlocking(false);
-            channel.register(connectSelector, SelectionKey.OP_CONNECT);
-            channel.register(readSelector, SelectionKey.OP_READ);
-            channel.register(writeSelector, SelectionKey.OP_WRITE);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void CollectMessages() {
+        if (channel.isConnected()) {
+            reader.CollectMessages();
         }
     }
 
@@ -101,11 +98,18 @@ public class NetworkHandler {
     }
 
     public void SendMessages() {
-        // todo
+        if (channel.isConnected()) {
+            writer.SendMessages();
+        }
     }
 
     public void Connect() {
-        // todo
+        try {
+            channel.socket().connect(new InetSocketAddress("http://vm.ik.bme.hu", 7305), 3000);
+            controllerLogic.ConnectionResult(channel.isConnected());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void Disconnect() {
@@ -125,6 +129,9 @@ public class NetworkHandler {
             System.arraycopy(password_bytes, 0, value, 2 + username_length, password_length);
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.Register, value));
         }
+        else {
+            controllerLogic.OfflineFailure();
+        }
     }
 
     public void Login(String username, String password) {
@@ -140,11 +147,17 @@ public class NetworkHandler {
             System.arraycopy(password_bytes, 0, value, 2 + username_length, password_length);
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.Login, value));
         }
+        else {
+            controllerLogic.OfflineFailure();
+        }
     }
 
     public void Logout() {
         if (channel.isConnected()) {
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.Logout, new byte[0]));
+        }
+        else {
+            controllerLogic.OfflineFailure();
         }
     }
 
@@ -154,11 +167,17 @@ public class NetworkHandler {
             value[0] = (byte) players;
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.Enter, value));
         }
+        else {
+            controllerLogic.OfflineFailure();
+        }
     }
 
     public void Leave() {
         if (channel.isConnected()) {
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.Leave, new byte[0]));
+        }
+        else {
+            controllerLogic.OfflineFailure();
         }
     }
 
@@ -181,11 +200,17 @@ public class NetworkHandler {
             }
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.Move, value));
         }
+        else {
+            controllerLogic.OfflineFailure();
+        }
     }
 
     public void PlaceHoney() {
         if (channel.isConnected()) {
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.PlaceHoney, new byte[0]));
+        }
+        else {
+            controllerLogic.OfflineFailure();
         }
     }
 
@@ -200,11 +225,17 @@ public class NetworkHandler {
             byte[] value = ByteBuffer.allocate(4).putInt(level_id).order(ByteOrder.BIG_ENDIAN).array();
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.Download, value));
         }
+        else {
+            controllerLogic.OfflineFailure();
+        }
     }
 
     public void WarehouseReady() {
         if (channel.isConnected()) {
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.WarehouseReady, new byte[0]));
+        }
+        else {
+            controllerLogic.OfflineFailure();
         }
     }
 
@@ -214,6 +245,9 @@ public class NetworkHandler {
             value[0] = 0;
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.AskResult, value));
         }
+        else {
+            controllerLogic.OfflineFailure();
+        }
     }
 
     public void TopResults() {
@@ -221,6 +255,9 @@ public class NetworkHandler {
             byte[] value = new byte[1];
             value[0] = 1;
             writer.EnqueueMessage(new ClientMessage(ClientMessageType.AskResult, value));
+        }
+        else {
+            controllerLogic.OfflineFailure();
         }
     }
 

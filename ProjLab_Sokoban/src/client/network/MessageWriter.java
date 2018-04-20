@@ -50,6 +50,9 @@ public class MessageWriter {
                         buffer.put(value);
                         buffer.flip(); // Setting back to reader mode.
                     }
+                    else {
+                        stop = true;
+                    }
                 }
             }
             while (!stop);

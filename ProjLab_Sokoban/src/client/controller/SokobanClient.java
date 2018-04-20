@@ -181,7 +181,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     @Override
     public synchronized void PlaceOil() {
         networkHandler.PlaceOil();
-    }    
+    }
 
     @Override
     public synchronized void OwnResults() {
