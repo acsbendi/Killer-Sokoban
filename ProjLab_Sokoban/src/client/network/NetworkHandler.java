@@ -104,11 +104,13 @@ public class NetworkHandler {
     }
 
     public void Connect() {
-        try {
-            channel.socket().connect(new InetSocketAddress("http://vm.ik.bme.hu", 7305), 3000);
-            controllerLogic.ConnectionResult(channel.isConnected());
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!channel.isConnected()) {
+            try {
+                channel.socket().connect(new InetSocketAddress("http://vm.ik.bme.hu", 7305), 3000);
+                controllerLogic.ConnectionResult(channel.isConnected());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

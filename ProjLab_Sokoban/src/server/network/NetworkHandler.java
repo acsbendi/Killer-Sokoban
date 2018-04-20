@@ -1,6 +1,7 @@
 package server.network;
 
 import common.messages.ClientMessage;
+import common.messages.ClientMessageType;
 import server.controller.Client;
 import server.controller.SokobanServer;
 
@@ -47,6 +48,14 @@ public class NetworkHandler {
         }
     }
 
+    public void MessageArrived(ClientMessage msg) {
+        switch(msg.GetType()) {
+            case Register:
+
+                break;
+        }
+    }
+
     public void AcceptClient()
     {
         try {
@@ -77,13 +86,104 @@ public class NetworkHandler {
         }
     }
 
+    public void CollectMessages() {
+        try {
+            int readyChannels = readSelector.selectNow();
+            if (readyChannels == 0)
+                return;
+            Set<SelectionKey> selectedKeys = readSelector.selectedKeys();
+            for(SelectionKey key : selectedKeys) {
+                readers.get(key.channel()).CollectMessages();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void Disconnected(SocketChannel channel) {
-        // todo
+        try {
+            System.out.println(channel.socket().getRemoteSocketAddress().toString() + " disconnected.");
+            readers.remove(channel);
+            writers.remove(channel);
+            Client client = clients.get(channel);
+            clients.remove(channel);
+            channels.remove(client);
+            channel.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void MessageArrived(SocketChannel channel, ClientMessage msg) {
+        switch(msg.GetType()) {
+            case Register:
+                this.InterpretRegister(channel, msg.GetValue());
+                break;
+            case Login:
+                this.InterpretLogin(channel, msg.GetValue());
+                break;
+            case Logout:
+                this.InterpretLogout(channel, msg.GetValue());
+                break;
+            case Enter:
+                this.InterpretEnter(channel, msg.GetValue());
+                break;
+            case Leave:
+                this.InterpretLeave(channel, msg.GetValue());
+                break;
+            case Move:
+                this.InterpretMove(channel, msg.GetValue());
+                break;
+            case PlaceHoney:
+                this.InterpretPlaceHoney(channel, msg.GetValue());
+                break;
+            case PlaceOil:
+                this.Interpret
+        }
+    }
+
+    private void InterpretRegister(SocketChannel channel, byte[] value) {
         // todo
     }
 
+    private void InterpretLogin(SocketChannel channel, byte[] value) {
+        // todo
+    }
 
+    private void InterpretLogout(SocketChannel channel, byte[] value) {
+        // todo
+    }
+
+    private void InterpretEnter(SocketChannel channel, byte[] value) {
+        // todo
+    }
+
+    private void InterpretLeave(SocketChannel channel, byte[] value) {
+        // todo
+    }
+
+    private void InterpretMove(SocketChannel channel, byte[] value) {
+        // todo
+    }
+
+    private void InterpretPlaceHoney(SocketChannel channel, byte[] value) {
+
+    }
+
+    private void InterpretPlaceOil(SocketChannel channel, byte[] value) {
+
+    }
+
+    private void InterpretDownload(SocketChannel channel, byte[] value) {
+
+    }
+
+    private void InterpretWarehouseReady(SocketChannel channel, byte[] value) {
+
+    }
+
+    private void InterpretAskResult(SocketChannel channel, byte[] value) {
+
+    }
 }
