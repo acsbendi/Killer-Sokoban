@@ -16,6 +16,8 @@ public abstract class UserInterface {
 	public abstract void RegistrationFailure(String error);
 	public abstract void LoginSuccess();
 	public abstract void LoginFailure(String err);
+	public abstract void LogoutSuccess();
+	public abstract void LogoutFailure(String err);
 	public abstract void Results(String msg);
 	public abstract void ResultFailure(String err);
 	public abstract void EnterSuccess();

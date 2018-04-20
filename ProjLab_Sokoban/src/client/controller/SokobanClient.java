@@ -27,92 +27,82 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
     @Override
     public void ConnectionResult(boolean res) {
-        // TODO Auto-generated method stub
+        userInterface.ConnectionResult(res);
     }
 
     @Override
     public synchronized void Disconnected() {
-        // TODO Auto-generated method stub
-
+        userInterface.Disconnected();
     }
 
     @Override
     public void RegistrationSuccess() {
-        // TODO Auto-generated method stub
-
+        userInterface.RegistrationSuccess();
     }
 
     @Override
     public void RegistrationFailure(String err) {
-
+        userInterface.RegistrationFailure(err);
     }
 
     @Override
     public void LoginSuccess() {
-        // TODO Auto-generated method stub
+        userInterface.LoginSuccess();
     }
 
     @Override
     public void LoginFailure(String err) {
-        // TODO Auto-generated method stub
-
+        userInterface.LoginFailure(err);
     }
 
     @Override
     public void LogoutSuccess() {
-
+        userInterface.LogoutSuccess();
     }
 
     @Override
     public void LogoutFailure(String err) {
-
+        userInterface.LoginFailure(err);
     }
 
     @Override
     public void Results(String msg) {
-        // TODO Auto-generated method stub
-
+        userInterface.Results(msg);
     }
 
     @Override
     public void ResultFailure(String err) {
-        // TODO Auto-generated method stub
-
+        userInterface.RegistrationFailure(err);
     }
 
     @Override
     public void EnterSuccess() {
-        // TODO Auto-generated method stub
-
+        userInterface.EnterSuccess();
     }
 
     @Override
     public void EnterFailure(String err) {
-        // TODO Auto-generated method stub
-
+        userInterface.EnterFailure(err);
     }
 
     @Override
     public void LeaveSuccess() {
-        // TODO Auto-generated method stub
-
+        userInterface.LeaveSuccess();
     }
 
     @Override
     public void LeaveFailure(String err) {
-        // TODO Auto-generated method stub
-
+        userInterface.LeaveFailure(err);
     }
 
     @Override
     public void CheckLevel(int level_id) {
-        // TODO Auto-generated method stub
-
+        // todo
     }
 
     @Override
     public void GameStarted(int worker) {
-
+        // todo
     }
 
     @Override
@@ -144,6 +134,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     public synchronized void Connect() {
 
     }
+
     @Override
     public synchronized void Disconnect() {
 
