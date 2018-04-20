@@ -116,6 +116,16 @@ public class Console extends UserInterface {
     }
 
     @Override
+    public void LogoutSuccess() {
+
+    }
+
+    @Override
+    public void LogoutFailure(String err) {
+
+    }
+
+    @Override
     public void Results(String msg) {
 
     }
@@ -157,6 +167,16 @@ public class Console extends UserInterface {
 
     @Override
     public void GameFinished() {
+
+    }
+
+    @Override
+    public void OfflineError() {
+
+    }
+
+    @Override
+    public void OnlineError() {
 
     }
 }

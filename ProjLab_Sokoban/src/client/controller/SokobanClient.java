@@ -127,17 +127,17 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void OfflineFailure() {
-
+        userInterface.OfflineFailure();
     }
 
     @Override
     public synchronized void Connect() {
-
+        networkHandler.Connect();
     }
 
     @Override
     public synchronized void Disconnect() {
-
+        networkHandler.Disconnect();
     }
     @Override
     public synchronized void Register(String username, String password) {
@@ -160,10 +160,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
         networkHandler.Leave();
     }
     @Override
-    public synchronized void Move(Direction dir) {
-        networkHandler.Move(dir);
-
-    }
+    public synchronized void Move(Direction dir) { networkHandler.Move(dir); }
     @Override
     public synchronized void PlaceHoney() {
         networkHandler.PlaceHoney();

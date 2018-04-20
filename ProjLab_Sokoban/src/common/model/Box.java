@@ -35,5 +35,4 @@ public class Box extends Placeholder {
 		//TODO
 		return false;
 	}
-
 }
