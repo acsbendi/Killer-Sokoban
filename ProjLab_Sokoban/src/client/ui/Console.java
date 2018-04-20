@@ -1,6 +1,7 @@
 package client.ui;
 
 import client.controller.UserInputExecutor;
+import client.ui.Commands.ICommand;
 import client.ui.Commands.InvalidArgumentException;
 import com.sun.org.apache.bcel.internal.generic.IADD;
 import com.sun.org.apache.bcel.internal.generic.SWAP;
@@ -9,10 +10,12 @@ import common.util.Direction;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Console extends UserInterface {
     List output = new LinkedList<String>();
+    Map<String, ICommand> userInputExecutor
     // Amíg nincs exit parancs: fogadni inputot!!
     // ha pl. connect parancs jött: userInputExecutor.Connect();
     // ha login jött: userInputExecutor.Login(username, password); stb
@@ -150,7 +153,32 @@ public class Console extends UserInterface {
         }
     }
 
+    public void printInfo(String cmdName){
+        //TODO
+        write(Command.getHelp);
+    }
 
+    public void compare(){
+        //TODO
+    }
+
+    public void save(String fileName){
+        //TODO
+    }
+
+    public void clear(){
+        output.clear();
+    }
+
+    public void wait(int ms){
+        try {
+            Thread.sleep(ms);
+        }catch(InterruptedException ie){}
+    }
+
+    public void run(String fileName){
+        //TODO
+    }
 
     private void write(String s){
         output.add(s);

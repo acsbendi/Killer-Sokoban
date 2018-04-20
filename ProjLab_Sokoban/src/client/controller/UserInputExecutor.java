@@ -1,8 +1,9 @@
 package client.controller;
 
+import client.ui.Commands.ICommand;
 import common.util.Direction;
 
-public interface UserInputExecutor {
+public interface UserInputExecutor{
 void Connect();
 void Disconnect();
 void Register(String username,String password);
