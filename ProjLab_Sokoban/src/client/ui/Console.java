@@ -2,14 +2,16 @@ package client.ui;
 
 import client.controller.UserInputExecutor;
 import com.sun.org.apache.bcel.internal.generic.IADD;
+import com.sun.org.apache.bcel.internal.generic.SWAP;
 import common.util.Direction;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Console extends UserInterface {
+    List output = new LinkedList<String>();
     // Amíg nincs exit parancs: fogadni inputot!!
     // ha pl. connect parancs jött: userInputExecutor.Connect();
     // ha login jött: userInputExecutor.Login(username, password); stb
@@ -136,13 +138,15 @@ public class Console extends UserInterface {
                     break;
                 }
                 else{
-                    System.out.println("Invalid command");
+                    write("Invalid command");
                 }
-
             }catch(IOException e){
-                e.printStackTrace(System.out);
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                e.printStackTrace(pw);
+                write(sw.toString());
             }catch(InvalidArgumentException iae){
-                System.out.println(iae.getMessage());
+                write(iae.getMessage());
             }
         }
     }
@@ -153,78 +157,84 @@ public class Console extends UserInterface {
         }
     }
 
+    private void write(String s){
+        output.add(s);
+        System.out.println(s);
+    }
 
     @Override
     public void ConnectionResult(boolean res) {
-        if(res)
-            System.out.println("Connection successful.");
-        else
-            System.out.println("Connection failed.");
+        if(res) {
+            write("Connection successful.");
+        }
+        else {
+            write("Connection failed.");
+        }
     }
 
     @Override
     public void Disconnected() {
-        System.out.println("Disconnected");
+        write("Disconnected");
     }
 
     @Override
     public void RegistrationSuccess() {
-        System.out.println("Registration succesful");
+        write("Registration succesful");
     }
 
     @Override
     public void RegistrationFailure(String err) {
-        System.out.println(err);
+        write(err);
     }
 
     @Override
     public void LoginSuccess() {
-        System.out.println("Login successful.");
+        write("Login successful.");
     }
 
     @Override
     public void LoginFailure(String err) {
-        System.out.println(err);
+        write(err);
     }
 
     @Override
     public void LogoutSuccess() {
-
+        write("Logout successful.");
     }
 
     @Override
     public void LogoutFailure(String err) {
-        System.out.println(err);
+        write(err);
     }
 
     @Override
     public void Results(String msg) {
-        System.out.println(msg);
+        write(msg);
     }
 
     @Override
     public void ResultFailure(String err) {
-        System.out.println(err);
+        write(err);
     }
 
     @Override
     public void EnterSuccess() {
-        System.out.println("Entered queue");
+        write("Entered queue");
     }
 
     @Override
     public void EnterFailure(String err) {
-        System.out.println(err);
+        write(err);
     }
 
     @Override
     public void LeaveSuccess() {
-        System.out.println("Queue left");
+        write("Queue left");
     }
 
     @Override
     public void LeaveFailure(String err) {
-        System.out.println(err);
+        write(err);
     }
 
     @Override
@@ -244,11 +254,11 @@ public class Console extends UserInterface {
 
     @Override
     public void OfflineFailure() {
-        System.out.println("Not available in offline mode.");
+        write("Not available in offline mode.");
     }
 
     @Override
     public void OnlineFailure() {
-        System.out.println("Not available in online mode.");
+        write("Not available in online mode.");
     }
 }
