@@ -139,12 +139,22 @@ public class NetworkHandler {
                 this.InterpretPlaceHoney(channel, msg.GetValue());
                 break;
             case PlaceOil:
-                this.Interpret
+                this.InterpretPlaceOil(channel, msg.GetValue());
+                break;
+            case Download:
+                this.InterpretDownload(channel, msg.GetValue());
+                break;
+            case WarehouseReady:
+                this.InterpretWarehouseReady(channel, msg.GetValue());
+                break;
+            case AskResult:
+                this.InterpretAskResult(channel, msg.GetValue());
+                break;
         }
     }
 
     private void InterpretRegister(SocketChannel channel, byte[] value) {
-        // todo
+        sokobanServer.
     }
 
     private void InterpretLogin(SocketChannel channel, byte[] value) {
