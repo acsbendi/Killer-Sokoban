@@ -1,5 +1,4 @@
 package server.controller;
 
-public class SokobanServer {
-
+public class Client {
 }

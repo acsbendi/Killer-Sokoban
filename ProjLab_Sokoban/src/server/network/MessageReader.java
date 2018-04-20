@@ -29,7 +29,7 @@ public class MessageReader {
                     if (!(bytesRead > 0)) {
                         stop = true;
                         if (bytesRead == -1) {
-                            networkHandler.Disconnected();
+                            networkHandler.Disconnected(channel);
                         }
                     }
                     else if (!header.hasRemaining()) {
@@ -45,7 +45,7 @@ public class MessageReader {
                     if (!(bytesRead > 0)) {
                         stop = true;
                         if (bytesRead == -1) {
-                            networkHandler.Disconnected();
+                            networkHandler.Disconnected(channel);
                         }
                     }
                 }
@@ -57,7 +57,7 @@ public class MessageReader {
                     ClientMessage msg = new ClientMessage(type, value);
                     header.clear();
                     body.clear();
-                    networkHandler.MessageArrived(msg);
+                    networkHandler.MessageArrived(channel, msg);
                 }
             }
             while (!stop);

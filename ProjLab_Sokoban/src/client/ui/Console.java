@@ -8,6 +8,8 @@ public class Console extends UserInterface {
     public void Run() {
         Scanner scanner = new Scanner(System.in);
         // Amíg nincs exit parancs: fogadni inputot!!
+        // ha pl. connect parancs jött: userInputExecutor.Connect();
+        // ha login jött: userInputExecutor.Login(username, password); stb.
     }
 
     @Override
