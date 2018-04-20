@@ -1,13 +1,15 @@
 package client.ui;
-
-import client.controller.SokobanClient;
+import client.controller.UserInputExecutor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class UserInterface {
 	protected List<FieldView> fields=new ArrayList<>();
-	protected SokobanClient userInputExecutor;
+	protected UserInputExecutor userInputExecutor;
+	public void SetUserInputExecutor(UserInputExecutor userInputExecutor) {
+		this.userInputExecutor = userInputExecutor;
+	}
 	public abstract void ConnectionResult(boolean res);
 	public abstract void Disconnected();
 	public abstract void RegistrationSuccess();
@@ -23,5 +25,4 @@ public abstract class UserInterface {
 	public abstract void GameStarted();
 	public abstract void UpdateScreen();
 	public abstract void GameFinished();
-
 }

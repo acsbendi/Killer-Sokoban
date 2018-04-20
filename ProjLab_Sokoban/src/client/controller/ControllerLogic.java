@@ -23,4 +23,5 @@ void WorkerMoved(int player,Direction dir);
 void OilPlaced(int player);
 void HoneyPlaced(int player);
 void GameFinished();
+void OfflineFailure();
 }
