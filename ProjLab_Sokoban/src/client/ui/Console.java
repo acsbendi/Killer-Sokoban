@@ -1,6 +1,7 @@
 package client.ui;
 
 import client.controller.UserInputExecutor;
+import com.sun.org.apache.bcel.internal.generic.IADD;
 import common.util.Direction;
 
 import java.io.BufferedReader;
@@ -23,67 +24,135 @@ public class Console extends UserInterface {
                 inputSplitted = inputString.split(" ");
 
                 if("connect".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.Connect();
-                } else  if("disconnect".equals(inputSplitted[0])){
+                } else
+                if("disconnect".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.Disconnect();
-                } else if("reg".equals(inputSplitted[0])){
+                } else
+                if("reg".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 3)
+                        throw new InvalidArgumentException(3);
+                    else if(inputSplitted.length < 2)
+                        throw new InvalidArgumentException(1);
+                    else if(inputSplitted.length < 3)
+                        throw new InvalidArgumentException(2);
                     userInputExecutor.Register(inputSplitted[1], inputSplitted[2]);
-                } else if("login".equals(inputSplitted[0])){
+                } else
+                if("login".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 3)
+                        throw new InvalidArgumentException(3);
+                    else if(inputSplitted.length < 2)
+                        throw new InvalidArgumentException(1);
+                    else if(inputSplitted.length < 3)
+                        throw new InvalidArgumentException(2);
                     userInputExecutor.Login(inputSplitted[1], inputSplitted[2]);
-                } else if("logout".equals(inputSplitted[0])){
+                } else
+                if("logout".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.Logout();
-                } else if("enter".equals(inputSplitted[0])){
-                    userInputExecutor.Enter(Integer.parseInt(inputSplitted[1]));
-                } else if("leave".equals(inputSplitted[0])){
+                } else
+                if("enter".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 2)
+                        throw new InvalidArgumentException(2);
+                    int arg;
+                    try{arg = Integer.parseInt(inputSplitted[1]);}
+                    catch (NumberFormatException nfe){throw new InvalidArgumentException(1);}
+                    userInputExecutor.Enter(arg);
+                } else
+                if("leave".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.Leave();
-                } else if("move".equals(inputSplitted[0])){
-                    if("w".equals(inputSplitted[2])){
+                } else
+                if("move".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 2){
+                        throw new InvalidArgumentException(2);
+                    } else if("w".equals(inputSplitted[1])){
                         userInputExecutor.Move(Direction.Up);
-                    }else if("a".equals(inputSplitted[2])){
+                    }else if("a".equals(inputSplitted[1])){
                         userInputExecutor.Move(Direction.Left);
-                    }else if("s".equals(inputSplitted[2])){
+                    }else if("s".equals(inputSplitted[1])){
                         userInputExecutor.Move(Direction.Down);
-                    }else if("d".equals(inputSplitted[2])){
+                    }else if("d".equals(inputSplitted[1])){
                         userInputExecutor.Move(Direction.Right);
                     } else{
-                        System.out.println("Unknown direction");
+                        throw new InvalidArgumentException(1);
                     }
-                } else if("placehoney".equals(inputSplitted[0])){
+                } else
+                if("placehoney".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.PlaceHoney();
-                } else if("placeoil".equals(inputSplitted[0])){
+                } else
+                if("placeoil".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.PlaceOil();
-                } else if("step".equals(inputSplitted[0])){
-                    if("w".equals(inputSplitted[2])){
+                } else
+                if("step".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 2){
+                        throw new InvalidArgumentException(2);
+                    } else if("w".equals(inputSplitted[1])){
                         userInputExecutor.Step(Direction.Up);
-                    }else if("a".equals(inputSplitted[2])){
+                    }else if("a".equals(inputSplitted[1])){
                         userInputExecutor.Step(Direction.Left);
-                    }else if("s".equals(inputSplitted[2])){
+                    }else if("s".equals(inputSplitted[1])){
                         userInputExecutor.Step(Direction.Down);
-                    }else if("d".equals(inputSplitted[2])){
+                    }else if("d".equals(inputSplitted[1])){
                         userInputExecutor.Step(Direction.Right);
                     } else{
-                        System.out.println("Unknown direction");
+                        throw new InvalidArgumentException(1);
                     }
-                } else if("puthoney".equals(inputSplitted[0])){
+                } else
+                if("puthoney".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.PutHoney();
-                } else if("putoil".equals(inputSplitted[0])){
+                } else
+                if("putoil".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.PutOil();
-                } else if("ownresults".equals(inputSplitted[0])){
+                } else
+                if("ownresults".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.OwnResults();
-                } else if("topresults".equals(inputSplitted[0])){
+                } else
+                if("topresults".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     userInputExecutor.TopResults();
-                } else if("exit".equals(inputSplitted[0])){
+                } else
+                if("exit".equals(inputSplitted[0])){
+                    if(inputSplitted.length > 1)
+                        throw new InvalidArgumentException(1);
                     inputReader.close();
                     break;
-                }else{
-                    System.out.println("Unknown command");
+                }
+                else{
+                    System.out.println("Invalid command");
                 }
 
             }catch(IOException e){
                 e.printStackTrace(System.out);
+            }catch(InvalidArgumentException iae){
+                System.out.println(iae.getMessage());
             }
         }
     }
+
+    private class InvalidArgumentException extends Exception{
+        public InvalidArgumentException(int argumentNo){
+            super("Invalid argument " + argumentNo);
+        }
+    }
+
 
     @Override
     public void ConnectionResult(boolean res) {
