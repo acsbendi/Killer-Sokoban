@@ -1,21 +1,20 @@
 package client.ui;
 
-import client.controller.UserInputExecutor;
-import client.ui.Commands.ICommand;
+import client.ui.Commands.ConsoleCommands.CCommand;
+import client.ui.Commands.UserInputExecutorCommands.UIECommand;
 import client.ui.Commands.InvalidArgumentException;
-import com.sun.org.apache.bcel.internal.generic.IADD;
-import com.sun.org.apache.bcel.internal.generic.SWAP;
 import common.util.Direction;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Console extends UserInterface {
-    List output = new LinkedList<String>();
-    Map<String, ICommand> userInputExecutor
+    private List output = new LinkedList<String>();
+    private Map<String, UIECommand> UIECommands = new HashMap<>();
+    private Map<String, CCommand> CCommands = new HashMap<>();
     // Amíg nincs exit parancs: fogadni inputot!!
     // ha pl. connect parancs jött: userInputExecutor.Connect();
     // ha login jött: userInputExecutor.Login(username, password); stb
@@ -150,6 +149,23 @@ public class Console extends UserInterface {
             }catch(InvalidArgumentException iae){
                 write(iae.getMessage());
             }
+        }
+    }
+
+    private boolean interprete(String command){
+        try {
+            if (UIECommands.containsKey(command)){
+                UIECommands.get(command).Execute(userInputExecutor, command.split(" "));
+                return true;
+            }
+            else if(CCommands.containsKey(command)) {
+                CCommands.get(command).Execute(this, command.split(" "));
+                return true;
+            }
+            else if("exit".equals(command.split(" ")[0]))
+                return false;
+        }catch(InvalidArgumentException iae){
+            write(iae.getMessage());
         }
     }
 

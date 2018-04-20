@@ -1,23 +1,23 @@
-package client.ui.Commands;
+package client.ui.Commands.UserInputExecutorCommands;
 
 import client.controller.UserInputExecutor;
+import client.ui.Commands.InvalidArgumentException;
 
-public class CDisconnect implements ICommand{
-
+public class UIEPlaceOil implements UIECommand {
     @Override
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length > 1)
             throw new InvalidArgumentException(1);
-        executor.Disconnect();
+        executor.PlaceOil();
     }
 
     @Override
     public String getHelp() {
-        return null;
+        return "";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "placeoil";
     }
 }

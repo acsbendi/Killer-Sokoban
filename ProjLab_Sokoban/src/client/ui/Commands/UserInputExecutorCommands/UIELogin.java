@@ -1,8 +1,9 @@
-package client.ui.Commands;
+package client.ui.Commands.UserInputExecutorCommands;
 
 import client.controller.UserInputExecutor;
+import client.ui.Commands.InvalidArgumentException;
 
-public class CLogin implements ICommand {
+public class UIELogin implements UIECommand {
     @Override
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length > 3)

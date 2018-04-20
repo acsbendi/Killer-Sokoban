@@ -1,8 +1,9 @@
-package client.ui.Commands;
+package client.ui.Commands.UserInputExecutorCommands;
 
 import client.controller.UserInputExecutor;
+import client.ui.Commands.InvalidArgumentException;
 
-public class CPutHoney implements ICommand {
+public class UIEPutHoney implements UIECommand {
 
 	@Override
 	public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {

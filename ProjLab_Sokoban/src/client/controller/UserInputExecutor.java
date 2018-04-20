@@ -1,6 +1,5 @@
 package client.controller;
 
-import client.ui.Commands.ICommand;
 import common.util.Direction;
 
 public interface UserInputExecutor{
