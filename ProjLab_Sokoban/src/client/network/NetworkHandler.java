@@ -33,14 +33,14 @@ public class NetworkHandler {
     private MessageWriter writer;
 
     public static NetworkHandler Create(ControllerLogic controllerLogic) {
-        NetworkHandler networkHandler = new NetworkHandler();
-        networkHandler.controllerLogic = controllerLogic;
+        NetworkHandler networkHandler = new NetworkHandler(controllerLogic);
         networkHandler.reader = new MessageReader(networkHandler, networkHandler.channel);
         networkHandler.writer = new MessageWriter(networkHandler, networkHandler.channel);
         return networkHandler;
     }
 
-    private NetworkHandler() {
+    private NetworkHandler(ControllerLogic controllerLogic) {
+        this.controllerLogic = controllerLogic;
         try {
             connectSelector = Selector.open();
             readSelector = Selector.open();
@@ -54,7 +54,6 @@ public class NetworkHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void MessageArrived(ServerMessage msg) {

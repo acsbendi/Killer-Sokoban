@@ -11,13 +11,13 @@ private Warehouse warehouse;
 private NetworkHandler networkHandler;
 
 public static SokobanClient Create(UserInterface userInterface) {
-    SokobanClient client = new SokobanClient();
-    client.userInterface = userInterface;
+    SokobanClient client = new SokobanClient(userInterface);
     client.networkHandler = NetworkHandler.Create(client);
     return client;
 }
 
-private SokobanClient() {
+private SokobanClient(UserInterface userInterface) {
+    this.userInterface = userInterface;
     warehouse = new Warehouse();
 }
 
@@ -27,75 +27,82 @@ public synchronized void Iterate() {
 @Override
 public void ConnectionResult(boolean res) {
 	// TODO Auto-generated method stub
-	
 }
+
 @Override
 public synchronized void Disconnected() {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
 public void RegistrationSuccess() {
 	// TODO Auto-generated method stub
 	
 }
 
-    @Override
-    public void RegistrationFailure(String err) {
+@Override
+public void RegistrationFailure(String err) {
 
-    }
+}
 
-    @Override
+@Override
 public void LoginSuccess() {
 	// TODO Auto-generated method stub
-	
 }
+
 @Override
 public void LoginFailure(String err) {
 	// TODO Auto-generated method stub
 	
 }
 
-    @Override
-    public void LogoutSuccess() {
+@Override
+public void LogoutSuccess() {
 
-    }
+}
 
-    @Override
-    public void LogoutFailure(String err) {
+@Override
+public void LogoutFailure(String err) {
 
-    }
+}
 
-    @Override
+@Override
 public void Results(String msg) {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
 public void ResultFailure(String err) {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
 public void EnterSuccess() {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
 public void EnterFailure(String err) {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
 public void LeaveSuccess() {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
 public void LeaveFailure(String err) {
 	// TODO Auto-generated method stub
 	
 }
+
 @Override
 public void CheckLevel(int level_id) {
 	// TODO Auto-generated method stub
