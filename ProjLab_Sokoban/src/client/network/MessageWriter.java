@@ -17,8 +17,10 @@ public class MessageWriter {
     public MessageWriter(NetworkHandler networkHandler, SocketChannel channel) {
         this.networkHandler = networkHandler;
         this.channel = channel;
-        this.buffer = ByteBuffer.allocate(1024);
-        this.queue = new ArrayList<>();
+        buffer = ByteBuffer.allocate(1024);
+        /* We have to read data from the buffer in order to write it to the channel,
+        thus: */ buffer.flip(); // Setting the buffer into reader mode.
+        queue = new ArrayList<>();
     }
 
     public void EnqueueMessage(ClientMessage msg) {
@@ -37,7 +39,7 @@ public class MessageWriter {
                 }
                 else {
                     if (queue.size() > 0) {
-                        buffer.clear();
+                        buffer.clear(); // Setting the buffer into writer mode.
                         ClientMessage msg = queue.get(0);
                         queue.remove(0);
                         byte type = msg.GetType().ConvertToByte();
@@ -46,7 +48,7 @@ public class MessageWriter {
                         buffer.put(type);
                         buffer.put(length);
                         buffer.put(value);
-                        buffer.flip();
+                        buffer.flip(); // Setting back to reader mode.
                     }
                 }
             }
