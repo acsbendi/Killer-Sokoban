@@ -1,6 +1,7 @@
 package client.ui;
 
 import client.controller.UserInputExecutor;
+import client.ui.Commands.InvalidArgumentException;
 import com.sun.org.apache.bcel.internal.generic.IADD;
 import com.sun.org.apache.bcel.internal.generic.SWAP;
 import common.util.Direction;
@@ -26,9 +27,7 @@ public class Console extends UserInterface {
                 inputSplitted = inputString.split(" ");
 
                 if("connect".equals(inputSplitted[0])){
-                    if(inputSplitted.length > 1)
-                        throw new InvalidArgumentException(1);
-                    userInputExecutor.Connect();
+
                 } else
                 if("disconnect".equals(inputSplitted[0])){
                     if(inputSplitted.length > 1)
@@ -151,11 +150,7 @@ public class Console extends UserInterface {
         }
     }
 
-    private class InvalidArgumentException extends Exception{
-        public InvalidArgumentException(int argumentNo){
-            super("Invalid argument " + argumentNo);
-        }
-    }
+
 
     private void write(String s){
         output.add(s);
