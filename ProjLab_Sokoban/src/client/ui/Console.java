@@ -26,7 +26,7 @@ public class Console extends UserInterface {
                     userInputExecutor.Connect();
                 } else  if("disconnect".equals(inputSplitted[0])){
                     userInputExecutor.Disconnect();
-                } else if("register".equals(inputSplitted[0])){
+                } else if("reg".equals(inputSplitted[0])){
                     userInputExecutor.Register(inputSplitted[1], inputSplitted[2]);
                 } else if("login".equals(inputSplitted[0])){
                     userInputExecutor.Login(inputSplitted[1], inputSplitted[2]);
@@ -87,32 +87,35 @@ public class Console extends UserInterface {
 
     @Override
     public void ConnectionResult(boolean res) {
-
+        if(res)
+            System.out.println("Connection successful.");
+        else
+            System.out.println("Connection failed.");
     }
 
     @Override
     public void Disconnected() {
-
+        System.out.println("Disconnected");
     }
 
     @Override
     public void RegistrationSuccess() {
-
+        System.out.println("Registration succesful");
     }
 
     @Override
-    public void RegistrationFailure(String error) {
-
+    public void RegistrationFailure(String err) {
+        System.out.println(err);
     }
 
     @Override
     public void LoginSuccess() {
-
+        System.out.println("Login successful.");
     }
 
     @Override
     public void LoginFailure(String err) {
-
+        System.out.println(err);
     }
 
     @Override
@@ -122,37 +125,37 @@ public class Console extends UserInterface {
 
     @Override
     public void LogoutFailure(String err) {
-
+        System.out.println(err);
     }
 
     @Override
     public void Results(String msg) {
-
+        System.out.println(msg);
     }
 
     @Override
     public void ResultFailure(String err) {
-
+        System.out.println(err);
     }
 
     @Override
     public void EnterSuccess() {
-
+        System.out.println("Entered queue");
     }
 
     @Override
     public void EnterFailure(String err) {
-
+        System.out.println(err);
     }
 
     @Override
     public void LeaveSuccess() {
-
+        System.out.println("Queue left");
     }
 
     @Override
     public void LeaveFailure(String err) {
-
+        System.out.println(err);
     }
 
     @Override
@@ -172,11 +175,11 @@ public class Console extends UserInterface {
 
     @Override
     public void OfflineFailure() {
-
+        System.out.println("Not available in offline mode.");
     }
 
     @Override
     public void OnlineFailure() {
-
+        System.out.println("Not available in online mode.");
     }
 }
