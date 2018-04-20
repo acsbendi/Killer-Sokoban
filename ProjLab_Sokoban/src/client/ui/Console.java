@@ -171,12 +171,12 @@ public class Console extends UserInterface {
     }
 
     @Override
-    public void OfflineError() {
+    public void OfflineFailure() {
 
     }
 
     @Override
-    public void OnlineError() {
+    public void OnlineFailure() {
 
     }
 }

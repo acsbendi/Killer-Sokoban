@@ -27,6 +27,6 @@ public abstract class UserInterface {
 	public abstract void GameStarted();
 	public abstract void UpdateScreen();
 	public abstract void GameFinished();
-	public abstract void OfflineError(); // ha online parancsot offline használunk
-	public abstract void OnlineError(); // ez meg fordítva
+	public abstract void OfflineFailure(); // ha online parancsot offline használunk
+	public abstract void OnlineFailure(); // ez meg fordítva
 }
