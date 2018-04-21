@@ -8,8 +8,13 @@ import java.net.InetSocketAddress;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.channels.ClosedChannelException;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
+import java.util.Iterator;
+import java.util.Set;
 
 public class NetworkHandler implements INetworkHandler {
     private static final byte down = 0;
@@ -23,6 +28,7 @@ public class NetworkHandler implements INetworkHandler {
     private static final byte msg_invalid = (byte)255;
 
     private ControllerLogic controllerLogic;
+    private Selector selector;
     private SocketChannel channel;
     private MessageReader<ServerMessage> reader;
     private MessageWriter<ClientMessage> writer;
@@ -30,9 +36,65 @@ public class NetworkHandler implements INetworkHandler {
     public NetworkHandler(ControllerLogic controllerLogic) {
         this.controllerLogic = controllerLogic;
         try {
+            this.selector = Selector.open();
             channel = SocketChannel.open();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void Connect() {
+        if (!channel.isConnected()) {
+            boolean success;
+            try {
+                channel.configureBlocking(true);
+                channel.socket().connect(new InetSocketAddress("vm.ik.bme.hu", 7305), 2000);
+                success = true;
+            } catch (SocketTimeoutException e) {
+                success = false;
+            } catch (IOException e) {
+                success = false;
+                e.printStackTrace();
+            }
+
+            if (success) {
+                try {
+                    channel.configureBlocking(false);
+                    channel.register(selector, SelectionKey.OP_READ);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                reader = new MessageReader<>(this, channel);
+                writer = new MessageWriter<>(this, channel);
+                controllerLogic.ConnectionResult(true);
+            }
+            else {
+                try {
+                    channel = SocketChannel.open();
+                    channel.configureBlocking(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                controllerLogic.ConnectionResult(false);
+            }
+        }
+        else {
+            controllerLogic.OnlineFailure();
+        }
+    }
+
+    public void Disconnect() {
+        if (channel.isConnected()) {
+            try {
+                channel.close();
+                channel = SocketChannel.open();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            controllerLogic.Disconnected();
+        }
+        else {
+            controllerLogic.OfflineFailure();
         }
     }
 
@@ -48,9 +110,28 @@ public class NetworkHandler implements INetworkHandler {
         controllerLogic.Disconnected();
     }
 
-    public void CollectMessages() {
-        if (channel.isConnected()) {
-            reader.CollectMessages();
+    public void Listen() {
+        try {
+            selector.select();
+            Set<SelectionKey> selectedKeys = selector.selectedKeys();
+            Iterator<SelectionKey> iter = selectedKeys.iterator();
+            while (iter.hasNext()) {
+                SelectionKey key = iter.next();
+
+                if (key.isReadable()) {
+                    System.out.println("READ event triggered!");
+                    reader.CollectMessages();
+                }
+
+                if (key.isWritable()) {
+                    System.out.println("WRITE event triggered!");
+                    writer.SendMessages();
+                }
+
+                iter.remove();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -100,71 +181,23 @@ public class NetworkHandler implements INetworkHandler {
 
     @Override
     public void WriteRegister(SocketChannel channel) {
-
+        try {
+            SelectionKey key = channel.keyFor(selector);
+            key.cancel();
+            channel.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+        } catch (ClosedChannelException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void WriteDeregister(SocketChannel channel) {
-
-    }
-
-    public void SendMessages() {
-        if (channel.isConnected()) {
-            writer.SendMessages();
-        }
-    }
-
-    public void Connect() {
-        if (!channel.isConnected()) {
-            boolean success;
-            try {
-                channel.configureBlocking(true);
-                channel.socket().connect(new InetSocketAddress("vm.ik.bme.hu", 7305), 2000);
-                success = true;
-            } catch (SocketTimeoutException e) {
-                success = false;
-            } catch (IOException e) {
-                success = false;
-                e.printStackTrace();
-            }
-
-            if (success) {
-                try {
-                    channel.configureBlocking(false);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                reader = new MessageReader<>(this, channel);
-                writer = new MessageWriter<>(this, channel);
-                controllerLogic.ConnectionResult(true);
-            }
-            else {
-                try {
-                    channel = SocketChannel.open();
-                    channel.configureBlocking(false);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                controllerLogic.ConnectionResult(false);
-            }
-        }
-        else {
-            controllerLogic.OnlineFailure();
-        }
-    }
-
-    public void Disconnect() {
-        if (channel.isConnected()) {
-            try {
-                channel.close();
-                channel = SocketChannel.open();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            controllerLogic.Disconnected();
-        }
-        else {
-            controllerLogic.OfflineFailure();
+        try {
+            SelectionKey key = channel.keyFor(selector);
+            key.cancel();
+            channel.register(selector, SelectionKey.OP_READ);
+        } catch (ClosedChannelException e) {
+            e.printStackTrace();
         }
     }
 

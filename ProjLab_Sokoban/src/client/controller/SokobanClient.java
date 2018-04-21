@@ -22,8 +22,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     public synchronized void Iterate() {
-        networkHandler.CollectMessages();
-        networkHandler.SendMessages();
+        networkHandler.Listen();
     }
 
     @Override
