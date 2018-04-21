@@ -10,6 +10,12 @@ public abstract class Placeholder {
 
 	protected Tile tile;
 
+	protected final int mass;
+
+	protected Placeholder(int mass){
+		this.mass = mass;
+	}
+
 	public abstract void PushedBy(Worker w, Direction dir, Move move);
 
 	public abstract void PushedBy(Box box, Direction dir, Move move);
@@ -36,7 +42,7 @@ public abstract class Placeholder {
 
 	protected void TryMove(Direction dir, Move move) {
 		double friction = tile.GetFriction();
-		boolean success = move.DecreaseForce(friction);
+		boolean success = move.DecreaseForce(friction * mass);
 		if (success) {
 			Field to = tile.GetNeighbour(dir);
 			to.Accept(this, dir, move);
