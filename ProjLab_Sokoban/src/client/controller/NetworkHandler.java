@@ -8,7 +8,6 @@ import java.net.InetSocketAddress;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.channels.ClosedChannelException;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
@@ -178,26 +177,14 @@ public class NetworkHandler implements INetworkHandler {
         }
     }
 
-    @Override
     public void WriteRegister(SocketChannel channel) {
-        try {
-            SelectionKey key = channel.keyFor(selector);
-            key.cancel();
-            channel.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-        } catch (ClosedChannelException e) {
-            e.printStackTrace();
-        }
+        SelectionKey key = channel.keyFor(selector);
+        key.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
     }
 
-    @Override
     public void WriteDeregister(SocketChannel channel) {
-        try {
-            SelectionKey key = channel.keyFor(selector);
-            key.cancel();
-            channel.register(selector, SelectionKey.OP_READ);
-        } catch (ClosedChannelException e) {
-            e.printStackTrace();
-        }
+        SelectionKey key = channel.keyFor(selector);
+        key.interestOps(SelectionKey.OP_READ);
     }
 
     public void Register(String username, String password) {

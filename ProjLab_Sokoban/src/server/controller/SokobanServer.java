@@ -26,7 +26,7 @@ public class SokobanServer implements ControllerLogic {
 
     @Override
     public void Login(Client client, String username, String password) {
-
+        networkHandler.LoginSuccess(client);
     }
 
     @Override

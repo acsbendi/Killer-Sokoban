@@ -49,23 +49,13 @@ public class NetworkHandler implements INetworkHandler {
     }
 
     public void WriteRegister(SocketChannel channel) {
-        try {
-            SelectionKey key = channel.keyFor(selector);
-            key.cancel();
-            channel.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-        } catch (ClosedChannelException e) {
-            e.printStackTrace();
-        }
+        SelectionKey key = channel.keyFor(selector);
+        key.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
     }
 
     public void WriteDeregister(SocketChannel channel) {
-        try {
-            SelectionKey key = channel.keyFor(selector);
-            key.cancel();
-            channel.register(selector, SelectionKey.OP_READ);
-        } catch (ClosedChannelException e) {
-            e.printStackTrace();
-        }
+        SelectionKey key = channel.keyFor(selector);
+        key.interestOps(SelectionKey.OP_READ);
     }
 
     public void Listen() {
