@@ -3,10 +3,8 @@ package client.ui;
 import client.ui.Commands.ConsoleCommands.*;
 import client.ui.Commands.UserInputExecutorCommands.*;
 import client.ui.Commands.InvalidArgumentException;
-import common.util.Direction;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -14,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Console extends UserInterface {
-    private List output = new LinkedList<String>();
+    private List<String> output = new LinkedList<>();
     private Map<String, UIECommand> UIECommands = new HashMap<>();
     private Map<String, CCommand> CCommands = new HashMap<>();
 
@@ -87,10 +85,7 @@ public class Console extends UserInterface {
                 interprete(inputLine);
             }
         }catch(IOException ioe){
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            ioe.printStackTrace(pw);
-            write(sw.toString());
+            logStackTrace(ioe);
         }
     }
 
@@ -105,23 +100,52 @@ public class Console extends UserInterface {
                 System.out.println("Invalid command");
             }
         }catch(InvalidArgumentException iae){
-            write(iae.getMessage());
+            log(iae.getMessage());
         }
     }
 
     public void printInfo(String cmdName){
         if(UIECommands.containsKey(cmdName)) {
-            write(UIECommands.get(cmdName).getHelp());
+            log(UIECommands.get(cmdName).getHelp());
             return;
         }
         if(UIECommands.containsKey(cmdName)) {
-            write(UIECommands.get(cmdName).getHelp());
+            log(UIECommands.get(cmdName).getHelp());
             return;
         }
     }
 
-    public void compare(String fileName){
-        //TODO
+    public void compare(String fileName) throws FileNotFoundException {
+        File sketch = new File(System.getProperty("user.dir"), fileName);
+        if(!sketch.exists())
+            throw new FileNotFoundException(fileName);
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(
+                        new FileInputStream(sketch)));
+        String inputLine;
+        try{
+            //for each line int the output buffer
+            for (int i = 0; i < output.size(); i++) {
+                int j = i;
+                //compare the file with the next lines
+                while(true){
+                    //if we reached EOF, the whole file matches
+                    if((inputLine = br.readLine()) == null){
+                        log("Correct output");
+                        return;
+                    }
+                    if(!inputLine.equals(output.get(j)))
+                        break;
+                    j++;
+                }
+            }
+        }catch (IOException ioe){
+            logStackTrace(ioe);
+        }catch(IndexOutOfBoundsException ioobe){
+            //if we get IndexOutOfBoundsException the file'd be too long to match
+        }
+        //if we reached the end of the output buffer without match or encountered IndexOutOfBoundsException that means that the output differs
+        log("Different output.");
     }
 
     public void save(String fileName) throws FileAlreadyExistsException {
@@ -130,9 +154,14 @@ public class Console extends UserInterface {
         if(sketch.exists())
             throw new FileAlreadyExistsException(fileName);
         try {
-            sketch.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
+            if(sketch.createNewFile()){
+                PrintWriter pw = new PrintWriter(new FileOutputStream(sketch));
+                for (String line : output) {
+                    pw.println(line);
+                }
+            }
+        } catch (IOException ioe) {
+            logStackTrace(ioe);
         }
     }
 
@@ -158,11 +187,7 @@ public class Console extends UserInterface {
                     interprete(inputLine);
                 }
             } catch (IOException ioe){
-
-                StringWriter sw = new StringWriter();
-                PrintWriter pw = new PrintWriter(sw);
-                ioe.printStackTrace(pw);
-                write(sw.toString());
+                logStackTrace(ioe);
             }
         }else{
             throw new FileNotFoundException(fileName);
@@ -173,7 +198,14 @@ public class Console extends UserInterface {
         System.exit(0);
     }
 
-    private void write(String s){
+    private void logStackTrace(Exception e){
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        log(sw.toString());
+    }
+
+    private void log(String s){
         output.add(s);
         System.out.println(s);
     }
@@ -181,76 +213,76 @@ public class Console extends UserInterface {
     @Override
     public void ConnectionResult(boolean res) {
         if(res) {
-            write("Connection successful.");
+            log("Connection successful.");
         }
         else {
-            write("Connection failed.");
+            log("Connection failed.");
         }
     }
 
     @Override
     public void Disconnected() {
-        write("Disconnected");
+        log("Disconnected");
     }
 
     @Override
     public void RegistrationSuccess() {
-        write("Registration succesful");
+        log("Registration succesful");
     }
 
     @Override
     public void RegistrationFailure(String err) {
-        write(err);
+        log(err);
     }
 
     @Override
     public void LoginSuccess() {
-        write("Login successful.");
+        log("Login successful.");
     }
 
     @Override
     public void LoginFailure(String err) {
-        write(err);
+        log(err);
     }
 
     @Override
     public void LogoutSuccess() {
-        write("Logout successful.");
+        log("Logout successful.");
     }
 
     @Override
     public void LogoutFailure(String err) {
-        write(err);
+        log(err);
     }
 
     @Override
     public void Results(String msg) {
-        write(msg);
+        log(msg);
     }
 
     @Override
     public void ResultFailure(String err) {
-        write(err);
+        log(err);
     }
 
     @Override
     public void EnterSuccess() {
-        write("Entered queue");
+        log("Entered queue");
     }
 
     @Override
     public void EnterFailure(String err) {
-        write(err);
+        log(err);
     }
 
     @Override
     public void LeaveSuccess() {
-        write("Queue left");
+        log("Queue left");
     }
 
     @Override
     public void LeaveFailure(String err) {
-        write(err);
+        log(err);
     }
 
     @Override
@@ -270,11 +302,11 @@ public class Console extends UserInterface {
 
     @Override
     public void OfflineFailure() {
-        write("Not available in offline mode.");
+        log("Not available in offline mode.");
     }
 
     @Override
     public void OnlineFailure() {
-        write("Not available in online mode.");
+        log("Not available in online mode.");
     }
 }
