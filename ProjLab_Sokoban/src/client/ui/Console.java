@@ -90,12 +90,15 @@ public class Console extends UserInterface {
     }
 
     private void interprete(String command){
+        if(command.isEmpty())
+            return;
+        String[] splitted = command.split(" ");
         try {
-            if (UIECommands.containsKey(command)){
-                UIECommands.get(command).Execute(userInputExecutor, command.split(" "));
+            if (UIECommands.containsKey(splitted[0])){
+                UIECommands.get(command).Execute(userInputExecutor, splitted);
             }
-            else if(CCommands.containsKey(command)) {
-                CCommands.get(command).Execute(this, command.split(" "));
+            else if(CCommands.containsKey(splitted[0])) {
+                CCommands.get(command).Execute(this, splitted);
             }else{
                 System.out.println("Invalid command");
             }
@@ -115,13 +118,18 @@ public class Console extends UserInterface {
         }
     }
 
-    public void compare(String fileName) throws FileNotFoundException {
+    public void compare(String fileName)   {
         File sketch = new File(System.getProperty("user.dir"), fileName);
-        if(!sketch.exists())
-            throw new FileNotFoundException(fileName);
-        BufferedReader br = new BufferedReader(
-                new InputStreamReader(
-                        new FileInputStream(sketch)));
+        BufferedReader br;
+        try {
+            br = new BufferedReader(
+                    new InputStreamReader(
+                            new FileInputStream(sketch)));
+        }
+        catch(FileNotFoundException fnfe){
+            log("File not found");
+            return;
+        }
         String inputLine;
         try{
             //for each line int the output buffer
@@ -148,11 +156,13 @@ public class Console extends UserInterface {
         log("Different output.");
     }
 
-    public void save(String fileName) throws FileAlreadyExistsException {
+    public void save(String fileName)   {
         //TODO
         File sketch = new File(System.getProperty("user.dir"), fileName);
-        if(sketch.exists())
-            throw new FileAlreadyExistsException(fileName);
+        if(sketch.exists()) {
+               log("File already exists");
+               return;
+        }
         try {
             if(sketch.createNewFile()){
                 PrintWriter pw = new PrintWriter(new FileOutputStream(sketch));
