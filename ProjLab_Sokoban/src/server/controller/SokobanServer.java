@@ -1,11 +1,32 @@
 package server.controller;
 
 import common.util.Direction;
+import server.network.NetworkHandler;
 
 public class SokobanServer implements ControllerLogic {
+    private NetworkHandler networkHandler;
+
+    public static SokobanServer Create() {
+        SokobanServer sokobanServer = new SokobanServer();
+        sokobanServer.networkHandler = new NetworkHandler(sokobanServer);
+        return sokobanServer;
+    }
+
+    private SokobanServer() {
+
+    }
 
     public void Run() {
-
+        while (true) {
+            networkHandler.AcceptClient();
+            networkHandler.CollectMessages();
+            networkHandler.SendMessages();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
