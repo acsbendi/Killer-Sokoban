@@ -14,6 +14,7 @@ import java.nio.ByteOrder;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.StandardCharsets;
 
 public class NetworkHandler {
     private static final byte down = 0;
@@ -31,14 +32,7 @@ public class NetworkHandler {
     private MessageReader reader;
     private MessageWriter writer;
 
-    public static NetworkHandler Create(ControllerLogic controllerLogic) {
-        NetworkHandler networkHandler = new NetworkHandler(controllerLogic);
-        networkHandler.reader = new MessageReader(networkHandler, networkHandler.channel);
-        networkHandler.writer = new MessageWriter(networkHandler, networkHandler.channel);
-        return networkHandler;
-    }
-
-    private NetworkHandler(ControllerLogic controllerLogic) {
+    public NetworkHandler(ControllerLogic controllerLogic) {
         this.controllerLogic = controllerLogic;
         try {
             channel = SocketChannel.open();
@@ -97,6 +91,18 @@ public class NetworkHandler {
         }
     }
 
+    public void Disconnected() {
+        try {
+            channel.close();
+            channel = SocketChannel.open();
+            reader = null;
+            writer = null;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        controllerLogic.Disconnected();
+    }
+
     public void SendMessages() {
         if (channel.isConnected()) {
             writer.SendMessages();
@@ -123,6 +129,8 @@ public class NetworkHandler {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                reader = new MessageReader(this, channel);
+                writer = new MessageWriter(this, channel);
                 controllerLogic.ConnectionResult(true);
             }
             else {
@@ -175,8 +183,8 @@ public class NetworkHandler {
 
     public void Login(String username, String password) {
         if (channel.isConnected()) {
-            byte[] username_bytes = username.getBytes();
-            byte[] password_bytes = password.getBytes();
+            byte[] username_bytes = username.getBytes(StandardCharsets.UTF_8);
+            byte[] password_bytes = password.getBytes(StandardCharsets.UTF_8);
             byte username_length = (byte) username_bytes.length;
             byte password_length = (byte) password_bytes.length;
             byte[] value = new byte[2 + username_length + password_length];
@@ -297,16 +305,6 @@ public class NetworkHandler {
         }
         else {
             controllerLogic.OfflineFailure();
-        }
-    }
-
-    public void Disconnected() {
-        try {
-            channel.close();
-            controllerLogic.Disconnected();
-            // todo: Clear the message queue in MessageWriter.
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

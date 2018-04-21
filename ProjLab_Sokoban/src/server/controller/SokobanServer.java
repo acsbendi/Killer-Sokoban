@@ -17,16 +17,7 @@ public class SokobanServer implements ControllerLogic {
     }
 
     public void Run() {
-        while (true) {
-            networkHandler.AcceptClient();
-            networkHandler.CollectMessages();
-            networkHandler.SendMessages();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        networkHandler.Listen();
     }
 
     @Override

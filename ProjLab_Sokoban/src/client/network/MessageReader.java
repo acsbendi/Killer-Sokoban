@@ -65,7 +65,7 @@ public class MessageReader {
             while (!stop);
         }
         catch (IOException e) {
-            e.printStackTrace();
+            networkHandler.Disconnected();
         }
     }
 }

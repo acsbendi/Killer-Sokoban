@@ -33,6 +33,7 @@ public class MessageWriter {
             do {
                 if (buffer.hasRemaining()) {
                     int bytesSent = channel.write(buffer);
+                    System.out.println(bytesSent + " bytes sent.");
                     if (!(bytesSent > 0)) {
                         stop = true;
                     }
@@ -43,7 +44,8 @@ public class MessageWriter {
                         ClientMessage msg = queue.get(0);
                         queue.remove(0);
                         byte type = msg.GetType().ConvertToByte();
-                        byte[] length = ByteBuffer.allocate(4).putInt(msg.GetLength()).order(ByteOrder.BIG_ENDIAN).array();
+                        byte[] length_big_endian = ByteBuffer.allocate(4).putInt(msg.GetLength()).order(ByteOrder.BIG_ENDIAN).array();
+                        byte[] length = { length_big_endian[2], length_big_endian[3] };
                         byte[] value = msg.GetValue();
                         buffer.put(type);
                         buffer.put(length);

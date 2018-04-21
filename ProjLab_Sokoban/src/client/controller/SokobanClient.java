@@ -13,7 +13,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     public static SokobanClient Create(UserInterface userInterface) {
         SokobanClient client = new SokobanClient(userInterface);
         userInterface.SetUserInputExecutor(client);
-        client.networkHandler = NetworkHandler.Create(client);
+        client.networkHandler = new NetworkHandler(client);
         return client;
     }
 
@@ -25,7 +25,6 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     public synchronized void Iterate() {
         networkHandler.CollectMessages();
         networkHandler.SendMessages();
-        System.out.println("Iteration");
     }
 
     @Override

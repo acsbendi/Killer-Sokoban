@@ -26,6 +26,7 @@ public class MessageReader {
             do {
                 if (header.hasRemaining()) {
                     int bytesRead = channel.read(header);
+                    System.out.println(bytesRead + " bytes read.");
                     if (!(bytesRead > 0)) {
                         stop = true;
                         if (bytesRead == -1) {
@@ -42,6 +43,7 @@ public class MessageReader {
                 }
                 else if (body.hasRemaining()) {
                     int bytesRead = channel.read(body);
+                    System.out.println(bytesRead + " bytes read.");
                     if (!(bytesRead > 0)) {
                         stop = true;
                         if (bytesRead == -1) {
@@ -51,9 +53,9 @@ public class MessageReader {
                 }
                 else {
                     ClientMessageType type = ClientMessageType.Create(header.get(0));
-                    header.flip();
-                    byte[] value = new byte[header.remaining()];
-                    header.get(value);
+                    body.flip();
+                    byte[] value = new byte[body.remaining()];
+                    body.get(value);
                     ClientMessage msg = new ClientMessage(type, value);
                     header.clear();
                     body.clear();
@@ -63,7 +65,7 @@ public class MessageReader {
             while (!stop);
         }
         catch (IOException e) {
-            e.printStackTrace();
+            networkHandler.Disconnected(channel);
         }
     }
 }

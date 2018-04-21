@@ -12,7 +12,9 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
 
 public class NetworkHandler {
@@ -22,9 +24,7 @@ public class NetworkHandler {
     private static final byte left = 3;
 
     private ControllerLogic controllerLogic;
-    private Selector acceptSelector;
-    private Selector readSelector;
-    private Selector writeSelector;
+    private Selector selector;
 
     private HashMap<SocketChannel, MessageReader> readers;
     private HashMap<SocketChannel, MessageWriter> writers;
@@ -39,22 +39,58 @@ public class NetworkHandler {
         this.clients = new HashMap<>();
 
         try {
-            acceptSelector = Selector.open();
-            readSelector = Selector.open();
-            writeSelector = Selector.open();
+            selector = Selector.open();
 
             ServerSocketChannel serverChannel = ServerSocketChannel.open();
-            serverChannel.socket().bind(new InetSocketAddress(8888));
+            serverChannel.bind(new InetSocketAddress(8888));
             serverChannel.configureBlocking(false);
 
-            serverChannel.register(acceptSelector, SelectionKey.OP_ACCEPT);
+            serverChannel.register(selector, SelectionKey.OP_ACCEPT);
             System.out.println("Server started listening on port 8888.");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void AcceptClient()
+    public void Listen() {
+        while(true) {
+            try {
+                selector.select();
+                Set<SelectionKey> selectedKeys = selector.selectedKeys();
+                Iterator<SelectionKey> iter = selectedKeys.iterator();
+                while (iter.hasNext()) {
+                    SelectionKey key = iter.next();
+
+                    if (key.isAcceptable()) {
+                        System.out.println("ACCEPT event triggered!");
+                        ServerSocketChannel serverChannel = (ServerSocketChannel) key.channel();
+                        SocketChannel clientChannel = serverChannel.accept();
+                        clientChannel.configureBlocking(false);
+                        clientChannel.register(selector, SelectionKey.OP_READ);
+
+                        readers.put(clientChannel, new MessageReader(this, clientChannel));
+                        writers.put(clientChannel, new MessageWriter(this, clientChannel));
+                        Client client = new Client();
+                        clients.put(clientChannel, client);
+                        channels.put(client, clientChannel);
+                        System.out.println(clientChannel.socket().getRemoteSocketAddress() + " connected.");
+                    }
+
+                    if (key.isReadable()) {
+                        System.out.println("READ event triggered!");
+                        SocketChannel channel = (SocketChannel) key.channel();
+                        readers.get(channel).CollectMessages();
+                    }
+
+                    iter.remove();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /*public void AcceptClient()
     {
         try {
             int readyChannels = acceptSelector.selectNow();
@@ -82,13 +118,15 @@ public class NetworkHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    public void CollectMessages() {
+    /*public void CollectMessages() {
         try {
+            System.out.println("Checking read selector...");
             int readyChannels = readSelector.selectNow();
             if (readyChannels == 0)
                 return;
+            System.out.println("Something to read...");
             Set<SelectionKey> selectedKeys = readSelector.selectedKeys();
             for(SelectionKey key : selectedKeys) {
                 readers.get(key.channel()).CollectMessages();
@@ -96,9 +134,9 @@ public class NetworkHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    public void SendMessages() {
+    /*public void SendMessages() {
         try {
             int readyChannels = writeSelector.selectNow();
             if (readyChannels == 0)
@@ -110,7 +148,7 @@ public class NetworkHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void Disconnected(SocketChannel channel) {
         try {
@@ -184,8 +222,8 @@ public class NetworkHandler {
         byte[] password_bytes = new byte[password_length];
         System.arraycopy(value, 2, username_bytes, 0, username_length);
         System.arraycopy(value, 2+username_length, password_bytes, 0, password_length);
-        String username = new String(username_bytes);
-        String password = new String(password_bytes);
+        String username = new String(username_bytes, StandardCharsets.UTF_8);
+        String password = new String(password_bytes, StandardCharsets.UTF_8);
         System.out.println(channel.socket().getRemoteSocketAddress().toString() + " logged in as: " + username + " with password: " + password);
         controllerLogic.Login(clients.get(channel), username, password);
     }
