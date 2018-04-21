@@ -1,9 +1,9 @@
 package client.network;
 
 import client.controller.ControllerLogic;
-import common.messages.ClientMessage;
-import common.messages.ClientMessageType;
-import common.messages.ServerMessage;
+import common.networking.ClientMessage;
+import common.networking.ClientMessageType;
+import common.networking.ServerMessage;
 import common.util.Direction;
 
 import java.io.IOException;
@@ -11,8 +11,6 @@ import java.net.InetSocketAddress;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 

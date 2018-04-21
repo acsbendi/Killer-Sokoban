@@ -1,6 +1,6 @@
 package client.network;
 
-import common.messages.ClientMessage;
+import common.networking.ClientMessage;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

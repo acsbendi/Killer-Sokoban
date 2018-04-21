@@ -1,6 +1,6 @@
 package server.network;
 
-import common.messages.ServerMessage;
+import common.networking.ServerMessage;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -25,6 +25,7 @@ public class MessageWriter {
 
     public void EnqueueMessage(ServerMessage msg) {
         queue.add(msg);
+        networkHandler.WriteRegister(channel);
     }
 
     public void SendMessages() {
@@ -52,6 +53,7 @@ public class MessageWriter {
                         buffer.flip(); // Setting back to reader mode.
                     }
                     else {
+                        networkHandler.WriteDeregister(channel);
                         stop = true;
                     }
                 }

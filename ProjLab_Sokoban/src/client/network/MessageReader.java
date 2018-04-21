@@ -1,17 +1,15 @@
 package client.network;
 
-import common.messages.ServerMessage;
-import common.messages.ServerMessageType;
+import common.networking.ServerMessage;
+import common.networking.ServerMessageType;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.nio.channels.SocketChannel;
 
 public class MessageReader {
     private NetworkHandler networkHandler;
     private SocketChannel channel;
-    private FileChannel file; // todo
     private ByteBuffer header;
     private ByteBuffer body;
 

@@ -1,17 +1,15 @@
 package server.network;
 
-import common.messages.ClientMessage;
-import common.messages.ClientMessageType;
+import common.networking.ClientMessage;
+import common.networking.ServerMessage;
+import common.networking.ServerMessageType;
 import common.util.Direction;
 import server.controller.Client;
 import server.controller.ControllerLogic;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -48,6 +46,26 @@ public class NetworkHandler {
             serverChannel.register(selector, SelectionKey.OP_ACCEPT);
             System.out.println("Server started listening on port 8888.");
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void WriteRegister(SocketChannel channel) {
+        try {
+            SelectionKey key = channel.keyFor(selector);
+            key.cancel();
+            channel.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+        } catch (ClosedChannelException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void WriteDeregister(SocketChannel channel) {
+        try {
+            SelectionKey key = channel.keyFor(selector);
+            key.cancel();
+            channel.register(selector, SelectionKey.OP_READ);
+        } catch (ClosedChannelException e) {
             e.printStackTrace();
         }
     }
@@ -90,75 +108,81 @@ public class NetworkHandler {
         }
     }
 
-    public void RegistrationSuccess() {
+    public void RegistrationSuccess(Client client) {
+        byte[] value = new byte[1];
+        value[0] = 0;
+        ServerMessage msg = new ServerMessage(ServerMessageType.RegisterResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
+    public void RegistrationFailure(Client client, String err) {
 
     }
 
-    public void RegistrationFailure(String err) {
+    public void LoginSuccess(Client client) {
+        byte[] value = new byte[1];
+        value[0] = 0;
+        ServerMessage msg = new ServerMessage(ServerMessageType.LoginResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
+    public void LoginFailure(Client client, String err) {
 
     }
 
-    public void LoginSuccess() {
+    public void LogoutSuccess(Client client) {
 
     }
 
-    public void LoginFailure(String err) {
+    public void LogoutFailure(Client client, String err) {
 
     }
 
-    public void LogoutSuccess() {
+    public void Results(Client client, String msg) {
 
     }
 
-    public void LogoutFailure(String err) {
+    public void ResultFailure(Client client, String err) {
 
     }
 
-    public void Results(String msg) {
+    public void EnterSuccess(Client client) {
 
     }
 
-    public void ResultFailure(String err) {
+    public void EnterFailure(Client client, String err) {
 
     }
 
-    public void EnterSuccess() {
+    public void LeaveSuccess(Client client) {
 
     }
 
-    public void EnterFailure(String err) {
+    public void LeaveFailure(Client client, String err) {
 
     }
 
-    public void LeaveSuccess() {
+    public void CheckLevel(Client client, int level_id) {
 
     }
 
-    public void LeaveFailure(String err) {
+    public void GameStarted(Client client, int worker) {
 
     }
 
-    public void CheckLevel(int level_id) {
+    public void WorkerMoved(Client client, int player,Direction dir) {
 
     }
 
-    public void GameStarted(int worker) {
+    public void OilPlaced(Client client, int player) {
 
     }
 
-    public void WorkerMoved(int player,Direction dir) {
+    public void HoneyPlaced(Client client, int player) {
 
     }
 
-    public void OilPlaced(int player) {
-
-    }
-
-    public void HoneyPlaced(int player) {
-
-    }
-
-    public void GameFinished() {
+    public void GameFinished(Client client) {
 
     }
 

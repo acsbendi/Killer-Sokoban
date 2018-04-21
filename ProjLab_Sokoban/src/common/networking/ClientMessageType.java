@@ -1,4 +1,4 @@
-package common.messages;
+package common.networking;
 
 import java.util.TreeMap;
 

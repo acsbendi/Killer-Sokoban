@@ -1,4 +1,4 @@
-package common.messages;
+package common.networking;
 
 public class ClientMessage {
     private ClientMessageType type;

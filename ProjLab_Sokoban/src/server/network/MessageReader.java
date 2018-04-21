@@ -1,7 +1,7 @@
 package server.network;
 
-import common.messages.ClientMessage;
-import common.messages.ClientMessageType;
+import common.networking.ClientMessage;
+import common.networking.ClientMessageType;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
