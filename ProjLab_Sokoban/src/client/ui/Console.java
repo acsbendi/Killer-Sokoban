@@ -6,6 +6,8 @@ import client.ui.Commands.InvalidArgumentException;
 import common.util.Direction;
 
 import java.io.*;
+import java.nio.Buffer;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -63,7 +65,7 @@ public class Console extends UserInterface {
         CCommands.put(cCmd.getHelp(), cCmd);
         cCmd = new CInfo();
         CCommands.put(cCmd.getHelp(), cCmd);
-        cCmd = new CList();
+        cCmd = new CExit();
         CCommands.put(cCmd.getHelp(), cCmd);
         cCmd = new CRun();
         CCommands.put(cCmd.getHelp(), cCmd);
@@ -80,9 +82,9 @@ public class Console extends UserInterface {
         BufferedReader inputReader;
         try {
             inputReader = new BufferedReader(new InputStreamReader(System.in));
-            boolean keepRunning = true;
-            while (keepRunning) {
-                keepRunning = interprete(inputReader.readLine());
+            String inputLine = "";
+            while ((inputLine = inputReader.readLine()) != null) {
+                interprete(inputLine);
             }
         }catch(IOException ioe){
             StringWriter sw = new StringWriter();
@@ -92,25 +94,22 @@ public class Console extends UserInterface {
         }
     }
 
-    private boolean interprete(String command){
+    private void interprete(String command){
         try {
             if (UIECommands.containsKey(command)){
                 UIECommands.get(command).Execute(userInputExecutor, command.split(" "));
-                return true;
             }
             else if(CCommands.containsKey(command)) {
                 CCommands.get(command).Execute(this, command.split(" "));
-                return true;
+            }else{
+                System.out.println("Invalid command");
             }
-            else if("exit".equals(command.split(" ")[0]))
-                return false;
         }catch(InvalidArgumentException iae){
             write(iae.getMessage());
         }
     }
 
     public void printInfo(String cmdName){
-        //TODO
         if(UIECommands.containsKey(cmdName)) {
             write(UIECommands.get(cmdName).getHelp());
             return;
@@ -125,8 +124,16 @@ public class Console extends UserInterface {
         //TODO
     }
 
-    public void save(String fileName){
+    public void save(String fileName) throws FileAlreadyExistsException {
         //TODO
+        File sketch = new File(System.getProperty("user.dir"), fileName);
+        if(sketch.exists())
+            throw new FileAlreadyExistsException(fileName);
+        try {
+            sketch.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void clear(){
@@ -139,8 +146,27 @@ public class Console extends UserInterface {
         }catch(InterruptedException ie){}
     }
 
-    public void runSketch(String fileName){
-        //TODO
+    public void runSketch(String fileName) throws FileNotFoundException {
+        File sketch = new File(System.getProperty("user.dir"), fileName);
+        if(sketch.exists()){
+            BufferedReader br = new BufferedReader(
+                                    new InputStreamReader(
+                                        new FileInputStream(sketch)));
+            String inputLine = "";
+            try {
+                while ((inputLine = br.readLine()) != null) {
+                    interprete(inputLine);
+                }
+            } catch (IOException ioe){
+
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                ioe.printStackTrace(pw);
+                write(sw.toString());
+            }
+        }else{
+            throw new FileNotFoundException(fileName);
+        }
     }
 
     public void exit(){
