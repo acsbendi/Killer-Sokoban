@@ -56,7 +56,6 @@ public class NetworkHandler implements INetworkHandler {
                 success = false;
                 e.printStackTrace();
             }
-
             if (success) {
                 try {
                     channel.configureBlocking(false);
@@ -112,7 +111,7 @@ public class NetworkHandler implements INetworkHandler {
 
     public void Listen() {
         try {
-            selector.select();
+            selector.selectNow();
             Set<SelectionKey> selectedKeys = selector.selectedKeys();
             Iterator<SelectionKey> iter = selectedKeys.iterator();
             while (iter.hasNext()) {

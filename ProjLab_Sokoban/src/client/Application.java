@@ -12,13 +12,13 @@ public class Application {
         }
 
         public void run() {
-            try {
-                while (true) {
+            while (true) {
+                try {
                     sokobanClient.Iterate();
                     Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     }
