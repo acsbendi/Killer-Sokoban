@@ -144,7 +144,7 @@ public class NetworkHandler {
         if (channel.isConnected()) {
             try {
                 channel.close();
-                channel.open();
+                channel = SocketChannel.open();
             } catch (IOException e) {
                 e.printStackTrace();
             }
