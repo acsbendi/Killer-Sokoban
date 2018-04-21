@@ -106,20 +106,34 @@ public class NetworkHandler {
 
     public void Connect() {
         if (!channel.isConnected()) {
+            boolean success;
             try {
                 channel.configureBlocking(true);
                 channel.socket().connect(new InetSocketAddress("vm.ik.bme.hu", 7305), 2000);
-                controllerLogic.ConnectionResult(true);
+                success = true;
             } catch (SocketTimeoutException e) {
-                controllerLogic.ConnectionResult(false);
+                success = false;
             } catch (IOException e) {
+                success = false;
                 e.printStackTrace();
             }
 
-            try {
-                channel.configureBlocking(false);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (success) {
+                try {
+                    channel.configureBlocking(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                controllerLogic.ConnectionResult(true);
+            }
+            else {
+                try {
+                    channel = SocketChannel.open();
+                    channel.configureBlocking(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                controllerLogic.ConnectionResult(false);
             }
         }
     }
