@@ -2,29 +2,66 @@ package common.model;
 
 import common.util.Direction;
 
+/**
+ * The class representing worker, a type of placeholder, that is, it can occupy a field.
+ */
 public class Worker extends Placeholder {
+
+    /** The force of this worker, plays a role in moving. */
 	private int force;
-	public static int defaultForce=80;
-	
+
+    /** The default force of workers. */
+	private static final int defaultForce = 80;
+
+    /** The mass of a worker, the same constant value for all Worker objects */
+    private static final int mass = 10;
+
+    /**
+     * Constructs a new worker, with the specified force.
+     */
 	public Worker(int force) {
-		this.force=force;
+		super(mass);
+	    this.force=force;
 	}
 
+    /**
+     * Constructs a new worker, with the default force.
+     */
 	public Worker() {
-		force=defaultForce;
+		super(mass);
+	    force=defaultForce;
 	}
 
+    /**
+     * The worker is pushed by another worker, nothing happens.
+     * @param w The pushing worker.
+     * @param dir The direction of the push (move).
+     * @param move The move, during which the push is carried out.
+     */
 	@Override
 	public void PushedBy(Worker w, Direction dir,Move move) {
 
 	}
 
+    /**
+     * The worker pushes another placeholder, calls the PushedBy method on that placeholder
+     * (for double dispatch through visitor pattern)
+     * @param obj The placeholder to be pushed by this worker.
+     * @param dir The direction of the push (move).
+     * @param move The move, during which the push is carried out.
+     */
 	@Override
 	public void Push(Placeholder obj, Direction dir,Move move) {
 		obj.PushedBy(this, dir,move);
 	}
 
 
+    /**
+     * The worker is pushed by a box, tries to move to the next field, gets destroyed on failure.
+     * @param box The pushing box.
+     * @param dir The direction of the push (move).
+     * @param move The move, during which the push is carried out.
+     */
 	@Override
 	public void PushedBy(Box box, Direction dir,Move move) {
 		Tile from=tile;
@@ -33,16 +70,29 @@ public class Worker extends Placeholder {
 			Destroy();		
 	}
 
+    /**
+     * Worker arrives at a goal tile, nothing happens.
+     * @param gt The goal tile, on which the worker arrives.
+     * @param move The move, during which it arrives.
+     */
 	@Override
 	public void ArrivedAt(GoalTile gt,Move move) {
 
 	}
 
+    /**
+     * Worker arrives at a lever tile, nothing happens.
+     * @param lt The lever tile, on which the worker arrives.
+     */
 	@Override
 	public void ArrivedAt(LeverTile lt) {
 
 	}
-	
+
+    /**
+     * The worker starts a new move in the specified direction.
+     * @param dir The direction of the move.
+     */
 	public void Move(Direction dir) { //TODO
 		Tile old = tile;
 		Move move = new Move(this);
@@ -51,14 +101,25 @@ public class Worker extends Placeholder {
 			tile.Check(dir);
 	}
 
+    /**
+     * Returns the force of the worker.
+     * @return The force that the worker has.
+     */
 	public int GetForce() {
 		return force;
 	}
 
+    /**
+     * The worker places a specified liquid on its current field.
+     * @param liquid The liquid to be placed.
+     */
 	public void Place(Liquid liquid) {
 		tile.Place(liquid);
 	}
 
+    /**
+     * Worker accepts point.
+     */
 	public void AcceptPoint() {
 		// TODO Auto-generated method stub
 		
