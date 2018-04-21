@@ -22,7 +22,7 @@ public class SokobanServer implements ControllerLogic {
 
     @Override
     public void Register(Client client, String username, String password) {
-        networkHandler
+
     }
 
     @Override

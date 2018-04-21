@@ -1,9 +1,6 @@
 package server.network;
 
-import common.networking.ClientMessage;
-import common.networking.INetworkHandler;
-import common.networking.ServerMessage;
-import common.networking.ServerMessageType;
+import common.networking.*;
 import common.util.Direction;
 import server.controller.Client;
 import server.controller.ControllerLogic;
@@ -25,8 +22,8 @@ public class NetworkHandler implements INetworkHandler {
     private ControllerLogic controllerLogic;
     private Selector selector;
 
-    private HashMap<SocketChannel, MessageReader> readers;
-    private HashMap<SocketChannel, MessageWriter> writers;
+    private HashMap<SocketChannel, MessageReader<ClientMessage>> readers;
+    private HashMap<SocketChannel, MessageWriter<ServerMessage>> writers;
     private HashMap<Client, SocketChannel> channels;
     private HashMap<SocketChannel, Client> clients;
 
