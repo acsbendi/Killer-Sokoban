@@ -1,6 +1,6 @@
 package common.networking;
 
-public class ServerMessage {
+public class ServerMessage implements IMessage {
     private ServerMessageType type;
     private byte[] value;
 
@@ -11,6 +11,10 @@ public class ServerMessage {
 
     public ServerMessageType GetType() {
         return type;
+    }
+
+    public byte ConvertTypeToByte() {
+        return this.GetType().ConvertToByte();
     }
 
     public int GetLength() {

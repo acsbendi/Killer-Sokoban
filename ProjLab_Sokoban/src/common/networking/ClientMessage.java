@@ -1,6 +1,6 @@
 package common.networking;
 
-public class ClientMessage {
+public class ClientMessage implements IMessage {
     private ClientMessageType type;
     private byte[] value;
 
@@ -11,6 +11,10 @@ public class ClientMessage {
 
     public ClientMessageType GetType() {
         return type;
+    }
+
+    public byte ConvertTypeToByte() {
+        return this.GetType().ConvertToByte();
     }
 
     public int GetLength() {
