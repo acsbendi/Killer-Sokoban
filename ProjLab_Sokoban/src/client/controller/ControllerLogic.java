@@ -24,4 +24,5 @@ void OilPlaced(int player);
 void HoneyPlaced(int player);
 void GameFinished();
 void OfflineFailure();
+void OnlineFailure();
 }

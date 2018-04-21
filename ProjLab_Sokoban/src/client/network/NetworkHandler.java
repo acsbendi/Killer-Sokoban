@@ -42,7 +42,6 @@ public class NetworkHandler {
         this.controllerLogic = controllerLogic;
         try {
             channel = SocketChannel.open();
-            channel.configureBlocking(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -136,10 +135,23 @@ public class NetworkHandler {
                 controllerLogic.ConnectionResult(false);
             }
         }
+        else {
+            controllerLogic.OnlineFailure();
+        }
     }
 
     public void Disconnect() {
-        // todo
+        if (channel.isConnected()) {
+            try {
+                channel.close();
+                channel.open();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            controllerLogic.OfflineFailure();
+        }
     }
 
     public void Register(String username, String password) {

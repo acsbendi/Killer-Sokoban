@@ -14,11 +14,11 @@ public class UIEDisconnect implements UIECommand {
 
     @Override
     public String getHelp() {
-        return null;
+        return "Disconnects the server.";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "disconnect";
     }
 }
