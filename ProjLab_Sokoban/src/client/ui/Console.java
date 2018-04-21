@@ -1,10 +1,8 @@
 package client.ui;
 
-import client.ui.Commands.ConsoleCommands.CCommand;
-import client.ui.Commands.UserInputExecutorCommands.UIECommand;
+import client.ui.Commands.ConsoleCommands.*;
+import client.ui.Commands.UserInputExecutorCommands.*;
 import client.ui.Commands.InvalidArgumentException;
-import client.ui.Commands.UserInputExecutorCommands.UIEConnect;
-import client.ui.Commands.UserInputExecutorCommands.UIEDisconnect;
 import common.util.Direction;
 
 import java.io.*;
@@ -27,10 +25,52 @@ public class Console extends UserInterface {
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEDisconnect();
         UIECommands.put(cmd.getName(), cmd);
-        //TODO> minden UIECommandra
+        cmd = new UIEEnter();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEExit();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIELeave();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIELogin();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIELogout();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEMove();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEOwnResults();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEPlaceHoney();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEPlaceOil();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEPutHoney();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEPlaceOil();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEPutOil();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIERegistration();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEStep();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIETopResults();
+        UIECommands.put(cmd.getName(), cmd);
 
-        //TODO> minden CCommandra
-        CCommand cCmd = ;
+
+        CCommand cCmd = new CClear();
+        CCommands.put(cCmd.getHelp(), cCmd);
+        cCmd = new CCompare();
+        CCommands.put(cCmd.getHelp(), cCmd);
+        cCmd = new CInfo();
+        CCommands.put(cCmd.getHelp(), cCmd);
+        cCmd = new CList();
+        CCommands.put(cCmd.getHelp(), cCmd);
+        cCmd = new CRun();
+        CCommands.put(cCmd.getHelp(), cCmd);
+        cCmd = new CSave();
+        CCommands.put(cCmd.getHelp(), cCmd);
+        cCmd = new CWait();
+        CCommands.put(cCmd.getHelp(), cCmd);
     }
     // Amíg nincs exit parancs: fogadni inputot!!
     // ha pl. connect parancs jött: userInputExecutor.Connect();
@@ -71,10 +111,17 @@ public class Console extends UserInterface {
 
     public void printInfo(String cmdName){
         //TODO
-        write(Command.getHelp);
+        if(UIECommands.containsKey(cmdName)) {
+            write(UIECommands.get(cmdName).getHelp());
+            return;
+        }
+        if(UIECommands.containsKey(cmdName)) {
+            write(UIECommands.get(cmdName).getHelp());
+            return;
+        }
     }
 
-    public void compare(){
+    public void compare(String fileName){
         //TODO
     }
 
@@ -94,6 +141,10 @@ public class Console extends UserInterface {
 
     public void runSketch(String fileName){
         //TODO
+    }
+
+    public void exit(){
+        System.exit(0);
     }
 
     private void write(String s){

@@ -6,16 +6,18 @@ import client.ui.Console;
 public class CInfo implements CCommand {
     @Override
     public void Execute(Console executor, String[] args) throws InvalidArgumentException {
-
+        if(args.length > 2)
+            throw new InvalidArgumentException(2);
+        executor.printInfo(args[1]);
     }
 
     @Override
     public String getHelp() {
-        return null;
+        return "Prints more details about the command in the argument";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "info";
     }
 }
