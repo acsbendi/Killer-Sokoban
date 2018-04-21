@@ -11,7 +11,7 @@ public class UIEMaketest implements UIECommand {
 
     @Override
     public String getHelp() {
-        return null;
+        return "Creates a new test scenario according to the arguments.";
     }
 
     @Override

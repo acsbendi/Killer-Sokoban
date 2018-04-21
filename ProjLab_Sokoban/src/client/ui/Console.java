@@ -95,10 +95,10 @@ public class Console extends UserInterface {
         String[] splitted = command.split(" ");
         try {
             if (UIECommands.containsKey(splitted[0])){
-                UIECommands.get(command).Execute(userInputExecutor, splitted);
+                UIECommands.get(splitted[0]).Execute(userInputExecutor, splitted);
             }
             else if(CCommands.containsKey(splitted[0])) {
-                CCommands.get(command).Execute(this, splitted);
+                CCommands.get(splitted[0]).Execute(this, splitted);
             }else{
                 System.out.println("Invalid command");
             }
