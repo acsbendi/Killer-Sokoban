@@ -1,0 +1,1611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ProjLab_Sokoban:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="SokobanServer edited." />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="NetworkHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/network/NetworkHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="114" column="37" lean-forward="true" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocketAdaptor.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/ch/SocketAdaptor.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="986">
+              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+              <folding>
+                <marker date="1493485557236" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1493485557236" expanded="false" signature="134:842" ph="..." />
+                <marker date="1493485557236" expanded="true" signature="1090:1154" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="1212:1390" ph="{...}" />
+                <marker date="1493485557236" expanded="false" signature="1429:1440" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="1455:1461" ph=" }" />
+                <marker date="1493485557236" expanded="true" signature="1526:1564" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="1639:3910" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="3972:4113" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="4155:4293" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="4336:4620" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="4647:4779" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="4811:4947" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="5008:5962" ph="{...}" />
+                <marker date="1493485557236" expanded="false" signature="5502:5618" ph="run() → {" />
+                <marker date="1493485557236" expanded="false" signature="5722:5749" ph="}" />
+                <marker date="1493485557236" expanded="true" signature="6025:6891" ph="{...}" />
+                <marker date="1493485557236" expanded="false" signature="6485:6599" ph="run() → {" />
+                <marker date="1493485557236" expanded="false" signature="6696:6719" ph="}" />
+                <marker date="1493485557236" expanded="true" signature="6992:7154" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="7247:7409" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="7499:7696" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="7778:7972" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="8041:8120" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="8180:8260" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="8337:8465" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="8519:8593" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="8655:8812" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="8880:8959" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="9018:9098" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="9162:9330" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="9385:9421" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="9490:9688" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="9748:9822" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="9894:10095" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="10158:10232" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="10300:10380" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="10439:10520" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="10587:10657" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="10715:10786" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="10857:10937" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="10999:11080" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="11125:11157" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="11210:11356" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="11410:11557" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="11588:11770" ph="{...}" />
+                <marker date="1493485557236" expanded="false" signature="11804:11815" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="11844:11850" ph=" }" />
+                <marker date="1493485557236" expanded="false" signature="11880:11891" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="11929:11935" ph=" }" />
+                <marker date="1493485557236" expanded="false" signature="11966:11977" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="12002:12008" ph=" }" />
+                <marker date="1493485557236" expanded="false" signature="12046:12057" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="12087:12093" ph=" }" />
+                <marker date="1493485557236" expanded="false" signature="12132:12143" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="12174:12180" ph=" }" />
+                <marker date="1493485557236" expanded="true" signature="12245:14211" ph="{...}" />
+                <marker date="1493485557236" expanded="false" signature="12282:12297" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="12326:12336" ph=" }" />
+                <marker date="1493485557236" expanded="true" signature="12401:14205" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocketChannelImpl.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/ch/SocketChannelImpl.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14059">
+              <caret line="854" column="0" lean-forward="false" selection-start-line="854" selection-start-column="0" selection-end-line="854" selection-end-column="0" />
+              <folding>
+                <marker date="1493485557236" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1493485557236" expanded="false" signature="134:1066" ph="..." />
+                <marker date="1493485557236" expanded="true" signature="2141:2273" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="2374:2578" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="2689:2893" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="2922:3160" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="3224:3510" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="3575:3833" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="3923:5012" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="5082:6065" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="6124:6201" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="6270:6626" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="6693:7084" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="7138:7347" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="7401:7610" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="7668:11097" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="7668:11348" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="11429:14753" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="14812:17524" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="17606:20554" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="20612:23137" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="23213:23269" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="23315:23447" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="23490:23623" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="23694:24945" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="24980:25110" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="25153:25283" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="25340:25729" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="25797:28888" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="28944:34676" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="34738:35371" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="35434:36069" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="36104:36235" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="36271:36403" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="36472:37043" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="37087:37670" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="37752:38662" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="38743:38821" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="38899:38960" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="39015:39771" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="39849:40150" ph="{...}" />
+                <marker date="1493485557236" expanded="false" signature="40185:40196" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="40211:40217" ph=" }" />
+                <marker date="1493485557236" expanded="false" signature="40244:40255" ph=" { " />
+                <marker date="1493485557236" expanded="false" signature="40273:40279" ph=" }" />
+                <marker date="1493485557236" expanded="true" signature="40310:41684" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="41911:41978" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="42026:42911" ph="{...}" />
+                <marker date="1493485557236" expanded="true" signature="42145:42156" ph="{}" />
+                <marker date="1493485557236" expanded="true" signature="42219:42905" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetworkHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/network/NetworkHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1853">
+              <caret line="122" column="28" lean-forward="false" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
+              <folding>
+                <element signature="e#7212#7213#0" expanded="true" />
+                <element signature="e#7272#7273#0" expanded="true" />
+                <element signature="e#7516#7517#0" expanded="true" />
+                <element signature="e#7575#7576#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/ClientState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="41" lean-forward="false" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SokobanServer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/SokobanServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SokobanClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1768">
+              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+              <folding>
+                <element signature="e#3140#3141#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>configure</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Skeleton" />
+      </map>
+    </option>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/model/LeverTile.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/Application.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase01.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase02.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase03.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase04.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase05.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase06.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase07.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase08.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase13.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase14.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase15.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase16.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase17.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase18.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/Main.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/model/TrapTile.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/messages/ClientMessage.java" />
+        <option value="$PROJECT_DIR$/../SokobanServer/src/ClientMessageType.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/messages/ClientMessageType.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/messages/ServerMessageType.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/messages/ServerMessage.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ServerMessage.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ClientMessageType.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ServerMessageType.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/common/util/Direction.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ClientMessage.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/network/MessageReader.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/Console.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/UserInputExecutor.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/network/MessageWriter.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/network/MessageReader.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/network/MessageWriter.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/Box.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/UserInterface.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/ControllerLogic.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Console.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/Warehouse.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/Application.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CSave.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEDisconnect.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/ControllerLogic.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/network/NetworkHandler.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/ClientState.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/Client.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/Application.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/SokobanServer.java" />
+        <option value="$PROJECT_DIR$/ProjLab_Sokoban/src/client/network/NetworkHandler.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="Commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ProjLab_Sokoban" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="client.network" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Application (1)">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="client.Application" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ProjLab_Sokoban" />
+      <envs />
+    </configuration>
+    <configuration name="Application (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="server.Application" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ProjLab_Sokoban" />
+      <envs />
+    </configuration>
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="skeleton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="skeleton.Application" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ProjLab_Sokoban" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="skeleton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="skeleton.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ProjLab_Sokoban" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Application.Application" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Application (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Application (2)" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.Application (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Application (2)" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="" />
+      <created>1521397750588</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521397750588</updated>
+    </task>
+    <task id="LOCAL-00001" summary="ELCSESZTEM">
+      <created>1521397907720</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521397907720</updated>
+    </task>
+    <task id="LOCAL-00002" summary="MEGJAVITOTTAM">
+      <created>1521397984639</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1521397984639</updated>
+    </task>
+    <task id="LOCAL-00003" summary="TEST">
+      <created>1521399409617</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1521399409617</updated>
+    </task>
+    <task id="LOCAL-00004" summary="TEST">
+      <created>1521399499344</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1521399499344</updated>
+    </task>
+    <task id="LOCAL-00005" summary="TEST">
+      <created>1521404671986</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1521404671986</updated>
+    </task>
+    <task id="LOCAL-00006" summary="TEST">
+      <created>1521405950674</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1521405950674</updated>
+    </task>
+    <task id="LOCAL-00007" summary="TEST">
+      <created>1521407893138</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1521407893138</updated>
+    </task>
+    <task id="LOCAL-00008" summary="TEST">
+      <created>1521408071669</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1521408071669</updated>
+    </task>
+    <task id="LOCAL-00009" summary="TEST">
+      <created>1521408101258</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1521408101258</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Test Case #18 created.">
+      <created>1521411077384</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1521411077384</updated>
+    </task>
+    <task id="LOCAL-00011" summary="this.placeholder = obj; added">
+      <created>1521413630536</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1521413630536</updated>
+    </task>
+    <task id="LOCAL-00012" summary="LeverTile.ReleaseObject() fixed.">
+      <created>1521414401901</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1521414401901</updated>
+    </task>
+    <task id="LOCAL-00013" summary="testcase17 fixed">
+      <created>1521414667818</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1521414667818</updated>
+    </task>
+    <task id="LOCAL-00014" summary="testcase17 fixed">
+      <created>1521415969447</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1521415969447</updated>
+    </task>
+    <task id="LOCAL-00015" summary="testcase17 fixed">
+      <created>1521418890593</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1521418890593</updated>
+    </task>
+    <task id="LOCAL-00016" summary="main : loop added">
+      <created>1521619395653</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1521619395653</updated>
+    </task>
+    <task id="LOCAL-00017" summary="ClientMessage, ClientMessageType classes added.">
+      <created>1523954397029</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1523954397029</updated>
+    </task>
+    <task id="LOCAL-00018" summary="ServerMessage, ServerMessageType classes added.">
+      <created>1523954642477</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1523954642477</updated>
+    </task>
+    <task id="LOCAL-00019" summary="client, server, common packages created.">
+      <created>1523955136989</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1523955136989</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Client's NetworkHandler, MessageReader, MessageWriter created.">
+      <created>1523958454908</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1523958454908</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Client's NetworkHandler, MessageReader, MessageWriter modified.">
+      <created>1523959309620</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1523959309620</updated>
+    </task>
+    <task id="LOCAL-00022" summary="NetworkHandler edited.">
+      <created>1523961756443</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1523961756443</updated>
+    </task>
+    <task id="LOCAL-00023" summary="NetworkHandler edited.">
+      <created>1523963571031</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1523963571031</updated>
+    </task>
+    <task id="LOCAL-00024" summary="NetworkHandler, SokobanClient, ControllerLogic edited.">
+      <created>1523975610583</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1523975610583</updated>
+    </task>
+    <task id="LOCAL-00025" summary="NetworkHandler, ControllerLogic edited.">
+      <created>1523977287972</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1523977287972</updated>
+    </task>
+    <task id="LOCAL-00026" summary="2x Application added, SokobanClient, NetworkHandler edited.">
+      <created>1523980089845</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1523980089845</updated>
+    </task>
+    <task id="LOCAL-00027" summary="NetworkHandler edited.">
+      <created>1523981529269</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1523981529269</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Client's MessageWriter class completed.">
+      <created>1524218550875</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1524218550875</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Client's MessageReader class edited.">
+      <created>1524222018721</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1524222018721</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Console, Application created.">
+      <created>1524233489206</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1524233489206</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Client's networking edited.">
+      <created>1524237869869</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1524237869869</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Server created.">
+      <created>1524238572620</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1524238572620</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Server's networkHandler edited.">
+      <created>1524239891771</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1524239891771</updated>
+    </task>
+    <task id="LOCAL-00034" summary="SokobanClient edited.">
+      <created>1524255136995</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1524255136995</updated>
+    </task>
+    <task id="LOCAL-00035" summary="SokobanClient edited.">
+      <created>1524256201616</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1524256201616</updated>
+    </task>
+    <task id="LOCAL-00036" summary="SokobanClient edited.">
+      <created>1524256264152</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1524256264152</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Server's network handler edited.">
+      <created>1524260333665</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1524260333665</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Server: ControllerLogic interface created.">
+      <created>1524262133359</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1524262133359</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Server: NetworkHandler edited.">
+      <created>1524264092663</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1524264092663</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Client's network handler edited.">
+      <created>1524304236967</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1524304236967</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Client's network handler edited.">
+      <created>1524304637093</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1524304637093</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Client's network handler edited.">
+      <created>1524305260832</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1524305260832</updated>
+    </task>
+    <task id="LOCAL-00043" summary="SokobanServer edited.">
+      <created>1524306247049</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1524306247049</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28632027" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14422058" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18489583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28632027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="this.placeholder = obj; added" />
+    <MESSAGE value="LeverTile.ReleaseObject() fixed." />
+    <MESSAGE value="testcase17 fixed" />
+    <MESSAGE value="main : loop added" />
+    <MESSAGE value="ClientMessage, ClientMessageType classes added." />
+    <MESSAGE value="ServerMessage, ServerMessageType classes added." />
+    <MESSAGE value="client, server, common packages created." />
+    <MESSAGE value="Client's NetworkHandler, MessageReader, MessageWriter created." />
+    <MESSAGE value="Client's NetworkHandler, MessageReader, MessageWriter modified." />
+    <MESSAGE value="NetworkHandler, SokobanClient, ControllerLogic edited." />
+    <MESSAGE value="NetworkHandler, ControllerLogic edited." />
+    <MESSAGE value="2x Application added, SokobanClient, NetworkHandler edited." />
+    <MESSAGE value="NetworkHandler edited." />
+    <MESSAGE value="Client's MessageWriter class completed." />
+    <MESSAGE value="Client's MessageReader class edited." />
+    <MESSAGE value="Console, Application created." />
+    <MESSAGE value="Client's networking edited." />
+    <MESSAGE value="Server created." />
+    <MESSAGE value="Server's networkHandler edited." />
+    <MESSAGE value="SokobanClient edited." />
+    <MESSAGE value="Server's network handler edited." />
+    <MESSAGE value="Server: ControllerLogic interface created." />
+    <MESSAGE value="Server: NetworkHandler edited." />
+    <MESSAGE value="Client's network handler edited." />
+    <MESSAGE value="SokobanServer edited." />
+    <option name="LAST_COMMIT_MESSAGE" value="SokobanServer edited." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase11.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase08.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase07.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/TestCase10.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/skeleton/Main.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/TrapTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SokobanServer/src/ServerMessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/dummy.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/dummy.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/FieldView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SokobanServer/src/ClientMessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/util/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ClientMessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+          <folding>
+            <element signature="e#696#697#0" expanded="false" />
+            <element signature="e#733#734#0" expanded="false" />
+            <element signature="e#778#779#0" expanded="false" />
+            <element signature="e#812#813#0" expanded="false" />
+            <element signature="e#847#848#0" expanded="false" />
+            <element signature="e#875#876#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SokobanServer/src/MessageReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="22" column="49" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/util/Factory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ServerMessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ClientMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/Oil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/Box.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="33" column="30" lean-forward="true" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/messages/ServerMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/network/MessageWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#819#820#0" expanded="false" />
+            <element signature="e#849#850#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/network/MessageReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="59" column="64" lean-forward="false" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/network/MessageWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#819#820#0" expanded="false" />
+            <element signature="e#849#850#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SokobanServer/src/NetworkHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/ControllerLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/Liquid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/LeverTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIECommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/util/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/common/model/Warehouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CSave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEEnter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/ControllerLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Console.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding>
+            <element signature="e#5635#5636#0" expanded="false" />
+            <element signature="e#5665#5666#0" expanded="false" />
+            <element signature="e#6016#6017#0" expanded="false" />
+            <element signature="e#6053#6054#0" expanded="false" />
+            <element signature="e#6108#6109#0" expanded="false" />
+            <element signature="e#6155#6156#0" expanded="false" />
+            <element signature="e#6220#6221#0" expanded="false" />
+            <element signature="e#6246#6247#0" expanded="false" />
+            <element signature="e#6294#6295#0" expanded="false" />
+            <element signature="e#6336#6337#0" expanded="false" />
+            <element signature="e#6394#6395#0" expanded="false" />
+            <element signature="e#6420#6421#0" expanded="false" />
+            <element signature="e#6469#6470#0" expanded="false" />
+            <element signature="e#6512#6513#0" expanded="false" />
+            <element signature="e#6571#6572#0" expanded="false" />
+            <element signature="e#6597#6598#0" expanded="false" />
+            <element signature="e#6650#6651#0" expanded="false" />
+            <element signature="e#6676#6677#0" expanded="false" />
+            <element signature="e#6735#6736#0" expanded="false" />
+            <element signature="e#6761#6762#0" expanded="false" />
+            <element signature="e#6809#6810#0" expanded="false" />
+            <element signature="e#6847#6848#0" expanded="false" />
+            <element signature="e#6905#6906#0" expanded="false" />
+            <element signature="e#6931#6932#0" expanded="false" />
+            <element signature="e#6979#6980#0" expanded="false" />
+            <element signature="e#7014#7015#0" expanded="false" />
+            <element signature="e#7072#7073#0" expanded="false" />
+            <element signature="e#7098#7099#0" expanded="false" />
+            <element signature="e#7312#7313#0" expanded="false" />
+            <element signature="e#7367#7368#0" expanded="false" />
+            <element signature="e#7416#7417#0" expanded="false" />
+            <element signature="e#7470#7471#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEDisconnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/network/MessageReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/UserInputExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/ClientState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="41" lean-forward="false" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/controller/SokobanServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/server/network/NetworkHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="122" column="28" lean-forward="false" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
+          <folding>
+            <element signature="e#7212#7213#0" expanded="true" />
+            <element signature="e#7272#7273#0" expanded="true" />
+            <element signature="e#7516#7517#0" expanded="true" />
+            <element signature="e#7575#7576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="e#3140#3141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/ch/SocketAdaptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <marker date="1493485557236" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1493485557236" expanded="false" signature="134:842" ph="..." />
+            <marker date="1493485557236" expanded="true" signature="1090:1154" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="1212:1390" ph="{...}" />
+            <marker date="1493485557236" expanded="false" signature="1429:1440" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="1455:1461" ph=" }" />
+            <marker date="1493485557236" expanded="true" signature="1526:1564" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="1639:3910" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="3972:4113" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="4155:4293" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="4336:4620" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="4647:4779" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="4811:4947" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="5008:5962" ph="{...}" />
+            <marker date="1493485557236" expanded="false" signature="5502:5618" ph="run() → {" />
+            <marker date="1493485557236" expanded="false" signature="5722:5749" ph="}" />
+            <marker date="1493485557236" expanded="true" signature="6025:6891" ph="{...}" />
+            <marker date="1493485557236" expanded="false" signature="6485:6599" ph="run() → {" />
+            <marker date="1493485557236" expanded="false" signature="6696:6719" ph="}" />
+            <marker date="1493485557236" expanded="true" signature="6992:7154" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="7247:7409" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="7499:7696" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="7778:7972" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="8041:8120" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="8180:8260" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="8337:8465" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="8519:8593" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="8655:8812" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="8880:8959" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="9018:9098" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="9162:9330" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="9385:9421" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="9490:9688" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="9748:9822" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="9894:10095" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="10158:10232" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="10300:10380" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="10439:10520" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="10587:10657" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="10715:10786" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="10857:10937" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="10999:11080" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="11125:11157" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="11210:11356" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="11410:11557" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="11588:11770" ph="{...}" />
+            <marker date="1493485557236" expanded="false" signature="11804:11815" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="11844:11850" ph=" }" />
+            <marker date="1493485557236" expanded="false" signature="11880:11891" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="11929:11935" ph=" }" />
+            <marker date="1493485557236" expanded="false" signature="11966:11977" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="12002:12008" ph=" }" />
+            <marker date="1493485557236" expanded="false" signature="12046:12057" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="12087:12093" ph=" }" />
+            <marker date="1493485557236" expanded="false" signature="12132:12143" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="12174:12180" ph=" }" />
+            <marker date="1493485557236" expanded="true" signature="12245:14211" ph="{...}" />
+            <marker date="1493485557236" expanded="false" signature="12282:12297" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="12326:12336" ph=" }" />
+            <marker date="1493485557236" expanded="true" signature="12401:14205" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/ch/SocketChannelImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14059">
+          <caret line="854" column="0" lean-forward="false" selection-start-line="854" selection-start-column="0" selection-end-line="854" selection-end-column="0" />
+          <folding>
+            <marker date="1493485557236" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1493485557236" expanded="false" signature="134:1066" ph="..." />
+            <marker date="1493485557236" expanded="true" signature="2141:2273" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="2374:2578" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="2689:2893" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="2922:3160" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="3224:3510" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="3575:3833" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="3923:5012" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="5082:6065" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="6124:6201" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="6270:6626" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="6693:7084" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="7138:7347" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="7401:7610" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="7668:11097" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="7668:11348" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="11429:14753" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="14812:17524" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="17606:20554" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="20612:23137" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="23213:23269" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="23315:23447" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="23490:23623" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="23694:24945" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="24980:25110" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="25153:25283" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="25340:25729" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="25797:28888" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="28944:34676" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="34738:35371" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="35434:36069" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="36104:36235" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="36271:36403" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="36472:37043" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="37087:37670" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="37752:38662" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="38743:38821" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="38899:38960" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="39015:39771" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="39849:40150" ph="{...}" />
+            <marker date="1493485557236" expanded="false" signature="40185:40196" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="40211:40217" ph=" }" />
+            <marker date="1493485557236" expanded="false" signature="40244:40255" ph=" { " />
+            <marker date="1493485557236" expanded="false" signature="40273:40279" ph=" }" />
+            <marker date="1493485557236" expanded="true" signature="40310:41684" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="41911:41978" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="42026:42911" ph="{...}" />
+            <marker date="1493485557236" expanded="true" signature="42145:42156" ph="{}" />
+            <marker date="1493485557236" expanded="true" signature="42219:42905" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/network/NetworkHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="114" column="37" lean-forward="true" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>ProjLab_Sokoban:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8 (1)</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ProjLab_Sokoban</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>javax.json-1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

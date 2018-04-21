@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProjLab_Sokoban:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjLab_Sokoban_jar</output-path>
+    <root id="archive" name="ProjLab_Sokoban.jar">
+      <element id="module-output" name="ProjLab_Sokoban" />
+    </root>
+  </artifact>
+</component>
