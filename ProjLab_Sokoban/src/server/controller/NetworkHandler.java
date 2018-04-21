@@ -1,4 +1,4 @@
-package server.network;
+package server.controller;
 
 import common.networking.*;
 import common.util.Direction;
@@ -261,44 +261,40 @@ public class NetworkHandler implements INetworkHandler {
     }
 
     @Override
-    public void MessageArrived(SocketChannel channel, byte b, byte[] value) {
-
-    }
-
-    public void MessageArrived(SocketChannel channel, ClientMessage msg) {
-        switch(msg.GetType()) {
+    public void MessageArrived(SocketChannel channel, byte type, byte[] value) {
+        switch(ClientMessageType.Create(type)) {
             case Register:
-                this.InterpretRegister(channel, msg.GetValue());
+                this.InterpretRegister(channel, value);
                 break;
             case Login:
-                this.InterpretLogin(channel, msg.GetValue());
+                this.InterpretLogin(channel, value);
                 break;
             case Logout:
-                this.InterpretLogout(channel, msg.GetValue());
+                this.InterpretLogout(channel, value);
                 break;
             case Enter:
-                this.InterpretEnter(channel, msg.GetValue());
+                this.InterpretEnter(channel, value);
                 break;
             case Leave:
-                this.InterpretLeave(channel, msg.GetValue());
+                this.InterpretLeave(channel, value);
                 break;
             case Move:
-                this.InterpretMove(channel, msg.GetValue());
+                this.InterpretMove(channel, value);
                 break;
             case PlaceHoney:
-                this.InterpretPlaceHoney(channel, msg.GetValue());
+                this.InterpretPlaceHoney(channel, value);
                 break;
             case PlaceOil:
-                this.InterpretPlaceOil(channel, msg.GetValue());
+                this.InterpretPlaceOil(channel, value);
                 break;
             case Download:
-                this.InterpretDownload(channel, msg.GetValue());
+                this.InterpretDownload(channel, value);
                 break;
             case WarehouseReady:
-                this.InterpretWarehouseReady(channel, msg.GetValue());
+                this.InterpretWarehouseReady(channel, value);
                 break;
             case AskResult:
-                this.InterpretAskResult(channel, msg.GetValue());
+                this.InterpretAskResult(channel, value);
                 break;
         }
     }

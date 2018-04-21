@@ -22,6 +22,7 @@ public class MessageWriter<Message extends IMessage> {
     }
 
     public void EnqueueMessage(Message msg) {
+        networkHandler.WriteRegister(channel);
         queue.add(msg);
     }
 
@@ -51,6 +52,7 @@ public class MessageWriter<Message extends IMessage> {
                         buffer.flip(); // Setting back to reader mode.
                     }
                     else {
+                        networkHandler.WriteDeregister(channel);
                         stop = true;
                     }
                 }

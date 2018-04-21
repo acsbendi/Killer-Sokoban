@@ -98,6 +98,16 @@ public class NetworkHandler implements INetworkHandler {
         }
     }
 
+    @Override
+    public void WriteRegister(SocketChannel channel) {
+
+    }
+
+    @Override
+    public void WriteDeregister(SocketChannel channel) {
+
+    }
+
     public void SendMessages() {
         if (channel.isConnected()) {
             writer.SendMessages();

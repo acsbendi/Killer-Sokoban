@@ -1,7 +1,6 @@
 package server.controller;
 
 import common.util.Direction;
-import server.network.NetworkHandler;
 
 public class SokobanServer implements ControllerLogic {
     private NetworkHandler networkHandler;
