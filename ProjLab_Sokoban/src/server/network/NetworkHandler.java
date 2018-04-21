@@ -57,7 +57,7 @@ public class NetworkHandler {
     public void AcceptClient()
     {
         try {
-            int readyChannels = acceptSelector.select();
+            int readyChannels = acceptSelector.selectNow();
 
             if (readyChannels == 0)
                 return;
@@ -92,6 +92,20 @@ public class NetworkHandler {
             Set<SelectionKey> selectedKeys = readSelector.selectedKeys();
             for(SelectionKey key : selectedKeys) {
                 readers.get(key.channel()).CollectMessages();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SendMessages() {
+        try {
+            int readyChannels = writeSelector.selectNow();
+            if (readyChannels == 0)
+                return;
+            Set<SelectionKey> selectedKeys = writeSelector.selectedKeys();
+            for(SelectionKey key : selectedKeys) {
+                writers.get(key.channel()).SendMessages();
             }
         } catch (IOException e) {
             e.printStackTrace();

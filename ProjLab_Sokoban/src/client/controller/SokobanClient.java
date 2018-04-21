@@ -131,6 +131,9 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     @Override
+    public void OnlineFailure() { userInterface.OnlineFailure(); }
+
+    @Override
     public synchronized void Connect() {
         networkHandler.Connect();
     }

@@ -11,7 +11,7 @@ public class Application {
             this.sokobanClient = sokobanClient;
         }
 
-        public void Run() {
+        public void run() {
             try {
                 sokobanClient.Iterate();
                 Thread.sleep(100);
