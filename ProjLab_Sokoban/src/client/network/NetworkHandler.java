@@ -148,6 +148,7 @@ public class NetworkHandler {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            controllerLogic.Disconnected();
         }
         else {
             controllerLogic.OfflineFailure();
