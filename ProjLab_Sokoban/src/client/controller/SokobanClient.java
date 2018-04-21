@@ -23,8 +23,11 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     public synchronized void Iterate() {
-        //TODO
+        networkHandler.CollectMessages();
+        networkHandler.SendMessages();
+        System.out.println("Iteration");
     }
+
     @Override
     public void ConnectionResult(boolean res) {
         userInterface.ConnectionResult(res);
@@ -182,6 +185,11 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     @Override
     public synchronized void TopResults() {
         networkHandler.TopResults();
+    }
+
+    @Override
+    public void Maketest(String[] params) {
+
     }
 
     @Override
