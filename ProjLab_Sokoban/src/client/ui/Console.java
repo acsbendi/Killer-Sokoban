@@ -3,6 +3,8 @@ package client.ui;
 import client.ui.Commands.ConsoleCommands.CCommand;
 import client.ui.Commands.UserInputExecutorCommands.UIECommand;
 import client.ui.Commands.InvalidArgumentException;
+import client.ui.Commands.UserInputExecutorCommands.UIEConnect;
+import client.ui.Commands.UserInputExecutorCommands.UIEDisconnect;
 import common.util.Direction;
 
 import java.io.*;
@@ -15,6 +17,21 @@ public class Console extends UserInterface {
     private List output = new LinkedList<String>();
     private Map<String, UIECommand> UIECommands = new HashMap<>();
     private Map<String, CCommand> CCommands = new HashMap<>();
+
+    public Console(){
+        InitCommands();
+    }
+
+    private void InitCommands(){
+        UIECommand cmd = new UIEConnect();
+        UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEDisconnect();
+        UIECommands.put(cmd.getName(), cmd);
+        //TODO> minden UIECommandra
+
+        //TODO> minden CCommandra
+        CCommand cCmd = ;
+    }
     // Amíg nincs exit parancs: fogadni inputot!!
     // ha pl. connect parancs jött: userInputExecutor.Connect();
     // ha login jött: userInputExecutor.Login(username, password); stb
@@ -25,8 +42,7 @@ public class Console extends UserInterface {
             inputReader = new BufferedReader(new InputStreamReader(System.in));
             boolean keepRunning = true;
             while (keepRunning) {
-
-                interprete(inputReader.readLine());
+                keepRunning = interprete(inputReader.readLine());
             }
         }catch(IOException ioe){
             StringWriter sw = new StringWriter();
@@ -76,7 +92,7 @@ public class Console extends UserInterface {
         }catch(InterruptedException ie){}
     }
 
-    public void run(String fileName){
+    public void runSketch(String fileName){
         //TODO
     }
 
