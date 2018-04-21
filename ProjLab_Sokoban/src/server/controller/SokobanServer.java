@@ -4,6 +4,10 @@ import common.util.Direction;
 
 public class SokobanServer implements ControllerLogic {
 
+    public void Run() {
+
+    }
+
     @Override
     public void Register(Client client, String username, String password) {
 
@@ -55,7 +59,12 @@ public class SokobanServer implements ControllerLogic {
     }
 
     @Override
-    public void Askresult(Client client) {
+    public void OwnResults(Client client) {
+
+    }
+
+    @Override
+    public void TopResults(Client client) {
 
     }
 }

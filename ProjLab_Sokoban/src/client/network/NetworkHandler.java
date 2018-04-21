@@ -8,6 +8,7 @@ import common.util.Direction;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.SelectionKey;
@@ -106,8 +107,17 @@ public class NetworkHandler {
     public void Connect() {
         if (!channel.isConnected()) {
             try {
-                channel.socket().connect(new InetSocketAddress("http://vm.ik.bme.hu", 7305), 3000);
-                controllerLogic.ConnectionResult(channel.isConnected());
+                channel.configureBlocking(true);
+                channel.socket().connect(new InetSocketAddress("vm.ik.bme.hu", 7305), 2000);
+                controllerLogic.ConnectionResult(true);
+            } catch (SocketTimeoutException e) {
+                controllerLogic.ConnectionResult(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                channel.configureBlocking(false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
