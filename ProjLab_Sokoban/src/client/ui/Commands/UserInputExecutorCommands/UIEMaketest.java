@@ -6,7 +6,9 @@ import client.ui.Commands.InvalidArgumentException;
 public class UIEMaketest implements UIECommand {
     @Override
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
-
+        if(args.length < 2)
+            throw new InvalidArgumentException(2);
+        executor.Maketest(args);
     }
 
     @Override
@@ -16,6 +18,6 @@ public class UIEMaketest implements UIECommand {
 
     @Override
     public String getName() {
-        return null;
+        return "maketest";
     }
 }

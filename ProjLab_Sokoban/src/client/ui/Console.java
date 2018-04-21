@@ -37,9 +37,7 @@ public class Console extends UserInterface {
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEMove();
         UIECommands.put(cmd.getName(), cmd);
-        cmd = new UIEOwnResults();
-        UIECommands.put(cmd.getName(), cmd);
-        cmd = new UIEPlaceHoney();
+        cmd = new UIEList();
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEPlaceOil();
         UIECommands.put(cmd.getName(), cmd);
@@ -80,7 +78,7 @@ public class Console extends UserInterface {
         BufferedReader inputReader;
         try {
             inputReader = new BufferedReader(new InputStreamReader(System.in));
-            String inputLine = "";
+            String inputLine;
             while ((inputLine = inputReader.readLine()) != null) {
                 interprete(inputLine);
             }
@@ -108,14 +106,10 @@ public class Console extends UserInterface {
     }
 
     public void printInfo(String cmdName){
-        if(UIECommands.containsKey(cmdName)) {
+        if(UIECommands.containsKey(cmdName))
             log(UIECommands.get(cmdName).getHelp());
-            return;
-        }
-        if(UIECommands.containsKey(cmdName)) {
+        else if(UIECommands.containsKey(cmdName))
             log(UIECommands.get(cmdName).getHelp());
-            return;
-        }
     }
 
     public void compare(String fileName)   {
@@ -182,7 +176,7 @@ public class Console extends UserInterface {
     public void wait(int ms){
         try {
             Thread.sleep(ms);
-        }catch(InterruptedException ie){}
+        }catch(InterruptedException ie){/*if thread is interrupted just go with the flow*/}
     }
 
     public void runSketch(String fileName) throws FileNotFoundException {
@@ -191,7 +185,7 @@ public class Console extends UserInterface {
             BufferedReader br = new BufferedReader(
                                     new InputStreamReader(
                                         new FileInputStream(sketch)));
-            String inputLine = "";
+            String inputLine;
             try {
                 while ((inputLine = br.readLine()) != null) {
                     interprete(inputLine);
