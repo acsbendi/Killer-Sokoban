@@ -1,13 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="ProjLab_Sokoban:jar">
-    <output-path>$PROJECT_DIR$/../../artifacts/server</output-path>
+    <output-path>$PROJECT_DIR$/../../artifacts/client</output-path>
     <root id="archive" name="ProjLab_Sokoban.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/../../artifacts/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/../../artifacts/client/META-INF/MANIFEST.MF" />
       </element>
       <element id="module-output" name="ProjLab_Sokoban" />
-      <element id="library" level="module" name="javax.json-1.0.2.jar" module-name="ProjLab_Sokoban" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../javax.json-1.0.jar" path-in-jar="/" />
+      <element id="library" level="module" name="javax.json-1.0.2.jar" module-name="ProjLab_Sokoban" />
     </root>
   </artifact>
 </component>

@@ -53,9 +53,9 @@ public class MessageReader {
                 }
                 else {
                     ServerMessageType type = ServerMessageType.Create(header.get(0));
-                    header.flip();
-                    byte[] value = new byte[header.remaining()];
-                    header.get(value);
+                    body.flip();
+                    byte[] value = new byte[body.remaining()];
+                    body.get(value);
                     ServerMessage msg = new ServerMessage(type, value);
                     header.clear();
                     body.clear();

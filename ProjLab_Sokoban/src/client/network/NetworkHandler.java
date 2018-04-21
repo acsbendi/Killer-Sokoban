@@ -165,8 +165,8 @@ public class NetworkHandler {
 
     public void Register(String username, String password) {
         if (channel.isConnected()) {
-            byte[] username_bytes = username.getBytes();
-            byte[] password_bytes = password.getBytes();
+            byte[] username_bytes = username.getBytes(StandardCharsets.UTF_8);
+            byte[] password_bytes = password.getBytes(StandardCharsets.UTF_8);
             byte username_length = (byte) username_bytes.length;
             byte password_length = (byte) password_bytes.length;
             byte[] value = new byte[2 + username_length + password_length];

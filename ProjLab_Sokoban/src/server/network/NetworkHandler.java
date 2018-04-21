@@ -90,6 +90,79 @@ public class NetworkHandler {
         }
     }
 
+    public void RegistrationSuccess() {
+
+    }
+
+    public void RegistrationFailure(String err) {
+
+    }
+
+    public void LoginSuccess() {
+
+    }
+
+    public void LoginFailure(String err) {
+
+    }
+
+    public void LogoutSuccess() {
+
+    }
+
+    public void LogoutFailure(String err) {
+
+    }
+
+    public void Results(String msg) {
+
+    }
+
+    public void ResultFailure(String err) {
+
+    }
+
+    public void EnterSuccess() {
+
+    }
+
+    public void EnterFailure(String err) {
+
+    }
+
+    public void LeaveSuccess() {
+
+    }
+
+    public void LeaveFailure(String err) {
+
+    }
+
+    public void CheckLevel(int level_id) {
+
+    }
+
+    public void GameStarted(int worker) {
+
+    }
+
+    public void WorkerMoved(int player,Direction dir) {
+
+    }
+
+    public void OilPlaced(int player) {
+
+    }
+
+    public void HoneyPlaced(int player) {
+
+    }
+
+    public void GameFinished() {
+
+    }
+
+
     /*public void AcceptClient()
     {
         try {
@@ -210,8 +283,9 @@ public class NetworkHandler {
         byte[] password_bytes = new byte[password_length];
         System.arraycopy(value, 2, username_bytes, 0, username_length);
         System.arraycopy(value, 2+username_length, password_bytes, 0, password_length);
-        String username = new String(username_bytes);
-        String password = new String(password_bytes);
+        String username = new String(username_bytes, StandardCharsets.UTF_8);
+        String password = new String(password_bytes, StandardCharsets.UTF_8);
+        System.out.println(channel.socket().getRemoteSocketAddress().toString() + " send Register " + username + "; " + password + ")");
         controllerLogic.Register(clients.get(channel), username, password);
     }
 
@@ -224,11 +298,12 @@ public class NetworkHandler {
         System.arraycopy(value, 2+username_length, password_bytes, 0, password_length);
         String username = new String(username_bytes, StandardCharsets.UTF_8);
         String password = new String(password_bytes, StandardCharsets.UTF_8);
-        System.out.println(channel.socket().getRemoteSocketAddress().toString() + " logged in as: " + username + " with password: " + password);
+        System.out.println(channel.socket().getRemoteSocketAddress().toString() + " sent Login(" + username + "; " + password + ")");
         controllerLogic.Login(clients.get(channel), username, password);
     }
 
     private void InterpretLogout(SocketChannel channel, byte[] value) {
+        System.out.println(channel.socket().getRemoteSocketAddress().toString() + " sent Logout");
         controllerLogic.Logout(clients.get(channel));
     }
 

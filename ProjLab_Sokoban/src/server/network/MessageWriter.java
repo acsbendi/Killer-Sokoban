@@ -43,7 +43,8 @@ public class MessageWriter {
                         ServerMessage msg = queue.get(0);
                         queue.remove(0);
                         byte type = msg.GetType().ConvertToByte();
-                        byte[] length = ByteBuffer.allocate(4).putInt(msg.GetLength()).order(ByteOrder.BIG_ENDIAN).array();
+                        byte[] length_big_endian = ByteBuffer.allocate(4).putInt(msg.GetLength()).order(ByteOrder.BIG_ENDIAN).array();
+                        byte[] length = { length_big_endian[2], length_big_endian[3] };
                         byte[] value = msg.GetValue();
                         buffer.put(type);
                         buffer.put(length);
