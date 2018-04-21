@@ -1,6 +1,7 @@
 package server.network;
 
 import common.networking.ClientMessage;
+import common.networking.INetworkHandler;
 import common.networking.ServerMessage;
 import common.networking.ServerMessageType;
 import common.util.Direction;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-public class NetworkHandler {
+public class NetworkHandler implements INetworkHandler {
     private static final byte down = 0;
     private static final byte up = 1;
     private static final byte right = 2;
@@ -260,6 +261,11 @@ public class NetworkHandler {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void MessageArrived(SocketChannel channel, byte b, byte[] value) {
+
     }
 
     public void MessageArrived(SocketChannel channel, ClientMessage msg) {

@@ -1,9 +1,6 @@
-package client.network;
+package client.controller;
 
-import client.controller.ControllerLogic;
-import common.networking.ClientMessage;
-import common.networking.ClientMessageType;
-import common.networking.ServerMessage;
+import common.networking.*;
 import common.util.Direction;
 
 import java.io.IOException;
@@ -14,7 +11,7 @@ import java.nio.ByteOrder;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 
-public class NetworkHandler {
+public class NetworkHandler implements INetworkHandler {
     private static final byte down = 0;
     private static final byte up = 1;
     private static final byte right = 2;
@@ -27,8 +24,8 @@ public class NetworkHandler {
 
     private ControllerLogic controllerLogic;
     private SocketChannel channel;
-    private MessageReader reader;
-    private MessageWriter writer;
+    private MessageReader<ServerMessage> reader;
+    private MessageWriter<ClientMessage> writer;
 
     public NetworkHandler(ControllerLogic controllerLogic) {
         this.controllerLogic = controllerLogic;
@@ -39,66 +36,66 @@ public class NetworkHandler {
         }
     }
 
-    public void CollectMessages() {
-        if (channel.isConnected()) {
-            reader.CollectMessages();
-        }
-    }
-
-    public void MessageArrived(ServerMessage msg) {
-        switch(msg.GetType()) {
-            case RegisterResponse:
-                this.InterpretRegisterResponse(msg.GetValue());
-                break;
-            case LoginResponse:
-                this.InterpretLoginResponse(msg.GetValue());
-                break;
-            case LogoutResponse:
-                this.InterpretLogoutResponse(msg.GetValue());
-                break;
-            case EnterResponse:
-                this.InterpretEnterResponse(msg.GetValue());
-                break;
-            case LeaveResponse:
-                this.InterpretLeaveResponse(msg.GetValue());
-                break;
-            case CheckLevel:
-                this.InterpretCheckLevel(msg.GetValue());
-                break;
-            case LevelData:
-                this.InterpretLevelData(msg.GetValue());
-                break;
-            case GameStarted:
-                this.InterpretGameStarted(msg.GetValue());
-                break;
-            case WorkerMoved:
-                this.InterpretWorkerMoved(msg.GetValue());
-                break;
-            case OilPlaced:
-                this.InterpretOilPlaced(msg.GetValue());
-                break;
-            case HoneyPlaced:
-                this.InterpretHoneyPlaced(msg.GetValue());
-                break;
-            case GameFinished:
-                this.InterpretGameFinished(msg.GetValue());
-                break;
-            case ResultResponse:
-                this.InterpretResultResponse(msg.GetValue());
-                break;
-        }
-    }
-
-    public void Disconnected() {
+    public void Disconnected(SocketChannel channel) {
         try {
             channel.close();
-            channel = SocketChannel.open();
+            this.channel = SocketChannel.open();
             reader = null;
             writer = null;
         } catch (IOException e) {
             e.printStackTrace();
         }
         controllerLogic.Disconnected();
+    }
+
+    public void CollectMessages() {
+        if (channel.isConnected()) {
+            reader.CollectMessages();
+        }
+    }
+
+    public void MessageArrived(SocketChannel channel, byte type, byte[] value) {
+        switch(ServerMessageType.Create(type)) {
+            case RegisterResponse:
+                this.InterpretRegisterResponse(value);
+                break;
+            case LoginResponse:
+                this.InterpretLoginResponse(value);
+                break;
+            case LogoutResponse:
+                this.InterpretLogoutResponse(value);
+                break;
+            case EnterResponse:
+                this.InterpretEnterResponse(value);
+                break;
+            case LeaveResponse:
+                this.InterpretLeaveResponse(value);
+                break;
+            case CheckLevel:
+                this.InterpretCheckLevel(value);
+                break;
+            case LevelData:
+                this.InterpretLevelData(value);
+                break;
+            case GameStarted:
+                this.InterpretGameStarted(value);
+                break;
+            case WorkerMoved:
+                this.InterpretWorkerMoved(value);
+                break;
+            case OilPlaced:
+                this.InterpretOilPlaced(value);
+                break;
+            case HoneyPlaced:
+                this.InterpretHoneyPlaced(value);
+                break;
+            case GameFinished:
+                this.InterpretGameFinished(value);
+                break;
+            case ResultResponse:
+                this.InterpretResultResponse(value);
+                break;
+        }
     }
 
     public void SendMessages() {
@@ -127,8 +124,8 @@ public class NetworkHandler {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                reader = new MessageReader(this, channel);
-                writer = new MessageWriter(this, channel);
+                reader = new MessageReader<>(this, channel);
+                writer = new MessageWriter<>(this, channel);
                 controllerLogic.ConnectionResult(true);
             }
             else {

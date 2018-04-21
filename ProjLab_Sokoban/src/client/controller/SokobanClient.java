@@ -1,6 +1,5 @@
 package client.controller;
 
-import client.network.NetworkHandler;
 import common.model.Warehouse;
 import client.ui.UserInterface;
 import common.util.Direction;
