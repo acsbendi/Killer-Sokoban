@@ -8,7 +8,10 @@ public class CInfo implements CCommand {
     public void Execute(Console executor, String[] args) throws InvalidArgumentException {
         if(args.length > 2)
             throw new InvalidArgumentException(2);
-        executor.printInfo(args[1]);
+        if(args.length < 2)
+            executor.printInfo("all");
+        else
+            executor.printInfo(args[1]);
     }
 
     @Override

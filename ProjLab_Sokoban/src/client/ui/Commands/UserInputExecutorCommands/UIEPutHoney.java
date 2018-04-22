@@ -16,7 +16,7 @@ public class UIEPutHoney implements UIECommand {
 	@Override
 	public String getHelp() {
 		// TODO Auto-generated method stub
-		return null;
+		return "puts honey";
 	}
 
 	@Override

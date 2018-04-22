@@ -7,7 +7,9 @@ public class CWait implements CCommand{
 
     @Override
     public void Execute(Console executor, String[] args) throws InvalidArgumentException {
-        if(args.length > 1)
+        if(args.length > 2)
+            throw new InvalidArgumentException(2);
+        if(args.length < 2)
             throw new InvalidArgumentException(1);
         int arg;
         try {

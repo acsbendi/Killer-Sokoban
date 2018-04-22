@@ -7,9 +7,9 @@ public class UIEList implements UIECommand {
     @Override
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length < 2)
-            throw new InvalidArgumentException(2);
+            throw new InvalidArgumentException(1);
         if(args.length > 2)
-            throw new InvalidArgumentException(3);
+            throw new InvalidArgumentException(2);
         if("own".equals(args[1]))
             executor.OwnResults();
         else if("top".equals(args[1]))

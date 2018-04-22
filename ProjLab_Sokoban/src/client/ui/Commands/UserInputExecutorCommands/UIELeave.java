@@ -15,7 +15,7 @@ public class UIELeave implements UIECommand {
 
     @Override
     public String getHelp() {
-        return "";
+        return "Leaves the game";
     }
 
     @Override
