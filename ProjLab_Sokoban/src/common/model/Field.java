@@ -47,6 +47,12 @@ public abstract class Field {
 		return neighbours.get(dir);
 	}
 
+    /**
+     * Abstract method for returning the string representation of a field.
+     * @return The string representation (reflecting type and current state).
+     */
+	public abstract String ToString();
+
 	private static Map<String, Factory<Field>> prototypes = new HashMap<>();
 	static {
 		prototypes.put("GoalTile", new Factory<Field>() {

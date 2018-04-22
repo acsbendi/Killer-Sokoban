@@ -100,6 +100,13 @@ public abstract class Placeholder {
 			to.Accept(this, dir, move);
 		}
 	}
+
+    /**
+     * Returns the string representation of a placeholder,
+     * which depends on its (subclass-specific) type.
+     * @return The string representation of a placeholder.
+     */
+    public abstract String ToString();
 	
 	private static Map<String, Factory<Placeholder>> prototypes = new HashMap<>();
 	static {

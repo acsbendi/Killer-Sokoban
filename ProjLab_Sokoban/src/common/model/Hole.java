@@ -31,4 +31,13 @@ public class Hole extends Field {
 
 	}
 
+	/**
+	 * Returns the string representation of a hole, that is "h--".
+	 * @return The string representation of a hole.
+	 */
+	@Override
+	public String ToString(){
+		return "h--";
+	}
+
 }

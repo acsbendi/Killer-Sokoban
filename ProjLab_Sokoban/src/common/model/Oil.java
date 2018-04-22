@@ -17,4 +17,13 @@ public class Oil implements Liquid {
 		return friction;
 	}
 
+	/**
+	 * Returns the string representation of oil, that is, a "o".
+	 * @return The string representation.
+	 */
+	@Override
+	public String ToString(){
+		return "o";
+	}
+
 }

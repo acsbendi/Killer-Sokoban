@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import client.network.NetworkHandler;
 import client.ui.UserInterface;
 import common.model.Box;
 import common.model.Field;
@@ -33,7 +34,8 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     public synchronized void Iterate() {
-        networkHandler.Listen();
+        networkHandler.CollectMessages();
+        networkHandler.SendMessages();
     }
 
     @Override

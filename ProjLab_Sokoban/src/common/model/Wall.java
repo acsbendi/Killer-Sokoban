@@ -32,4 +32,13 @@ public class Wall extends Field {
 		
 	}
 
+	/**
+	 * Returns the string representation of a wall, that is "w--".
+	 * @return The string representation of a wall.
+	 */
+	@Override
+	public String ToString(){
+		return "w--";
+	}
+
 }

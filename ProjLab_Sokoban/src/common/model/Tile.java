@@ -91,4 +91,24 @@ public class Tile extends Field {
         }
     }
 
+    /**
+     * Returns the string representation of a tile,
+     * which depends on its (subclass-specific) type and
+     * current state, i.e. what placeholder and liquid are on it (NOT subclass-specific).
+     * @return The string representation of a tile.
+     */
+    @Override
+    public String ToString(){
+        return TypeToString() + (liquid == null ? "-" : liquid.ToString()) +
+                (placeholder == null ? "-" : placeholder.ToString());
+    }
+
+    /**
+     * Returns the string representation of the type of normal tiles, that is, a "t".
+     * @return The string representation.
+     */
+    protected String TypeToString(){
+        return "t";
+    }
+
 }
