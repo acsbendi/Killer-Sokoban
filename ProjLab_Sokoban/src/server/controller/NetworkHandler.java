@@ -260,8 +260,25 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void WorkerMoved(Client cli, int clientIndex, Direction dir) {
-
+    public void WorkerMoved(Client client, int clientIndex, Direction dir) {
+        byte[] value = new byte[2];
+        value[0] = (byte)clientIndex;
+        switch(dir) {
+            case Up:
+                value[1] = up;
+                break;
+            case Down:
+                value[1] = down;
+                break;
+            case Left:
+                value[1] = left;
+                break;
+            case Right:
+                value[1] = right;
+                break;
+        }
+        ServerMessage msg = new ServerMessage(ServerMessageType.WorkerMoved, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
     private void InterpretRegister(SocketChannel channel, byte[] value) {

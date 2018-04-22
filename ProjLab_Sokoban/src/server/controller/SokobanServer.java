@@ -126,6 +126,7 @@ public class SokobanServer implements ControllerLogic {
     public void Leave(Client client) {
         if (client.GetState() == ClientState.Waiting) {
             client.SetState(ClientState.LoggedIn);
+            client.GetRoom().RemoveClient(client);
             System.out.println(client.GetName() + " left queue");
             networkHandler.Leave_Success(client);
         }
@@ -175,6 +176,4 @@ public class SokobanServer implements ControllerLogic {
     public void TopResults(Client client) {
 
     }
-
-
 }
