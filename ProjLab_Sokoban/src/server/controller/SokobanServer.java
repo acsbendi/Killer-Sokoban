@@ -187,6 +187,9 @@ public class SokobanServer implements ControllerLogic {
             int clientIndex = room.IndexOf(client);
             for(Client cli : room.GetClients()) {
                 networkHandler.WorkerMoved(cli, clientIndex, dir);
+
+
+                
             }
         }
     }
