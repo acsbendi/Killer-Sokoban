@@ -33,4 +33,8 @@ public class Room {
     public int IndexOf(Client client) {
         return clients.indexOf(client);
     }
+
+    public void RemoveClient(Client client) {
+        clients.remove(client);
+    }
 }
