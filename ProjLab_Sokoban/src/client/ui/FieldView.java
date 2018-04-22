@@ -1,7 +1,6 @@
 package client.ui;
 
 import common.model.Field;
-import jdk.internal.jline.internal.Nullable;
 
 public class FieldView {
 
@@ -9,8 +8,7 @@ public class FieldView {
         this.field = field;
     }
 
-    @Nullable
-	private final Field field;
+    private final Field field;
 
     public String ToString(){
         return field == null ? "---" : field.ToString();
