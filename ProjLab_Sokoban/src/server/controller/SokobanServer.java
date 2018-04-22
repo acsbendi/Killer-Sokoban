@@ -1,5 +1,6 @@
 package server.controller;
 
+import common.networking.ServerMessageType;
 import common.util.Direction;
 
 import java.util.HashMap;
@@ -34,12 +35,23 @@ public class SokobanServer implements ControllerLogic {
 
     @Override
     public void Register(Client client, String username, String password) {
-        networkHandler.RegistrationSuccess(client);
+        if (client.GetState() == ClientState.Connected) {
+            if (true /* stimmel-e */) {
+                networkHandler.RegistrationSuccess(client);
+            }
+            else {
+                networkHandler.RegistrationFailure(client, ???);
+            }
+        }
+        else {
+            networkHandler.NotAvailable(ServerMessageType.RegisterResponse);
+        }
     }
 
     @Override
     public void Login(Client client, String username, String password) {
         networkHandler.LoginSuccess(client);
+        if ()
     }
 
     @Override

@@ -319,4 +319,8 @@ public class NetworkHandler implements INetworkHandler {
             controllerLogic.TopResults(clients.get(channel));
         }
     }
+
+    public void NotAvailable(ServerMessageType type) {
+
+    }
 }
