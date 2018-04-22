@@ -3,7 +3,7 @@ package common.model;
 import common.util.Direction;
 
 /**
- * The class representing worker, a type of placeholder, that is, it can occupy a field.
+ * Class representing a worker, a type of placeholder, that is, it can occupy a tile.
  */
 public class Worker extends Placeholder {
 
@@ -57,17 +57,19 @@ public class Worker extends Placeholder {
 
 
     /**
-     * The worker is pushed by a box, tries to move to the next field, gets destroyed on failure.
+     * The worker is pushed by a box, tries to move to the next field, gets destroyed on failure,
+     * otherwise takes ownership of the move.
      * @param box The pushing box.
      * @param dir The direction of the push (move).
      * @param move The move, during which the push is carried out.
      */
 	@Override
 	public void PushedBy(Box box, Direction dir,Move move) {
-		Tile from=tile;
+        move.UpdateOwner(this);
+		Tile from = tile;
 		TryMove(dir,move);
 		if (tile==from)
-			Destroy();		
+			Destroy();
 	}
 
     /**

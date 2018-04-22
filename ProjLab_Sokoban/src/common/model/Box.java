@@ -3,7 +3,7 @@ package common.model;
 import common.util.Direction;
 
 /**
- * The class representing worker, a type of placeholder, that is, it can occupy a field.
+ * Class representing a worker, a type of placeholder, that is, it can occupy a tile.
  */
 public class Box extends Placeholder {
 
