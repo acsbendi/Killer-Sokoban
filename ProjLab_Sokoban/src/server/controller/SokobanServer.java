@@ -40,6 +40,7 @@ public class SokobanServer implements ControllerLogic {
             if (password.length() >= 8) {
                 if (dataBaseManager.Register(username, Hash.GetHashFor(password)))
                 {
+                    System.out.println("Someone registered(" + username + ", " + password + ")");
                     networkHandler.Registration_Success(client);
                 }
                 else {
@@ -61,6 +62,8 @@ public class SokobanServer implements ControllerLogic {
             if (dataBaseManager.Check(username, Hash.GetHashFor(password)))
             {
                 client.SetState(ClientState.LoggedIn);
+                client.SetName(username);
+                System.out.println(client.GetName() + " logged in with: " + password);
                 networkHandler.Login_Success(client);
             }
             else {
@@ -76,6 +79,8 @@ public class SokobanServer implements ControllerLogic {
     public void Logout(Client client) {
         if (client.GetState() == ClientState.LoggedIn) {
             client.SetState(ClientState.Connected);
+            System.out.println(client.GetName() + " logged out");
+            client.SetName("");
             networkHandler.Logout_Success(client);
         }
         else if (client.GetState() == ClientState.Waiting) {
@@ -93,6 +98,7 @@ public class SokobanServer implements ControllerLogic {
     public void Enter(Client client, int players) {
         if (client.GetState() == ClientState.LoggedIn) {
             client.SetState(ClientState.Waiting);
+            System.out.println(client.GetName() + " is waiting for " + players + " players");
             networkHandler.Enter_Success(client);
         }
         else {
@@ -104,6 +110,7 @@ public class SokobanServer implements ControllerLogic {
     public void Leave(Client client) {
         if (client.GetState() == ClientState.Waiting) {
             client.SetState(ClientState.LoggedIn);
+            System.out.println(client.GetName() + " left queue");
             networkHandler.Leave_Success(client);
         }
         else {
