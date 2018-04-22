@@ -12,7 +12,7 @@ public class SokobanServer implements ControllerLogic {
     public static SokobanServer Create() {
         SokobanServer sokobanServer = new SokobanServer();
         sokobanServer.networkHandler = new NetworkHandler(sokobanServer);
-        //sokobanServer.dataBaseManager = new DataBaseManager();
+        sokobanServer.dataBaseManager = new DataBaseManager();
         return sokobanServer;
     }
 
