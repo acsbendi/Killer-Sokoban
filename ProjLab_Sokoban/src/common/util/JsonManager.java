@@ -53,6 +53,7 @@ public class JsonManager {
 			}
 			pitch.put(currentPos, createdField);
 		}
+		System.out.println(pitch);
 		for (JsonValue prePlaceholder : map.getJsonArray("placeholders")) {
 			JsonObject placeholder = (JsonObject) prePlaceholder;
 			String type = placeholder.getString("type");

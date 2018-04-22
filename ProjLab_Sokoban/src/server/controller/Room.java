@@ -1,12 +1,14 @@
 package server.controller;
 
-import common.model.Honey;
-import common.model.Oil;
-import common.model.Warehouse;
-import common.model.Worker;
+import common.model.*;
 import common.util.Direction;
+import common.util.JsonManager;
+import common.util.Position;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class Room {
@@ -43,7 +45,18 @@ public class Room {
     }
 
     public void Initialize(int level_id) {
-        // todo
+        File file = JsonManager.ResolveFileId(level_id);
+        HashMap<Position, Field> pitch = new HashMap<>();
+        ArrayList<Box> boxes = new ArrayList<>();
+        try {
+            JsonManager.EnforceConfigFile(file, pitch, boxes, workers);
+            warehouse = new Warehouse(pitch.values(), boxes);
+            for(int i = 0; i < clients.size(); i++) {
+                map.put(clients.get(i), workers.get(i));
+            }
+        } catch (FileNotFoundException | ClassCastException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean EverybodyReady() {
