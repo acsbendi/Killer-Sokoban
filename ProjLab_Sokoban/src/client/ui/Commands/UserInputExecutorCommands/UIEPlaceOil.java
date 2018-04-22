@@ -13,7 +13,7 @@ public class UIEPlaceOil implements UIECommand {
 
     @Override
     public String getHelp() {
-        return "";
+        return "Places oil on current tile";
     }
 
     @Override

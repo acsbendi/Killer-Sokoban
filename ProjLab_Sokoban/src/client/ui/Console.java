@@ -26,8 +26,6 @@ public class Console extends UserInterface {
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEEnter();
         UIECommands.put(cmd.getName(), cmd);
-        cmd = new UIEExit();
-        UIECommands.put(cmd.getName(), cmd);
         cmd = new UIELeave();
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIELogin();
@@ -50,24 +48,22 @@ public class Console extends UserInterface {
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEStep();
         UIECommands.put(cmd.getName(), cmd);
-        cmd = new UIETopResults();
-        UIECommands.put(cmd.getName(), cmd);
 
 
         CCommand cCmd = new CClear();
-        CCommands.put(cCmd.getHelp(), cCmd);
+        CCommands.put(cCmd.getName(), cCmd);
         cCmd = new CCompare();
-        CCommands.put(cCmd.getHelp(), cCmd);
+        CCommands.put(cCmd.getName(), cCmd);
         cCmd = new CInfo();
-        CCommands.put(cCmd.getHelp(), cCmd);
+        CCommands.put(cCmd.getName(), cCmd);
         cCmd = new CExit();
-        CCommands.put(cCmd.getHelp(), cCmd);
+        CCommands.put(cCmd.getName(), cCmd);
         cCmd = new CRun();
-        CCommands.put(cCmd.getHelp(), cCmd);
+        CCommands.put(cCmd.getName(), cCmd);
         cCmd = new CSave();
-        CCommands.put(cCmd.getHelp(), cCmd);
+        CCommands.put(cCmd.getName(), cCmd);
         cCmd = new CWait();
-        CCommands.put(cCmd.getHelp(), cCmd);
+        CCommands.put(cCmd.getName(), cCmd);
     }
     // Amíg nincs exit parancs: fogadni inputot!!
     // ha pl. connect parancs jött: userInputExecutor.Connect();
@@ -105,46 +101,60 @@ public class Console extends UserInterface {
     }
 
     public void printInfo(String cmdName){
+        if("all".equals(cmdName)){
+            for (String s:CCommands.keySet())
+                log(s);
+            for (String s:UIECommands.keySet())
+                log(s);
+        }
+
         if(UIECommands.containsKey(cmdName))
             log(UIECommands.get(cmdName).getHelp());
-        else if(UIECommands.containsKey(cmdName))
-            log(UIECommands.get(cmdName).getHelp());
+        else if(CCommands.containsKey(cmdName))
+            log(CCommands.get(cmdName).getHelp());
     }
 
     public void compare(String fileName)   {
         File sketch = new File(System.getProperty("user.dir"), fileName);
-        BufferedReader br;
-        try {
-            br = new BufferedReader(
-                    new InputStreamReader(
-                            new FileInputStream(sketch)));
-        }
-        catch(FileNotFoundException fnfe){
-            log("File not found");
-            return;
-        }
+        BufferedReader br = null;
         String inputLine;
         try{
             //for each line int the output buffer
             for (int i = 0; i < output.size(); i++) {
                 int j = i;
+                //open new buffered reader to start from the beginnning of the file
+                try {
+                    br = new BufferedReader(
+                            new InputStreamReader(
+                                    new FileInputStream(sketch)));
+                }
+                catch(FileNotFoundException fnfe){
+                    log("File not found");
+                    return;
+                }
                 //compare the file with the next lines
                 while(true){
                     //if we reached EOF, the whole file matches
                     if((inputLine = br.readLine()) == null){
+                        br.close();
                         log("Correct output");
                         return;
                     }
-                    if(!inputLine.equals(output.get(j)))
+                    if(!inputLine.equals(output.get(j))) {
+                        br.close();
                         break;
+                    }
                     j++;
                 }
             }
+            if(br != null)
+                br.close();
         }catch (IOException ioe){
             logStackTrace(ioe);
         }catch(IndexOutOfBoundsException ioobe){
             //if we get IndexOutOfBoundsException the file'd be too long to match
         }
+
         //if we reached the end of the output buffer without match or encountered IndexOutOfBoundsException that means that the output differs
         log("Different output.");
     }
@@ -162,10 +172,12 @@ public class Console extends UserInterface {
                 for (String line : output) {
                     pw.println(line);
                 }
+                pw.close();
             }
         } catch (IOException ioe) {
             logStackTrace(ioe);
         }
+        log("File printed succesfully");
     }
 
     public void clear(){

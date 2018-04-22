@@ -13,7 +13,7 @@ public class UIEPlaceHoney implements UIECommand {
 
     @Override
     public String getHelp() {
-        return null;
+        return "Places honey on the current Tile";
     }
 
     @Override

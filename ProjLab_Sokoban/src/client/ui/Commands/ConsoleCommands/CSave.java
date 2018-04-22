@@ -10,7 +10,7 @@ public class CSave implements CCommand {
             throw new InvalidArgumentException(2);
         else if (args.length < 2)
             throw new InvalidArgumentException(1);
-        //executor.save(args[1]);
+        executor.save(args[1]);
     }
 
     @Override

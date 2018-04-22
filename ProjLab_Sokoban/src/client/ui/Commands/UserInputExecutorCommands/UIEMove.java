@@ -9,7 +9,9 @@ public class UIEMove implements UIECommand {
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length > 2){
             throw new InvalidArgumentException(2);
-        } else if("w".equals(args[1])){
+        } else if(args.length < 2){
+            throw new InvalidArgumentException(1);
+        }else if("w".equals(args[1])){
             executor.Move(Direction.Up);
         }else if("a".equals(args[1])){
             executor.Move(Direction.Left);
@@ -24,7 +26,7 @@ public class UIEMove implements UIECommand {
 
     @Override
     public String getHelp() {
-        return "";
+        return "Moves the player to the specified direction";
     }
 
     @Override

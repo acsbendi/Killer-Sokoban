@@ -9,6 +9,8 @@ public class UIEStep implements UIECommand {
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length > 2){
             throw new InvalidArgumentException(2);
+        } else if(args.length < 2){
+            throw new InvalidArgumentException(1);
         } else if("w".equals(args[1])){
             executor.Step(Direction.Up);
         }else if("a".equals(args[1])){
@@ -24,7 +26,7 @@ public class UIEStep implements UIECommand {
 
     @Override
     public String getHelp() {
-        return "";
+        return "performs a step";
     }
 
     @Override

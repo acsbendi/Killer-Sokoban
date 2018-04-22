@@ -19,7 +19,7 @@ public class UIEEnter implements UIECommand {
 
     @Override
     public String getHelp() {
-        return "";
+        return "Enters";
     }
 
     @Override

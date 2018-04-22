@@ -10,16 +10,16 @@ public class CCompare implements CCommand {
             throw new InvalidArgumentException(2);
         if(args.length < 2)
             throw new InvalidArgumentException(1);
-        //executor.compare(args[1]);
+        executor.compare(args[1]);
     }
 
     @Override
     public String getHelp() {
-        return null;
+        return "Compares the output with the file specified int first argument";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "compare";
     }
 }
