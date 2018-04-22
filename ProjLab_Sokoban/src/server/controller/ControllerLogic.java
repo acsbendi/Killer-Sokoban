@@ -15,4 +15,6 @@ public interface ControllerLogic {
     public void WarehouseReady(Client client);
     public void OwnResults(Client client);
     public void TopResults(Client client);
+    void AddClient(Client client);
+    void Disconnected(Client client);
 }

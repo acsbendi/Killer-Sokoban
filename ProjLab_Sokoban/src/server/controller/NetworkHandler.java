@@ -48,6 +48,61 @@ public class NetworkHandler implements INetworkHandler {
         }
     }
 
+    public void Disconnected(SocketChannel channel) {
+        try {
+            System.out.println(channel.socket().getRemoteSocketAddress().toString() + " disconnected.");
+            readers.remove(channel);
+            writers.remove(channel);
+            Client client = clients.get(channel);
+            clients.remove(channel);
+            channels.remove(client);
+            channel.close();
+            controllerLogic.Disconnected(client);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void MessageArrived(SocketChannel channel, byte type, byte[] value) {
+        switch(ClientMessageType.Create(type)) {
+            case Register:
+                this.InterpretRegister(channel, value);
+                break;
+            case Login:
+                this.InterpretLogin(channel, value);
+                break;
+            case Logout:
+                this.InterpretLogout(channel, value);
+                break;
+            case Enter:
+                this.InterpretEnter(channel, value);
+                break;
+            case Leave:
+                this.InterpretLeave(channel, value);
+                break;
+            case Move:
+                this.InterpretMove(channel, value);
+                break;
+            case PlaceHoney:
+                this.InterpretPlaceHoney(channel, value);
+                break;
+            case PlaceOil:
+                this.InterpretPlaceOil(channel, value);
+                break;
+            case Download:
+                this.InterpretDownload(channel, value);
+                break;
+            case WarehouseReady:
+                this.InterpretWarehouseReady(channel, value);
+                break;
+            case AskResult:
+                this.InterpretAskResult(channel, value);
+                break;
+        }
+    }
+
     public void WriteRegister(SocketChannel channel) {
         SelectionKey key = channel.keyFor(selector);
         key.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
@@ -79,6 +134,7 @@ public class NetworkHandler implements INetworkHandler {
                         Client client = new Client();
                         clients.put(clientChannel, client);
                         channels.put(client, clientChannel);
+                        controllerLogic.AddClient(client);
                         System.out.println(clientChannel.socket().getRemoteSocketAddress() + " connected.");
                     }
 
@@ -181,119 +237,6 @@ public class NetworkHandler implements INetworkHandler {
     }
 
 
-    /*public void AcceptClient()
-    {
-        try {
-            int readyChannels = acceptSelector.selectNow();
-
-            if (readyChannels == 0)
-                return;
-
-            Set<SelectionKey> selectedKeys = acceptSelector.selectedKeys();
-
-            SelectionKey key = selectedKeys.iterator().next();
-            if (key.isAcceptable())
-            {
-                ServerSocketChannel serverChannel = (ServerSocketChannel) key.channel();
-                SocketChannel clientChannel = serverChannel.accept();
-                clientChannel.configureBlocking(false);
-                clientChannel.register(readSelector,SelectionKey.OP_READ);
-                readers.put(clientChannel, new MessageReader(this, clientChannel));
-                writers.put(clientChannel, new MessageWriter(this, clientChannel));
-                Client client = new Client();
-                clients.put(clientChannel, client);
-                channels.put(client, clientChannel);
-                //sokobanServer.AddClient(client);
-                System.out.println(clientChannel.socket().getRemoteSocketAddress() + " connected.");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    /*public void CollectMessages() {
-        try {
-            System.out.println("Checking read selector...");
-            int readyChannels = readSelector.selectNow();
-            if (readyChannels == 0)
-                return;
-            System.out.println("Something to read...");
-            Set<SelectionKey> selectedKeys = readSelector.selectedKeys();
-            for(SelectionKey key : selectedKeys) {
-                readers.get(key.channel()).CollectMessages();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    /*public void SendMessages() {
-        try {
-            int readyChannels = writeSelector.selectNow();
-            if (readyChannels == 0)
-                return;
-            Set<SelectionKey> selectedKeys = writeSelector.selectedKeys();
-            for(SelectionKey key : selectedKeys) {
-                writers.get(key.channel()).SendMessages();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    public void Disconnected(SocketChannel channel) {
-        try {
-            System.out.println(channel.socket().getRemoteSocketAddress().toString() + " disconnected.");
-            readers.remove(channel);
-            writers.remove(channel);
-            Client client = clients.get(channel);
-            clients.remove(channel);
-            channels.remove(client);
-            channel.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void MessageArrived(SocketChannel channel, byte type, byte[] value) {
-        switch(ClientMessageType.Create(type)) {
-            case Register:
-                this.InterpretRegister(channel, value);
-                break;
-            case Login:
-                this.InterpretLogin(channel, value);
-                break;
-            case Logout:
-                this.InterpretLogout(channel, value);
-                break;
-            case Enter:
-                this.InterpretEnter(channel, value);
-                break;
-            case Leave:
-                this.InterpretLeave(channel, value);
-                break;
-            case Move:
-                this.InterpretMove(channel, value);
-                break;
-            case PlaceHoney:
-                this.InterpretPlaceHoney(channel, value);
-                break;
-            case PlaceOil:
-                this.InterpretPlaceOil(channel, value);
-                break;
-            case Download:
-                this.InterpretDownload(channel, value);
-                break;
-            case WarehouseReady:
-                this.InterpretWarehouseReady(channel, value);
-                break;
-            case AskResult:
-                this.InterpretAskResult(channel, value);
-                break;
-        }
-    }
 
     private void InterpretRegister(SocketChannel channel, byte[] value) {
         byte username_length = value[0];

@@ -20,6 +20,16 @@ public class SokobanServer implements ControllerLogic {
     }
 
     @Override
+    public void AddClient(Client client) {
+
+    }
+
+    @Override
+    public void Disconnected(Client client) {
+
+    }
+
+    @Override
     public void Register(Client client, String username, String password) {
         networkHandler.RegistrationSuccess(client);
     }
@@ -78,4 +88,6 @@ public class SokobanServer implements ControllerLogic {
     public void TopResults(Client client) {
 
     }
+
+
 }
