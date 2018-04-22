@@ -33,7 +33,8 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     public synchronized void Iterate() {
-        networkHandler.Listen();
+        networkHandler.CollectMessages();
+        networkHandler.SendMessages();
     }
 
     @Override
@@ -108,22 +109,18 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void TryLoad(int level_id) {
-        Map<Position,Field> pitch = new HashMap<>();
+    	Map<Position,Field> pitch = new HashMap<>(); 
     	List<Box> boxes=new ArrayList<>();
     	try {
 			JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
 			warehouse=new Warehouse(pitch.values(),boxes);
-            System.out.println("Level " + level_id + " successfully loaded!");
-            networkHandler.WarehouseReady();
-        } catch (FileNotFoundException | ClassCastException e) {
-            System.out.println("Level " + level_id + " download request sent!");
+		} catch (FileNotFoundException | ClassCastException e) {
 			networkHandler.Download(level_id);
 		}
     }
 
     @Override
     public void GameStarted(int worker) {
-        System.out.println("Game started. Worker ID: " + worker);
     }
 
     @Override
