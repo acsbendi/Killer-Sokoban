@@ -4,7 +4,7 @@ import common.model.Field;
 
 public class FieldView {
 
-    FieldView(Field field){
+    public FieldView(Field field){
         this.field = field;
     }
 

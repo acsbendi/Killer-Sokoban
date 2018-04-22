@@ -108,19 +108,17 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void TryLoad(int level_id) {
-        /*Map<Position,Field> pitch = new HashMap<>();
-    	List<Box> boxes=new ArrayList<>();
-    	try {
-			JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
-			warehouse=new Warehouse(pitch.values(),boxes);
+        Map<Position,Field> pitch = new HashMap<>();
+        List<Box> boxes=new ArrayList<>();
+        try {
+            JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
+            warehouse=new Warehouse(pitch.values(),boxes);
             System.out.println("Level " + level_id + " successfully loaded!");
             networkHandler.WarehouseReady();
         } catch (FileNotFoundException | ClassCastException e) {
             System.out.println("Level " + level_id + " download request sent!");
-			networkHandler.Download(level_id);
-		}*/
-        System.out.println("Level " + level_id + " successfully loaded!");
-        networkHandler.WarehouseReady();
+            networkHandler.Download(level_id);
+        }
     }
 
     @Override
@@ -208,8 +206,14 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     @Override
-    public void Maketest(String[] params) {
-
+    public void MakeTest(String[] params) {
+        MakeTest makeTest = new MakeTest(params);
+        if(makeTest.Parse()){
+            warehouse = new Warehouse(makeTest.GetFields(),makeTest.GetBoxes());
+            userInterface.SetFields(makeTest.GetFieldViews());
+            userInterface.UpdateScreen();
+        } else
+            userInterface.MakeTestFailure();
     }
 
     @Override
