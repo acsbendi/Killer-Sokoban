@@ -3,11 +3,14 @@ package server.controller;
 import common.util.Direction;
 import common.util.Hash;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SokobanServer implements ControllerLogic {
     private NetworkHandler networkHandler;
     private DataBaseManager dataBaseManager;
+
+    private HashMap<Integer, Room> rooms;
 
     public static SokobanServer Create() {
         SokobanServer sokobanServer = new SokobanServer();
@@ -17,7 +20,7 @@ public class SokobanServer implements ControllerLogic {
     }
 
     private SokobanServer() {
-
+        rooms = new HashMap<>();
     }
 
     public void Run() {
@@ -98,8 +101,21 @@ public class SokobanServer implements ControllerLogic {
     public void Enter(Client client, int players) {
         if (client.GetState() == ClientState.LoggedIn) {
             client.SetState(ClientState.Waiting);
+            Room room = rooms.get(players);
+            if (room == null) {
+                rooms.put(players, new Room(players));
+                room = rooms.get(players);
+            }
+            room.AddPlayer(client);
             System.out.println(client.GetName() + " is waiting for " + players + " players");
             networkHandler.Enter_Success(client);
+            if (room.HasEnoughPlayers(players)) {
+                rooms.remove(room);
+                int level_id = 42; // todo: generate level_ID
+                for(Client cli : room.GetClients()) {
+                    networkHandler.CheckLevel(cli, level_id);
+                }
+            }
         }
         else {
             networkHandler.Enter_NotAvailable(client);
@@ -121,7 +137,12 @@ public class SokobanServer implements ControllerLogic {
     @Override
     public void Move(Client client, Direction dir) {
         if (client.GetState() == ClientState.Playing) {
-
+            Room room = client.GetRoom();
+            room.MoveWorker(client, dir);
+            int clientIndex = room.IndexOf(client);
+            for(Client cli : room.GetClients()) {
+                networkHandler.WorkerMoved(cli, clientIndex, dir);
+            }
         }
     }
 

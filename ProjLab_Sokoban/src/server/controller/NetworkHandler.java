@@ -7,6 +7,8 @@ import server.controller.ControllerLogic;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.nio.channels.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -252,6 +254,16 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
+    public void CheckLevel(Client client, int level_id) {
+        byte[] value = ByteBuffer.allocate(4).putInt(level_id).order(ByteOrder.BIG_ENDIAN).array();
+        ServerMessage msg = new ServerMessage(ServerMessageType.CheckLevel, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
+    public void WorkerMoved(Client cli, int clientIndex, Direction dir) {
+
+    }
+
     private void InterpretRegister(SocketChannel channel, byte[] value) {
         byte username_length = value[0];
         byte password_length = value[1];
@@ -331,4 +343,7 @@ public class NetworkHandler implements INetworkHandler {
             controllerLogic.TopResults(clients.get(channel));
         }
     }
+
+
+
 }

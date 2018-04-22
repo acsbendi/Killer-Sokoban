@@ -1,8 +1,11 @@
 package server.controller;
 
+import common.util.Direction;
+
 public class Client {
     private ClientState state;
     private String name;
+    private Room room;
 
     public Client() {
         state = ClientState.Connected;
@@ -22,5 +25,13 @@ public class Client {
 
     public void SetState(ClientState state) {
         this.state = state;
+    }
+
+    public void SetRoom(Room room) {
+        this.room = room;
+    }
+
+    public Room GetRoom() {
+        return room;
     }
 }
