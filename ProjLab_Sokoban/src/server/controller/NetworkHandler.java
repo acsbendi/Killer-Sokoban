@@ -196,67 +196,47 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void LoginFailure(Client client, String err) {
-
+    public void Login_InvalidUsernameOrPassword(Client client) {
+        byte[] value = new byte[1];
+        value[0] = 1;
+        ServerMessage msg = new ServerMessage(ServerMessageType.LoginResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void LogoutSuccess(Client client) {
-
+    public void Login_NotAvailable(Client client) {
+        byte[] value = new byte[1];
+        value[0] = (byte)255;
+        ServerMessage msg = new ServerMessage(ServerMessageType.LoginResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void LogoutFailure(Client client, String err) {
-
+    public void Logout_Success(Client client) {
+        byte[] value = new byte[1];
+        value[0] = 0;
+        ServerMessage msg = new ServerMessage(ServerMessageType.LogoutResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void Results(Client client, String msg) {
-
+    public void Logout_NotAvailable(Client client) {
+        byte[] value = new byte[1];
+        value[0] = (byte)255;
+        ServerMessage msg = new ServerMessage(ServerMessageType.LogoutResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void ResultFailure(Client client, String err) {
-
+    public void Enter_Success(Client client) {
+        byte[] value = new byte[1];
+        value[0] = 0;
+        ServerMessage msg = new ServerMessage(ServerMessageType.EnterResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void EnterSuccess(Client client) {
-
+    public void Enter_NotAvailable(Client client) {
+        byte[] value = new byte[1];
+        value[0] = (byte)255;
+        ServerMessage msg = new ServerMessage(ServerMessageType.EnterResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
-
-    public void EnterFailure(Client client, String err) {
-
-    }
-
-    public void LeaveSuccess(Client client) {
-
-    }
-
-    public void LeaveFailure(Client client, String err) {
-
-    }
-
-    public void CheckLevel(Client client, int level_id) {
-
-    }
-
-    public void GameStarted(Client client, int worker) {
-
-    }
-
-    public void WorkerMoved(Client client, int player,Direction dir) {
-
-    }
-
-    public void OilPlaced(Client client, int player) {
-
-    }
-
-    public void HoneyPlaced(Client client, int player) {
-
-    }
-
-    public void GameFinished(Client client) {
-
-    }
-
-
 
     private void InterpretRegister(SocketChannel channel, byte[] value) {
         byte username_length = value[0];

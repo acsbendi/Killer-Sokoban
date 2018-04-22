@@ -36,7 +36,7 @@ public class SokobanServer implements ControllerLogic {
     public void Register(Client client, String username, String password) {
         if (client.GetState() == ClientState.Connected) {
             if (password.length() >= 8) {
-                if (true) // a felhasználónév nem foglalt
+                if (true) // todo dbmanager
                 {
                     networkHandler.Registration_Success(client);
                 }
@@ -56,21 +56,46 @@ public class SokobanServer implements ControllerLogic {
     @Override
     public void Login(Client client, String username, String password) {
         if (client.GetState() == ClientState.Connected) {
-
+            if (true) // todo dbmanager
+            {
+                client.SetState(ClientState.LoggedIn);
+                networkHandler.Login_Success(client);
+            }
+            else {
+                networkHandler.Login_InvalidUsernameOrPassword(client);
+            }
         }
         else {
-            networkHandler.NotAvailable();
+            networkHandler.Login_NotAvailable(client);
         }
     }
 
     @Override
     public void Logout(Client client) {
-
+        if (client.GetState() == ClientState.LoggedIn) {
+            client.SetState(ClientState.Connected);
+            networkHandler.Logout_Success(client);
+        }
+        else if (client.GetState() == ClientState.Waiting) {
+            // todo
+        }
+        else if (client.GetState() == ClientState.Playing) {
+            // todo
+        }
+        else {
+            networkHandler.Logout_NotAvailable(client);
+        }
     }
 
     @Override
     public void Enter(Client client, int players) {
-
+        if (client.GetState() == ClientState.LoggedIn) {
+            client.SetState(ClientState.Waiting);
+            networkHandler.Enter_Success(client);
+        }
+        else {
+            networkHandler.Enter_NotAvailable(client);
+        }
     }
 
     @Override
