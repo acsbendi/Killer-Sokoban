@@ -274,12 +274,10 @@ public class NetworkHandler implements INetworkHandler {
         System.arraycopy(value, 2+username_length, password_bytes, 0, password_length);
         String username = new String(username_bytes, StandardCharsets.UTF_8);
         String password = new String(password_bytes, StandardCharsets.UTF_8);
-        System.out.println(channel.socket().getRemoteSocketAddress().toString() + " sent Login(" + username + "; " + password + ")");
         controllerLogic.Login(clients.get(channel), username, password);
     }
 
     private void InterpretLogout(SocketChannel channel, byte[] value) {
-        System.out.println(channel.socket().getRemoteSocketAddress().toString() + " sent Logout");
         controllerLogic.Logout(clients.get(channel));
     }
 
