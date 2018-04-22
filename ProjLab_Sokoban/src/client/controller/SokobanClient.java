@@ -108,7 +108,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void TryLoad(int level_id) {
-        TreeMap<Position,Field> pitch = new TreeMap<>();
+        /*TreeMap<Position,Field> pitch = new TreeMap<>();
         List<Box> boxes=new ArrayList<>();
         try {
             JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id), pitch, boxes,workers);
@@ -118,7 +118,9 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
         } catch (FileNotFoundException | ClassCastException e) {
             System.out.println("Level " + level_id + " download request sent!");
             networkHandler.Download(level_id);
-        }
+        }*/
+        System.out.println("Level " + level_id + " successfully loaded!");
+        networkHandler.WarehouseReady();
     }
 
     @Override

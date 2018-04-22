@@ -50,7 +50,6 @@ public class JsonManager {
 				}
 			}
 			pitch.put(currentPos, createdField);
-			System.out.println("(" + currentPos.column + "; " + currentPos.row + ") added.");
 		}
 
 		for (JsonValue prePlaceholder : map.getJsonArray("placeholders")) {
