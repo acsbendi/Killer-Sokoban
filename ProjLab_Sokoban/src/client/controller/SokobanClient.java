@@ -7,10 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import client.ui.UserInterface;
-import common.model.Box;
-import common.model.Field;
-import common.model.Warehouse;
-import common.model.Worker;
+import common.model.*;
 import common.util.Direction;
 import common.util.JsonManager;
 import common.util.Position;
@@ -220,16 +217,16 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void Step(Direction dir) {
-
+        Worker.localWorker.Move(dir);
     }
 
     @Override
     public void PutHoney() {
-
+        Worker.localWorker.Place(new Honey());
     }
 
     @Override
     public void PutOil() {
-
+        Worker.localWorker.Place(new Oil());
     }
 }
