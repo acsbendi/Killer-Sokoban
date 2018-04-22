@@ -8,7 +8,6 @@ import java.util.HashMap;
 public class SokobanServer implements ControllerLogic {
     private NetworkHandler networkHandler;
     private DataBaseManager dataBaseManager;
-    private HashMap<Client, Room> rooms;
 
     public static SokobanServer Create() {
         SokobanServer sokobanServer = new SokobanServer();
@@ -103,12 +102,20 @@ public class SokobanServer implements ControllerLogic {
 
     @Override
     public void Leave(Client client) {
-
+        if (client.GetState() == ClientState.Waiting) {
+            client.SetState(ClientState.LoggedIn);
+            networkHandler.Leave_Success(client);
+        }
+        else {
+            networkHandler.Leave_NotAvailable(client);
+        }
     }
 
     @Override
     public void Move(Client client, Direction dir) {
+        if (client.GetState() == ClientState.Playing) {
 
+        }
     }
 
     @Override

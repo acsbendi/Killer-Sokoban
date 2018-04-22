@@ -238,6 +238,20 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
+    public void Leave_Success(Client client) {
+        byte[] value = new byte[1];
+        value[0] = 0;
+        ServerMessage msg = new ServerMessage(ServerMessageType.LeaveResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
+    public void Leave_NotAvailable(Client client) {
+        byte[] value = new byte[1];
+        value[0] = (byte)255;
+        ServerMessage msg = new ServerMessage(ServerMessageType.LeaveResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
     private void InterpretRegister(SocketChannel channel, byte[] value) {
         byte username_length = value[0];
         byte password_length = value[1];
