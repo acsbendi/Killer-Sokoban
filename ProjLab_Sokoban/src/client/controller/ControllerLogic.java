@@ -17,7 +17,6 @@ void EnterSuccess();
 void EnterFailure(String err);
 void LeaveSuccess();
 void LeaveFailure(String err);
-void CheckLevel(int level_id);
 void GameStarted(int worker);
 void WorkerMoved(int player,Direction dir);
 void OilPlaced(int player);
@@ -25,4 +24,5 @@ void HoneyPlaced(int player);
 void GameFinished();
 void OfflineFailure();
 void OnlineFailure();
+void TryLoad(int level_id);
 }
