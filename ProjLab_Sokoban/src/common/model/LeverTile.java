@@ -103,4 +103,13 @@ public class LeverTile extends Tile {
         pressed = false;
     }
 
+
+    /**
+     * Returns the string representation of the type of lever tiles, that is, a "l".
+     * @return The string representation.
+     */
+    @Override
+    protected String TypeToString(){
+        return "l";
+    }
 }

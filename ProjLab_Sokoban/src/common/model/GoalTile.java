@@ -47,4 +47,13 @@ public class GoalTile extends Tile {
     private boolean IsLocked() {
         return locked;
     }
+
+    /**
+     * Returns the string representation of the type of goal tiles, that is, a "g".
+     * @return The string representation.
+     */
+    @Override
+    protected String TypeToString(){
+        return "g";
+    }
 }

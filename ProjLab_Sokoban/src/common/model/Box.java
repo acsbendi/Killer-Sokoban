@@ -73,6 +73,15 @@ public class Box extends Placeholder {
 	}
 
     /**
+     * Returns the string representation of a box, that is, a "b".
+     * @return The string representation.
+     */
+    @Override
+    public String ToString(){
+        return "b";
+    }
+
+    /**
      * Checks whether the box is stuck, i.e. cannot move.
      * @return True, if the box is stuck, false if not.
      */

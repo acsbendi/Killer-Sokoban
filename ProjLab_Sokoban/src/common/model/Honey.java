@@ -17,4 +17,13 @@ public class Honey implements Liquid {
 		return friction;
 	}
 
+	/**
+	 * Returns the string representation of honey, that is, a "h".
+	 * @return The string representation.
+	 */
+	@Override
+	public String ToString(){
+		return "h";
+	}
+
 }

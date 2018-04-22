@@ -54,4 +54,14 @@ public class TrapTile extends Tile {
 		if (!IsClosed() && placeholder != null)
 			placeholder.Destroy();
 	}
+
+	/**
+	 * Returns the string representation of the type of a trap tile,
+     * depending on its specific state, that is, if it is closed ("c") or not ("o").
+	 * @return The string representation.
+	 */
+	@Override
+	protected String TypeToString() {
+        return IsClosed() ? "c" : "o";
+    }
 }

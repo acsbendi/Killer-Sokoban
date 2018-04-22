@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class UserInterface {
-	protected List<FieldView> fields=new ArrayList<>();
+	protected FieldView[][] fields; //TODO initialize this somehow
 	protected UserInputExecutor userInputExecutor;
 	public void SetUserInputExecutor(UserInputExecutor userInputExecutor) {
 		this.userInputExecutor = userInputExecutor;

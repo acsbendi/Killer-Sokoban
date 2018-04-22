@@ -5,7 +5,6 @@ import client.ui.Commands.UserInputExecutorCommands.*;
 import client.ui.Commands.InvalidArgumentException;
 
 import java.io.*;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -80,14 +79,14 @@ public class Console extends UserInterface {
             inputReader = new BufferedReader(new InputStreamReader(System.in));
             String inputLine;
             while ((inputLine = inputReader.readLine()) != null) {
-                interprete(inputLine);
+                Interpret(inputLine);
             }
         }catch(IOException ioe){
             logStackTrace(ioe);
         }
     }
 
-    private void interprete(String command){
+    private void Interpret(String command){
         if(command.isEmpty())
             return;
         String[] splitted = command.split(" ");
@@ -188,7 +187,7 @@ public class Console extends UserInterface {
             String inputLine;
             try {
                 while ((inputLine = br.readLine()) != null) {
-                    interprete(inputLine);
+                    Interpret(inputLine);
                 }
             } catch (IOException ioe){
                 logStackTrace(ioe);
@@ -296,7 +295,12 @@ public class Console extends UserInterface {
 
     @Override
     public void UpdateScreen() {
-
+        for (int i = 0; i < 3*fields.length; i++) {
+            for (int j = 0; j < fields[i].length; j++) {
+                System.out.print(fields[i/3][j].ToString().charAt(i%3));
+            }
+            System.out.println();
+        }
     }
 
     @Override

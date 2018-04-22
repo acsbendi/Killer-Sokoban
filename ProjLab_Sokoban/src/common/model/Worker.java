@@ -16,6 +16,9 @@ public class Worker extends Placeholder {
     /** The mass of a worker, the same constant value for all Worker objects */
     private static final int mass = 10;
 
+    /** The worker of the local player. */
+    public static Worker localWorker;
+
     /**
      * Constructs a new worker, with the specified force.
      */
@@ -118,6 +121,17 @@ public class Worker extends Placeholder {
 	public void Place(Liquid liquid) {
 		tile.Place(liquid);
 	}
+
+	/**
+	 * Returns the string representation of a worker, that is, a "w",
+     * if this worker does not belong to the local player, "p" otherwise.
+	 * @return The string representation.
+	 */
+	@Override
+	public String ToString(){
+
+	    return this == localWorker ? "p" : "w";
+    }
 
     /**
      * Worker accepts point.
