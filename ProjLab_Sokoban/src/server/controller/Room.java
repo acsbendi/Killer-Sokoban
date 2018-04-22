@@ -8,6 +8,7 @@ import common.util.Position;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class Room {
@@ -49,6 +50,7 @@ public class Room {
         ArrayList<Box> boxes = new ArrayList<>();
         try {
             JsonManager.EnforceConfigFile(file, pitch, boxes, workers);
+            warehouse = new Warehouse(pitch.values(), boxes);
             for(int i = 0; i < clients.size(); i++) {
                 map.put(clients.get(i), workers.get(i));
             }
