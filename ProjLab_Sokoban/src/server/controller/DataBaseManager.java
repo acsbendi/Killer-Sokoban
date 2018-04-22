@@ -7,11 +7,13 @@ import java.util.ArrayList;
  * Class responsible for the management of the database containing all necessary user data.
  * The database in use has only one table, called Users, which has the following heading:
  *
- * ---Name---Password----Wins-----Losses---
- * --String---integer---integer---integer--
+ * -----ID------Name---PasswordHash----Wins-----Losses---
+ * ---integer--String---integer---integer---integer--
+ *
+ * Note that only a hash of passwords is stored for security reasons.
  */
 public class DataBaseManager {
-    private static final String connectionStr = "jdbc:mysql://localhost:3306/test";
+    private static final String connectionStr = "jdbc:mysql://localhost:3306/server";
     private static final String connUserName = "server";
     private static final String connPassword = "server";
 
@@ -24,13 +26,11 @@ public class DataBaseManager {
      */
     private void IncrementStat(String username, String stat){
         String incrementWinsSQL = "UPDATE Users "
-                + "SET ? = ? + 1 "
+                + "SET "+ stat  + " = " + stat + " + 1 "
                 + "WHERE Name = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(incrementWinsSQL);
-            preparedStatement.setString(1, stat);
-            preparedStatement.setString(2, stat);
-            preparedStatement.setString(3, username);
+            preparedStatement.setString(1, username);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,41 +49,42 @@ public class DataBaseManager {
     }
 
     /**
-     * Registers a new user into the database, with the specified name and password.
+     * Registers a new user into the database, with the specified name and password hash.
      * @param username The name of the new user.
-     * @param password The password of the new user.
+     * @param passwordHash The hashed password of the new user.
      */
-    public void Register(String username, String password) {
+    public boolean Register(String username, long passwordHash) {
         String insertNewUserSQL = "INSERT INTO Users "
-                + "(Name, Password, Wins, Losses) VALUES "
+                + "(Name, PasswordHash, Wins, Losses) VALUES "
                 + "(?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertNewUserSQL);
             preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
+            preparedStatement.setLong(2, passwordHash);
             preparedStatement.setInt(3, 0);
             preparedStatement.setInt(4, 0);
             preparedStatement.executeUpdate();
+            return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
     }
 
     /**
-     * Checks whether a user with the specified name and password exists in the database.
+     * Checks whether a user with the specified name and password (hash) exists in the database.
      * @param username The name of the user to be checked.
-     * @param password The password of the user to be checked.
+     * @param passwordHash The hashed password of the user. to be checked.
      * @return True, if the given user exists, false, if not.
      */
-    public boolean Check(String username, String password){
+    public boolean Check(String username, long passwordHash ){
         String checkSQL = "SELECT * "
                 + "FROM Users "
-                + "WHERE Name = ? AND Password = ?";
+                + "WHERE Name = ? AND PasswordHash = ?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(checkSQL);
             preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
+            preparedStatement.setLong(2, passwordHash);
             ResultSet rs = preparedStatement.executeQuery();
 
             return rs.next();
@@ -98,7 +99,7 @@ public class DataBaseManager {
      * @param username The name of the player.
      */
     public void Win(String username){
-       IncrementStat(username, "Wins");
+        IncrementStat(username, "Wins");
     }
 
     /**
@@ -116,7 +117,7 @@ public class DataBaseManager {
      * and losses (2nd element).
      */
     ArrayList<Integer> GetResultOf(String username){
-        String findResultSQL = "SELECT (Win, Lose) "
+        String findResultSQL = "SELECT Wins, Losses "
                 + "FROM Users "
                 + "WHERE NAME = ?";
 
@@ -126,7 +127,8 @@ public class DataBaseManager {
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
 
-            for (int i = 1; rs.next(); i++) {
+            rs.next();
+            for (int i = 1; i < 3; i++) {
                 result.add(rs.getInt(i));
             }
         } catch (SQLException e) {
@@ -142,16 +144,16 @@ public class DataBaseManager {
     ArrayList<String> GetBestPlayers(){
         String findBestPlayersSQL = "SELECT Name "
                 + "FROM Users "
-                + "ORDER BY Win DESC LIMIT 5";
+                + "ORDER BY Wins DESC LIMIT 5";
 
         ArrayList<String> result = new ArrayList<>(5);
         try {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(findBestPlayersSQL);
 
-            for (int i = 1; rs.next(); i++) {
-                result.add(rs.getString(i));
-            }
+            while(rs.next())
+                result.add(rs.getString(1));
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

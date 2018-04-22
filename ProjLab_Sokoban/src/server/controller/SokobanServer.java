@@ -1,16 +1,19 @@
 package server.controller;
 
 import common.util.Direction;
+import common.util.Hash;
 
 import java.util.HashMap;
 
 public class SokobanServer implements ControllerLogic {
     private NetworkHandler networkHandler;
+    private DataBaseManager dataBaseManager;
     private HashMap<Client, Room> rooms;
 
     public static SokobanServer Create() {
         SokobanServer sokobanServer = new SokobanServer();
         sokobanServer.networkHandler = new NetworkHandler(sokobanServer);
+        sokobanServer.dataBaseManager = new DataBaseManager();
         return sokobanServer;
     }
 
@@ -36,7 +39,7 @@ public class SokobanServer implements ControllerLogic {
     public void Register(Client client, String username, String password) {
         if (client.GetState() == ClientState.Connected) {
             if (password.length() >= 8) {
-                if (true) // todo dbmanager
+                if (dataBaseManager.Register(username, Hash.GetHashFor(password)))
                 {
                     networkHandler.Registration_Success(client);
                 }
@@ -56,7 +59,7 @@ public class SokobanServer implements ControllerLogic {
     @Override
     public void Login(Client client, String username, String password) {
         if (client.GetState() == ClientState.Connected) {
-            if (true) // todo dbmanager
+            if (dataBaseManager.Check(username, Hash.GetHashFor(password)))
             {
                 client.SetState(ClientState.LoggedIn);
                 networkHandler.Login_Success(client);
