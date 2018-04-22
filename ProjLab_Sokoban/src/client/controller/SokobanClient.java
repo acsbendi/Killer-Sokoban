@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import client.network.NetworkHandler;
 import client.ui.UserInterface;
 import common.model.Box;
 import common.model.Field;
@@ -34,8 +33,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     public synchronized void Iterate() {
-        networkHandler.CollectMessages();
-        networkHandler.SendMessages();
+        networkHandler.Listen();
     }
 
     @Override
@@ -110,18 +108,22 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void TryLoad(int level_id) {
-    	Map<Position,Field> pitch = new HashMap<>(); 
-    	List<Box> boxes=new ArrayList<>();
-    	try {
-			JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
-			warehouse=new Warehouse(pitch.values(),boxes);
-		} catch (FileNotFoundException | ClassCastException e) {
-			networkHandler.Download(level_id);
-		}
+        Map<Position,Field> pitch = new HashMap<>();
+        List<Box> boxes=new ArrayList<>();
+        try {
+            JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
+            warehouse=new Warehouse(pitch.values(),boxes);
+            System.out.println("Level " + level_id + " successfully loaded!");
+            networkHandler.WarehouseReady();
+        } catch (FileNotFoundException | ClassCastException e) {
+            System.out.println("Level " + level_id + " download request sent!");
+            networkHandler.Download(level_id);
+        }
     }
 
     @Override
     public void GameStarted(int worker) {
+        System.out.println("Game started. Worker ID: " + worker);
     }
 
     @Override
@@ -204,8 +206,14 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     @Override
-    public void Maketest(String[] params) {
-
+    public void MakeTest(String[] params) {
+        MakeTest makeTest = new MakeTest(params);
+        if(makeTest.Parse()){
+            warehouse = new Warehouse(makeTest.GetFields(),makeTest.GetBoxes());
+            userInterface.SetFields(makeTest.GetFieldViews());
+            userInterface.UpdateScreen();
+        } else
+            userInterface.MakeTestFailure();
     }
 
     @Override

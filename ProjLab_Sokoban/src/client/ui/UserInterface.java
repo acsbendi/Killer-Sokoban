@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class UserInterface {
+	public void SetFields(FieldView[][] fields) {
+		this.fields = fields;
+	}
+
 	protected FieldView[][] fields; //TODO initialize this somehow
 	protected UserInputExecutor userInputExecutor;
 	public void SetUserInputExecutor(UserInputExecutor userInputExecutor) {
@@ -29,4 +33,5 @@ public abstract class UserInterface {
 	public abstract void GameFinished();
 	public abstract void OfflineFailure(); // ha online parancsot offline használunk
 	public abstract void OnlineFailure(); // ez meg fordítva
+	public abstract void MakeTestFailure(); // ez meg fordítva
 }

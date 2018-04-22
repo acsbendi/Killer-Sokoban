@@ -8,7 +8,7 @@ public class UIEMaketest implements UIECommand {
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length < 2)
             throw new InvalidArgumentException(1);
-        executor.Maketest(args);
+        executor.MakeTest(args);
     }
 
     @Override

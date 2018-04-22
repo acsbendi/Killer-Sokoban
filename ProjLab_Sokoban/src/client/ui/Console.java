@@ -48,6 +48,8 @@ public class Console extends UserInterface {
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEStep();
         UIECommands.put(cmd.getName(), cmd);
+        cmd = new UIEMaketest();
+        UIECommands.put(cmd.getName(), cmd);
 
 
         CCommand cCmd = new CClear();
@@ -308,7 +310,7 @@ public class Console extends UserInterface {
     @Override
     public void UpdateScreen() {
         for (int i = 0; i < 3*fields.length; i++) {
-            for (int j = 0; j < fields[i].length; j++) {
+            for (int j = 0; j < fields[i/3].length; j++) {
                 System.out.print(fields[i/3][j].ToString().charAt(i%3));
             }
             System.out.println();
@@ -328,5 +330,10 @@ public class Console extends UserInterface {
     @Override
     public void OnlineFailure() {
         log("Not available in online mode.");
+    }
+
+    @Override
+    public void MakeTestFailure() {
+        log("maketest command not in correct format.");
     }
 }
