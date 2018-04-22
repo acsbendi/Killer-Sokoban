@@ -64,7 +64,7 @@ public class JsonManager {
 			Position currentPos = new Position(placeholder.getJsonObject("on"));
 			((Tile) pitch.get(currentPos)).InitializeObject(createdPlaceholder);
 		}
-		for (JsonValue preWire : (JsonArray) map.get("wires")) {
+		for (JsonValue preWire : map.getJsonArray("wires")) {
 			JsonObject wire = (JsonObject) preWire;
 			LeverTile currentLever = (LeverTile) pitch.get(new Position(wire.getJsonObject("from")));
 			for (JsonValue prePosition : wire.getJsonArray("to")) {
