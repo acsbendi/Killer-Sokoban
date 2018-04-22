@@ -29,12 +29,25 @@ public class SokobanServer implements ControllerLogic {
 
     @Override
     public void AddClient(Client client) {
-
+        // todo
     }
 
     @Override
     public void Disconnected(Client client) {
+        if (client.GetState() == ClientState.Connected) {
 
+        }
+        else if (client.GetState() == ClientState.LoggedIn) {
+            System.out.println(client.GetName() + " disconnected");
+        }
+        else if (client.GetState() == ClientState.Waiting) {
+            client.GetRoom().RemoveClient(client);
+            System.out.println(client.GetName() + " left queue and disconnected");
+        }
+        else if (client.GetState() == ClientState.Loading || client.GetState() == ClientState.Ready || client.GetState() == ClientState.Playing) {
+            client.GetRoom().RemoveClient(client);
+            System.out.println(client.GetName() + " left game and disconnected");
+        }
     }
 
     @Override
@@ -83,14 +96,22 @@ public class SokobanServer implements ControllerLogic {
         if (client.GetState() == ClientState.LoggedIn) {
             client.SetState(ClientState.Connected);
             System.out.println(client.GetName() + " logged out");
-            client.SetName("");
+            client.SetName(null);
             networkHandler.Logout_Success(client);
         }
         else if (client.GetState() == ClientState.Waiting) {
-            // todo
+            client.GetRoom().RemoveClient(client);
+            System.out.println(client.GetName() + " left queue and logged out");
+            client.SetState(ClientState.Connected);
+            client.SetName(null);
+            networkHandler.Logout_Success(client);
         }
-        else if (client.GetState() == ClientState.Playing) {
-            // todo
+        else if (client.GetState() == ClientState.Loading || client.GetState() == ClientState.Ready || client.GetState() == ClientState.Playing) {
+            client.GetRoom().RemoveClient(client);
+            System.out.println(client.GetName() + " left game and logged out");
+            client.SetState(ClientState.Connected);
+            client.SetName(null);
+            networkHandler.Logout_Success(client);
         }
         else {
             networkHandler.Logout_NotAvailable(client);
@@ -110,9 +131,12 @@ public class SokobanServer implements ControllerLogic {
             System.out.println(client.GetName() + " is waiting for " + players + " players");
             networkHandler.Enter_Success(client);
             if (room.HasEnoughPlayers(players)) {
+                System.out.println("Game started.");
                 rooms.remove(room);
                 int level_id = 42; // todo: generate level_ID
+                room.Start(level_id);
                 for(Client cli : room.GetClients()) {
+                    cli.SetState(ClientState.Loading);
                     networkHandler.CheckLevel(cli, level_id);
                 }
             }
@@ -132,6 +156,26 @@ public class SokobanServer implements ControllerLogic {
         }
         else {
             networkHandler.Leave_NotAvailable(client);
+        }
+    }
+
+    @Override
+    public void Download(Client client, int level_id) {
+        // todo
+    }
+
+    @Override
+    public void WarehouseReady(Client client) {
+        if (client.GetState() == ClientState.Loading) {
+            System.out.println(client.GetName() + " is ready");
+            client.SetState(ClientState.Ready);
+            Room room = client.GetRoom();
+            if (room.EverybodyReady()) {
+                for (Client cli : room.GetClients()) {
+                    cli.SetState(ClientState.Playing);
+                    networkHandler.GameStarted(cli, room.IndexOf(cli));
+                }
+            }
         }
     }
 
@@ -157,15 +201,7 @@ public class SokobanServer implements ControllerLogic {
 
     }
 
-    @Override
-    public void Download(Client client, int level_id) {
 
-    }
-
-    @Override
-    public void WarehouseReady(Client client) {
-
-    }
 
     @Override
     public void OwnResults(Client client) {

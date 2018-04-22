@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class Room {
     ArrayList<Client> clients;
+    Warehouse warehouse;
+    ArrayList<Worker> workers;
 
     public Room(int players) {
         clients = new ArrayList<>();
@@ -27,7 +29,7 @@ public class Room {
     }
 
     public void MoveWorker(Client client, Direction dir) {
-
+        workers.get(clients.indexOf(client)).Move(dir);
     }
 
     public int IndexOf(Client client) {
@@ -36,5 +38,18 @@ public class Room {
 
     public void RemoveClient(Client client) {
         clients.remove(client);
+    }
+
+    public void Initialize(int level_id) {
+        // todo
+    }
+
+    public boolean EverybodyReady() {
+        for (Client client : clients) {
+            if (client.GetState() != ClientState.Ready) {
+                return false;
+            }
+        }
+        return true;
     }
 }

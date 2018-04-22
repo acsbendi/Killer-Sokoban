@@ -260,6 +260,13 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
+    public void GameStarted(Client client, int i) {
+        byte[] value = new byte[1];
+        value[0] = (byte)i;
+        ServerMessage msg = new ServerMessage(ServerMessageType.GameStarted, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
     public void WorkerMoved(Client client, int clientIndex, Direction dir) {
         byte[] value = new byte[2];
         value[0] = (byte)clientIndex;
@@ -360,7 +367,6 @@ public class NetworkHandler implements INetworkHandler {
             controllerLogic.TopResults(clients.get(channel));
         }
     }
-
 
 
 }

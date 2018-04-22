@@ -1,5 +1,5 @@
 package server.controller;
 
 public enum ClientState {
-    Connected, LoggedIn, Waiting, Playing
+    Connected, LoggedIn, Waiting, Loading, Ready, Playing
 }
