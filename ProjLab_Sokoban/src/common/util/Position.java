@@ -36,4 +36,8 @@ public class Position {
 		return "{x: "+column+", y: "+row+"}";
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return (this.row == ((Position)obj).row) && (this.column == ((Position)obj).column);
+	}
 }

@@ -2,6 +2,7 @@ package client;
 
 import client.controller.SokobanClient;
 import client.ui.Console;
+import common.util.Position;
 
 public class Application {
     private static class SokobanClientThread extends Thread {
@@ -24,10 +25,12 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        Console console = new Console();
+        /*Console console = new Console();
         SokobanClient sokobanClient = SokobanClient.Create(console);
         Thread t = new SokobanClientThread(sokobanClient);
         t.start();
-        console.Run();
+        console.Run();*/
+        System.out.println(new Position(1,1).hashCode());
+        System.out.println(new Position(1,1).hashCode());
     }
 }
