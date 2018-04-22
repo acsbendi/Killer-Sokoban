@@ -343,7 +343,7 @@ public class NetworkHandler implements INetworkHandler {
         else if (res == msg_error2) {
             byte[] msg = new byte[value.length-1];
             System.arraycopy(value, 1, msg, 0, value.length-1);
-            String message = new String(msg);
+            String message = new String(msg, StandardCharsets.UTF_8);
             controllerLogic.RegistrationFailure("Invalid password: " + message);
         }
         else if (res == msg_invalid) {
@@ -442,7 +442,7 @@ public class NetworkHandler implements INetworkHandler {
         if (res == msg_success) {
             byte[] msg = new byte[value.length-1];
             System.arraycopy(value, 1, msg, 0, value.length-1);
-            String message = new String(msg);
+            String message = new String(msg, StandardCharsets.UTF_8);
             controllerLogic.Results(message);
         }
         else if (res == msg_invalid) {

@@ -107,11 +107,6 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     @Override
-    public void CheckLevel(int level_id) {
-
-    }
-
-    @Override
     public void TryLoad(int level_id) {
     	Map<Position,Field> pitch = new HashMap<>(); 
     	List<Box> boxes=new ArrayList<>();
