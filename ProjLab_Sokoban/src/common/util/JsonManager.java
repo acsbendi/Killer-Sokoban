@@ -3,12 +3,10 @@ package common.util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 import javax.json.Json;
-import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonString;
@@ -29,7 +27,7 @@ public class JsonManager {
 		return new File("maps/" + level_id + ".json");
 	}
 
-	public static void EnforceConfigFile(File config, Map<Position, Field> pitch, List<Box> boxes, List<Worker> workers)
+	public static void EnforceConfigFile(File config, TreeMap<Position, Field> pitch, List<Box> boxes, List<Worker> workers)
 			throws FileNotFoundException, ClassCastException { // egyel�re m�k�dik negat�v koordin�t�kkal is
 		JsonReader jr = Json.createReader(new FileReader(config));
 		JsonObject map = jr.readObject();

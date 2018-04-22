@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Room {
     ArrayList<Client> clients;
@@ -46,7 +47,7 @@ public class Room {
 
     public void Initialize(int level_id) {
         File file = JsonManager.ResolveFileId(level_id);
-        HashMap<Position, Field> pitch = new HashMap<>();
+        TreeMap<Position, Field> pitch = new TreeMap<>();
         ArrayList<Box> boxes = new ArrayList<>();
         try {
             JsonManager.EnforceConfigFile(file, pitch, boxes, workers);

@@ -2,7 +2,7 @@ package common.util;
 
 import javax.json.JsonObject;
 
-public class Position {
+public class Position implements Comparable<Position> {
 	public final int column;
 	public final int row;
 
@@ -39,5 +39,12 @@ public class Position {
 	@Override
 	public boolean equals(Object obj) {
 		return (this.row == ((Position)obj).row) && (this.column == ((Position)obj).column);
+	}
+
+	@Override
+	public int compareTo(Position o) {
+		if (row>o.row) return 1;
+		if (row<o.row) return -1;
+		return column-o.column;
 	}
 }

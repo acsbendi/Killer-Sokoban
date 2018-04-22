@@ -2,9 +2,9 @@ package client.controller;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import client.ui.UserInterface;
 import common.model.Box;
@@ -108,7 +108,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void TryLoad(int level_id) {
-        Map<Position,Field> pitch = new HashMap<>();
+        Map<Position,Field> pitch = new TreeMap<>();
         List<Box> boxes=new ArrayList<>();
         try {
             JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
