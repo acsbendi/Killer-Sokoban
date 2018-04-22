@@ -35,6 +35,9 @@ public class MessageWriter<Message extends IMessage> {
                     System.out.println(bytesSent + " bytes sent.");
                     if (!(bytesSent > 0)) {
                         stop = true;
+                        if (bytesSent == 0) {
+                            networkHandler.WriteRegister(channel);
+                        }
                     }
                 }
                 else {
