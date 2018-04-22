@@ -33,8 +33,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     public synchronized void Iterate() {
-        networkHandler.CollectMessages();
-        networkHandler.SendMessages();
+        networkHandler.Listen();
     }
 
     @Override
@@ -105,6 +104,11 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     @Override
     public void LeaveFailure(String err) {
         userInterface.LeaveFailure(err);
+    }
+
+    @Override
+    public void CheckLevel(int level_id) {
+
     }
 
     @Override
