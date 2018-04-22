@@ -10,6 +10,9 @@ public class Worker extends Placeholder {
     /** The force of this worker, plays a role in moving. */
 	private int force;
 
+	/** The points the worker has earned in the game so far. */
+	private int points;
+
     /** The default force of workers. */
 	private static final int defaultForce = 80;
 
@@ -25,6 +28,7 @@ public class Worker extends Placeholder {
 	public Worker(int force) {
 		super(mass);
 	    this.force=force;
+		points = 0;
 	}
 
     /**
@@ -33,6 +37,7 @@ public class Worker extends Placeholder {
 	public Worker() {
 		super(mass);
 	    force=defaultForce;
+	    points = 0;
 	}
 
     /**
@@ -114,7 +119,15 @@ public class Worker extends Placeholder {
 		return force;
 	}
 
-    /**
+	/**
+	 * Returns the points of the worker.
+	 * @return The points that the worker has.
+	 */
+	public int GetPoints() {
+		return points;
+	}
+
+	/**
      * The worker places a specified liquid on its current field.
      * @param liquid The liquid to be placed.
      */
@@ -137,8 +150,7 @@ public class Worker extends Placeholder {
      * Worker accepts point.
      */
 	public void AcceptPoint() {
-		// TODO Auto-generated method stub
-		
+		points++;
 	}
 	
 }
