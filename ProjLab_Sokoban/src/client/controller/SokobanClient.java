@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import client.network.NetworkHandler;
 import client.ui.UserInterface;
 import common.model.Box;
 import common.model.Field;
