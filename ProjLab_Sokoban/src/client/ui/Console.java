@@ -42,7 +42,7 @@ public class Console extends UserInterface {
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEPutHoney();
         UIECommands.put(cmd.getName(), cmd);
-        cmd = new UIEPlaceOil();
+        cmd = new UIEPlaceHoney();
         UIECommands.put(cmd.getName(), cmd);
         cmd = new UIEPutOil();
         UIECommands.put(cmd.getName(), cmd);
