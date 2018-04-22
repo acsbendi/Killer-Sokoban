@@ -1,6 +1,5 @@
 package client;
 
-import client.controller.SokobanClient;
 import client.ui.Console;
 
 public class Application {

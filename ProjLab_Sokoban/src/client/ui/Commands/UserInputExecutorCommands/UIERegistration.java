@@ -17,7 +17,7 @@ public class UIERegistration implements UIECommand {
 
     @Override
     public String getHelp() {
-        return "Regesters a new user.";
+        return "Registers a new user.";
     }
 
     @Override

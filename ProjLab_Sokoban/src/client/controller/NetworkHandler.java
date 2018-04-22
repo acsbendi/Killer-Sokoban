@@ -116,12 +116,12 @@ public class NetworkHandler implements INetworkHandler {
             while (iter.hasNext()) {
                 SelectionKey key = iter.next();
 
-                if (key.isReadable()) {
+                if (key.isValid() && key.isReadable()) {
                     System.out.println("READ event triggered!");
                     reader.CollectMessages();
                 }
 
-                if (key.isWritable()) {
+                if (key.isValid() && key.isWritable()) {
                     System.out.println("WRITE event triggered!");
                     writer.SendMessages();
                 }

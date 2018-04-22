@@ -82,10 +82,16 @@ public class NetworkHandler implements INetworkHandler {
                         System.out.println(clientChannel.socket().getRemoteSocketAddress() + " connected.");
                     }
 
-                    if (key.isReadable()) {
+                    if (key.isValid() && key.isReadable()) {
                         System.out.println("READ event triggered!");
                         SocketChannel channel = (SocketChannel) key.channel();
                         readers.get(channel).CollectMessages();
+                    }
+
+                    if (key.isValid() && key.isWritable()) {
+                        System.out.println("WRITE event triggered!");
+                        SocketChannel channel = (SocketChannel) key.channel();
+                        writers.get(channel).SendMessages();
                     }
 
                     iter.remove();
