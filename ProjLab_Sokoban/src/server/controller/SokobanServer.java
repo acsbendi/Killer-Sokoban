@@ -2,8 +2,11 @@ package server.controller;
 
 import common.util.Direction;
 
+import java.util.HashMap;
+
 public class SokobanServer implements ControllerLogic {
     private NetworkHandler networkHandler;
+    private HashMap<Client, Room> rooms;
 
     public static SokobanServer Create() {
         SokobanServer sokobanServer = new SokobanServer();
