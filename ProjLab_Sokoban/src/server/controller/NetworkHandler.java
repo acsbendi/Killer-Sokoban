@@ -125,7 +125,7 @@ public class NetworkHandler implements INetworkHandler {
                     SelectionKey key = iter.next();
 
                     if (key.isAcceptable()) {
-                        System.out.println("ACCEPT event triggered!");
+                        //System.out.println("ACCEPT event triggered!");
                         ServerSocketChannel serverChannel = (ServerSocketChannel) key.channel();
                         SocketChannel clientChannel = serverChannel.accept();
                         clientChannel.configureBlocking(false);
@@ -141,13 +141,13 @@ public class NetworkHandler implements INetworkHandler {
                     }
 
                     if (key.isValid() && key.isReadable()) {
-                        System.out.println("READ event triggered!");
+                        //System.out.println("READ event triggered!");
                         SocketChannel channel = (SocketChannel) key.channel();
                         readers.get(channel).CollectMessages();
                     }
 
                     if (key.isValid() && key.isWritable()) {
-                        System.out.println("WRITE event triggered!");
+                        //System.out.println("WRITE event triggered!");
                         SocketChannel channel = (SocketChannel) key.channel();
                         writers.get(channel).SendMessages();
                     }
