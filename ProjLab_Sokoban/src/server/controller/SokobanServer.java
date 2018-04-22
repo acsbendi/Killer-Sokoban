@@ -134,7 +134,7 @@ public class SokobanServer implements ControllerLogic {
                 System.out.println("Game started.");
                 rooms.remove(room);
                 int level_id = 42; // todo: generate level_ID
-                room.Start(level_id);
+                room.Initialize(level_id);
                 for(Client cli : room.GetClients()) {
                     cli.SetState(ClientState.Loading);
                     networkHandler.CheckLevel(cli, level_id);
@@ -187,24 +187,33 @@ public class SokobanServer implements ControllerLogic {
             int clientIndex = room.IndexOf(client);
             for(Client cli : room.GetClients()) {
                 networkHandler.WorkerMoved(cli, clientIndex, dir);
-
-
-                
             }
         }
     }
 
     @Override
     public void PlaceHoney(Client client) {
-
+        if (client.GetState() == ClientState.Playing) {
+            Room room = client.GetRoom();
+            room.PlaceHoney(client);
+            int clientIndex = room.IndexOf(client);
+            for(Client cli : room.GetClients()) {
+                networkHandler.HoneyPlaced(cli, clientIndex);
+            }
+        }
     }
 
     @Override
     public void PlaceOil(Client client) {
-
+        if (client.GetState() == ClientState.Playing) {
+            Room room = client.GetRoom();
+            room.PlaceOil(client);
+            int clientIndex = room.IndexOf(client);
+            for(Client cli : room.GetClients()) {
+                networkHandler.OilPlaced(cli, clientIndex);
+            }
+        }
     }
-
-
 
     @Override
     public void OwnResults(Client client) {

@@ -288,6 +288,20 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
+    public void HoneyPlaced(Client client, int clientIndex) {
+        byte[] value = new byte[1];
+        value[0] = (byte)clientIndex;
+        ServerMessage msg = new ServerMessage(ServerMessageType.HoneyPlaced, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
+    public void OilPlaced(Client client, int clientIndex) {
+        byte[] value = new byte[1];
+        value[0] = (byte)clientIndex;
+        ServerMessage msg = new ServerMessage(ServerMessageType.OilPlaced, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
     private void InterpretRegister(SocketChannel channel, byte[] value) {
         byte username_length = value[0];
         byte password_length = value[1];

@@ -52,4 +52,10 @@ public class Room {
         }
         return true;
     }
+
+    public void PlaceHoney(Client client) {
+    }
+
+    public void PlaceOil(Client client) {
+    }
 }
