@@ -124,7 +124,7 @@ public class SokobanServer implements ControllerLogic {
             client.SetState(ClientState.Waiting);
             Room room = rooms.get(players);
             if (room == null) {
-                rooms.put(players, new Room(players));
+                rooms.put(players, new Room());
                 room = rooms.get(players);
             }
             room.AddPlayer(client);

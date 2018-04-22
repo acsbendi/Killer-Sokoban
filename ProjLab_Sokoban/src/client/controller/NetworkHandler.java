@@ -395,7 +395,8 @@ public class NetworkHandler implements INetworkHandler {
     }
 
     private void InterpretCheckLevel(byte[] value) {
-        // todo
+        int level_id = (value[0] << 24) + (value[1] << 16) + (value[2] << 8) + value[3];
+        controllerLogic.TryLoad(level_id);
     }
 
     private void InterpretLevelData(byte[] value) {

@@ -108,18 +108,21 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void TryLoad(int level_id) {
-    	Map<Position,Field> pitch = new HashMap<>(); 
+        System.out.println("Level " + level_id + " successfully loaded!");
+        networkHandler.WarehouseReady();
+    	/*Map<Position,Field> pitch = new HashMap<>();
     	List<Box> boxes=new ArrayList<>();
     	try {
 			JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
 			warehouse=new Warehouse(pitch.values(),boxes);
 		} catch (FileNotFoundException | ClassCastException e) {
 			networkHandler.Download(level_id);
-		}
+		}*/
     }
 
     @Override
     public void GameStarted(int worker) {
+        System.out.println("Game started. Worker ID: " + worker);
     }
 
     @Override
