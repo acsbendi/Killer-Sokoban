@@ -1,14 +1,25 @@
 package client.controller;
 
-import client.network.NetworkHandler;
-import common.model.Warehouse;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import client.ui.UserInterface;
+import common.model.Box;
+import common.model.Field;
+import common.model.Warehouse;
+import common.model.Worker;
 import common.util.Direction;
+import common.util.JsonManager;
+import common.util.Position;
 
 public class SokobanClient implements UserInputExecutor,ControllerLogic {
     private UserInterface userInterface;
-    private Warehouse warehouse;
-    private NetworkHandler networkHandler;
+    private Warehouse warehouse; //kesobb inicializalando
+    private NetworkHandler networkHandler=new NetworkHandler(this);
+    private List<Worker> workers=new ArrayList<>();
 
     public static SokobanClient Create(UserInterface userInterface) {
         SokobanClient client = new SokobanClient(userInterface);
@@ -19,7 +30,6 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     private SokobanClient(UserInterface userInterface) {
         this.userInterface = userInterface;
-        warehouse = new Warehouse();
     }
 
     public synchronized void Iterate() {
@@ -98,13 +108,19 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
 
     @Override
-    public void CheckLevel(int level_id) {
-        // todo
+    public void TryLoad(int level_id) {
+    	Map<Position,Field> pitch = new HashMap<>(); 
+    	List<Box> boxes=new ArrayList<>();
+    	try {
+			JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
+			warehouse=new Warehouse(pitch.values(),boxes);
+		} catch (FileNotFoundException | ClassCastException e) {
+			networkHandler.Download(level_id);
+		}
     }
 
     @Override
     public void GameStarted(int worker) {
-        // todo
     }
 
     @Override
