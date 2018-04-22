@@ -108,10 +108,10 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void TryLoad(int level_id) {
-        Map<Position,Field> pitch = new TreeMap<>();
+        TreeMap<Position,Field> pitch = new TreeMap<>();
         List<Box> boxes=new ArrayList<>();
         try {
-            JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id),pitch,boxes,workers);
+            JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id), pitch, boxes,workers);
             warehouse=new Warehouse(pitch.values(),boxes);
             System.out.println("Level " + level_id + " successfully loaded!");
             networkHandler.WarehouseReady();

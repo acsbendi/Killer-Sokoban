@@ -62,11 +62,6 @@ public class JsonManager {
 			else if (createdPlaceholder instanceof Box)
 				boxes.add((Box) createdPlaceholder);
 			Position currentPos = new Position(placeholder.getJsonObject("on"));
-			System.out.println("Searching for (" + currentPos.column + "; " + currentPos.row + ").");
-			System.out.println("currentPos is null: " + (currentPos == null));
-			System.out.println("pitch is null: " + (pitch == null));
-			System.out.println("pitch.get(currentPos) is null: " + (pitch.get(currentPos) == null));
-			System.out.println("((Tile) pitch.get(currentPos)) is null: " + (((Tile) pitch.get(currentPos)) == null));
 			((Tile) pitch.get(currentPos)).InitializeObject(createdPlaceholder);
 		}
 		for (JsonValue preWire : map.getJsonArray("wires")) {
