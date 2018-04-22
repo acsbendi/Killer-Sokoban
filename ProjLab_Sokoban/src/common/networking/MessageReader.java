@@ -23,7 +23,7 @@ public class MessageReader<Message extends IMessage> {
             do {
                 if (header.hasRemaining()) {
                     int bytesRead = channel.read(header);
-                    System.out.println(bytesRead + " bytes read.");
+                    //System.out.println(bytesRead + " bytes read.");
                     if (!(bytesRead > 0)) {
                         stop = true;
                         if (bytesRead == -1) {
@@ -40,7 +40,7 @@ public class MessageReader<Message extends IMessage> {
                 }
                 else if (body.hasRemaining()) {
                     int bytesRead = channel.read(body);
-                    System.out.println(bytesRead + " bytes read.");
+                    //System.out.println(bytesRead + " bytes read.");
                     if (!(bytesRead > 0)) {
                         stop = true;
                         if (bytesRead == -1) {

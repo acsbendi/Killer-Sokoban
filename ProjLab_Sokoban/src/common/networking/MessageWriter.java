@@ -32,7 +32,7 @@ public class MessageWriter<Message extends IMessage> {
             do {
                 if (buffer.hasRemaining()) {
                     int bytesSent = channel.write(buffer);
-                    System.out.println(bytesSent + " bytes sent.");
+                    //System.out.println(bytesSent + " bytes sent.");
                     if (!(bytesSent > 0)) {
                         stop = true;
                         if (bytesSent == 0) {
