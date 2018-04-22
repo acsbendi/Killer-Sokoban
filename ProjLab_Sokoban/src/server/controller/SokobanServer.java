@@ -36,11 +36,11 @@ public class SokobanServer implements ControllerLogic {
     @Override
     public void Register(Client client, String username, String password) {
         if (client.GetState() == ClientState.Connected) {
-            if (true /* stimmel-e */) {
-                networkHandler.RegistrationSuccess(client);
+            if (password.length() >= 8) {
+                
             }
             else {
-                networkHandler.RegistrationFailure(client, ???);
+                networkHandler.Registration_InvalidPassword(client, "Password must have at lest 8 characters.");
             }
         }
         else {

@@ -158,18 +158,31 @@ public class NetworkHandler implements INetworkHandler {
         }
     }
 
-    public void RegistrationSuccess(Client client) {
+    public void Registration_Success(Client client) {
         byte[] value = new byte[1];
         value[0] = 0;
         ServerMessage msg = new ServerMessage(ServerMessageType.RegisterResponse, value);
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void RegistrationFailure(Client client, String err) {
-
+    public void Registration_UsernameAlreadyExists(Client client) {
+        byte[] value = new byte[1];
+        value[0] = 1;
+        ServerMessage msg = new ServerMessage(ServerMessageType.RegisterResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
-    public void LoginSuccess(Client client) {
+    public void Registration_InvalidPassword(Client client, String condition) {
+        byte[] condition_bytes = condition.getBytes(StandardCharsets.UTF_8);
+        int condition_length = condition_bytes.length;
+        byte[] value = new byte[1+condition_length];
+        value[0] = 2;
+        System.arraycopy(condition_bytes, 0, value, 1, condition_length);
+        ServerMessage msg = new ServerMessage(ServerMessageType.RegisterResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
+    public void Login_Success(Client client) {
         byte[] value = new byte[1];
         value[0] = 0;
         ServerMessage msg = new ServerMessage(ServerMessageType.LoginResponse, value);
