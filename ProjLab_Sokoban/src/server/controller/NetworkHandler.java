@@ -182,6 +182,13 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
+    public void Registration_NotAvailable(Client client) {
+        byte[] value = new byte[1];
+        value[0] = (byte)255;
+        ServerMessage msg = new ServerMessage(ServerMessageType.RegisterResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(msg);
+    }
+
     public void Login_Success(Client client) {
         byte[] value = new byte[1];
         value[0] = 0;
@@ -331,9 +338,5 @@ public class NetworkHandler implements INetworkHandler {
         else if (mode == 1) {
             controllerLogic.TopResults(clients.get(channel));
         }
-    }
-
-    public void NotAvailable(ServerMessageType type) {
-
     }
 }

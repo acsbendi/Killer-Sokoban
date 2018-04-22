@@ -1,6 +1,5 @@
 package server.controller;
 
-import common.networking.ServerMessageType;
 import common.util.Direction;
 
 import java.util.HashMap;
@@ -37,21 +36,31 @@ public class SokobanServer implements ControllerLogic {
     public void Register(Client client, String username, String password) {
         if (client.GetState() == ClientState.Connected) {
             if (password.length() >= 8) {
-                
+                if (true) // a felhasználónév nem foglalt
+                {
+                    networkHandler.Registration_Success(client);
+                }
+                else {
+                    networkHandler.Registration_UsernameAlreadyExists(client);
+                }
             }
             else {
-                networkHandler.Registration_InvalidPassword(client, "Password must have at lest 8 characters.");
+                networkHandler.Registration_InvalidPassword(client, "Password must have at least 8 characters.");
             }
         }
         else {
-            networkHandler.NotAvailable(ServerMessageType.RegisterResponse);
+            networkHandler.Registration_NotAvailable(client);
         }
     }
 
     @Override
     public void Login(Client client, String username, String password) {
-        networkHandler.LoginSuccess(client);
-        if ()
+        if (client.GetState() == ClientState.Connected) {
+
+        }
+        else {
+            networkHandler.NotAvailable();
+        }
     }
 
     @Override
