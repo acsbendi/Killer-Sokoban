@@ -173,7 +173,7 @@ public class SokobanServer implements ControllerLogic {
             if (room.EverybodyReady()) {
                 for (Client cli : room.GetClients()) {
                     cli.SetState(ClientState.Playing);
-                    networkHandler.GameStarted(cli, room.IndexOf(cli));
+                    networkHandler.GameStarted(cli, room.WorkerIndexOf(cli));
                 }
             }
         }
@@ -184,7 +184,7 @@ public class SokobanServer implements ControllerLogic {
         if (client.GetState() == ClientState.Playing) {
             Room room = client.GetRoom();
             room.MoveWorker(client, dir);
-            int clientIndex = room.IndexOf(client);
+            int clientIndex = room.WorkerIndexOf(client);
             for(Client cli : room.GetClients()) {
                 networkHandler.WorkerMoved(cli, clientIndex, dir);
             }
@@ -196,7 +196,7 @@ public class SokobanServer implements ControllerLogic {
         if (client.GetState() == ClientState.Playing) {
             Room room = client.GetRoom();
             room.PlaceHoney(client);
-            int clientIndex = room.IndexOf(client);
+            int clientIndex = room.WorkerIndexOf(client);
             for(Client cli : room.GetClients()) {
                 networkHandler.HoneyPlaced(cli, clientIndex);
             }
@@ -208,7 +208,7 @@ public class SokobanServer implements ControllerLogic {
         if (client.GetState() == ClientState.Playing) {
             Room room = client.GetRoom();
             room.PlaceOil(client);
-            int clientIndex = room.IndexOf(client);
+            int clientIndex = room.WorkerIndexOf(client);
             for(Client cli : room.GetClients()) {
                 networkHandler.OilPlaced(cli, clientIndex);
             }

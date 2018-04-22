@@ -7,14 +7,18 @@ import common.model.Worker;
 import common.util.Direction;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Room {
     ArrayList<Client> clients;
     Warehouse warehouse;
     ArrayList<Worker> workers;
+    HashMap<Client, Worker> map;
 
     public Room() {
         clients = new ArrayList<>();
+        workers = new ArrayList<>();
+        map = new HashMap<>();
     }
 
     public void AddPlayer(Client client) {
@@ -27,16 +31,15 @@ public class Room {
     }
 
     public ArrayList<Client> GetClients() {
-        // todo: WARNING. clients might contain NULL
         return clients;
     }
 
-    public int IndexOf(Client client) {
-        return clients.indexOf(client);
+    public int WorkerIndexOf(Client client) {
+        return workers.indexOf(map.get(client));
     }
 
     public void RemoveClient(Client client) {
-        clients.set(clients.indexOf(client), null);
+        clients.remove(client);
     }
 
     public void Initialize(int level_id) {
@@ -45,7 +48,7 @@ public class Room {
 
     public boolean EverybodyReady() {
         for (Client client : clients) {
-            if (client != null && client.GetState() != ClientState.Ready) {
+            if (client.GetState() != ClientState.Ready) {
                 return false;
             }
         }
@@ -53,14 +56,14 @@ public class Room {
     }
 
     public void MoveWorker(Client client, Direction dir) {
-        workers.get(clients.indexOf(client)).Move(dir);
+        map.get(client).Move(dir);
     }
 
     public void PlaceHoney(Client client) {
-        workers.get(clients.indexOf(client)).Place(new Honey());
+        map.get(client).Place(new Honey());
     }
 
     public void PlaceOil(Client client) {
-        workers.get(clients.indexOf(client)).Place(new Oil());
+        map.get(client).Place(new Oil());
     }
 }
