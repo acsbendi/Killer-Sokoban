@@ -138,12 +138,14 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     @Override
     public void GameStarted(int worker) {
         System.out.println("Game started. Worker ID: " + worker);
+        Worker.localWorker = workers.get(worker);
+        userInterface.UpdateScreen();
     }
 
     @Override
     public void WorkerMoved(int player, Direction dir) {
-        // TODO Auto-generated method stub
-
+        workers.get(player).Move(dir);
+        userInterface.UpdateScreen();
     }
     @Override
     public void OilPlaced(int player) {
