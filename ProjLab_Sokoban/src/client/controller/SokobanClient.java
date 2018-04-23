@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import client.ui.FieldView;
 import client.ui.UserInterface;
 import common.model.*;
 import common.util.Direction;
@@ -110,6 +111,22 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
         try {
             JsonManager.EnforceConfigFile(JsonManager.ResolveFileId(level_id), pitch, boxes,workers);
             warehouse=new Warehouse(pitch.values(),boxes);
+
+            int maxColumn = pitch.keySet().stream().max((x,y) -> Integer.compare(x.column,y.column)).get().column;
+            int minColumn = pitch.keySet().stream().min((x,y) -> Integer.compare(x.column,y.column)).get().column;
+            int maxRow = pitch.keySet().stream().max((x,y) -> Integer.compare(x.row,y.row)).get().row;
+            int minRow = pitch.keySet().stream().min((x,y) -> Integer.compare(x.row,y.row)).get().row;
+
+            int width = maxColumn - minColumn + 1;
+            int height = maxRow - minRow + 1;
+            FieldView[][] fieldViews = new FieldView[height][width];
+            for (Map.Entry<Position,Field> entry : pitch.entrySet()
+                    ) {
+                fieldViews[entry.getKey().row - minRow][entry.getKey().column - minColumn] = new FieldView(entry.getValue());
+            }
+
+            userInterface.SetFields(fieldViews);
+
             System.out.println("Level " + level_id + " successfully loaded!");
             networkHandler.WarehouseReady();
         } catch (FileNotFoundException | ClassCastException e) {
