@@ -3,6 +3,7 @@ package client.ui;
 import client.ui.Commands.ConsoleCommands.*;
 import client.ui.Commands.UserInputExecutorCommands.*;
 import client.ui.Commands.InvalidArgumentException;
+import org.omg.CORBA.DynAnyPackage.Invalid;
 
 import java.io.*;
 import java.util.HashMap;
@@ -14,11 +15,11 @@ public class Console extends UserInterface {
     private List<String> output = new LinkedList<>();
     private Map<String, UIECommand> UIECommands = new HashMap<>();
     private Map<String, CCommand> CCommands = new HashMap<>();
-
+    /**Nullaparaméteres konstruktor, a parancsok inicializálásához*/
     public Console(){
         InitCommands();
     }
-
+    /**Parancsok inicializálása, parancs tárolók feltöltése*/
     private void InitCommands(){
         UIECommand cmd = new UIEConnect();
         UIECommands.put(cmd.getName(), cmd);
@@ -70,8 +71,9 @@ public class Console extends UserInterface {
     // Amíg nincs exit parancs: fogadni inputot!!
     // ha pl. connect parancs jött: userInputExecutor.Connect();
     // ha login jött: userInputExecutor.Login(username, password); stb
-
+    /**A konzolról parancsok fogadása*/
     public void Run(){
+        /**A stdin-ről olvas, az inputot tovább adja a feldolgozónak*/
         BufferedReader inputReader;
         try {
             inputReader = new BufferedReader(new InputStreamReader(System.in));
@@ -83,11 +85,13 @@ public class Console extends UserInterface {
             logStackTrace(ioe);
         }
     }
-
+    /**A parancs értelmezését végzi, meghívja a mgefelelő parancson a végrehajtó függvényt*/
     private void Interpret(String command){
         if(command.isEmpty())
             return;
+        /**A bemenet feldarabolása szavakra*/
         String[] splitted = command.split(" ");
+        /**Megvizsgáljuk, hogy benne van-e valamelyik parancstárolóban, ha igen végrehajtjuk, ha nem visszajelezzük, hogy ismeretlen a parancs*/
         try {
             if (UIECommands.containsKey(splitted[0])){
                 UIECommands.get(splitted[0]).Execute(userInputExecutor, splitted);
@@ -95,14 +99,14 @@ public class Console extends UserInterface {
             else if(CCommands.containsKey(splitted[0])) {
                 CCommands.get(splitted[0]).Execute(this, splitted);
             }else{
-                System.out.println("Invalid command");
+                log("Invalid command");
             }
         }catch(InvalidArgumentException iae){
             log(iae.getMessage());
         }
     }
-
-    public void printInfo(String cmdName){
+    /**A paraméterként kapott parancsról kiírja az információt, amennyiben érvényes parancs.*/
+    public void printInfo(String cmdName) throws InvalidArgumentException {
         if("all".equals(cmdName)){
             for (String s:CCommands.keySet())
                 log(s);
@@ -114,8 +118,9 @@ public class Console extends UserInterface {
             log(UIECommands.get(cmdName).getHelp());
         else if(CCommands.containsKey(cmdName))
             log(CCommands.get(cmdName).getHelp());
+        else throw new InvalidArgumentException(2);
     }
-
+    /**Összehasonlítja a paraméterben kapott file tartalmát az output buffer tartalmával, amennyiben a fájl létezik*/
     public void compare(String fileName)   {
         File sketch = new File(System.getProperty("user.dir"), fileName);
         BufferedReader br = null;
@@ -160,14 +165,14 @@ public class Console extends UserInterface {
         //if we reached the end of the output buffer without match or encountered IndexOutOfBoundsException that means that the output differs
         log("Different output.");
     }
-
+    /**elmenti az output buffer tartalmát a paraméterben kapott fájlba, amennyiben az még nem létezik*/
     public void save(String fileName)   {
-        //TODO
         File sketch = new File(System.getProperty("user.dir"), fileName);
         if(sketch.exists()) {
                log("File already exists");
                return;
         }
+        /**Ha még nem létezik a fájl, létrehozza és beleírja az output tartalmát*/
         try {
             if(sketch.createNewFile()){
                 PrintWriter pw = new PrintWriter(new FileOutputStream(sketch));
@@ -181,17 +186,17 @@ public class Console extends UserInterface {
         }
         log("File printed succesfully");
     }
-
+    /**Törli az outputbuffer tartalmát*/
     public void clear(){
         output.clear();
     }
-
+    /**Várakozik a paraméterben megadott számi ms-t*/
     public void wait(int ms){
         try {
             Thread.sleep(ms);
         }catch(InterruptedException ie){/*if thread is interrupted just go with the flow*/}
     }
-
+    /**a paraméterben megadott nevű fájlból beolvas parancsokat és végrehajtja, amennyiben a fájl létezik*/
     public void runSketch(String fileName) throws FileNotFoundException {
         File sketch = new File(System.getProperty("user.dir"), fileName);
         if(sketch.exists()){
@@ -210,23 +215,23 @@ public class Console extends UserInterface {
             throw new FileNotFoundException(fileName);
         }
     }
-
+    /**Kilép az alkalmazásból*/
     public void exit(){
         System.exit(0);
     }
-
+    /**A paraméterben átadott kivétel stackTrace-ét logolja*/
     private void logStackTrace(Exception e){
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
         log(sw.toString());
     }
-
+    /**az átadott stringet a stdout-ra és az output bufferbe is beírja*/
     private void log(String s){
         output.add(s);
         System.out.println(s);
     }
-
+    /**Szervertől hívott függvények, a műveletek sikerességéről adnak visszajelzést*/
     @Override
     public void ConnectionResult(boolean res) {
         if(res) {

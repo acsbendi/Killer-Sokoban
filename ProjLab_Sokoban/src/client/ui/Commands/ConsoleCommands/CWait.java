@@ -2,9 +2,9 @@ package client.ui.Commands.ConsoleCommands;
 
 import client.ui.Commands.InvalidArgumentException;
 import client.ui.Console;
-
+/**wait parancs implementálása*/
 public class CWait implements CCommand{
-
+    /**Ha az argumentumok száma és típusa megfelelő visszahívja a végrehajtó megfelelő tagfüggvényét, egyébként InvalidArgumentExceptiont dob*/
     @Override
     public void Execute(Console executor, String[] args) throws InvalidArgumentException {
         if(args.length > 2)

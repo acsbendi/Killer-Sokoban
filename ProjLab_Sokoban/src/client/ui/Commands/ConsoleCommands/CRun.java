@@ -4,8 +4,9 @@ import client.ui.Commands.InvalidArgumentException;
 import client.ui.Console;
 
 import java.io.FileNotFoundException;
-
+/**run parancs implementálása*/
 public class CRun implements CCommand {
+    /**Ha az argumentumok száma megfelelő visszahívja a végrehajtó megfelelő tagfüggvényét, egyébként InvalidArgumentExceptiont dob*/
     @Override
     public void Execute(Console executor, String[] args) throws InvalidArgumentException {
         if(args.length > 2)

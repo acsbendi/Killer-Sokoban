@@ -4,6 +4,7 @@ import client.controller.UserInputExecutor;
 import client.ui.Commands.InvalidArgumentException;
 
 public class UIERegistration implements UIECommand {
+    /**Ha az argumentumok száma megfelelő visszahívja a végrehajtó megfelelő tagfüggvényét, egyébként InvalidArgumentExceptiont dob*/
     @Override
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length > 3)
