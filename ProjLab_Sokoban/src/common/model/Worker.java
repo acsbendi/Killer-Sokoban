@@ -103,12 +103,14 @@ public class Worker extends Placeholder {
      * The worker starts a new move in the specified direction.
      * @param dir The direction of the move.
      */
-	public void Move(Direction dir) { //TODO
-		Tile old = tile;
-		Move move = new Move(this);
-		TryMove(dir,move);
-		if(tile != null && tile != old)
-			tile.Check(dir);
+	public void Move(Direction dir) {
+		if (tile != null) {
+			Tile old = tile;
+			Move move = new Move(this);
+			TryMove(dir,move);
+			if(tile != null && tile != old)
+				tile.Check(dir);
+		}
 	}
 
     /**
@@ -132,7 +134,9 @@ public class Worker extends Placeholder {
      * @param liquid The liquid to be placed.
      */
 	public void Place(Liquid liquid) {
-		tile.Place(liquid);
+		if (tile != null) {
+			tile.Place(liquid);
+		}
 	}
 
 	/**
