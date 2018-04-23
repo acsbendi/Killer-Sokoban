@@ -54,7 +54,7 @@ public class DataBaseManager {
      * @param passwordHash The hashed password of the new user.
      */
     public boolean Register(String username, long passwordHash) {
-        /*String insertNewUserSQL = "INSERT INTO Users "
+        String insertNewUserSQL = "INSERT INTO Users "
                 + "(Name, PasswordHash, Wins, Losses) VALUES "
                 + "(?,?,?,?)";
         try {
@@ -67,8 +67,7 @@ public class DataBaseManager {
             return true;
         } catch (SQLException e) {
             return false;
-        }*/
-        return true;
+        }
     }
 
     /**
@@ -78,7 +77,7 @@ public class DataBaseManager {
      * @return True, if the given user exists, false, if not.
      */
     public boolean Check(String username, long passwordHash ){
-        /*String checkSQL = "SELECT * "
+        String checkSQL = "SELECT * "
                 + "FROM Users "
                 + "WHERE Name = ? AND PasswordHash = ?";
 
@@ -92,8 +91,7 @@ public class DataBaseManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;*/
-        return true;
+        return false;
     }
 
     /**
