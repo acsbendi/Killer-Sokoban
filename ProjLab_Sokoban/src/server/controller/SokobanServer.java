@@ -53,10 +53,10 @@ public class SokobanServer implements ControllerLogic {
     @Override
     public void Register(Client client, String username, String password) {
         if (client.GetState() == ClientState.Connected) {
+            System.out.println("Someone tried to register.");
             if (password.length() >= 8) {
                 if (dataBaseManager.Register(username, Hash.GetHashFor(password)))
                 {
-                    System.out.println("Someone registered(" + username + ", " + password + ")");
                     networkHandler.Registration_Success(client);
                 }
                 else {
@@ -79,7 +79,7 @@ public class SokobanServer implements ControllerLogic {
             {
                 client.SetState(ClientState.LoggedIn);
                 client.SetName(username);
-                System.out.println(client.GetName() + " logged in with: " + password);
+                System.out.println(client.GetName() + " logged in.");
                 networkHandler.Login_Success(client);
             }
             else {
@@ -95,13 +95,13 @@ public class SokobanServer implements ControllerLogic {
     public void Logout(Client client) {
         if (client.GetState() == ClientState.LoggedIn) {
             client.SetState(ClientState.Connected);
-            System.out.println(client.GetName() + " logged out");
+            System.out.println(client.GetName() + " logged out.");
             client.SetName(null);
             networkHandler.Logout_Success(client);
         }
         else if (client.GetState() == ClientState.Waiting) {
             client.GetRoom().RemoveClient(client);
-            System.out.println(client.GetName() + " left queue and logged out");
+            System.out.println(client.GetName() + " left queue and logged out.");
             client.SetState(ClientState.Connected);
             client.SetName(null);
             networkHandler.Logout_Success(client);

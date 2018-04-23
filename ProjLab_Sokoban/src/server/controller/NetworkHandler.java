@@ -311,7 +311,6 @@ public class NetworkHandler implements INetworkHandler {
         System.arraycopy(value, 2+username_length, password_bytes, 0, password_length);
         String username = new String(username_bytes, StandardCharsets.UTF_8);
         String password = new String(password_bytes, StandardCharsets.UTF_8);
-        System.out.println(channel.socket().getRemoteSocketAddress().toString() + " send Register " + username + "; " + password + ")");
         controllerLogic.Register(clients.get(channel), username, password);
     }
 
