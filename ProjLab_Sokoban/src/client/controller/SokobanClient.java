@@ -127,17 +127,14 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
             userInterface.SetFields(fieldViews);
 
-            System.out.println("Level " + level_id + " successfully loaded!");
             networkHandler.WarehouseReady();
         } catch (FileNotFoundException | ClassCastException e) {
-            System.out.println("Level " + level_id + " download request sent!");
             networkHandler.Download(level_id);
         }
     }
 
     @Override
     public void GameStarted(int worker) {
-        System.out.println("Game started. Worker ID: " + worker);
         Worker.localWorker = workers.get(worker);
         userInterface.UpdateScreen();
     }
@@ -149,13 +146,11 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
     @Override
     public void OilPlaced(int player) {
-        // TODO Auto-generated method stub
-
+        workers.get(player).Place(new Oil());
     }
     @Override
     public void HoneyPlaced(int player) {
-        // TODO Auto-generated method stub
-
+        workers.get(player).Place(new Honey());
     }
     @Override
     public void GameFinished() {
