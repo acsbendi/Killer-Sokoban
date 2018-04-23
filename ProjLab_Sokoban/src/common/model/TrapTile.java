@@ -51,8 +51,10 @@ public class TrapTile extends Tile {
      * there is a placeholder on it, it gets destroyed.
      */
 	public void Check() {
-		if (!IsClosed() && placeholder != null)
+		if (!IsClosed() && placeholder != null) {
 			placeholder.Destroy();
+		}
+
 	}
 
 	/**

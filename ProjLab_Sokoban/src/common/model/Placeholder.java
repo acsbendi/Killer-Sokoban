@@ -84,7 +84,8 @@ public abstract class Placeholder {
      * Destroys the placeholder.
      */
 	public void Destroy() {
-		// TODO
+		this.tile.ReleaseObject();
+		this.tile = null;
 	}
 
     /**

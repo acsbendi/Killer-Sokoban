@@ -47,11 +47,13 @@ public class LeverTile extends Tile {
         if (IsEmpty()) {
             obj.ArrivedAt(this);
             obj.SetTile(this);
+            this.placeholder = obj;
         } else {
             obj.Push(placeholder, dir, move);
             if (IsEmpty()) {
                 obj.ArrivedAt(this);
                 obj.SetTile(this);
+                this.placeholder = obj;
             }
         }
     }

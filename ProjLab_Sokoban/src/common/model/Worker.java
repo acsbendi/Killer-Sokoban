@@ -108,8 +108,9 @@ public class Worker extends Placeholder {
 			Tile old = tile;
 			Move move = new Move(this);
 			TryMove(dir,move);
-			if(tile != null && tile != old)
+			if(tile != null && tile != old) {
 				tile.Check(dir);
+			}
 		}
 	}
 

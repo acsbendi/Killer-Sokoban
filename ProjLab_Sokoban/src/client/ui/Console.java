@@ -310,11 +310,15 @@ public class Console extends UserInterface {
     @Override
     public void UpdateScreen() {
         for (int i = 0; i < 3*fields.length; i++) {
+            if (i%3 == 0) {
+                System.out.println();
+            }
             for (int j = 0; j < fields[i/3].length; j++) {
-                System.out.print(fields[i/3][j].ToString().charAt(i%3));
+                System.out.print("  " + fields[i/3][j].ToString().charAt(i%3));
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     @Override

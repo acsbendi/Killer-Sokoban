@@ -82,12 +82,16 @@ public class Tile extends Field {
      */
     @Override
     public void Accept(Placeholder obj, Direction dir, Move move) {
-        if (IsEmpty())
+        if (IsEmpty()) {
             obj.SetTile(this);
+            this.placeholder = obj;
+        }
         else {
             obj.Push(placeholder, dir, move);
-            if (IsEmpty())
+            if (IsEmpty()) {
                 obj.SetTile(this);
+                this.placeholder = obj;
+            }
         }
     }
 
