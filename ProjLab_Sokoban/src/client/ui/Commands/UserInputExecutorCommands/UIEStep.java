@@ -3,8 +3,9 @@ package client.ui.Commands.UserInputExecutorCommands;
 import client.controller.UserInputExecutor;
 import client.ui.Commands.InvalidArgumentException;
 import common.util.Direction;
-
+/**step implementációja*/
 public class UIEStep implements UIECommand {
+    /**Ha az argumentumok száma megfelelő és értéke megegyezik valamelyik elvárttal, visszahívja a végrehajtó megfelelő tagfüggvényét, egyébként InvalidArgumentExceptiont dob*/
     @Override
     public void Execute(UserInputExecutor executor, String[] args) throws InvalidArgumentException {
         if(args.length > 2){
