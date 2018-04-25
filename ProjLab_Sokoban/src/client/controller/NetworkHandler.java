@@ -96,6 +96,10 @@ public class NetworkHandler implements INetworkHandler {
         }
     }
 
+    public boolean IsConnected() {
+        return channel.isConnected();
+    }
+
     public void Disconnected(SocketChannel channel) {
         try {
             channel.close();

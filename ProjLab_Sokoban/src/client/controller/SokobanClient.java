@@ -229,16 +229,31 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void Step(Direction dir) {
-        Worker.localWorker.Move(dir);
+        if (!networkHandler.IsConnected()) {
+            Worker.localWorker.Move(dir);
+        }
+        else {
+            userInterface.OnlineFailure();
+        }
     }
 
     @Override
     public void PutHoney() {
-        Worker.localWorker.Place(new Honey());
+        if (!networkHandler.IsConnected()) {
+            Worker.localWorker.Place(new Honey());
+        }
+        else {
+            userInterface.OnlineFailure();
+        }
     }
 
     @Override
     public void PutOil() {
-        Worker.localWorker.Place(new Oil());
+        if (!networkHandler.IsConnected()) {
+            Worker.localWorker.Place(new Oil());
+        }
+        else {
+            userInterface.OnlineFailure();
+        }
     }
 }
