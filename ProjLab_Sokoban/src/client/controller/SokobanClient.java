@@ -218,13 +218,18 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void MakeTest(String[] params) {
-        MakeTest makeTest = new MakeTest(params);
-        if(makeTest.Parse()){
-            warehouse = new Warehouse(makeTest.GetFields(),makeTest.GetBoxes());
-            userInterface.SetFields(makeTest.GetFieldViews());
-            userInterface.UpdateScreen();
-        } else
-            userInterface.MakeTestFailure();
+        if (!networkHandler.IsConnected()) {
+            MakeTest makeTest = new MakeTest(params);
+            if(makeTest.Parse()){
+                warehouse = new Warehouse(makeTest.GetFields(),makeTest.GetBoxes());
+                userInterface.SetFields(makeTest.GetFieldViews());
+                userInterface.UpdateScreen();
+            } else
+                userInterface.MakeTestFailure();
+        }
+        else {
+            userInterface.OnlineFailure();
+        }
     }
 
     @Override
