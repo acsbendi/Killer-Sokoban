@@ -96,6 +96,15 @@ public class Tile extends Field {
     }
 
     /**
+     * Returns whether a normal tile can accept a new placeholder
+     * @return True.
+     */
+    @Override
+    public boolean CanAcceptPlaceholder(){
+        return true;
+    }
+
+    /**
      * Returns the string representation of a tile,
      * which depends on its (subclass-specific) type and
      * current state, i.e. what placeholder and liquid are on it (NOT subclass-specific).

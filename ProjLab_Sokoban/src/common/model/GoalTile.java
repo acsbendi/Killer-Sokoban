@@ -51,6 +51,15 @@ public class GoalTile extends Tile {
     }
 
     /**
+     * Returns whether the goal tile can accept a new placeholder
+     * @return True if it can (not locked), false otherwise (locked by a box).
+     */
+    @Override
+    public boolean CanAcceptPlaceholder(){
+        return !locked;
+    }
+
+    /**
      * Returns the string representation of the type of goal tiles, that is, a "g".
      * @return The string representation.
      */

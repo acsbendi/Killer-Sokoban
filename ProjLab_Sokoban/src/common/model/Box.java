@@ -10,11 +10,15 @@ public class Box extends Placeholder {
     /** The mass of a box, the same constant value for all Box objects */
     private static final int mass = 20;
 
+	/** Is it locked, that is, can it move from the currently occupied tile? */
+	private boolean locked;
+
     /**
      * Constructs a new box.
      */
 	public Box(){
 		super(mass);
+		locked = false;
 	}
 
     /**
@@ -59,6 +63,7 @@ public class Box extends Placeholder {
      */
 	@Override
 	public void ArrivedAt(GoalTile gt,Move move) {
+		locked = true;
 		gt.Lock();
 		move.AcceptPoint();
 	}
@@ -86,7 +91,18 @@ public class Box extends Placeholder {
      * @return True, if the box is stuck, false if not.
      */
 	public boolean IsStuck() {
-		//TODO
-		return false;
+		//TODO more advanced stuck checking mechanism
+		if(locked)
+			return true;
+
+		if(tile.GetNeighbour(Direction.Up).CanAcceptPlaceholder() &&
+				tile.GetNeighbour(Direction.Down).CanAcceptPlaceholder() )
+			return false;
+
+		if(tile.GetNeighbour(Direction.Left).CanAcceptPlaceholder() &&
+				tile.GetNeighbour(Direction.Right).CanAcceptPlaceholder() )
+			return false;
+
+		return true;
 	}
 }

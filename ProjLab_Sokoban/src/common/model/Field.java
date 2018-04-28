@@ -53,6 +53,14 @@ public abstract class Field {
      */
 	public abstract String ToString();
 
+	/**
+	 * Returns whether a generic field can accept a new placeholder
+	 * @return False (by default).
+	 */
+	public boolean CanAcceptPlaceholder(){
+		return false;
+	}
+
 	private static Map<String, Factory<Field>> prototypes = new HashMap<>();
 	static {
 		prototypes.put("GoalTile", new Factory<Field>() {
