@@ -236,6 +236,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     public void Step(Direction dir) {
         if (!networkHandler.IsConnected()) {
             Worker.localWorker.Move(dir);
+            userInterface.UpdateScreen();
         }
         else {
             userInterface.OnlineFailure();
@@ -246,6 +247,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     public void PutHoney() {
         if (!networkHandler.IsConnected()) {
             Worker.localWorker.Place(new Honey());
+            userInterface.UpdateScreen();
         }
         else {
             userInterface.OnlineFailure();
@@ -256,6 +258,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     public void PutOil() {
         if (!networkHandler.IsConnected()) {
             Worker.localWorker.Place(new Oil());
+            userInterface.UpdateScreen();
         }
         else {
             userInterface.OnlineFailure();
