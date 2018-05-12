@@ -92,71 +92,84 @@ public class GUI extends UserInterface {
 
     public void LogoutSuccess() //
     {
-        if ()
+        if (currentScene == mainScene) {
+            currentScene.Hide();
+            currentScene = loginScene;
+            currentScene.Load();
+        }
     }
 
-    public void LogoutFailure(String err) // error kiírása
-    {
-        // TODO implement here
-    }
+    public void LogoutFailure(String err)
+    { }
 
-    public void Results(String msg) // msg kiírása
+    public void Results(String msg)
     {
-        // TODO implement here
+        if (currentScene == mainScene) {
+            currentScene.Hide();
+            currentScene = resultsScene;
+            currentScene.Load();
+            resultsScene.Text(msg);
+        }
     }
 
     public void ResultFailure(String err) // error kiírása
+    { }
+
+    public void EnterSuccess()
     {
-        // TODO implement here
+        if (currentScene == mainScene) {
+            currentScene.Hide();
+            currentScene = waitScene;
+            currentScene.Load();
+        }
     }
 
-    public void EnterSuccess() //
-    {
-        // TODO implement here
-    }
+    public void EnterFailure(String err)
+    { }
 
-    public void EnterFailure(String err) // error kiírása
+    public void LeaveSuccess()
     {
-        // TODO implement here
-    }
-
-    public void LeaveSuccess() //
-    {
-        // TODO implement here
+        if (currentScene == waitScene) {
+            currentScene.Hide();
+            currentScene = mainScene;
+            currentScene.Load();
+        }
     }
 
     public void LeaveFailure(String err) // error kiírása
-    {
-        // TODO implement here
-    }
+    { }
 
     public void GameStarted()
     {
-        // TODO implement here
+        if (currentScene == waitScene) {
+            currentScene.Hide();
+            currentScene = gameScene;
+            currentScene.Load();  // TODO: Reference to warehouse is necessary!!
+        }
     }
 
     public void UpdateScreen()
     {
-        // TODO implement here
+        if (currentScene == gameScene) {
+            gameScene.UpdateScreen();
+        }
     }
 
     public void GameFinished()
     {
-        // TODO implement here
+        if (currentScene == gameScene) {
+            currentScene.Hide();
+            currentScene = mainScene;
+            currentScene.Load();
+        }
     }
 
     public void OfflineFailure() // ha online parancsot offline használunk
-    {
-        // TODO implement here
-    }
+    { }
 
     public void OnlineFailure() // ez meg fordítva
-    {
-        // TODO implement here
-    }
+    { }
 
     public void MakeTestFailure() // ez meg fordítva
-    {
-        // TODO implement here
-    }
+    { }
 }
