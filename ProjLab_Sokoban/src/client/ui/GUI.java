@@ -56,32 +56,43 @@ public class GUI extends UserInterface {
     public void Disconnected()
     {
         currentScene.Hide();
-        currentScene = 
+        currentScene = connectScene;
+        currentScene.Load();
     }
 
-    public void RegistrationSuccess() //
+    public void RegistrationSuccess()
     {
-        // TODO implement here
+        if (currentScene == registerScene) {
+            registerScene.RegistrationSuccess();
+        }
     }
 
-    public void RegistrationFailure(String error) // error kiírása
+    public void RegistrationFailure(String error)
     {
-        // TODO implement here
+        if (currentScene == registerScene) {
+            registerScene.RegistrationFailure(error);
+        }
     }
 
     public void LoginSuccess() //
     {
-        // TODO implement here
+        if (currentScene == loginScene) {
+            currentScene.Hide();
+            currentScene = mainScene;
+            currentScene.Load();
+        }
     }
 
     public void LoginFailure(String err) // error kiírása
     {
-        // TODO implement here
+        if (currentScene == loginScene) {
+            loginScene.LoginFailure(err);
+        }
     }
 
     public void LogoutSuccess() //
     {
-        // TODO implement here
+        if ()
     }
 
     public void LogoutFailure(String err) // error kiírása
