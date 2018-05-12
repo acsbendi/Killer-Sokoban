@@ -2,13 +2,15 @@ package client.ui;
 
 import client.ui.Scenes.*;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 
 
 /**
  * 
  */
 public class GUI extends UserInterface {
+
+    private enum Scenes { Welcome, Register, Login, Connect, Wait, Main, Results, Game }
 
     /**
      *
@@ -18,17 +20,23 @@ public class GUI extends UserInterface {
     /**
      *
      */
-    private HashMap<String, SokobanScene> scenes = new HashMap<>();
+    private EnumMap<Scenes, SokobanScene> scenes = new EnumMap<>(Scenes.class);
 
     /**
      * Default constructor
      */
     public GUI() {
-        scenes.put("welcome", new WelcomeScene());
-        scenes.put("register", new RegisterScene());
-        scenes.put("login", new LoginScene());
-        scenes.put("connect", new ConnectScene());
-        scenes.put("wait", new WaitScene());
+        scenes.put(Scenes.Welcome, new WelcomeScene());
+        scenes.put(Scenes.Register, new RegisterScene());
+        scenes.put(Scenes.Login, new LoginScene());
+        scenes.put(Scenes.Connect, new ConnectScene());
+        scenes.put(Scenes.Wait, new WaitScene());
+        scenes.put(Scenes.Main, new MainScene());
+        scenes.put(Scenes.Results, new ResultsScene());
+        scenes.put(Scenes.Game, new GameScene());
+
+        currentScene = scenes.get(Scenes.Connect);
+        currentScene.Load();
     }
 
     /**
@@ -38,9 +46,14 @@ public class GUI extends UserInterface {
         // TODO implement here
     }
 
-    public void ConnectionResult(boolean res) // connection successful/failure, lasd: doksi
+    public void ConnectionResult(boolean success) // connection successful/failure, lasd: doksi
     {
-        // TODO implement here
+        if (currentScene == scenes.get("connect")) {
+            if (success) {
+                currentScene.Hide();
+                currentScene = scenes.get("")
+            }
+        }
     }
 
     public void Disconnected() //
