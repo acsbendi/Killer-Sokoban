@@ -1,10 +1,15 @@
+package client.ui.Views;
 
+import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
+
+import javax.imageio.ImageIO;
 import java.util.*;
 
 /**
  * 
  */
-public class WallView extends View implements Interface1, View, View, View {
+public class WallView implements View {
 
     /**
      * Default constructor
@@ -15,19 +20,7 @@ public class WallView extends View implements Interface1, View, View, View {
     /**
      * 
      */
-    private static Image image;
-
-    /**
-     * 
-     */
-    public abstract void ProcessImage();
-
-    /**
-     * 
-     */
-    public void Operation1() {
-        // TODO implement here
-    }
+    private static Image image = new Image("wall.png");
 
     /**
      * @param stackPane
@@ -35,19 +28,4 @@ public class WallView extends View implements Interface1, View, View, View {
     public void Process(StackPane stackPane ) {
         // TODO implement here
     }
-
-    /**
-     * @param stackPane
-     */
-    public void Process(StackPane stackPane ) {
-        // TODO implement here
-    }
-
-    /**
-     * @param stackPane
-     */
-    public void Process(StackPane stackPane ) {
-        // TODO implement here
-    }
-
 }

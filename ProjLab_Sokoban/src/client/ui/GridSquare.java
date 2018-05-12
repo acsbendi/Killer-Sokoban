@@ -1,3 +1,6 @@
+package client.ui;
+
+import javafx.scene.layout.StackPane;
 
 import java.util.*;
 
@@ -11,13 +14,6 @@ public class GridSquare {
      */
     public GridSquare() {
     }
-
-
-
-    /**
-     * 
-     */
-    private Set<WarehouseView> gridSquares;
 
     /**
      * @return

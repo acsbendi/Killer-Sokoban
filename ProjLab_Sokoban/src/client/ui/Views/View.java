@@ -1,5 +1,7 @@
+package client.ui.Views;
 
-import java.util.*;
+import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 
 /**
  * 
@@ -10,6 +12,6 @@ public interface View {
     /**
      * @param stackPane
      */
-    public void Process(StackPane stackPane );
+    void Process(StackPane stackPane );
 
 }
