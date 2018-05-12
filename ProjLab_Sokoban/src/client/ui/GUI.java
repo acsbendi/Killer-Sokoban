@@ -10,32 +10,25 @@ import java.util.EnumMap;
  */
 public class GUI extends UserInterface {
 
-    private enum Scenes { Welcome, Register, Login, Connect, Wait, Main, Results, Game }
-
     /**
      *
      */
     private SokobanScene currentScene;
 
-    /**
-     *
-     */
-    private EnumMap<Scenes, SokobanScene> scenes = new EnumMap<>(Scenes.class);
+    ConnectScene connectScene = new ConnectScene();
+    GameScene gameScene = new GameScene();
+    LoginScene loginScene = new LoginScene();
+    MainScene mainScene = new MainScene();
+    RegisterScene registerScene = new RegisterScene();
+    ResultsScene resultsScene = new ResultsScene();
+    WaitScene waitScene = new WaitScene();
+    WelcomeScene welcomeScene = new WelcomeScene();
 
     /**
      * Default constructor
      */
     public GUI() {
-        scenes.put(Scenes.Welcome, new WelcomeScene());
-        scenes.put(Scenes.Register, new RegisterScene());
-        scenes.put(Scenes.Login, new LoginScene());
-        scenes.put(Scenes.Connect, new ConnectScene());
-        scenes.put(Scenes.Wait, new WaitScene());
-        scenes.put(Scenes.Main, new MainScene());
-        scenes.put(Scenes.Results, new ResultsScene());
-        scenes.put(Scenes.Game, new GameScene());
-
-        currentScene = scenes.get(Scenes.Connect);
+        currentScene = connectScene;
         currentScene.Load();
     }
 
@@ -48,17 +41,22 @@ public class GUI extends UserInterface {
 
     public void ConnectionResult(boolean success) // connection successful/failure, lasd: doksi
     {
-        if (currentScene == scenes.get("connect")) {
+        if (currentScene == connectScene) {
             if (success) {
                 currentScene.Hide();
-                currentScene = scenes.get("")
+                currentScene = welcomeScene;
+                currentScene.Load();
+            }
+            else {
+                connectScene.ConnectionFailed();
             }
         }
     }
 
-    public void Disconnected() //
+    public void Disconnected()
     {
-        // TODO implement here
+        currentScene.Hide();
+        currentScene = 
     }
 
     public void RegistrationSuccess() //
