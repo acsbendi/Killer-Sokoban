@@ -1,13 +1,14 @@
 package client.ui.Views;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import java.util.*;
 
 /**
  * 
  */
-public class HoneyView implements View {
+public class HoneyView extends View {
 
     /**
      * Default constructor
@@ -18,13 +19,24 @@ public class HoneyView implements View {
     /**
      * 
      */
-    private static Image image;
+    private static Image image = new Image("honey.png");
 
     /**
      * @param stackPane
      */
+    @Override
     public void Process(StackPane stackPane ) {
-        // TODO implement here
+        ImageView imageView = new ImageView(GetImage());
+        imageView.setFitHeight(stackPane.getHeight());
+        imageView.setFitWidth(stackPane.getWidth());
+        imageView.setOpacity(0.54);
+
+        stackPane.getChildren().add(imageView);
+    }
+
+    @Override
+    protected Image GetImage(){
+        return image;
     }
 
 }

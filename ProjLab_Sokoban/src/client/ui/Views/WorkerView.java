@@ -7,29 +7,31 @@ import java.util.*;
 /**
  * 
  */
-public class WorkerView implements View {
+public class WorkerView extends View {
+
+    private boolean local;
 
     /**
      * Default constructor
      */
-    public WorkerView() {
+    public WorkerView(boolean local) {
+        this.local = local;
     }
 
     /**
      * 
      */
-    private static Image playerImage;
+    private static Image playerImage = new Image("player.png");
 
     /**
      * 
      */
-    private static Image workerImage;
+    private static Image workerImage = new Image("worker.png");
 
-    /**
-     * @param stackPane
-     */
-    public void Process(StackPane stackPane ) {
-        // TODO implement here
+
+    @Override
+    protected Image GetImage(){
+        return local ? playerImage : workerImage;
     }
 
 }

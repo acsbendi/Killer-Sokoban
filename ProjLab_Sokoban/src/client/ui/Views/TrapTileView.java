@@ -7,29 +7,31 @@ import java.util.*;
 /**
  * 
  */
-public class TrapTileView implements View {
+public class TrapTileView extends View {
+
+    private boolean open;
 
     /**
      * Default constructor
      */
-    public TrapTileView() {
+    public TrapTileView(boolean open) {
+        this.open = open;
     }
 
     /**
      * 
      */
-    private static Image openImage;
+    private static Image openImage = new Image("trapdoor-open.png");
 
     /**
      * 
      */
-    private static Image closedImage;
+    private static Image closedImage  = new Image("trapdoor-closed.png");
 
-    /**
-     * @param stackPane
-     */
-    public void Process(StackPane stackPane ) {
-        // TODO implement here
+
+    @Override
+    protected Image GetImage(){
+        return open ? openImage : closedImage;
     }
 
 }

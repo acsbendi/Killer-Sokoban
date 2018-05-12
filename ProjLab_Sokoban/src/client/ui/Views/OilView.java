@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * 
  */
-public class OilView implements View {
+public class OilView extends View {
 
     /**
      * Default constructor
@@ -18,13 +18,11 @@ public class OilView implements View {
     /**
      * 
      */
-    private static Image image;
+    private static Image image = new Image("oil.png");
 
-    /**
-     * @param stackPane
-     */
-    public void Process(StackPane stackPane ) {
-        // TODO implement here
+    @Override
+    protected Image GetImage(){
+        return image;
     }
 
 }

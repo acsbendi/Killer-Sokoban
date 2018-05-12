@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * 
  */
-public class HoleView implements View {
+public class HoleView extends View {
 
     /**
      * Default constructor
@@ -18,13 +18,12 @@ public class HoleView implements View {
     /**
      * 
      */
-    private static Image image;
+    private static Image image = new Image("hole.png");
 
-    /**
-     * @param stackPane
-     */
-    public void Process(StackPane stackPane ) {
-        // TODO implement here
+
+    @Override
+    protected Image GetImage(){
+        return image;
     }
 
 }

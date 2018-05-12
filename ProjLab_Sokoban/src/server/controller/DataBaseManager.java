@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class DataBaseManager {
     private static final String connectionStr = "jdbc:mysql://localhost:3306/server";
+    //TODO read confidential data from config file
     private static final String connUserName = "server";
     private static final String connPassword = "server";
 
