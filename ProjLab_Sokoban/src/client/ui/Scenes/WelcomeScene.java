@@ -1,3 +1,7 @@
+package client.ui.Scenes;
+
+import client.ui.Scenes.SokobanScene;
+import javafx.scene.control.Button;
 
 import java.util.*;
 

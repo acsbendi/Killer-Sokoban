@@ -1,8 +1,9 @@
 package client.ui;
 
-import client.ui.Scenes.SokobanScene;
+import client.ui.Scenes.*;
 
-import java.util.Set;
+import java.util.HashMap;
+
 
 /**
  * 
@@ -10,20 +11,25 @@ import java.util.Set;
 public class GUI extends UserInterface {
 
     /**
-     * Default constructor
-     */
-    public GUI() {
-    }
-
-    /**
-     * 
+     *
      */
     private SokobanScene currentScene;
 
     /**
-     * 
+     *
      */
-    private Set<SokobanScene> scenes;
+    private HashMap<String, SokobanScene> scenes = new HashMap<>();
+
+    /**
+     * Default constructor
+     */
+    public GUI() {
+        scenes.put("welcome", new WelcomeScene());
+        scenes.put("register", new RegisterScene());
+        scenes.put("login", new LoginScene());
+        scenes.put("connect", new ConnectScene());
+        scenes.put("wait", new WaitScene());
+    }
 
     /**
      * 
@@ -131,5 +137,4 @@ public class GUI extends UserInterface {
     {
         // TODO implement here
     }
-
 }
