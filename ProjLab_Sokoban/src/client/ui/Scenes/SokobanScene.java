@@ -1,3 +1,6 @@
+package client.ui.Scenes;
+
+import client.ui.GUI;
 
 import java.util.*;
 
