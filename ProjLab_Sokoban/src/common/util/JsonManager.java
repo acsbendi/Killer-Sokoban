@@ -24,7 +24,7 @@ import common.model.Worker;
 public class JsonManager {
 
 	public static File ResolveFileId(int level_id) {
-		return new File("maps/" + level_id + ".json");
+		return new File("/" + level_id + ".json");
 	}
 
 	public static void EnforceConfigFile(File config, TreeMap<Position, Field> pitch, List<Box> boxes, List<Worker> workers)

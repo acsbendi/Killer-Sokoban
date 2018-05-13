@@ -129,8 +129,11 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
             userInterface.InitializeWarehouse(gridSquares);
 
             networkHandler.WarehouseReady();
-        } catch (FileNotFoundException | ClassCastException e) {
+        } catch (FileNotFoundException e) {
+            System.out.println(level_id + ".json not found.");
             networkHandler.Download(level_id);
+        } catch (ClassCastException e) {
+            System.out.println("Wrong format.");
         }
     }
 
