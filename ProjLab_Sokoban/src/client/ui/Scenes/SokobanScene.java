@@ -24,9 +24,11 @@ public abstract class SokobanScene {
 
 
     /**
-     * 
+     * default Load method
      */
-    public abstract void Load();
+    public void Load() {
+        window.setScene(scene);
+    }
 
     /**
      * 

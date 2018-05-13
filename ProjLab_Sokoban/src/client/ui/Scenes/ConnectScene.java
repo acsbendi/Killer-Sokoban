@@ -24,24 +24,12 @@ public class ConnectScene extends SokobanScene {
     public ConnectScene() {
     }
 
-    /**
-     * 
-     */
     private TextField IPtext;
 
-    /**
-     * 
-     */
     private TextField portText;
 
-    /**
-     * 
-     */
     private Button connectButton;
 
-    /**
-     * 
-     */
     private Label message;
 
     // STATIC CREATE
@@ -60,16 +48,18 @@ public class ConnectScene extends SokobanScene {
     // Load method
     @Override
     public void Load() {
-
+        IPtext.setText("");
+        portText.setText("");
+        message.setText("Set IP address and port number.");
     }
 
     // User event handlers
     public void connectButtonPressed() {
-
+        gui.ConnectScene_connectButtonPressed(IPtext.getText(), Integer.parseInt(portText.getText()));
     }
 
     // Network event handlers
     public void ConnectionFailed(){
-        // TODO implement here
+        message.setText("Connection failed.");
     }
 }
