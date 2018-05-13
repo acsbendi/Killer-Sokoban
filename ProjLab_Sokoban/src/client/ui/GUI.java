@@ -15,14 +15,14 @@ public class GUI extends UserInterface {
      */
     private SokobanScene currentScene;
 
-    ConnectScene connectScene = new ConnectScene();
-    GameScene gameScene = new GameScene();
-    LoginScene loginScene = new LoginScene();
-    MainScene mainScene = new MainScene();
-    RegisterScene registerScene = new RegisterScene();
-    ResultsScene resultsScene = new ResultsScene();
-    WaitScene waitScene = new WaitScene();
-    WelcomeScene welcomeScene = new WelcomeScene();
+    private ConnectScene connectScene = new ConnectScene();
+    private GameScene gameScene = new GameScene();
+    private LoginScene loginScene = new LoginScene();
+    private MainScene mainScene = new MainScene();
+    private RegisterScene registerScene = new RegisterScene();
+    private ResultsScene resultsScene = new ResultsScene();
+    private WaitScene waitScene = new WaitScene();
+    private WelcomeScene welcomeScene = new WelcomeScene();
 
     /**
      * Default constructor

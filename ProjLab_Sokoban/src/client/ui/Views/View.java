@@ -15,10 +15,10 @@ public abstract class View {
     /**
      * @param stackPane
      */
-    void Process(StackPane stackPane ){
+    public void Process(StackPane stackPane ){
         ImageView imageView = new ImageView(GetImage());
-        imageView.setFitHeight(stackPane.getHeight());
-        imageView.setFitWidth(stackPane.getWidth());
+        imageView.setFitHeight(stackPane.getPrefHeight());
+        imageView.setFitWidth(stackPane.getPrefWidth());
 
         stackPane.getChildren().add(imageView);
     }
