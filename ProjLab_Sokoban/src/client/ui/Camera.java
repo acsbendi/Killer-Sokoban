@@ -64,13 +64,15 @@ public class Camera {
         int verticalCount = 11; //height/gridSize;
         System.out.println(horizontalCount + " " + verticalCount);
 
-        GridSquare[][] gridSquares = warehouseView.GetGrid(new Rectangle(position.x,position.y,horizontalCount,verticalCount));
+        GridSquare[][] gridSquares = warehouseView.GetGrid(position.x,position.y,horizontalCount,verticalCount);
+
+        System.out.println(gridSquares.length + " " + gridSquares[0].length);
 
         StackPane[][] stackPanes = new StackPane[verticalCount][horizontalCount];
 
         for (int i = 0; i < verticalCount; i++) {
             for (int j = 0; j < horizontalCount; j++) {
-                if(gridSquares[i][j] != null)
+                if(gridSquares[i] != null && gridSquares[i][j] != null)
                     stackPanes[i][j] = gridSquares[i][j].CreateImage();
             }
         }

@@ -13,7 +13,6 @@ public class WarehouseView {
      * Default constructor
      */
     public WarehouseView(GridSquare[][] gridSquares) {
-        System.out.println("whw grid injected");
         this.gridSquares = gridSquares;
     }
 
@@ -23,22 +22,21 @@ public class WarehouseView {
     private GridSquare[][] gridSquares;
 
 
+    public GridSquare[][] GetGrid(int startX, int startY, int width, int height) {
+        GridSquare[][] result = new GridSquare[height][width];
+        //System.out.println("get grid ");
 
-    /**
-     * @param rect 
-     * @return
-     */
-    public GridSquare[][] GetGrid(Rectangle rect) {
-        GridSquare[][] result = new GridSquare[(int)rect.getHeight()][(int)rect.getWidth()];
-        System.out.println("get grid ");
-
-        for (int i =  0; i < (int)rect.getHeight(); i++) {
-            if(gridSquares.length  > (int) rect.getY() + i) {
-                int to = (int) rect.getX() + (int) rect.getWidth() < gridSquares[(int) rect.getY() + i].length ?
-                        (int) rect.getX() + (int) rect.getWidth() : gridSquares[(int) rect.getY() + i].length;
-                result[i] = Arrays.copyOfRange(gridSquares[(int) rect.getY() + i], (int) rect.getX(), to);
-                System.out.println("copying " + (int) rect.getY() + i + " from " + (int) rect.getX() + (int) rect.getX() + (int) rect.getWidth());
-            }
+        for (int i =  0; i < height; i++) {
+            if(gridSquares.length  > startY + i) {
+                //System.out.println("size " + gridSquares.length + " index " + startY + i);
+                int to = startX + width < gridSquares[startY + i].length ?
+                        startX + width : gridSquares[startY + i].length;
+                for (int j = startX, k = 0; j < to; j++, k++) {
+                    result[i][k] = gridSquares[startY + i][j];
+                }
+                //System.out.println("copying " + (startY + i) + " from " + startX + width);
+            }else
+                result[i] = null;
         }
 
         return result;
