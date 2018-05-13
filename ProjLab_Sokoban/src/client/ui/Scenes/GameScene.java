@@ -2,6 +2,7 @@ package client.ui.Scenes;
 
 import client.ui.Camera;
 import client.ui.GUI;
+import client.ui.GridSquare;
 import client.ui.Scenes.SokobanScene;
 import client.ui.WarehouseView;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.*;
@@ -51,7 +53,14 @@ public class GameScene extends SokobanScene {
      * 
      */
     public void UpdateScreen() {
-        // TODO implement here
+        StackPane[][] panesToShow = camera.GetView();
+
+        for (int i = 0; i < panesToShow.length; i++) {
+            for (int j = 0; j < panesToShow[i].length; j++) {
+                if(panesToShow[i][j] != null)
+                    gamePane.add(panesToShow[i][j],i,j);
+            }
+        }
     }
 
     public static GameScene Create(Stage window, GUI gui) throws Exception{

@@ -27,7 +27,7 @@ public class WarehouseView {
      * @param rect 
      * @return
      */
-    public Set<GridSquare> GetGrid(Rectangle rect) {
+    public GridSquare[][] GetGrid(Rectangle rect) {
         // TODO implement here
         return null;
     }
