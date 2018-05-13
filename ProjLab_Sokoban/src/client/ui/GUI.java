@@ -172,4 +172,31 @@ public class GUI extends UserInterface {
 
     public void MakeTestFailure() // ez meg fordítva
     { }
+
+
+
+    public void connectScene_connectButtonPressed(String IP, String port) {
+        if (currentScene == connectScene)
+            userInputExecutor.Connect(IP, port);
+    }
+
+    public void welcomeScene_loginButtonPressed() {
+        if (currentScene == welcomeScene) {
+            currentScene.Hide();
+            currentScene = loginScene;
+            currentScene.Load();
+        }
+    }
+
+    public void welcomeScene_registerButtonPressed() {
+        if (currentScene == welcomeScene) {
+            currentScene.Hide();
+            currentScene = registerScene;
+            currentScene.Load();
+        }
+    }
+
+    public void welcomeScene_disconnectButtonPressed() {
+
+    }
 }
