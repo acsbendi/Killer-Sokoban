@@ -11,7 +11,7 @@ import java.util.*;
  */
 public abstract class SokobanScene {
 
-    protected static final int MIN_WIDTH = 500;
+    protected static final int MIN_WIDTH = 1000;
     protected static final int MIN_HEIGHT = 500;
 
     protected Stage window;
