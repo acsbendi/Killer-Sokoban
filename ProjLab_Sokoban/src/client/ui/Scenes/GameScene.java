@@ -20,9 +20,6 @@ import java.util.*;
  */
 public class GameScene extends SokobanScene {
 
-    private static final int MIN_WIDTH = 500;
-    private static final int MIN_HEIGHT = 500;
-
     public void setWarehouseView(WarehouseView warehouseView) {
         this.warehouseView = warehouseView;
         camera.SetWarehouseView(warehouseView);
