@@ -1,5 +1,8 @@
 package client.ui.Scenes;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
 /**
  * 
  */
@@ -36,4 +39,11 @@ public class RegisterScene extends SokobanScene {
      */
     private Button backButton;
 
+    public void RegistrationSuccess(){
+        // TODO implement here
+    }
+
+    public void RegistrationFailure(String errorMessage){
+        // TODO implement here
+    }
 }

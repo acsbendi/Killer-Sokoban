@@ -1,18 +1,18 @@
 package client.ui;
 
+import common.model.Field;
 import javafx.scene.layout.StackPane;
 
-import java.util.*;
-
-/**
- * 
- */
 public class GridSquare {
 
-    /**
-     * Default constructor
-     */
-    public GridSquare() {
+    public GridSquare(Field field){
+        this.field = field;
+    }
+
+    private final Field field;
+
+    public String ToString(){
+        return field == null ? "---" : field.ToString();
     }
 
     /**
@@ -22,5 +22,4 @@ public class GridSquare {
         // TODO implement here
         return null;
     }
-
 }

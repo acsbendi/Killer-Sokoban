@@ -33,4 +33,8 @@ public class ResultsScene extends SokobanScene {
      */
     private CheckBox ownResults;
 
+    public void Text(String message){
+        // TODO implement here
+    }
+
 }

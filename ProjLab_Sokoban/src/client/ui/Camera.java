@@ -24,4 +24,5 @@ public class Camera {
         return null;
     }
 
+    //TODO set the position of the camera
 }

@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import client.ui.FieldView;
+import client.ui.GridSquare;
+import client.ui.GridSquare;
 import client.ui.UserInterface;
 import common.model.*;
 import common.util.Direction;
@@ -119,13 +120,13 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
             int width = maxColumn - minColumn + 1;
             int height = maxRow - minRow + 1;
-            FieldView[][] fieldViews = new FieldView[height][width];
+            GridSquare[][] gridSquares = new GridSquare[height][width];
             for (Map.Entry<Position,Field> entry : pitch.entrySet()
                     ) {
-                fieldViews[entry.getKey().row - minRow][entry.getKey().column - minColumn] = new FieldView(entry.getValue());
+                gridSquares[entry.getKey().row - minRow][entry.getKey().column - minColumn] = new GridSquare(entry.getValue());
             }
 
-            userInterface.SetFields(fieldViews);
+            userInterface.SetFields(gridSquares);
 
             networkHandler.WarehouseReady();
         } catch (FileNotFoundException | ClassCastException e) {
@@ -214,54 +215,5 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     @Override
     public synchronized void TopResults() {
         networkHandler.TopResults();
-    }
-
-    @Override
-    public void MakeTest(String[] params) {
-        if (!networkHandler.IsConnected()) {
-            MakeTest makeTest = new MakeTest(params);
-            if(makeTest.Parse()){
-                warehouse = new Warehouse(makeTest.GetFields(),makeTest.GetBoxes());
-                userInterface.SetFields(makeTest.GetFieldViews());
-                userInterface.UpdateScreen();
-            } else
-                userInterface.MakeTestFailure();
-        }
-        else {
-            userInterface.OnlineFailure();
-        }
-    }
-
-    @Override
-    public void Step(Direction dir) {
-        if (!networkHandler.IsConnected()) {
-            Worker.localWorker.Move(dir);
-            userInterface.UpdateScreen();
-        }
-        else {
-            userInterface.OnlineFailure();
-        }
-    }
-
-    @Override
-    public void PutHoney() {
-        if (!networkHandler.IsConnected()) {
-            Worker.localWorker.Place(new Honey());
-            userInterface.UpdateScreen();
-        }
-        else {
-            userInterface.OnlineFailure();
-        }
-    }
-
-    @Override
-    public void PutOil() {
-        if (!networkHandler.IsConnected()) {
-            Worker.localWorker.Place(new Oil());
-            userInterface.UpdateScreen();
-        }
-        else {
-            userInterface.OnlineFailure();
-        }
     }
 }

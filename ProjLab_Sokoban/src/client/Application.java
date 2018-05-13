@@ -1,10 +1,15 @@
 package client;
 
 import client.controller.SokobanClient;
-import client.ui.Console;
-import common.util.Position;
+import client.ui.GUI;
+import javafx.stage.Stage;
 
-public class Application {
+public class Application extends javafx.application.Application{
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
+
     private static class SokobanClientThread extends Thread {
         SokobanClient sokobanClient;
 
@@ -25,10 +30,9 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        Console console = new Console();
-        SokobanClient sokobanClient = SokobanClient.Create(console);
+        //TODO set up everything
+        SokobanClient sokobanClient = SokobanClient.Create(new GUI());
         Thread t = new SokobanClientThread(sokobanClient);
         t.start();
-        console.Run();
     }
 }

@@ -1,15 +1,12 @@
 package client.ui;
 import client.controller.UserInputExecutor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class UserInterface {
-	public void SetFields(FieldView[][] fields) {
-		this.fields = fields;
+	public void SetFields(GridSquare[][] gridSquares) {
+		this.gridSquares = gridSquares;
 	}
 
-	protected FieldView[][] fields; //TODO initialize this somehow
+	protected GridSquare[][] gridSquares; //TODO initialize this somehow
 	protected UserInputExecutor userInputExecutor;
 	public void SetUserInputExecutor(UserInputExecutor userInputExecutor) {
 		this.userInputExecutor = userInputExecutor;

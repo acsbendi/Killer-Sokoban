@@ -42,4 +42,7 @@ public class LoginScene extends SokobanScene {
      */
     private Button backButton;
 
+    public void LoginFailure(String errorMessage){
+        // TODO implement here
+    }
 }

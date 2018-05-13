@@ -13,10 +13,6 @@ void Leave();
 void Move(Direction dir);
 void PlaceHoney();
 void PlaceOil();
-void Step(Direction dir);
-void PutHoney();
-void PutOil();
 void OwnResults();
 void TopResults();
-void MakeTest(String[] params);
 }
