@@ -15,6 +15,12 @@ public class Camera {
     public Camera() {
     }
 
+    public void SetWarehouseView(WarehouseView warehouseView) {
+        this.warehouseView = warehouseView;
+    }
+
+    private WarehouseView warehouseView;
+
 
     /**
      * @return

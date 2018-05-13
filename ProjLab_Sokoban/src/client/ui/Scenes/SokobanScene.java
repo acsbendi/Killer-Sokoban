@@ -1,6 +1,8 @@
 package client.ui.Scenes;
 
 import client.ui.GUI;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.util.*;
 
@@ -9,27 +11,28 @@ import java.util.*;
  */
 public abstract class SokobanScene {
 
+    protected Stage window;
+    protected Scene scene;
+
     /**
-     * Default constructor
+     * 
      */
-    public SokobanScene() {
+    protected GUI gui;
+
+
+    /**
+     * 
+     */
+    public void Load() {
+        window.setScene(scene);
+        // TODO implement here
     }
 
-
     /**
      * 
      */
-    private GUI gui;
-
-
-    /**
-     * 
-     */
-    public abstract void Load();
-
-    /**
-     * 
-     */
-    public abstract void Hide();
+    public void Hide() {
+        // TODO implement here
+    }
 
 }

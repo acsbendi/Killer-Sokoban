@@ -126,7 +126,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
                 gridSquares[entry.getKey().row - minRow][entry.getKey().column - minColumn] = new GridSquare(entry.getValue());
             }
 
-            userInterface.SetFields(gridSquares);
+            userInterface.InitializeWarehouse(gridSquares);
 
             networkHandler.WarehouseReady();
         } catch (FileNotFoundException | ClassCastException e) {

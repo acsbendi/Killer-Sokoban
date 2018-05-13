@@ -2,6 +2,7 @@ package client.ui;
 
 import client.ui.Scenes.*;
 import common.util.Direction;
+import javafx.stage.Stage;
 
 import java.util.EnumMap;
 
@@ -17,7 +18,7 @@ public class GUI extends UserInterface {
     private SokobanScene currentScene;
 
     private ConnectScene connectScene = new ConnectScene();
-    private GameScene gameScene = new GameScene();
+    private GameScene gameScene;
     private LoginScene loginScene = new LoginScene();
     private MainScene mainScene = new MainScene();
     private RegisterScene registerScene = new RegisterScene();
@@ -28,7 +29,10 @@ public class GUI extends UserInterface {
     /**
      * Default constructor
      */
-    public GUI() {
+    public GUI(Stage window) throws Exception{
+        //TODO create and pass window to all Scenes
+        gameScene = GameScene.Create(window,this);
+
         currentScene = connectScene;
         currentScene.Load();
     }
@@ -140,7 +144,7 @@ public class GUI extends UserInterface {
         if (currentScene == waitScene) {
             currentScene.Hide();
             currentScene = gameScene;
-            currentScene.Load();
+            currentScene.Load();  // TODO: Reference to warehouse is necessary!!
         }
     }
 
