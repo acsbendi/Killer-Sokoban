@@ -33,9 +33,12 @@ public class WarehouseView {
         System.out.println("get grid ");
 
         for (int i =  0; i < (int)rect.getHeight(); i++) {
-            result[i] = Arrays.copyOfRange(gridSquares[(int)rect.getY() + i],(int)rect.getX(),
-                    (int)rect.getX() + (int)rect.getWidth() );
-            System.out.println("copying " +(int)rect.getY() + i + " from " + (int)rect.getX() + (int)rect.getX() + (int)rect.getWidth());
+            if(gridSquares[(int)rect.getY() + i] != null) {
+                int to = (int) rect.getX() + (int) rect.getWidth() < gridSquares[(int) rect.getY() + i].length ?
+                        (int) rect.getX() + (int) rect.getWidth() : gridSquares[(int) rect.getY() + i].length;
+                result[i] = Arrays.copyOfRange(gridSquares[(int) rect.getY() + i], (int) rect.getX(), to);
+                System.out.println("copying " + (int) rect.getY() + i + " from " + (int) rect.getX() + (int) rect.getX() + (int) rect.getWidth());
+            }
         }
 
         return result;
