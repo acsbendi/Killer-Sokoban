@@ -7,11 +7,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="1032.0" style="-fx-background-image: url('metal-background.png');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.ConnectScene">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="831.0" style="-fx-background-image: url('metal-background.png');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.ConnectScene">
    <center>
-      <VBox alignment="CENTER" prefHeight="338.0" prefWidth="403.0" style="-fx-spacing: 23;" BorderPane.alignment="CENTER_RIGHT">
+      <VBox alignment="CENTER" prefHeight="293.0" prefWidth="387.0" style="-fx-spacing: 23;" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <SplitPane dividerPositions="0.4696969696969697" prefHeight="25.0" prefWidth="200.0">
+            <SplitPane dividerPositions="0.4696969696969697">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="123.0">
                      <children>
@@ -21,7 +21,7 @@
                   <TextField fx:id="IPtext" />
               </items>
             </SplitPane>
-            <SplitPane dividerPositions="0.4696969696969697" prefHeight="25.0" prefWidth="200.0">
+            <SplitPane dividerPositions="0.4696969696969697">
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="123.0">
                      <children>
@@ -36,17 +36,13 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Label fx:id="message" text="Label">
-               <padding>
-                  <Insets top="50.0" />
-               </padding>
-            </Label>
+            <Label fx:id="message" prefHeight="17.0" prefWidth="74.0" text="(message)" />
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <padding>
-            <Insets bottom="100.0" left="50.0" right="50.0" top="100.0" />
+            <Insets left="50.0" right="50.0" />
          </padding>
       </VBox>
    </center>
@@ -54,9 +50,9 @@
       <Insets />
    </opaqueInsets>
    <left>
-      <Pane prefHeight="306.0" prefWidth="244.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="388.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="318.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@warehouse-left.png" />
                </image>
@@ -65,9 +61,9 @@
       </Pane>
    </left>
    <right>
-      <Pane prefHeight="388.0" prefWidth="266.0" BorderPane.alignment="CENTER">
+      <Pane BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="388.0" fitWidth="265.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="318.0" fitWidth="217.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@warehouse-right.png" />
                </image>

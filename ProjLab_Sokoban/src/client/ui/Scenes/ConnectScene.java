@@ -20,7 +20,7 @@ import java.util.*;
 public class ConnectScene extends SokobanScene {
 
     private static final int MIN_WIDTH = 1000;
-    private static final int MIN_HEIGHT = 378;
+    private static final int MIN_HEIGHT = 308;
 
     /**
      * Default constructor
