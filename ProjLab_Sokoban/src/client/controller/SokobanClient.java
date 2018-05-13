@@ -136,6 +136,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
     @Override
     public void GameStarted(int worker) {
+        System.out.println("SokobanClient.GameStarted()");
         Worker.localWorker = workers.get(worker);
         userInterface.GameStarted();
         userInterface.UpdateScreen();

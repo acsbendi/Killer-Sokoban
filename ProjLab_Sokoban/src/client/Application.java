@@ -26,7 +26,6 @@ public class Application extends javafx.application.Application{
                     @Override
                     public void run() {
                         sokobanClient.Iterate();
-                        System.out.println("Iteration");
                     }
                 });
             }

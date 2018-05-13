@@ -47,6 +47,7 @@ public class GameScene extends SokobanScene {
 
     @Override
     public void Load(){
+        System.out.println("GameScene.Load()");
         window.setScene(scene);
         UpdateScreen();
     }
