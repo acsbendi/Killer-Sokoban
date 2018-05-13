@@ -9,7 +9,6 @@
     <list default="true" id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +55,8 @@
       <file leaf-file-name="SokobanClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="140" column="37" lean-forward="true" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
+            <state relative-caret-position="386">
+              <caret line="156" column="37" lean-forward="true" selection-start-line="156" selection-start-column="37" selection-end-line="156" selection-end-column="37" />
               <folding>
                 <element signature="e#1722#1723#0" expanded="true" />
                 <element signature="e#1769#1770#0" expanded="true" />
@@ -655,13 +654,6 @@
       <workItem from="1524412643725" duration="6215000" />
       <workItem from="1524432880250" duration="967000" />
     </task>
-    <task id="LOCAL-00037" summary="Server's network handler edited.">
-      <created>1524260333665</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1524260333665</updated>
-    </task>
     <task id="LOCAL-00038" summary="Server: ControllerLogic interface created.">
       <created>1524262133359</created>
       <option name="number" value="00038" />
@@ -998,7 +990,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526248005663</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="SokobanClient edited.">
+      <created>1526249179214</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1526249179214</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1076,7 +1075,6 @@
     <MESSAGE value="Client's networking edited." />
     <MESSAGE value="Server created." />
     <MESSAGE value="Server's networkHandler edited." />
-    <MESSAGE value="SokobanClient edited." />
     <MESSAGE value="Server's network handler edited." />
     <MESSAGE value="Server: ControllerLogic interface created." />
     <MESSAGE value="Server: NetworkHandler edited." />
@@ -1098,7 +1096,8 @@
     <MESSAGE value="Client.Application edited." />
     <MESSAGE value="Commands folder deleted." />
     <MESSAGE value="Server edited." />
-    <option name="LAST_COMMIT_MESSAGE" value="Server edited." />
+    <MESSAGE value="SokobanClient edited." />
+    <option name="LAST_COMMIT_MESSAGE" value="SokobanClient edited." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1530,8 +1529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="140" column="37" lean-forward="true" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
+        <state relative-caret-position="386">
+          <caret line="156" column="37" lean-forward="true" selection-start-line="156" selection-start-column="37" selection-end-line="156" selection-end-column="37" />
           <folding>
             <element signature="e#1722#1723#0" expanded="true" />
             <element signature="e#1769#1770#0" expanded="true" />

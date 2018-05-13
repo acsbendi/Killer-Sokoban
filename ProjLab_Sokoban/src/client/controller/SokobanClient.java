@@ -149,10 +149,12 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     @Override
     public void OilPlaced(int player) {
         workers.get(player).Place(new Oil());
+        userInterface.UpdateScreen();
     }
     @Override
     public void HoneyPlaced(int player) {
         workers.get(player).Place(new Honey());
+        userInterface.UpdateScreen();
     }
     @Override
     public void GameFinished() {
