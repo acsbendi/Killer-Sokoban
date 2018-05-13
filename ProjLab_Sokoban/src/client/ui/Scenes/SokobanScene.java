@@ -25,15 +25,11 @@ public abstract class SokobanScene {
     /**
      * 
      */
-    public void Load() {
-        // TODO implement here
-    }
+    public abstract void Load();
 
     /**
      * 
      */
-    public void Hide() {
-        // TODO implement here
-    }
+    public abstract void Hide();
 
 }

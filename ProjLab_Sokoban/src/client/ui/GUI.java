@@ -140,7 +140,7 @@ public class GUI extends UserInterface {
         if (currentScene == waitScene) {
             currentScene.Hide();
             currentScene = gameScene;
-            currentScene.Load();  // TODO: Reference to warehouse is necessary!!
+            currentScene.Load();
         }
     }
 
