@@ -6,8 +6,8 @@ import javafx.scene.layout.StackPane;
 
 public class GridSquare {
 
-    private static int width = 50;
-    private static int height = 50;
+    private static int width = 30;
+    private static int height = 30;
 
     private final Field field;
     private StackPane imagePane;

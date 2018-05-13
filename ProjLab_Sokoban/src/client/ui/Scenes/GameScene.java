@@ -47,7 +47,7 @@ public class GameScene extends SokobanScene {
 
     @Override
     public void Load(){
-        System.out.println("GameScene.Load()");
+        System.out.println("started  !!!!");
         window.setScene(scene);
         UpdateScreen();
     }
@@ -98,7 +98,9 @@ public class GameScene extends SokobanScene {
      * 
      */
     public void UpdateScreen() {
+        System.out.println("update");
         StackPane[][] panesToShow = camera.GetView();
+        System.out.println(panesToShow.length + " " + panesToShow[0].length);
 
         for (int i = 0; i < panesToShow.length; i++) {
             for (int j = 0; j < panesToShow[i].length; j++) {

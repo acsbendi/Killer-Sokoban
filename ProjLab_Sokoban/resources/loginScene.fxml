@@ -18,7 +18,7 @@
                         <Label alignment="CENTER" prefHeight="25.0" prefWidth="92.0" text="Username" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <TextField fx:id="userNameText" />
+                  <TextField fx:id="userNameText" text="acsbendi" />
               </items>
             </SplitPane>
             <SplitPane dividerPositions="0.4696969696969697" prefHeight="160.0" prefWidth="200.0">
@@ -28,7 +28,7 @@
                         <Label alignment="CENTER" layoutX="4.0" prefHeight="25.0" prefWidth="75.0" text="Password" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <TextField fx:id="passwordText" />
+                  <TextField fx:id="passwordText" text="password" />
                </items>
             </SplitPane>
             <HBox prefHeight="100.0" prefWidth="200.0">

@@ -55,8 +55,8 @@ public class ConnectScene extends SokobanScene {
     // Load method
     @Override
     public void Load() {
-        IPtext.setText("");
-        portText.setText("");
+        //IPtext.setText("");
+        //portText.setText("");
         message.setText("Set IP address and port number.");
         window.setScene(scene);
     }

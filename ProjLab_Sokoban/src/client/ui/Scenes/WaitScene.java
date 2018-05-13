@@ -44,6 +44,7 @@ public class WaitScene extends SokobanScene {
     // private user event handlers
     @FXML
     private void leaveButtonPressed() {
+        System.out.println("left!!!!");
         gui.WaitScene_leaveButtonPressed();
     }
 

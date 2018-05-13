@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#OnKeyPressed" prefHeight="411.0" prefWidth="787.0" style="-fx-background-image: url(metal-background.png);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.GameScene">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#OnKeyPressed" prefHeight="423.0" prefWidth="1130.0" style="-fx-background-image: url(metal-background.png);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.GameScene">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -58,7 +58,7 @@
       </GridPane>
    </center>
    <top>
-      <Pane prefHeight="41.0" prefWidth="787.0" BorderPane.alignment="CENTER">
+      <Pane BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="373.0" layoutY="12.0" text="(points)" />
          </children>

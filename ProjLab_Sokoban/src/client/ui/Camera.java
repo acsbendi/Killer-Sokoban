@@ -59,8 +59,10 @@ public class Camera {
      * @return
      */
     public StackPane[][] GetView() {
-        int horizontalCount = width/gridSize;
-        int verticalCount = height/gridSize;
+        System.out.println("camera ");
+        int horizontalCount = 27;//width/gridSize;
+        int verticalCount = 11; //height/gridSize;
+        System.out.println(horizontalCount + " " + verticalCount);
 
         GridSquare[][] gridSquares = warehouseView.GetGrid(new Rectangle(position.x,position.y,horizontalCount,verticalCount));
 

@@ -408,6 +408,7 @@ public class NetworkHandler implements INetworkHandler {
     }
 
     private void InterpretGameStarted(byte[] value) {
+        System.out.println("ds;fhdasfbdsjf");
         controllerLogic.GameStarted(value[0]);
     }
 
