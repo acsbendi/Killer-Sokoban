@@ -38,7 +38,14 @@ public class ConnectScene extends SokobanScene {
      */
     private Label message;
 
+
+
     public void ConnectionFailed(){
         // TODO implement here
+    }
+
+    @Override
+    public void Load() {
+
     }
 }
