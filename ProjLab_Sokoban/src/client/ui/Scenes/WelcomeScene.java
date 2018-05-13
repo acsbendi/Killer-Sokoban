@@ -65,5 +65,5 @@ public class WelcomeScene extends SokobanScene {
         gui.WelcomeScene_disconnectButtonPressed();
     }
 
-    // no network event handlers
+    // no network event handlers used in GUI
 }
