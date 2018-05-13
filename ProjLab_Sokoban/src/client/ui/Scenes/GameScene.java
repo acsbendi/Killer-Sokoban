@@ -6,12 +6,15 @@ import client.ui.GUI;
 import client.ui.GridSquare;
 import client.ui.Scenes.SokobanScene;
 import client.ui.WarehouseView;
+import common.util.Direction;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -48,6 +51,41 @@ public class GameScene extends SokobanScene {
         UpdateScreen();
     }
 
+    private void OnKeyPressed(KeyEvent event){
+        switch (event.getCode()){
+            case W:
+                gui.GameScene_MoveWorker(Direction.Up);
+                break;
+            case A:
+                gui.GameScene_MoveWorker(Direction.Left);
+                break;
+            case S:
+                gui.GameScene_MoveWorker(Direction.Down);
+                break;
+            case D:
+                gui.GameScene_MoveWorker(Direction.Right);
+                break;
+            case UP:
+                camera.Move(Direction.Up);
+                break;
+            case LEFT:
+                camera.Move(Direction.Left);
+                break;
+            case DOWN:
+                camera.Move(Direction.Down);
+                break;
+            case RIGHT:
+                camera.Move(Direction.Right);
+                break;
+            case E:
+                gui.GameScene_PlaceHoney();
+                break;
+            case Q:
+                gui.GameScene_PlaceOil();
+                break;
+        }
+    }
+
 
     /**
      * 
@@ -70,7 +108,7 @@ public class GameScene extends SokobanScene {
 
         gameScene.window = window;
         gameScene.gui = gui;
-        gameScene.camera = new Camera();
+        gameScene.camera = new Camera((int)gameScene.gamePane.getMinWidth(),(int)gameScene.gamePane.getMinHeight());
         gameScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
 
         return gameScene;

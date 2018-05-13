@@ -28,8 +28,22 @@ public class WarehouseView {
      * @return
      */
     public GridSquare[][] GetGrid(Rectangle rect) {
-        // TODO implement here
-        return null;
+        GridSquare[][] result = new GridSquare[(int)rect.getHeight()][(int)rect.getWidth()];
+
+        for (int i =  0; i < (int)rect.getHeight(); i++) {
+            result[i] = Arrays.copyOfRange(gridSquares[(int)rect.getY() + i],(int)rect.getX(),
+                    (int)rect.getX() + (int)rect.getWidth() );
+        }
+
+        return result;
+    }
+
+    public int GetWidth(){
+        return gridSquares[0].length;
+    }
+
+    public int GetHeight(){
+        return gridSquares.length;
     }
 
 }
