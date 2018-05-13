@@ -8,10 +8,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/ProjLab_Sokoban.iml" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/ProjLab_Sokoban.iml" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/Application.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/Application.java" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/InvalidArgumentException.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIECommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEDisconnect.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEEnter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIELeave.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEList.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIELogin.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIELogout.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEMove.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEPlaceHoney.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEPlaceOil.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIERegistration.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +46,8 @@
       <file leaf-file-name="SokobanScene.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="217">
+              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -280,14 +288,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjLab_Sokoban" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Killer-Sokoban" type="b2602c69:ProjectViewProjectNode" />
@@ -679,13 +679,6 @@
       <workItem from="1524412643725" duration="6215000" />
       <workItem from="1524432880250" duration="967000" />
     </task>
-    <task id="LOCAL-00034" summary="SokobanClient edited.">
-      <created>1524255136995</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1524255136995</updated>
-    </task>
     <task id="LOCAL-00035" summary="SokobanClient edited.">
       <created>1524256201616</created>
       <option name="number" value="00035" />
@@ -1022,7 +1015,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526239532611</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Client.Application edited.">
+      <created>1526242632909</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1526242632909</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1550,8 +1550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="217">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
           <folding />
         </state>
       </provider>
