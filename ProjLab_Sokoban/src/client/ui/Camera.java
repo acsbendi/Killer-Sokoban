@@ -24,8 +24,7 @@ public class Camera {
      */
     public Camera(int width, int height) {
         //TODO set position to show local player's worker
-        position.x = 0;
-        position.y = 0;
+        position = new Point(0,0);
         this.width = width;
         this.height = height;
     }

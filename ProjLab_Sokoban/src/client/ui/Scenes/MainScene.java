@@ -48,7 +48,7 @@ public class MainScene extends SokobanScene {
 
     // STATIC CREATE
     public static MainScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("mainScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/mainScene.fxml"));
         Parent root = fxmlLoader.load();
         MainScene mainScene = fxmlLoader.getController();
 

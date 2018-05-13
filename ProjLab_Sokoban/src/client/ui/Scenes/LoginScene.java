@@ -53,7 +53,7 @@ public class LoginScene extends SokobanScene {
 
     // STATIC CREATE
     public static LoginScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("loginScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/loginScene.fxml"));
         Parent root = fxmlLoader.load();
         LoginScene loginScene = fxmlLoader.getController();
 

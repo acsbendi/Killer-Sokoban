@@ -54,7 +54,7 @@ public class RegisterScene extends SokobanScene {
     private Label message;
 
     public static RegisterScene Create(Stage window, GUI gui) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("registerScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/registerScene.fxml"));
         Parent root = fxmlLoader.load();
         RegisterScene registerScene = fxmlLoader.getController();
 

@@ -40,7 +40,7 @@ public class WelcomeScene extends SokobanScene {
 
 
     public static WelcomeScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("welcomeScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/welcomeScene.fxml"));
         Parent root = fxmlLoader.load();
         WelcomeScene welcomeScene = fxmlLoader.getController();
 

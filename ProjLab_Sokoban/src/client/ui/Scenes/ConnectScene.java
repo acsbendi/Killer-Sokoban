@@ -25,17 +25,20 @@ public class ConnectScene extends SokobanScene {
     public ConnectScene() {
     }
 
+    @FXML
     private TextField IPtext;
 
+    @FXML
     private TextField portText;
 
     private Button connectButton;
 
+    @FXML
     private Label message;
 
     // STATIC CREATE
     public static ConnectScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("connectScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ConnectScene.class.getResource("/connectscene.fxml"));
         Parent root = fxmlLoader.load();
         ConnectScene connectScene = fxmlLoader.getController();
 

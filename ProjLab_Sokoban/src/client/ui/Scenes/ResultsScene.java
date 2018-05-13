@@ -43,7 +43,7 @@ public class ResultsScene extends SokobanScene {
     }
 
     public static ResultsScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("resultsScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/resultscene.fxml"));
         Parent root = fxmlLoader.load();
         ResultsScene resultsScene = fxmlLoader.getController();
 

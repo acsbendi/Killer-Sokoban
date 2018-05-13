@@ -28,7 +28,7 @@ public class WaitScene extends SokobanScene {
     private Button leaveButton;
 
     public static WaitScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("waitScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/waitScene.fxml"));
         Parent root = fxmlLoader.load();
         WaitScene waitScene = fxmlLoader.getController();
 

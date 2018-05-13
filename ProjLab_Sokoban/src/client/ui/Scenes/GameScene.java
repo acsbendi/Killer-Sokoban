@@ -108,7 +108,7 @@ public class GameScene extends SokobanScene {
     }
 
     public static GameScene Create(Stage window, GUI gui) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("gameScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/gameScene.fxml"));
         Parent root = fxmlLoader.load();
         GameScene gameScene = fxmlLoader.getController();
 
