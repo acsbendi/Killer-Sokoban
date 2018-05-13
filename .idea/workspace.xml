@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/NetworkHandler.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/NetworkHandler.java" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java" />
-      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/UserInputExecutor.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/UserInputExecutor.java" />
       <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -48,8 +45,8 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="172" column="51" lean-forward="true" selection-start-line="172" selection-start-column="51" selection-end-line="172" selection-end-column="51" />
+            <state relative-caret-position="426">
+              <caret line="261" column="5" lean-forward="true" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -704,13 +701,6 @@
       <workItem from="1524412643725" duration="6215000" />
       <workItem from="1524432880250" duration="967000" />
     </task>
-    <task id="LOCAL-00007" summary="TEST">
-      <created>1521407893138</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1521407893138</updated>
-    </task>
     <task id="LOCAL-00008" summary="TEST">
       <created>1521408071669</created>
       <option name="number" value="00008" />
@@ -1047,7 +1037,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526210213013</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Connect(String IP, int port) edited everywhere.">
+      <created>1526210340472</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1526210340472</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1122,7 +1119,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ServerMessage, ServerMessageType classes added." />
     <MESSAGE value="client, server, common packages created." />
     <MESSAGE value="Client's NetworkHandler, MessageReader, MessageWriter created." />
     <MESSAGE value="Client's NetworkHandler, MessageReader, MessageWriter modified." />
@@ -1147,7 +1143,8 @@
     <MESSAGE value="Worker accepts points" />
     <MESSAGE value="Scenes modified." />
     <MESSAGE value="GUI edited." />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI edited." />
+    <MESSAGE value="Connect(String IP, int port) edited everywhere." />
+    <option name="LAST_COMMIT_MESSAGE" value="Connect(String IP, int port) edited everywhere." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1552,8 +1549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="172" column="51" lean-forward="true" selection-start-line="172" selection-start-column="51" selection-end-line="172" selection-end-column="51" />
+        <state relative-caret-position="426">
+          <caret line="261" column="5" lean-forward="true" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

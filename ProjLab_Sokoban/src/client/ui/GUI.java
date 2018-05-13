@@ -1,6 +1,7 @@
 package client.ui;
 
 import client.ui.Scenes.*;
+import common.util.Direction;
 
 import java.util.EnumMap;
 
@@ -263,6 +264,24 @@ public class GUI extends UserInterface {
     public void WaitScene_leaveButtonPressed() {
         if (currentScene == waitScene) {
             userInputExecutor.Leave();
+        }
+    }
+
+    public void GameScene_MoveWorker(Direction dir) {
+        if (currentScene == gameScene) {
+            userInputExecutor.Move(dir);
+        }
+    }
+
+    public void GameScene_PlaceHoney() {
+        if (currentScene == gameScene) {
+            userInputExecutor.PlaceHoney();
+        }
+    }
+
+    public void GameScene_PlaceOil() {
+        if (currentScene == gameScene) {
+            userInputExecutor.PlaceOil();
         }
     }
 }
