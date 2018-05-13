@@ -28,6 +28,6 @@ public abstract class SokobanScene {
     /**
      * 
      */
-    public abstract void Hide();
+    public void Hide() {}
 
 }
