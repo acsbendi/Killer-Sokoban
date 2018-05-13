@@ -33,6 +33,11 @@ public class GUI extends UserInterface {
         currentScene.Load();
     }
 
+    @Override
+    public void InitializeWarehouse(GridSquare[][] gridSquares){
+        gameScene.setWarehouseView(new WarehouseView(gridSquares));
+    }
+
     public void ConnectionResult(boolean success) // connection successful/failure, lasd: doksi
     {
         if (currentScene == connectScene) {

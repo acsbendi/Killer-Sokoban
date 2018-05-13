@@ -5,20 +5,21 @@ import javafx.scene.shape.Rectangle;
 import java.util.*;
 
 /**
- * 
+ * Class responsible for storing all GridSquare in the currently played warehouse/map.
  */
 public class WarehouseView {
 
     /**
      * Default constructor
      */
-    public WarehouseView() {
+    public WarehouseView(GridSquare[][] gridSquares) {
+        this.gridSquares = gridSquares;
     }
 
     /**
      *
      */
-    private Set<GridSquare> gridSquares;
+    private GridSquare[][] gridSquares;
 
 
 

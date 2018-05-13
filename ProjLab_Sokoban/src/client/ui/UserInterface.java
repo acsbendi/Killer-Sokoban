@@ -2,11 +2,8 @@ package client.ui;
 import client.controller.UserInputExecutor;
 
 public abstract class UserInterface {
-	public void SetFields(GridSquare[][] gridSquares) {
-		this.gridSquares = gridSquares;
-	}
+	public abstract void InitializeWarehouse(GridSquare[][] gridSquares);
 
-	protected GridSquare[][] gridSquares; //TODO initialize this somehow
 	protected UserInputExecutor userInputExecutor;
 	public void SetUserInputExecutor(UserInputExecutor userInputExecutor) {
 		this.userInputExecutor = userInputExecutor;
