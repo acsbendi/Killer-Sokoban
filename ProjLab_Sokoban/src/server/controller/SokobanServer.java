@@ -180,6 +180,28 @@ public class SokobanServer implements ControllerLogic {
     }
 
     @Override
+    public void OwnResults(Client client) {
+        if (client.GetState() == ClientState.LoggedIn) {
+            ArrayList<Integer> results = dataBaseManager.GetResultOf(client.GetName());
+            String msg = "Wins: " + results.get(0) + ". Losses: " + results.get(1);
+            networkHandler.ResultResponse(client, msg);
+        }
+    }
+
+    @Override
+    public void TopResults(Client client) {
+        if (client.GetState() == ClientState.LoggedIn) {
+            ArrayList<String> bestPlayers = dataBaseManager.GetBestPlayers();
+            String msg = "Top 5 players:\n";
+            for(String player : bestPlayers) {
+                ArrayList<Integer> results = dataBaseManager.GetResultOf(player);
+                msg = msg + player + ": " + results.get(0) + "-" + results.get(1) + "\n";
+            }
+            networkHandler.ResultResponse(client, msg);
+        }
+    }
+
+    @Override
     public void Move(Client client, Direction dir) {
         if (client.GetState() == ClientState.Playing) {
             Room room = client.GetRoom();
@@ -213,15 +235,5 @@ public class SokobanServer implements ControllerLogic {
                 networkHandler.OilPlaced(cli, clientIndex);
             }
         }
-    }
-
-    @Override
-    public void OwnResults(Client client) {
-
-    }
-
-    @Override
-    public void TopResults(Client client) {
-
     }
 }
