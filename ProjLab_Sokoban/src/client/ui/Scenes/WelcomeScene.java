@@ -14,6 +14,10 @@ public class WelcomeScene extends SokobanScene {
      * Default constructor
      */
     public WelcomeScene() {
+
+        
+
+
     }
 
     /**
@@ -30,5 +34,7 @@ public class WelcomeScene extends SokobanScene {
      * 
      */
     private Button disconnectButton;
+
+
 
 }
