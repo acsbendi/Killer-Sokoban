@@ -2,6 +2,9 @@ package client.ui.Scenes;
 
 import client.ui.GUI;
 import client.ui.Scenes.SokobanScene;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -36,5 +39,33 @@ public class ResultsScene extends SokobanScene {
     private CheckBox ownResults;
 
     public void ShowResults(String msg) {
+    	message.setText(msg);
     }
+    
+    public static ResultsScene Create(Stage window, GUI gui) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("resultsScene.fxml"));
+        Parent root = fxmlLoader.load();
+        ResultsScene resultsScene = fxmlLoader.getController();
+
+        resultsScene.window = window;
+        resultsScene.gui = gui;
+        resultsScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
+
+        return resultsScene;
+    }
+    
+    @Override
+    public void Load() {
+    	message.setText("");
+    	ownResults.setSelected(true);
+    }
+    
+    public void BackButtonPressed() {
+    	gui.ResultsScene_backButtonPressed();
+    }
+    
+    public void OwnResultsChecked() {
+    	gui.ResultsScene_ownResultClicked(ownResults.isSelected());
+    }
+    
 }
