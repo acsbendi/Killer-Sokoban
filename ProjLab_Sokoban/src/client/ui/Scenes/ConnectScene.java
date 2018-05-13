@@ -51,6 +51,7 @@ public class ConnectScene extends SokobanScene {
         IPtext.setText("");
         portText.setText("");
         message.setText("Set IP address and port number.");
+        window.setScene(scene);
     }
 
     // private user event handlers

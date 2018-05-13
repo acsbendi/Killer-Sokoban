@@ -64,6 +64,7 @@ public class LoginScene extends SokobanScene {
         userNameText.setText("");
         passwordText.setText("");
         message.setText("Enter username and password.");
+        window.setScene(scene);
     }
 
     private void loginButtonPressed() {
