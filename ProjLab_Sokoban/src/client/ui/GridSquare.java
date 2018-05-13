@@ -6,8 +6,8 @@ import javafx.scene.layout.StackPane;
 
 public class GridSquare {
 
-    private static int width = 30;
-    private static int height = 30;
+    private static int width = 36;
+    private static int height = 36;
 
     private final Field field;
     private StackPane imagePane;
@@ -27,8 +27,8 @@ public class GridSquare {
 
         String thingsOnField = field.ToString();
         ProcessFieldView(thingsOnField.charAt(0));
-        ProcessPlaceholderView(thingsOnField.charAt(1));
-        ProcessLiquidView(thingsOnField.charAt(2));
+        ProcessLiquidView(thingsOnField.charAt(1));
+        ProcessPlaceholderView(thingsOnField.charAt(2));
         return imagePane;
     }
 
