@@ -8,6 +8,7 @@ public class Application extends javafx.application.Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         SokobanClient sokobanClient = SokobanClient.Create(new GUI(primaryStage));
+        primaryStage.setResizable(false);
         primaryStage.show(); // -.-"
     }
 
