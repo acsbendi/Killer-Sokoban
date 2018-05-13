@@ -53,7 +53,7 @@ public class ConnectScene extends SokobanScene {
         message.setText("Set IP address and port number.");
     }
 
-    // private sser event handlers
+    // private user event handlers
     private void connectButtonPressed() {
         gui.ConnectScene_connectButtonPressed(IPtext.getText(), Integer.parseInt(portText.getText()));
     }

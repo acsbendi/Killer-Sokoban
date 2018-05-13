@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="">
+    <list default="true" id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="WelcomeScene edited.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java" />
       <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java" />
@@ -24,8 +24,8 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2838">
-              <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+            <state relative-caret-position="629">
+              <caret line="41" column="40" lean-forward="false" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,8 +36,8 @@
       <file leaf-file-name="ConnectScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+            <state relative-caret-position="150">
+              <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
               <folding>
                 <element signature="e#1537#1538#0" expanded="true" />
                 <element signature="e#1590#1591#0" expanded="true" />
@@ -46,21 +46,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SokobanClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java">
+      <file leaf-file-name="WelcomeScene.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="170" column="10" lean-forward="false" selection-start-line="170" selection-start-column="10" selection-end-line="170" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="586">
+              <caret line="67" column="36" lean-forward="false" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1140#1141#0" expanded="true" />
+                <element signature="e#1193#1194#0" expanded="true" />
+                <element signature="e#1237#1238#0" expanded="true" />
+                <element signature="e#1293#1294#0" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WelcomeScene.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java">
+      <file leaf-file-name="ResultsScene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ResultsScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="561">
+              <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WaitScene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WaitScene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,8 +91,8 @@
       <file leaf-file-name="SokobanScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+            <state relative-caret-position="408">
+              <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#444#445#0" expanded="true" />
@@ -95,20 +115,8 @@
       <file leaf-file-name="GameScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/GameScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/UserInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="578">
+              <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -117,7 +125,7 @@
       <file leaf-file-name="LoginScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/LoginScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
+            <state relative-caret-position="544">
               <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -250,8 +258,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -323,8 +329,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,11 +363,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Camera.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/GameScene.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/WarehouseView.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -658,13 +664,6 @@
       <workItem from="1524404617025" duration="369000" />
       <workItem from="1524412643725" duration="6215000" />
       <workItem from="1524432880250" duration="967000" />
-    </task>
-    <task id="LOCAL-00019" summary="client, server, common packages created.">
-      <created>1523955136989</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1523955136989</updated>
     </task>
     <task id="LOCAL-00020" summary="Client's NetworkHandler, MessageReader, MessageWriter created.">
       <created>1523958454908</created>
@@ -1002,7 +1001,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526219319924</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="WelcomeScene edited.">
+      <created>1526219708070</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1526219708070</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1026,10 +1032,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21633086" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21633086" sideWeight="0.5052083" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28541666" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21633086" sideWeight="0.496875" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21633086" sideWeight="0.49479166" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1077,7 +1083,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="NetworkHandler, SokobanClient, ControllerLogic edited." />
     <MESSAGE value="NetworkHandler, ControllerLogic edited." />
     <MESSAGE value="2x Application added, SokobanClient, NetworkHandler edited." />
     <MESSAGE value="NetworkHandler edited." />
@@ -1102,7 +1107,8 @@
     <MESSAGE value="SokobanScene edited." />
     <MESSAGE value="Scenes edited." />
     <MESSAGE value="ConnectScene edited." />
-    <option name="LAST_COMMIT_MESSAGE" value="ConnectScene edited." />
+    <MESSAGE value="WelcomeScene edited." />
+    <option name="LAST_COMMIT_MESSAGE" value="WelcomeScene edited." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1168,20 +1174,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CExit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CCommand.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CExit.java" />
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIECommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1189,53 +1183,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CClear.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="88" lean-forward="true" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CCompare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="131" lean-forward="false" selection-start-line="6" selection-start-column="131" selection-end-line="6" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="131" lean-forward="false" selection-start-line="6" selection-start-column="131" selection-end-line="6" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CRun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="131" lean-forward="false" selection-start-line="8" selection-start-column="131" selection-end-line="8" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CSave.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="131" lean-forward="false" selection-start-line="6" selection-start-column="131" selection-end-line="6" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CWait.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="141" lean-forward="false" selection-start-line="6" selection-start-column="141" selection-end-line="6" selection-end-column="141" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CClear.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CCompare.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CInfo.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CRun.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CSave.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/ConsoleCommands/CWait.java" />
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEConnect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="131" lean-forward="false" selection-start-line="6" selection-start-column="131" selection-end-line="6" selection-end-column="131" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1271,7 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="131" lean-forward="false" selection-start-line="6" selection-start-column="131" selection-end-line="6" selection-end-column="131" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1282,18 +1238,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEMaketest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="133" lean-forward="false" selection-start-line="6" selection-start-column="133" selection-end-line="6" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEMaketest.java" />
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIERegistration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="133" lean-forward="false" selection-start-line="6" selection-start-column="133" selection-end-line="6" selection-end-column="133" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1304,35 +1253,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEStep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEPutOil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEPutHoney.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEStep.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEPutOil.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEPutHoney.java" />
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Commands/UserInputExecutorCommands/UIEPlaceOil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding>
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1340,11 +1267,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="133" lean-forward="false" selection-start-line="6" selection-start-column="133" selection-end-line="6" selection-end-column="133" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1356,32 +1278,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/FieldView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Console.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3026">
-          <caret line="240" column="38" lean-forward="false" selection-start-line="240" selection-start-column="38" selection-end-line="240" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WaitScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/FieldView.java" />
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Console.java" />
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/MainScene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1397,16 +1295,6 @@
         <state relative-caret-position="136">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ResultsScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1428,7 +1316,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/controller/SokobanClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="2023">
           <caret line="170" column="10" lean-forward="false" selection-start-line="170" selection-start-column="10" selection-end-line="170" selection-end-column="10" />
           <folding />
         </state>
@@ -1460,8 +1348,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        <state relative-caret-position="408">
+          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#444#445#0" expanded="true" />
@@ -1472,18 +1360,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/GameScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+        <state relative-caret-position="578">
+          <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/LoginScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/LoginScene.java">
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        <state relative-caret-position="629">
+          <caret line="41" column="40" lean-forward="false" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1492,8 +1388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+        <state relative-caret-position="150">
+          <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
           <folding>
             <element signature="e#1537#1538#0" expanded="true" />
             <element signature="e#1590#1591#0" expanded="true" />
@@ -1501,10 +1397,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WaitScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2838">
-          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+        <state relative-caret-position="272">
+          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ResultsScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1513,10 +1419,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="586">
+          <caret line="67" column="36" lean-forward="false" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1193#1194#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
           </folding>
         </state>
       </provider>

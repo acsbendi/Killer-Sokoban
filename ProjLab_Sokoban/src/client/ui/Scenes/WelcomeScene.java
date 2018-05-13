@@ -52,15 +52,18 @@ public class WelcomeScene extends SokobanScene {
 
     // default Load() method is used
 
+    // user event handlers
     private void loginButtonPressed() {
-
+        gui.WelcomeScene_loginButtonPressed();
     }
 
     private void registerButtonPressed() {
-
+        gui.WelcomeScene_registerButtonPressed();
     }
 
     private void disconnectButtonPressed() {
-
+        gui.WelcomeScene_disconnectButtonPressed();
     }
+
+    // no network event handlers    
 }
