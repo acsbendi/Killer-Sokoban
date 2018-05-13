@@ -43,7 +43,6 @@ public class GameScene extends SokobanScene {
 
     @Override
     public void Load(){
-        window.setTitle("Sokoban Game");
         window.setScene(scene);
         UpdateScreen();
     }

@@ -39,6 +39,8 @@ public class GUI extends UserInterface {
         waitScene = WaitScene.Create(window, this);
         welcomeScene = WelcomeScene.Create(window, this);
 
+        window.setTitle("Sokoban Game");
+
         currentScene = connectScene;
         currentScene.Load();
     }

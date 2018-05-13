@@ -44,17 +44,7 @@ public class ConnectScene extends SokobanScene {
      */
     private Label message;
 
-
-
-    public void ConnectionFailed(){
-        // TODO implement here
-    }
-
-    @Override
-    public void Load() {
-
-    }
-
+    // STATIC CREATE
     public static ConnectScene Create(Stage window, GUI gui) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("connectScene.fxml"));
         Parent root = fxmlLoader.load();
@@ -62,9 +52,24 @@ public class ConnectScene extends SokobanScene {
 
         connectScene.window = window;
         connectScene.gui = gui;
-        connectScene.camera = new Camera();
         connectScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
 
-        return gameScene;
+        return connectScene;
+    }
+
+    // Load method
+    @Override
+    public void Load() {
+
+    }
+
+    // User event handlers
+    public void connectButtonPressed() {
+
+    }
+
+    // Network event handlers
+    public void ConnectionFailed(){
+        // TODO implement here
     }
 }
