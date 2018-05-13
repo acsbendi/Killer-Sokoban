@@ -69,7 +69,7 @@ public class RegisterScene extends SokobanScene {
     }
 
     private void registerButtonPressed(){
-        if("requirements".equals(message.getText())){
+        if("requirements".equals(passwordText.getText())){
             message.setText("Sorry, but your password must contain a capital letter, two numbers, a symbol, an inspiring message, a haiku, a spell, a hieroglyph, a gang sign and the blood of a virgin.");
         }
         if(userNameText.getText().isEmpty()){
