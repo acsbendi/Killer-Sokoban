@@ -165,7 +165,7 @@ public class GUI extends UserInterface {
 
 
 
-    public void ConnectScene_connectButtonPressed(String IP, String port) {
+    public void ConnectScene_connectButtonPressed(String IP, int port) {
         if (currentScene == connectScene)
             userInputExecutor.Connect(IP, port);
     }

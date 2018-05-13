@@ -42,12 +42,12 @@ public class NetworkHandler implements INetworkHandler {
         }
     }
 
-    public void Connect() {
+    public void Connect(String IP, int port) {
         if (!channel.isConnected()) {
             boolean success;
             try {
                 channel.configureBlocking(true);
-                channel.socket().connect(new InetSocketAddress("vm.ik.bme.hu", 7305), 2000);
+                channel.socket().connect(new InetSocketAddress(IP, port), 2000);
                 success = true;
             } catch (SocketTimeoutException e) {
                 success = false;

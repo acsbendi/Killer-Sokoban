@@ -3,7 +3,7 @@ package client.controller;
 import common.util.Direction;
 
 public interface UserInputExecutor{
-void Connect();
+void Connect(String IP, int port);
 void Disconnect();
 void Register(String username,String password);
 void Login(String username,String password);
