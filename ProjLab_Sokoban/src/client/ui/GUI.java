@@ -32,13 +32,6 @@ public class GUI extends UserInterface {
         currentScene.Load();
     }
 
-    /**
-     * 
-     */
-    public void GoBack() {
-        // TODO implement here
-    }
-
     public void ConnectionResult(boolean success) // connection successful/failure, lasd: doksi
     {
         if (currentScene == connectScene) {
@@ -74,7 +67,7 @@ public class GUI extends UserInterface {
         }
     }
 
-    public void LoginSuccess() //
+    public void LoginSuccess()
     {
         if (currentScene == loginScene) {
             currentScene.Hide();
@@ -104,11 +97,8 @@ public class GUI extends UserInterface {
 
     public void Results(String msg)
     {
-        if (currentScene == mainScene) {
-            currentScene.Hide();
-            currentScene = resultsScene;
-            currentScene.Load();
-            resultsScene.Text(msg);
+        if (currentScene == resultsScene) {
+            resultsScene.ShowResults(msg);
         }
     }
 
@@ -175,12 +165,12 @@ public class GUI extends UserInterface {
 
 
 
-    public void connectScene_connectButtonPressed(String IP, String port) {
+    public void ConnectScene_connectButtonPressed(String IP, String port) {
         if (currentScene == connectScene)
             userInputExecutor.Connect(IP, port);
     }
 
-    public void welcomeScene_loginButtonPressed() {
+    public void WelcomeScene_loginButtonPressed() {
         if (currentScene == welcomeScene) {
             currentScene.Hide();
             currentScene = loginScene;
@@ -188,7 +178,7 @@ public class GUI extends UserInterface {
         }
     }
 
-    public void welcomeScene_registerButtonPressed() {
+    public void WelcomeScene_registerButtonPressed() {
         if (currentScene == welcomeScene) {
             currentScene.Hide();
             currentScene = registerScene;
@@ -196,7 +186,85 @@ public class GUI extends UserInterface {
         }
     }
 
-    public void welcomeScene_disconnectButtonPressed() {
-
+    public void WelcomeScene_disconnectButtonPressed() {
+        if (currentScene == welcomeScene) {
+            userInputExecutor.Disconnect();
+        }
     }
+
+    public void LoginScene_loginButtonPressed(String username, String password) {
+        if (currentScene == loginScene) {
+            userInputExecutor.Login(username, password);
+        }
+    }
+
+    public void LoginScene_backButtonPressed() {
+        if (currentScene == loginScene) {
+            currentScene.Hide();
+            currentScene = welcomeScene;
+            currentScene.Load();
+        }
+    }
+
+    public void RegisterScene_registerButtonPressed(String username, String password) {
+        if (currentScene == registerScene) {
+            userInputExecutor.Register(username, password);
+        }
+    }
+
+    public void RegisterScene_backButtonPressed() {
+        if (currentScene == registerScene) {
+            currentScene.Hide();
+            currentScene = welcomeScene;
+            currentScene.Load();
+        }
+    }
+
+    public void MainScene_enterButtonPressed(int roomSize) {
+        if (currentScene == mainScene) {
+            userInputExecutor.Enter(roomSize);
+        }
+    }
+
+    public void MainScene_resultButtonPressed() {
+        if (currentScene == mainScene) {
+            userInputExecutor.OwnResults();
+            currentScene.Hide();
+            currentScene = resultsScene;
+            currentScene.Load();
+        }
+    }
+
+    public void MainScene_logoutButtonPressed() {
+        if (currentScene == mainScene) {
+            userInputExecutor.Logout();
+        }
+    }
+
+    public void ResultsScene_ownResultClicked(boolean ownResults) {
+        if (currentScene == resultsScene) {
+            if (ownResults) {
+                userInputExecutor.OwnResults();
+            }
+            else {
+                userInputExecutor.TopResults();
+            }
+        }
+    }
+
+    public void ResultsScene_backButtonPressed() {
+        if (currentScene == resultsScene) {
+            currentScene.Hide();
+            currentScene = mainScene;
+            currentScene.Load();
+        }
+    }
+
+    public void WaitScene_leaveButtonPressed() {
+        if (currentScene == waitScene) {
+            userInputExecutor.Leave();
+        }
+    }
+
+    public void GameScene_
 }
