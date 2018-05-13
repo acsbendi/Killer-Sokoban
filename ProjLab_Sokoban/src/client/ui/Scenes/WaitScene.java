@@ -2,6 +2,7 @@ package client.ui.Scenes;
 
 import client.ui.GUI;
 import client.ui.Scenes.SokobanScene;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -41,6 +42,7 @@ public class WaitScene extends SokobanScene {
     // default Load method used
 
     // private user event handlers
+    @FXML
     private void leaveButtonPressed() {
         gui.WaitScene_leaveButtonPressed();
     }

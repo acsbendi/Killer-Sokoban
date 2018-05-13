@@ -2,6 +2,7 @@ package client.ui.Scenes;
 
 import client.ui.GUI;
 import client.ui.Scenes.SokobanScene;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -53,14 +54,17 @@ public class WelcomeScene extends SokobanScene {
     // default Load() method is used
 
     // private user event handlers
+    @FXML
     private void loginButtonPressed() {
         gui.WelcomeScene_loginButtonPressed();
     }
 
+    @FXML
     private void registerButtonPressed() {
         gui.WelcomeScene_registerButtonPressed();
     }
 
+    @FXML
     private void disconnectButtonPressed() {
         gui.WelcomeScene_disconnectButtonPressed();
     }

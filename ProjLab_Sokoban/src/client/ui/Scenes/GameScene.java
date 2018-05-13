@@ -51,6 +51,7 @@ public class GameScene extends SokobanScene {
         UpdateScreen();
     }
 
+    @FXML
     private void OnKeyPressed(KeyEvent event){
         switch (event.getCode()){
             case W:
@@ -84,6 +85,11 @@ public class GameScene extends SokobanScene {
                 gui.GameScene_PlaceOil();
                 break;
         }
+    }
+
+    @FXML
+    private void Leave(){
+
     }
 
 

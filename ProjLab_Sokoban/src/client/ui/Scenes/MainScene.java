@@ -1,6 +1,7 @@
 package client.ui.Scenes;
 
 import client.ui.GUI;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,6 +30,7 @@ public class MainScene extends SokobanScene {
     /**
      *
      */
+    @FXML
     private TextField roomSizeText;
 
     /**
@@ -62,14 +64,17 @@ public class MainScene extends SokobanScene {
         roomSizeText.setText("");
     }
 
+    @FXML
     public void ResultButtonPressed() {
         gui.MainScene_resultButtonPressed();
     }
 
+    @FXML
     public void LogoutButtonPressed() {
         gui.MainScene_logoutButtonPressed();
     }
 
+    @FXML
     public void EnterButtonPressed() {
         int roomSize = Integer.parseInt(roomSizeText.getText());
         if(roomSize >= 2 && roomSize <=4)

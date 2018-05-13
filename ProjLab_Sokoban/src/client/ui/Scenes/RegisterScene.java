@@ -1,6 +1,7 @@
 package client.ui.Scenes;
 
 import client.ui.GUI;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,16 +24,19 @@ public class RegisterScene extends SokobanScene {
     /**
      * 
      */
+    @FXML
     private TextField userNameText;
 
     /**
      * 
      */
+    @FXML
     private TextField passwordText;
 
     /**
      * 
      */
+    @FXML
     private TextField repeatPasswordText;
 
     /**
@@ -46,6 +50,7 @@ public class RegisterScene extends SokobanScene {
     private Button backButton;
 
     /***/
+    @FXML
     private Label message;
 
     public static RegisterScene Create(Stage window, GUI gui) throws Exception{
@@ -69,6 +74,7 @@ public class RegisterScene extends SokobanScene {
         window.setScene(scene);
     }
 
+    @FXML
     private void registerButtonPressed(){
         if("requirements".equals(passwordText.getText())){
             message.setText("Sorry, but your password must contain a capital letter, two numbers, a symbol, an inspiring message, a haiku, a spell, a hieroglyph, a gang sign and the blood of a virgin.");
@@ -91,6 +97,7 @@ public class RegisterScene extends SokobanScene {
         else message.setText("The given passwords don't match");
     }
 
+    @FXML
     private void backButtonPressed(){
         gui.RegisterScene_backButtonPressed();
     }

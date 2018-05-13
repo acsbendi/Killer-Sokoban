@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="281.0" prefWidth="787.0" style="-fx-background-image: : url(&quot;metal-background.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.RegisterScene">
+   <center>
+      <VBox alignment="CENTER" prefHeight="224.0" prefWidth="387.0" style="-fx-spacing: 23;" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <SplitPane dividerPositions="0.4696969696969697" prefHeight="160.0" prefWidth="200.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="123.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="92.0" text="Username" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+                  <TextField fx:id="userNameText" />
+              </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.4696969696969697" prefHeight="160.0" prefWidth="200.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="123.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="92.0" text="Password" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+                  <TextField fx:id="passwordText" />
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.4696969696969697" prefHeight="160.0" prefWidth="200.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="155.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="3.0" prefHeight="25.0" prefWidth="116.0" text="Password again" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+                  <TextField fx:id="repeatPasswordText" />
+               </items>
+            </SplitPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane prefHeight="25.0" prefWidth="155.0" />
+                  <Button mnemonicParsing="false" onAction="#registerButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Register">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Pane prefHeight="25.0" prefWidth="125.0" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="25.0" prefWidth="73.0" text="Back">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </center>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <top>
+      <Pane prefHeight="140.0" prefWidth="630.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="288.0" fitWidth="175.0" layoutY="-141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@warehouse-left.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="281.0" fitWidth="197.0" layoutX="9.0" layoutY="-140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@warehouse-right.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </right>
+   <bottom>
+      <Pane prefHeight="122.0" prefWidth="783.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="message" layoutX="356.0" layoutY="81.0" prefHeight="19.0" prefWidth="74.0" text="(message)" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>

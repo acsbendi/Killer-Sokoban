@@ -3,6 +3,7 @@ package client.ui.Scenes;
 import client.ui.Camera;
 import client.ui.GUI;
 import client.ui.Scenes.SokobanScene;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -55,6 +56,7 @@ public class ConnectScene extends SokobanScene {
     }
 
     // private user event handlers
+    @FXML
     private void connectButtonPressed() {
         gui.ConnectScene_connectButtonPressed(IPtext.getText(), Integer.parseInt(portText.getText()));
     }

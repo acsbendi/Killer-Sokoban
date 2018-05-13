@@ -1,6 +1,7 @@
 package client.ui.Scenes;
 
 import client.ui.GUI;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,11 +26,13 @@ public class LoginScene extends SokobanScene {
     /**
      * 
      */
+    @FXML
     private TextField userNameText;
 
     /**
      * 
      */
+    @FXML
     private TextField passwordText;
 
     /**
@@ -40,6 +43,7 @@ public class LoginScene extends SokobanScene {
     /**
      * 
      */
+    @FXML
     private Label message;
 
     /**
@@ -67,10 +71,12 @@ public class LoginScene extends SokobanScene {
         window.setScene(scene);
     }
 
+    @FXML
     private void loginButtonPressed() {
         gui.LoginScene_loginButtonPressed(userNameText.getText(), passwordText.getText());
     }
 
+    @FXML
     private void backButtonPressed() {
         gui.LoginScene_backButtonPressed();
     }

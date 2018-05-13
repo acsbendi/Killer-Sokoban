@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="787.0" style="-fx-background-image: : url(&quot;metal-background.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.WelcomeScene">
+   <center>
+      <VBox alignment="CENTER" prefHeight="224.0" prefWidth="387.0" style="-fx-spacing: 23;" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <Button mnemonicParsing="false" onAction="#registerButtonPressed" prefHeight="25.0" prefWidth="125.0" text="Register">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#loginButtonPressed" prefHeight="25.0" prefWidth="125.0" text="Log in">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#disconnectButtonPressed" prefHeight="25.0" prefWidth="125.0" text="Disconnect">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </center>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <top>
+      <Pane prefHeight="140.0" prefWidth="630.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="287.0" fitWidth="186.0" layoutY="-141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@warehouse-left.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="299.0" fitWidth="195.0" layoutX="5.0" layoutY="-140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@warehouse-right.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </right>
+   <bottom>
+      <Pane prefHeight="130.0" prefWidth="787.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
