@@ -205,10 +205,15 @@ public class SokobanServer implements ControllerLogic {
     public void Move(Client client, Direction dir) {
         if (client.GetState() == ClientState.Playing) {
             Room room = client.GetRoom();
-            room.MoveWorker(client, dir);
-            int clientIndex = room.WorkerIndexOf(client);
-            for(Client cli : room.GetClients()) {
-                networkHandler.WorkerMoved(cli, clientIndex, dir);
+            if (!room.TimeIsUp()) {
+                room.MoveWorker(client, dir);
+                int clientIndex = room.WorkerIndexOf(client);
+                for(Client cli : room.GetClients()) {
+                    networkHandler.WorkerMoved(cli, clientIndex, dir);
+                }
+            }
+            else {
+                FinishGame(room);
             }
         }
     }
@@ -217,10 +222,15 @@ public class SokobanServer implements ControllerLogic {
     public void PlaceHoney(Client client) {
         if (client.GetState() == ClientState.Playing) {
             Room room = client.GetRoom();
-            room.PlaceHoney(client);
-            int clientIndex = room.WorkerIndexOf(client);
-            for(Client cli : room.GetClients()) {
-                networkHandler.HoneyPlaced(cli, clientIndex);
+            if (!room.TimeIsUp()) {
+                room.PlaceHoney(client);
+                int clientIndex = room.WorkerIndexOf(client);
+                for(Client cli : room.GetClients()) {
+                    networkHandler.HoneyPlaced(cli, clientIndex);
+                }
+            }
+            else {
+                FinishGame(room);
             }
         }
     }
@@ -229,11 +239,31 @@ public class SokobanServer implements ControllerLogic {
     public void PlaceOil(Client client) {
         if (client.GetState() == ClientState.Playing) {
             Room room = client.GetRoom();
-            room.PlaceOil(client);
-            int clientIndex = room.WorkerIndexOf(client);
-            for(Client cli : room.GetClients()) {
-                networkHandler.OilPlaced(cli, clientIndex);
+            if (!room.TimeIsUp()) {
+                room.PlaceOil(client);
+                int clientIndex = room.WorkerIndexOf(client);
+                for(Client cli : room.GetClients()) {
+                    networkHandler.OilPlaced(cli, clientIndex);
+                }
             }
+            else {
+                FinishGame(room);
+            }
+        }
+    }
+
+    private void FinishGame(Room room) {
+        ArrayList<String> winners = room.GetWinners();
+        ArrayList<String> losers = room.GetLosers();
+        for(Client cli : room.GetClients()) {
+            networkHandler.GameFinished(cli);
+        }
+        room.Finish();
+        for(String winner : winners) {
+            dataBaseManager.Win(winner);
+        }
+        for(String loser : losers) {
+            dataBaseManager.Lose(loser);
         }
     }
 }

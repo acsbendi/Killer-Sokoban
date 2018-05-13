@@ -17,6 +17,7 @@ public class Room {
     Warehouse warehouse;
     ArrayList<Worker> workers;
     HashMap<Client, Worker> map;
+    long lastPointChange;
 
     public Room() {
         clients = new ArrayList<>();
@@ -66,11 +67,22 @@ public class Room {
                 return false;
             }
         }
+        lastPointChange = System.currentTimeMillis();
         return true;
     }
 
     public void MoveWorker(Client client, Direction dir) {
+        int pointsDifference = 0;
+        for(Worker worker : workers) {
+            pointsDifference -= worker.GetPoints();
+        }
         map.get(client).Move(dir);
+        for(Worker worker : workers) {
+            pointsDifference += worker.GetPoints();
+        }
+        if (pointsDifference == 1) {
+            lastPointChange = System.currentTimeMillis();
+        }
     }
 
     public void PlaceHoney(Client client) {
@@ -79,5 +91,9 @@ public class Room {
 
     public void PlaceOil(Client client) {
         map.get(client).Place(new Oil());
+    }
+
+    public boolean TimeIsUp() {
+        return (System.currentTimeMillis() - lastPointChange) >= 40000;
     }
 }
