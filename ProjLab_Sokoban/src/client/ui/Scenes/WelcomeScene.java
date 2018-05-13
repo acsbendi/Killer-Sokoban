@@ -15,9 +15,6 @@ public class WelcomeScene extends SokobanScene {
      */
     public WelcomeScene() {
 
-        
-
-
     }
 
     /**
