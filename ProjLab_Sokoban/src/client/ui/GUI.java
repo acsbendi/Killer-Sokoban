@@ -265,6 +265,4 @@ public class GUI extends UserInterface {
             userInputExecutor.Leave();
         }
     }
-
-    public void GameScene_
 }
