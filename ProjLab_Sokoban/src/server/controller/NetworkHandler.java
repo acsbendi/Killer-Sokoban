@@ -1,5 +1,6 @@
 package server.controller;
 
+import com.sun.security.ntlm.Server;
 import common.networking.*;
 import common.util.Direction;
 import server.controller.Client;
@@ -303,7 +304,18 @@ public class NetworkHandler implements INetworkHandler {
     }
 
     public void ResultResponse(Client client, String msg) {
+        byte[] msg_bytes = msg.getBytes(StandardCharsets.UTF_8);
+        int msg_length = msg_bytes.length;
+        byte[] value = new byte[1+msg_length];
+        value[0] = 2;
+        System.arraycopy(msg_bytes, 0, value, 1, msg_length);
+        ServerMessage message = new ServerMessage(ServerMessageType.ResultResponse, value);
+        writers.get(channels.get(client)).EnqueueMessage(message);
+    }
 
+    public void GameFinished(Client cli) {
+        ServerMessage message = new ServerMessage(ServerMessageType.GameFinished, new byte[0]);
+        writers.get(channels.get(cli)).EnqueueMessage(message);
     }
 
     private void InterpretRegister(SocketChannel channel, byte[] value) {
@@ -384,4 +396,6 @@ public class NetworkHandler implements INetworkHandler {
             controllerLogic.TopResults(clients.get(channel));
         }
     }
+
+
 }

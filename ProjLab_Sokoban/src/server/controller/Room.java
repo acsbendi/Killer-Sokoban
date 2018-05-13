@@ -17,12 +17,14 @@ public class Room {
     Warehouse warehouse;
     ArrayList<Worker> workers;
     HashMap<Client, Worker> map;
+    HashMap<Worker, String> names;
     long lastPointChange;
 
     public Room() {
         clients = new ArrayList<>();
         workers = new ArrayList<>();
         map = new HashMap<>();
+        names = new HashMap<>();
     }
 
     public void AddPlayer(Client client) {
@@ -55,6 +57,7 @@ public class Room {
             warehouse = new Warehouse(pitch.values(), boxes);
             for(int i = 0; i < clients.size(); i++) {
                 map.put(clients.get(i), workers.get(i));
+                names.put(workers.get(i), clients.get(i).GetName());
             }
         } catch (FileNotFoundException | ClassCastException e) {
             e.printStackTrace();
@@ -95,5 +98,44 @@ public class Room {
 
     public boolean TimeIsUp() {
         return (System.currentTimeMillis() - lastPointChange) >= 40000;
+    }
+
+    public ArrayList<String> GetWinners() {
+        int max = workers.get(0).GetPoints();
+        for(Worker worker : workers) {
+            if (worker.GetPoints() > max) {
+                max = worker.GetPoints();
+            }
+        }
+        ArrayList<String> winners = new ArrayList<>();
+        for(Worker worker : workers) {
+            if (worker.GetPoints() == max) {
+                winners.add(names.get(worker));
+            }
+        }
+        return winners;
+    }
+
+    public ArrayList<String> GetLosers() {
+        int max = workers.get(0).GetPoints();
+        for(Worker worker : workers) {
+            if (worker.GetPoints() > max) {
+                max = worker.GetPoints();
+            }
+        }
+        ArrayList<String> losers = new ArrayList<>();
+        for(Worker worker : workers) {
+            if (worker.GetPoints() < max) {
+                losers.add(names.get(worker));
+            }
+        }
+        return losers;
+    }
+
+    public void Finish() {
+        for (Client cli : clients) {
+            cli.SetState(ClientState.LoggedIn);
+            cli.SetRoom(null);
+        }
     }
 }
