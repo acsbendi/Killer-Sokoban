@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3b23e3de-d3ec-4c89-81e1-1d1effaa8ecf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java" />
       <change beforePath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java" afterPath="$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,7 +24,7 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3891">
+            <state relative-caret-position="-2838">
               <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -35,11 +36,11 @@
       <file leaf-file-name="ConnectScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="327">
+              <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
               <folding>
-                <element signature="e#1528#1529#0" expanded="true" />
-                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+                <element signature="e#1590#1591#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +59,8 @@
       <file leaf-file-name="WelcomeScene.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="499">
+              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -658,13 +659,6 @@
       <workItem from="1524412643725" duration="6215000" />
       <workItem from="1524432880250" duration="967000" />
     </task>
-    <task id="LOCAL-00018" summary="ServerMessage, ServerMessageType classes added.">
-      <created>1523954642477</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1523954642477</updated>
-    </task>
     <task id="LOCAL-00019" summary="client, server, common packages created.">
       <created>1523955136989</created>
       <option name="number" value="00019" />
@@ -1001,7 +995,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526219186779</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="ConnectScene edited.">
+      <created>1526219319924</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1526219319924</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1457,16 +1458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/LoginScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/SokobanScene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1475,16 +1466,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#444#445#0" expanded="true" />
             <element signature="e#482#483#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3891">
-          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1499,21 +1480,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/LoginScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/ConnectScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="327">
+          <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
           <folding>
-            <element signature="e#1528#1529#0" expanded="true" />
-            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2838">
+          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjLab_Sokoban/src/client/ui/Scenes/WelcomeScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="499">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
