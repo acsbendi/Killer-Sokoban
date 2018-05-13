@@ -1,0 +1,60 @@
+
+{
+"fields": [
+{"position": {"x":1, "y":1}, "type":"Wall"},
+{"position": {"x":2, "y":1}, "type":"Wall"},
+{"position": {"x":3, "y":1}, "type":"Wall"},
+{"position": {"x":4, "y":1}, "type":"Wall"},
+{"position": {"x":5, "y":1}, "type":"Wall"},
+{"position": {"x":6, "y":1}, "type":"Wall"},
+
+{"position": {"x":1, "y":2}, "type":"Wall"},
+{"position": {"x":2, "y":2}, "type":"Tile"},
+{"position": {"x":3, "y":2}, "type":"Tile"},
+{"position": {"x":4, "y":2}, "type":"Tile"},
+{"position": {"x":5, "y":2}, "type":"GoalTile"},
+{"position": {"x":6, "y":2}, "type":"Wall"},
+
+{"position": {"x":1, "y":3}, "type":"Wall"},
+{"position": {"x":2, "y":3}, "type":"LeverTile"},
+{"position": {"x":3, "y":3}, "type":"TrapTile"},
+{"position": {"x":4, "y":3}, "type":"GoalTile"},
+{"position": {"x":5, "y":3}, "type":"Tile"},
+{"position": {"x":6, "y":3}, "type":"Wall"},
+
+{"position": {"x":1, "y":4}, "type":"Wall"},
+{"position": {"x":2, "y":4}, "type":"Tile"},
+{"position": {"x":3, "y":4}, "type":"GoalTile"},
+{"position": {"x":4, "y":4}, "type":"TrapTile"},
+{"position": {"x":5, "y":4}, "type":"LeverTile"},
+{"position": {"x":6, "y":4}, "type":"Wall"},
+
+{"position": {"x":1, "y":5}, "type":"Wall"},
+{"position": {"x":2, "y":5}, "type":"GoalTile"},
+{"position": {"x":3, "y":5}, "type":"Tile"},
+{"position": {"x":4, "y":5}, "type":"Tile"},
+{"position": {"x":5, "y":5}, "type":"Tile"},
+{"position": {"x":6, "y":5}, "type":"Wall"},
+
+{"position": {"x":1, "y":6}, "type":"Wall"},
+{"position": {"x":2, "y":6}, "type":"Wall"},
+{"position": {"x":3, "y":6}, "type":"Wall"},
+{"position": {"x":4, "y":6}, "type":"Wall"},
+{"position": {"x":5, "y":6}, "type":"Wall"},
+{"position": {"x":6, "y":6}, "type":"Wall"}
+],
+
+"placeholders": [
+{"on": {"x":3, "y":3}, "type": "Box"},
+{"on": {"x":5, "y":3}, "type": "Box"},
+{"on": {"x":2, "y":4}, "type": "Box"},
+{"on": {"x":4, "y":4}, "type": "Box"},
+{"on": {"x":4, "y":3}, "type": "Worker"},
+{"on": {"x":3, "y":4}, "type": "Worker"}
+],
+
+"wires": [
+{"from": {"x":2, "y":3}, "to": [{"x":3, "y":3}] },
+{"from": {"x":5, "y":4}, "to": [{"x":4, "y":4}] }
+]	
+}

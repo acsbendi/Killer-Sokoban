@@ -18,7 +18,7 @@
                         <Label alignment="CENTER" prefHeight="25.0" prefWidth="92.0" text="IP address" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <TextField fx:id="IPtext" />
+                  <TextField fx:id="IPtext" text="vm.ik.bme.hu" />
               </items>
             </SplitPane>
             <SplitPane dividerPositions="0.4696969696969697">
@@ -28,7 +28,7 @@
                         <Label alignment="CENTER" layoutX="4.0" prefHeight="25.0" prefWidth="95.0" text="Port number" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <TextField fx:id="portText" />
+                  <TextField fx:id="portText" text="7305" />
                </items>
             </SplitPane>
             <Button mnemonicParsing="false" onAction="#connectButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Connect">
