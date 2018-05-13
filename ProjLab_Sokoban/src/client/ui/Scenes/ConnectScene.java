@@ -43,4 +43,9 @@ public class ConnectScene extends SokobanScene {
     public void ConnectionFailed(){
         // TODO implement here
     }
+
+    @Override
+    public void Load() {
+
+    }
 }

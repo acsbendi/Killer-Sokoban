@@ -17,21 +17,27 @@ public class GUI extends UserInterface {
      */
     private SokobanScene currentScene;
 
-    private ConnectScene connectScene = new ConnectScene();
+    private ConnectScene connectScene;
     private GameScene gameScene;
-    private LoginScene loginScene = new LoginScene();
-    private MainScene mainScene = new MainScene();
-    private RegisterScene registerScene = new RegisterScene();
-    private ResultsScene resultsScene = new ResultsScene();
-    private WaitScene waitScene = new WaitScene();
-    private WelcomeScene welcomeScene = new WelcomeScene();
+    private LoginScene loginScene;
+    private MainScene mainScene;
+    private RegisterScene registerScene;
+    private ResultsScene resultsScene;
+    private WaitScene waitScene;
+    private WelcomeScene welcomeScene;
 
     /**
      * Default constructor
      */
     public GUI(Stage window) throws Exception{
-        //TODO create and pass window to all Scenes
+        connectScene = ConnectScene.Create(window, this);
         gameScene = GameScene.Create(window,this);
+        loginScene = LoginScene.Create(window, this);
+        mainScene = MainScene.Create(window, this);
+        registerScene = RegisterScene.Create(window, this);
+        resultsScene = ResultsScene.Create(window, this);
+        waitScene = WaitScene.Create(window, this);
+        welcomeScene = WelcomeScene.Create(window, this);
 
         currentScene = connectScene;
         currentScene.Load();
