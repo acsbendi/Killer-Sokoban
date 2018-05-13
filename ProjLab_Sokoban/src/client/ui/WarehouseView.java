@@ -33,7 +33,7 @@ public class WarehouseView {
         System.out.println("get grid ");
 
         for (int i =  0; i < (int)rect.getHeight(); i++) {
-            if(gridSquares[(int)rect.getY() + i] != null) {
+            if(gridSquares.length  > (int) rect.getY() + i) {
                 int to = (int) rect.getX() + (int) rect.getWidth() < gridSquares[(int) rect.getY() + i].length ?
                         (int) rect.getX() + (int) rect.getWidth() : gridSquares[(int) rect.getY() + i].length;
                 result[i] = Arrays.copyOfRange(gridSquares[(int) rect.getY() + i], (int) rect.getX(), to);
