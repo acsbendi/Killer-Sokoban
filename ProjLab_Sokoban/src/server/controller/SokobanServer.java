@@ -213,7 +213,7 @@ public class SokobanServer implements ControllerLogic {
                 }
             }
             else {
-                
+                FinishGame(room);
             }
         }
     }
@@ -230,7 +230,7 @@ public class SokobanServer implements ControllerLogic {
                 }
             }
             else {
-
+                FinishGame(room);
             }
         }
     }
@@ -247,8 +247,23 @@ public class SokobanServer implements ControllerLogic {
                 }
             }
             else {
-
+                FinishGame(room);
             }
+        }
+    }
+
+    private void FinishGame(Room room) {
+        ArrayList<String> winners = room.GetWinners();
+        ArrayList<String> losers = room.GetLosers();
+        for(Client cli : room.GetClients()) {
+            networkHandler.GameFinished(cli);
+        }
+        room.Finish();
+        for(String winner : winners) {
+            dataBaseManager.Win(winner);
+        }
+        for(String loser : losers) {
+            dataBaseManager.Lose(loser);
         }
     }
 }
