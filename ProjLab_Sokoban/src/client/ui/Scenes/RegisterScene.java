@@ -66,6 +66,7 @@ public class RegisterScene extends SokobanScene {
         passwordText.setText("");
         repeatPasswordText.setText("");
         message.setText("");
+        window.setScene(scene);
     }
 
     private void registerButtonPressed(){
