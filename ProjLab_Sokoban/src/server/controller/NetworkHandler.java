@@ -302,6 +302,10 @@ public class NetworkHandler implements INetworkHandler {
         writers.get(channels.get(client)).EnqueueMessage(msg);
     }
 
+    public void ResultResponse(Client client, String msg) {
+
+    }
+
     private void InterpretRegister(SocketChannel channel, byte[] value) {
         byte username_length = value[0];
         byte password_length = value[1];

@@ -394,7 +394,7 @@ public class NetworkHandler implements INetworkHandler {
             controllerLogic.LeaveSuccess();
         }
         else if (res == msg_invalid) {
-            controllerLogic.EnterFailure("Not available");
+            controllerLogic.LeaveFailure("Not available");
         }
     }
 
