@@ -3,6 +3,8 @@ package common.util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -23,8 +25,13 @@ import common.model.Worker;
 
 public class JsonManager {
 
-	public static File ResolveFileId(int level_id) {
-		return new File("/" + level_id + ".json");
+	public static File ResolveFileId(int level_id){
+		try {
+			return new File(JsonManager.class.getResource("/" + level_id + ".json").toURI());
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public static void EnforceConfigFile(File config, TreeMap<Position, Field> pitch, List<Box> boxes, List<Worker> workers)
