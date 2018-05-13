@@ -23,16 +23,11 @@ public abstract class SokobanScene {
     /**
      * 
      */
-    public void Load() {
-        window.setScene(scene);
-        // TODO implement here
-    }
+    public abstract void Load();
 
     /**
      * 
      */
-    public void Hide() {
-        // TODO implement here
-    }
+    public abstract void Hide();
 
 }
