@@ -3,17 +3,13 @@ package client.ui.Scenes;
 
 import client.ui.Camera;
 import client.ui.GUI;
-import client.ui.GridSquare;
-import client.ui.Scenes.SokobanScene;
 import client.ui.WarehouseView;
 import common.util.Direction;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;

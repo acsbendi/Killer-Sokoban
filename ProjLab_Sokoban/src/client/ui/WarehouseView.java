@@ -1,36 +1,32 @@
 package client.ui;
 
-import javafx.scene.shape.Rectangle;
-
-import java.util.*;
-
 /**
- * Class responsible for storing all GridSquare in the currently played warehouse/map.
+ * Class responsible for storing all GridCells in the currently played warehouse/map.
  */
 public class WarehouseView {
 
     /**
      * Default constructor
      */
-    public WarehouseView(GridSquare[][] gridSquares) {
-        this.gridSquares = gridSquares;
+    public WarehouseView(GridCell[][] gridCells) {
+        this.gridCells = gridCells;
     }
 
     /**
      *
      */
-    private GridSquare[][] gridSquares;
+    private GridCell[][] gridCells;
 
 
-    public GridSquare[][] GetGrid(int startX, int startY, int width, int height) {
-        GridSquare[][] result = new GridSquare[height][width];
+    public GridCell[][] GetGrid(int startX, int startY, int width, int height) {
+        GridCell[][] result = new GridCell[height][width];
 
         for (int i =  0; i < height; i++) {
-            if(gridSquares.length  > startY + i) {
-                int to = startX + width < gridSquares[startY + i].length ?
-                        startX + width : gridSquares[startY + i].length;
+            if(gridCells.length  > startY + i) {
+                int to = startX + width < gridCells[startY + i].length ?
+                        startX + width : gridCells[startY + i].length;
                 for (int j = startX, k = 0; j < to; j++, k++) {
-                    result[i][k] = gridSquares[startY + i][j];
+                    result[i][k] = gridCells[startY + i][j];
                 }
             }else
                 result[i] = null;
@@ -40,11 +36,11 @@ public class WarehouseView {
     }
 
     public int GetWidth(){
-        return gridSquares[0].length;
+        return gridCells[0].length;
     }
 
     public int GetHeight(){
-        return gridSquares.length;
+        return gridCells.length;
     }
 
 }

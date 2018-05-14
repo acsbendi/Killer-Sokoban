@@ -1,12 +1,9 @@
 package client.ui;
 
 import common.util.Direction;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
 
 import java.awt.*;
-import java.util.*;
 
 /**
  * Class responsible for looking at the currently played warehouse, that is, selecting a part of it to be shown.
@@ -73,14 +70,14 @@ public class Camera {
         int horizontalCount = 27;//width/gridSize;
         int verticalCount = 11; //height/gridSize;
 
-        GridSquare[][] gridSquares = warehouseView.GetGrid(position.x,position.y,horizontalCount,verticalCount);
+        GridCell[][] gridCells = warehouseView.GetGrid(position.x,position.y,horizontalCount,verticalCount);
 
         StackPane[][] stackPanes = new StackPane[verticalCount][horizontalCount];
 
         for (int i = 0; i < verticalCount; i++) {
             for (int j = 0; j < horizontalCount; j++) {
-                if(gridSquares[i] != null && gridSquares[i][j] != null)
-                    stackPanes[i][j] = gridSquares[i][j].CreateImage();
+                if(gridCells[i] != null && gridCells[i][j] != null)
+                    stackPanes[i][j] = gridCells[i][j].CreateImage();
             }
         }
 

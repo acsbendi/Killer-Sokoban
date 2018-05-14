@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import client.ui.GridSquare;
-import client.ui.GridSquare;
+import client.ui.GridCell;
 import client.ui.UserInterface;
 import common.model.*;
 import common.util.Direction;
@@ -121,13 +120,13 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
 
             int width = maxColumn - minColumn + 1;
             int height = maxRow - minRow + 1;
-            GridSquare[][] gridSquares = new GridSquare[height][width];
+            GridCell[][] gridCells = new GridCell[height][width];
             for (Map.Entry<Position,Field> entry : pitch.entrySet()
                     ) {
-                gridSquares[entry.getKey().row - minRow][entry.getKey().column - minColumn] = new GridSquare(entry.getValue());
+                gridCells[entry.getKey().row - minRow][entry.getKey().column - minColumn] = new GridCell(entry.getValue());
             }
 
-            userInterface.InitializeWarehouse(gridSquares);
+            userInterface.InitializeWarehouse(gridCells);
 
             networkHandler.WarehouseReady();
         } catch (FileNotFoundException e) {

@@ -5,7 +5,6 @@ import common.util.Direction;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.EnumMap;
 
 
 /**
@@ -47,8 +46,8 @@ public class GUI extends UserInterface {
     }
 
     @Override
-    public void InitializeWarehouse(GridSquare[][] gridSquares){
-        gameScene.setWarehouseView(new WarehouseView(gridSquares));
+    public void InitializeWarehouse(GridCell[][] gridCells){
+        gameScene.setWarehouseView(new WarehouseView(gridCells));
     }
 
     public void InitializePoints(ArrayList<Integer> points, int workerNumber) {
