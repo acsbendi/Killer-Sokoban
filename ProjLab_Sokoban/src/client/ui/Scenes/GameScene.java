@@ -31,15 +31,8 @@ public class GameScene extends SokobanScene {
         camera.SetWarehouseView(warehouseView);
     }
 
-    public void setPoints(ArrayList<Integer> points, int workerNumber) {
-        this.points = points;
-        this.workerNumber = workerNumber;
-    }
-
     private WarehouseView warehouseView;
     private Camera camera;
-    private ArrayList<Integer> points;
-    private int workerNumber;
 
     /**
      * 
@@ -54,7 +47,7 @@ public class GameScene extends SokobanScene {
 
     @Override
     public void Load(){
-        pointsLabel.setText("");
+        System.out.println("started  !!!!");
         window.setScene(scene);
         UpdateScreen();
     }
@@ -119,17 +112,6 @@ public class GameScene extends SokobanScene {
                     gamePane.add(panesToShow[i][j],j,i);
             }
         }
-
-        String msg = "Points: ";
-        for(int i = 0; i < points.size(); i++) {
-            if (i != workerNumber) {
-                msg = msg + "TE: " + points.get(i) + "p; ";
-            }
-            else {
-                msg = msg + "" + (i+1) + ".: " + points.get(i) + "p; ";
-            }
-        }
-        pointsLabel.setText(msg);
     }
 
     public static GameScene Create(Stage window, GUI gui) throws Exception{

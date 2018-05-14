@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.util.*;
 
 /**
- * 
+ * A várakozó képernyőt reprezentáló osztály
  */
 public class WaitScene extends SokobanScene {
 
@@ -23,10 +23,16 @@ public class WaitScene extends SokobanScene {
     }
 
     /**
-     * 
+     * Kilépés gomb
      */
     private Button leaveButton;
-
+    /**Létrehoz egy WaitScenet és beállítja a kezdőértékeket
+     *
+     * @param window - erre a Stage-re hozza létre
+     * @param gui - a felhasználói felület amihez tartozik
+     *
+     *@return a WaitScenet egy megfelelően alaphelyzetbe állított pldánya
+     * */
     public static WaitScene Create(Stage window, GUI gui) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/waitScene.fxml"));
         Parent root = fxmlLoader.load();
@@ -39,9 +45,10 @@ public class WaitScene extends SokobanScene {
         return waitScene;
     }
 
-    // default Load method used
-
     // private user event handlers
+    /**Kilépés gomb eseménykezelője.
+     * Meghívja a felhaszálói felület megfelelő függvényét
+     * */
     @FXML
     private void leaveButtonPressed() {
         System.out.println("left!!!!");
