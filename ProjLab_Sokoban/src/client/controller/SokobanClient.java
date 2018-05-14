@@ -162,7 +162,8 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     }
     @Override
     public void GameFinished() {
-        // TODO Auto-generated method stub
+        warehouse = null;
+        userInterface.GameFinished();
     }
 
     @Override

@@ -76,19 +76,19 @@ public class GameScene extends SokobanScene {
                 break;
             case UP:
                 camera.Move(Direction.Up);
-                UpdateScreen();
+                gui.UpdateScreen();
                 break;
             case LEFT:
                 camera.Move(Direction.Left);
-                UpdateScreen();
+                gui.UpdateScreen();
                 break;
             case DOWN:
                 camera.Move(Direction.Down);
-                UpdateScreen();
+                gui.UpdateScreen();
                 break;
             case RIGHT:
                 camera.Move(Direction.Right);
-                UpdateScreen();
+                gui.UpdateScreen();
                 break;
             case E:
                 gui.GameScene_PlaceHoney();
