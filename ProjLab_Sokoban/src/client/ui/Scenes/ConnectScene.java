@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.util.*;
 
 /**
- * 
+ * A kapcsolódási képernyőt reprezentáló osztály
  */
 public class ConnectScene extends SokobanScene {
 
@@ -27,18 +27,28 @@ public class ConnectScene extends SokobanScene {
      */
     public ConnectScene() {
     }
-
+    /**Az IP cím beírásához a szövegdoboz
+     */
     @FXML
     private TextField IPtext;
-
+    /**A port szám beírásához a szövegdoboz
+     * */
     @FXML
     private TextField portText;
-
+    /**Kapcsolódás gomb
+     * */
     private Button connectButton;
-
+    /**Kiírandó szöveg, ezzel tud üzenni a játék a felhasználónak
+     * */
     @FXML
     private Label message;
-
+    /**Létrehoz egy ConnectionScenet és beállítja a kezdőértékeket
+     *
+     * @param window - erre a Stage-re hozza létre
+     * @param gui - a felhasználói felület amihez tartozik
+     *
+     *@return a ConnectScene egy megfelelően alaphelyzetbe állított pldánya
+     * */
     // STATIC CREATE
     public static ConnectScene Create(Stage window, GUI gui) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(ConnectScene.class.getResource("/connectscene.fxml"));
@@ -51,7 +61,8 @@ public class ConnectScene extends SokobanScene {
 
         return connectScene;
     }
-
+    /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
+     * */
     // Load method
     @Override
     public void Load() {
@@ -60,13 +71,15 @@ public class ConnectScene extends SokobanScene {
         message.setText("Set IP address and port number.");
         window.setScene(scene);
     }
-
+    /**A kapcsolódás gomb kattintásának eseménykezelője
+     * */
     // private user event handlers
     @FXML
     private void connectButtonPressed() {
         gui.ConnectScene_connectButtonPressed(IPtext.getText(), Integer.parseInt(portText.getText()));
     }
-
+    /**Ha a csatlakozás sikertelen volt kiírja ezt
+     * */
     // Network event handlers
     public void ConnectionFailed(){
         message.setText("Connection failed.");

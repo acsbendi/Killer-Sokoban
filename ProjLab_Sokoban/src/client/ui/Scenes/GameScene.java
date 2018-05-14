@@ -22,36 +22,43 @@ import javafx.stage.Stage;
 import java.util.*;
 
 /**
- * 
+ * A játék képernyőt reprezentáló osztály
  */
 public class GameScene extends SokobanScene {
 
+    /**A raktár ami a játékban szerepel
+     * */
+    private WarehouseView warehouseView;
+    /**Beállítja, hogy melyik WarehouseView-t kell kezelnie
+     * */
     public void setWarehouseView(WarehouseView warehouseView) {
         this.warehouseView = warehouseView;
         camera.SetWarehouseView(warehouseView);
     }
-
-    private WarehouseView warehouseView;
+    /**A nézetet előállító kamera
+     * */
     private Camera camera;
 
     /**
-     * 
+     * A grafikus felületen megjelenő négyzetrács
      */
     @FXML
     private GridPane gamePane;
 
     /**
-     * 
+     * A pontokat kiíró címke
      */
     private Label pointsLabel;
-
+    /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
+     * */
     @Override
     public void Load(){
         System.out.println("started  !!!!");
         window.setScene(scene);
         UpdateScreen();
     }
-
+    /**A billentyűzet eseménykezelő függvénye
+     * */
     @FXML
     private void OnKeyPressed(KeyEvent event){
         switch (event.getCode()){
@@ -91,7 +98,8 @@ public class GameScene extends SokobanScene {
                 break;
         }
     }
-
+    /**Kilépés a játékból
+     * */
     @FXML
     private void Leave(){
 
@@ -99,7 +107,7 @@ public class GameScene extends SokobanScene {
 
 
     /**
-     * 
+     * Frissíti a képet a játék aktuális állapotának megfelelően
      */
     public void UpdateScreen() {
         gamePane.getChildren().clear();
@@ -113,7 +121,13 @@ public class GameScene extends SokobanScene {
             }
         }
     }
-
+    /**Létrehoz egy GameScenet és beállítja a kezdőértékeket
+     *
+     * @param window - erre a Stage-re hozza létre
+     * @param gui - a felhasználói felület amihez tartozik
+     *
+     *@return a GameScenet egy megfelelően alaphelyzetbe állított pldánya
+     * */
     public static GameScene Create(Stage window, GUI gui) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/gameScene.fxml"));
         Parent root = fxmlLoader.load();

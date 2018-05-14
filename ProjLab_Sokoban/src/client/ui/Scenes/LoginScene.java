@@ -24,33 +24,39 @@ public class LoginScene extends SokobanScene {
     }
 
     /**
-     * 
+     * Szövegdoboz a felhasználói név megadására
      */
     @FXML
     private TextField userNameText;
 
     /**
-     * 
+     * Szövegdoboz a jelzsó megadására
      */
     @FXML
     private TextField passwordText;
 
     /**
-     * 
+     * Bejelentkező gomb
      */
     private Button loginButton;
 
     /**
-     * 
+     * Címke, amely megjeleníti a program üzeneteit a felhasználó számára
      */
     @FXML
     private Label message;
 
     /**
-     * 
+     * Vissza gomb
      */
     private Button backButton;
-
+    /**Létrehoz egy LoginScenet és beállítja a kezdőértékeket
+     *
+     * @param window - erre a Stage-re hozza létre
+     * @param gui - a felhasználói felület amihez tartozik
+     *
+     *@return a LoginScenet  egy megfelelően alaphelyzetbe állított pldánya
+     * */
     // STATIC CREATE
     public static LoginScene Create(Stage window, GUI gui) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/loginScene.fxml"));
@@ -63,24 +69,31 @@ public class LoginScene extends SokobanScene {
 
         return loginScene;
     }
-
+    /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
+     * */
     public void Load() {
         //userNameText.setText("");
         //passwordText.setText("");
         message.setText("Enter username and password.");
         window.setScene(scene);
     }
-
+    /**A bejelentkező gomb megnyomásának eseménykezelő függvénye.
+     * Meghívja a felhaszálói felület megfelelő függvényét
+     * */
     @FXML
     private void loginButtonPressed() {
         gui.LoginScene_loginButtonPressed(userNameText.getText(), passwordText.getText());
     }
-
+    /**A vissza gomb megnyomásának eseménykezelő függvénye.
+     * Meghívja a felhaszálói felület megfelelő függvényét
+     * */
     @FXML
     private void backButtonPressed() {
         gui.LoginScene_backButtonPressed();
     }
-
+    /**Bejelentkezési hiba eseténe kiírja a paraméterben megkapott üzenetet.
+     * @param errorMessage - a kiírandó üzenet
+     * */
     public void LoginFailure(String errorMessage){
         message.setText(errorMessage);
     }

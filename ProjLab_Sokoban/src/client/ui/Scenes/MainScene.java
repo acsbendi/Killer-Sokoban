@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.util.*;
 
 /**
- *
+ *A főképernyőt reprezentáló osztály
  */
 public class MainScene extends SokobanScene {
 
@@ -23,29 +23,35 @@ public class MainScene extends SokobanScene {
     }
 
     /**
-     *
+     *Belépés gomb
      */
     private Button enterButton;
 
     /**
-     *
+     *Szövegdoboz a játék méretének megadásához
      */
     @FXML
     private TextField roomSizeText;
 
     /**
-     *
+     *kijelentkező gomb
      */
     private Button logoutButton;
 
     /**
-     *
+     *Eredmények gomb
      */
     private Button resultButton;
 
 
 
-
+    /**Létrehoz egy MainScenet és beállítja a kezdőértékeket
+     *
+     * @param window - erre a Stage-re hozza létre
+     * @param gui - a felhasználói felület amihez tartozik
+     *
+     *@return a MainScenet  egy megfelelően alaphelyzetbe állított pldánya
+     * */
     // STATIC CREATE
     public static MainScene Create(Stage window, GUI gui) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/mainScene.fxml"));
@@ -58,22 +64,29 @@ public class MainScene extends SokobanScene {
 
         return mainScene;
     }
-
+    /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
+     * */
     public void Load() {
         window.setScene(scene);
         roomSizeText.setText("");
     }
-
+    /**Az eredmények gomb eseménykezelő függvénye.
+     * Meghívja a felhasználói felület megfelelő függvényét.
+     * */
     @FXML
     public void ResultButtonPressed() {
         gui.MainScene_resultButtonPressed();
     }
-
+    /**A kijelentkezés gomb eseménykezelő függvénye.
+     * Meghívja a felhasználói felület megfelelő függvényét.
+     * */
     @FXML
     public void LogoutButtonPressed() {
         gui.MainScene_logoutButtonPressed();
     }
-
+    /**A belépés gomb eseménykezelő függvénye.
+     * Ellenőrzi, hogy a megadott értékek érvényesek-e és meghívja a felhasználói felület megfelelő függvényét.
+     * */
     @FXML
     public void EnterButtonPressed() {
         try {
