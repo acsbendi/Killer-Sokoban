@@ -253,6 +253,7 @@ public class SokobanServer implements ControllerLogic {
     }
 
     private void FinishGame(Room room) {
+        System.out.println("Game Finished");
         ArrayList<String> winners = room.GetWinners();
         ArrayList<String> losers = room.GetLosers();
         for(Client cli : room.GetClients()) {
