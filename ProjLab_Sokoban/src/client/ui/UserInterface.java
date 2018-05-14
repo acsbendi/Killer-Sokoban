@@ -1,8 +1,11 @@
 package client.ui;
 import client.controller.UserInputExecutor;
 
+import java.util.ArrayList;
+
 public abstract class UserInterface {
 	public abstract void InitializeWarehouse(GridSquare[][] gridSquares);
+	public abstract void InitializePoints(ArrayList<Integer> points, int workerNumber);
 
 	protected UserInputExecutor userInputExecutor;
 	public void SetUserInputExecutor(UserInputExecutor userInputExecutor) {

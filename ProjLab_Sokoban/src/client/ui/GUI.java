@@ -4,6 +4,7 @@ import client.ui.Scenes.*;
 import common.util.Direction;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 
 
@@ -48,6 +49,10 @@ public class GUI extends UserInterface {
     @Override
     public void InitializeWarehouse(GridSquare[][] gridSquares){
         gameScene.setWarehouseView(new WarehouseView(gridSquares));
+    }
+
+    public void InitializePoints(ArrayList<Integer> points, int workerNumber) {
+        gameScene.setPoints(points, workerNumber);
     }
 
     public void ConnectionResult(boolean success) // connection successful/failure, lasd: doksi

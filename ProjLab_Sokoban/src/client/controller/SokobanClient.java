@@ -19,6 +19,7 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     private Warehouse warehouse; //kesobb inicializalando
     private NetworkHandler networkHandler=new NetworkHandler(this);
     private List<Worker> workers=new ArrayList<>();
+    private ArrayList<Integer> points;
 
     public static SokobanClient Create(UserInterface userInterface) {
         SokobanClient client = new SokobanClient(userInterface);
@@ -141,6 +142,11 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     public void GameStarted(int worker) {
         System.out.println("SokobanClient.GameStarted()");
         Worker.localWorker = workers.get(worker);
+        this.points = new ArrayList<Integer>();
+        for(int i = 0; i < workers.size(); i++) {
+            points.add(0);
+        }
+        userInterface.InitializePoints(points, worker);
         userInterface.GameStarted();
         userInterface.UpdateScreen();
     }
@@ -148,6 +154,9 @@ public class SokobanClient implements UserInputExecutor,ControllerLogic {
     @Override
     public void WorkerMoved(int player, Direction dir) {
         workers.get(player).Move(dir);
+        for(int i = 0; i < workers.size(); i++) {
+            points.set(i, workers.get(i).GetPoints());
+        }
         userInterface.UpdateScreen();
     }
     @Override
