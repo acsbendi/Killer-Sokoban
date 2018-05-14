@@ -24,17 +24,14 @@ public class WarehouseView {
 
     public GridSquare[][] GetGrid(int startX, int startY, int width, int height) {
         GridSquare[][] result = new GridSquare[height][width];
-        //System.out.println("get grid ");
 
         for (int i =  0; i < height; i++) {
             if(gridSquares.length  > startY + i) {
-                //System.out.println("size " + gridSquares.length + " index " + startY + i);
                 int to = startX + width < gridSquares[startY + i].length ?
                         startX + width : gridSquares[startY + i].length;
                 for (int j = startX, k = 0; j < to; j++, k++) {
                     result[i][k] = gridSquares[startY + i][j];
                 }
-                //System.out.println("copying " + (startY + i) + " from " + startX + width);
             }else
                 result[i] = null;
         }

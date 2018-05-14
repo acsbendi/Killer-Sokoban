@@ -43,11 +43,11 @@ public class Camera {
                 if(position.y < warehouseView.GetHeight() - 1)
                     position.y++;
                 break;
-            case Right:
+            case Left:
                 if(position.x > 0)
                     position.x--;
                 break;
-            case Left:
+            case Right:
                 if(position.x < warehouseView.GetWidth() - 1)
                     position.x++;
                 break;
@@ -59,14 +59,10 @@ public class Camera {
      * @return
      */
     public StackPane[][] GetView() {
-        System.out.println("camera ");
         int horizontalCount = 27;//width/gridSize;
         int verticalCount = 11; //height/gridSize;
-        System.out.println(horizontalCount + " " + verticalCount);
 
         GridSquare[][] gridSquares = warehouseView.GetGrid(position.x,position.y,horizontalCount,verticalCount);
-
-        System.out.println(gridSquares.length + " " + gridSquares[0].length);
 
         StackPane[][] stackPanes = new StackPane[verticalCount][horizontalCount];
 
