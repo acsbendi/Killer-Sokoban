@@ -27,9 +27,9 @@ public class HoneyView extends View {
     @Override
     public void Process(StackPane stackPane ) {
         ImageView imageView = new ImageView(GetImage());
-        imageView.setFitHeight(stackPane.getHeight());
-        imageView.setFitWidth(stackPane.getWidth());
         imageView.setOpacity(0.54);
+        imageView.setFitHeight(stackPane.getPrefHeight());
+        imageView.setFitWidth(stackPane.getPrefWidth());
 
         stackPane.getChildren().add(imageView);
     }
