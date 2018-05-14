@@ -132,7 +132,7 @@ public class SokobanServer implements ControllerLogic {
             networkHandler.Enter_Success(client);
             if (room.HasEnoughPlayers(players)) {
                 System.out.println("Game started.");
-                rooms.remove(room);
+                rooms.remove(players);
                 int level_id = 42; // todo: generate level_ID
                 room.Initialize(level_id);
                 for(Client cli : room.GetClients()) {
@@ -185,6 +185,7 @@ public class SokobanServer implements ControllerLogic {
             ArrayList<Integer> results = dataBaseManager.GetResultOf(client.GetName());
             String msg = "Wins: " + results.get(0) + ". Losses: " + results.get(1);
             networkHandler.ResultResponse(client, msg);
+            System.out.println("Seinding wwn results...");
         }
     }
 

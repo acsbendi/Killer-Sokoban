@@ -29,7 +29,7 @@ public class Application extends javafx.application.Application{
                     }
                 });
             }
-        }, 0, 500);
+        }, 0, 100);
     }
 
     public static void main(String[] args) {

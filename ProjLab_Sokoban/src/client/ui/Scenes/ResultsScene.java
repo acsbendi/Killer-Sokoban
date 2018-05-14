@@ -58,6 +58,7 @@ public class ResultsScene extends SokobanScene {
     public void Load() {
         message.setText("");
         ownResults.setSelected(true);
+        window.setScene(scene);
     }
 
     @FXML

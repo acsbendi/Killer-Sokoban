@@ -307,7 +307,7 @@ public class NetworkHandler implements INetworkHandler {
         byte[] msg_bytes = msg.getBytes(StandardCharsets.UTF_8);
         int msg_length = msg_bytes.length;
         byte[] value = new byte[1+msg_length];
-        value[0] = 2;
+        value[0] = 0;
         System.arraycopy(msg_bytes, 0, value, 1, msg_length);
         ServerMessage message = new ServerMessage(ServerMessageType.ResultResponse, value);
         writers.get(channels.get(client)).EnqueueMessage(message);
