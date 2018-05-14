@@ -84,7 +84,7 @@
    <bottom>
       <Pane prefHeight="122.0" prefWidth="783.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="message" layoutX="356.0" layoutY="83.0" prefHeight="17.0" prefWidth="74.0" text="(message)" />
+            <Label fx:id="message" layoutX="356.0" layoutY="83.0" text="(message)" />
          </children>
       </Pane>
    </bottom>
