@@ -76,9 +76,14 @@ public class MainScene extends SokobanScene {
 
     @FXML
     public void EnterButtonPressed() {
-        int roomSize = Integer.parseInt(roomSizeText.getText());
-        if(roomSize >= 2 && roomSize <=4)
-            gui.MainScene_enterButtonPressed(roomSize);
+        try {
+            int roomSize = Integer.parseInt(roomSizeText.getText());
+            if(roomSize >= 2 && roomSize <=4)
+                gui.MainScene_enterButtonPressed(roomSize);
+        } catch (NumberFormatException e){
+            System.err.println("wrong room sized given");
+        }
+
     }
 
 }

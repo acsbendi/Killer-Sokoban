@@ -98,14 +98,14 @@ public class GameScene extends SokobanScene {
      * 
      */
     public void UpdateScreen() {
-        System.out.println("update");
+        //System.out.println("update");
         StackPane[][] panesToShow = camera.GetView();
-        System.out.println(panesToShow.length + " " + panesToShow[0].length);
+        //System.out.println(panesToShow.length + " " + panesToShow[0].length);
 
         for (int i = 0; i < panesToShow.length; i++) {
             for (int j = 0; j < panesToShow[i].length; j++) {
                 if(panesToShow[i][j] != null)
-                    gamePane.add(panesToShow[i][j],i,j);
+                    gamePane.add(panesToShow[i][j],j,i);
             }
         }
     }
