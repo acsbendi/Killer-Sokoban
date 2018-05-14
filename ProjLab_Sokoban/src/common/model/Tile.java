@@ -12,7 +12,7 @@ public class Tile extends Field {
     protected Placeholder placeholder;
 
     /** The liquid on the surface of the tile, may be null. */
-    private Liquid liquid;
+    protected Liquid liquid;
 
     /**
      * Method for post-move checking, if the tile is not empty,

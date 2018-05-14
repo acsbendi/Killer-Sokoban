@@ -52,6 +52,7 @@ public class TrapTile extends Tile {
      */
 	public void Check() {
 		if (!IsClosed() && placeholder != null) {
+			liquid=null;
 			placeholder.Destroy();
 		}
 
