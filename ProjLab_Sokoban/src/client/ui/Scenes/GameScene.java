@@ -69,15 +69,19 @@ public class GameScene extends SokobanScene {
                 break;
             case UP:
                 camera.Move(Direction.Up);
+                UpdateScreen();
                 break;
             case LEFT:
                 camera.Move(Direction.Left);
+                UpdateScreen();
                 break;
             case DOWN:
                 camera.Move(Direction.Down);
+                UpdateScreen();
                 break;
             case RIGHT:
                 camera.Move(Direction.Right);
+                UpdateScreen();
                 break;
             case E:
                 gui.GameScene_PlaceHoney();
@@ -98,9 +102,9 @@ public class GameScene extends SokobanScene {
      * 
      */
     public void UpdateScreen() {
-        //System.out.println("update");
+        gamePane.getChildren().clear();
+
         StackPane[][] panesToShow = camera.GetView();
-        //System.out.println(panesToShow.length + " " + panesToShow[0].length);
 
         for (int i = 0; i < panesToShow.length; i++) {
             for (int j = 0; j < panesToShow[i].length; j++) {
