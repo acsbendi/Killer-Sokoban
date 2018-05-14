@@ -36,7 +36,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Label fx:id="message" prefHeight="17.0" prefWidth="74.0" text="(message)" />
+            <Label fx:id="message" text="(message)" />
          </children>
          <opaqueInsets>
             <Insets />

@@ -50,6 +50,7 @@ public class GameScene extends SokobanScene {
     /**
      * 
      */
+    @FXML
     private Label pointsLabel;
 
     @Override
