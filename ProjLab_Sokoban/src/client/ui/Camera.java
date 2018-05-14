@@ -9,7 +9,8 @@ import java.awt.*;
 import java.util.*;
 
 /**
- * 
+ * Class responsible for looking at the currently played warehouse, that is, selecting a part of it to be shown.
+ * It is useful for larger warehouses, when the whole cannot fit on the screen.
  */
 public class Camera {
 
@@ -29,10 +30,19 @@ public class Camera {
         this.height = height;
     }
 
+    /**
+     * Sets the WarehouseView that the camera will look at.
+     * @param warehouseView The WarehouseView object to look at.
+     */
     public void SetWarehouseView(WarehouseView warehouseView) {
         this.warehouseView = warehouseView;
     }
 
+    /**
+     * Moves the camera is the specified position.
+     * It cannot move past the borders of the warehouse.
+     * @param direction The direction of the move.
+     */
     public void Move(Direction direction){
         switch (direction){
             case Up:
@@ -54,9 +64,10 @@ public class Camera {
         }
     }
 
-
     /**
-     * @return
+     * Returns the currently visible field's images, wrapped in StackPanes.
+     * The StackPanes included in a 2D array for easier position calculation.
+     * @return The array containing the images to be shown.
      */
     public StackPane[][] GetView() {
         int horizontalCount = 27;//width/gridSize;
