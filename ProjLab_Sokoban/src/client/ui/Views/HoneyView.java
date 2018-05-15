@@ -6,7 +6,7 @@ import javafx.scene.layout.StackPane;
 import java.util.*;
 
 /**
- * 
+ * Class responsible for the graphical representation of a honey puddle.
  */
 public class HoneyView extends View {
 
@@ -17,12 +17,14 @@ public class HoneyView extends View {
     }
 
     /**
-     * 
+     * The image of a honey puddle.
+     * Static member, so the image resource will be loaded only once.
      */
     private static Image image = new Image("honey.png");
 
     /**
-     * @param stackPane
+     * Puts the image of a honey puddle onto the StackPane with a degree of opacity.
+     * @param stackPane A container for all the images to be shown on a grid square.
      */
     @Override
     public void Process(StackPane stackPane ) {
@@ -34,6 +36,10 @@ public class HoneyView extends View {
         stackPane.getChildren().add(imageView);
     }
 
+    /**
+     * Getter for the static image showing a honey puddle.
+     * @return Image of a honey puddle.
+     */
     @Override
     protected Image GetImage(){
         return image;
