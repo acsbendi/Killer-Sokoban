@@ -65,7 +65,7 @@ public class RegisterScene extends MenuScene {
      *@return a RegisterScenet egy megfelelően alaphelyzetbe állított pldánya
      */
     public static RegisterScene Create(Stage window, GUI gui) throws IOException{
-        return (RegisterScene)SokobanScene.Create("/registerScene.fxml",window,gui);
+        return (RegisterScene)SokobanScene.Create("/registerscene.fxml",window,gui);
     }
 
 

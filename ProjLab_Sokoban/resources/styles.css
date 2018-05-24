@@ -19,8 +19,12 @@
 }
 
 #back-button{
-    -fx-pref-width: 55px;
+    -fx-pref-width: 60px;
     -fx-border-insets: -3;
+}
+
+#result-button{
+    -fx-pref-width: 130px;
 }
 
 .anchor-pane{

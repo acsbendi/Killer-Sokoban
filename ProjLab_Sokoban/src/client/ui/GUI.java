@@ -153,6 +153,7 @@ public class GUI extends UserInterface {
 
     public void GameStarted()
     {
+        System.out.println("game startesdddddddddd");
         if (currentScene == waitScene) {
             currentScene.Hide();
             currentScene = gameScene;

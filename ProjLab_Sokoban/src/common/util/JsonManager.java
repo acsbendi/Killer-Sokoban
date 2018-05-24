@@ -3,6 +3,7 @@ package common.util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -25,18 +26,15 @@ import common.model.Worker;
 
 public class JsonManager {
 
-	public static File ResolveFileId(int level_id){
-		try {
-			return new File( JsonManager.class.getResource("/" + level_id + ".json").toURI());
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-			return null;
-		}
+	public static InputStream ResolveFileId(int level_id){
+		String name = "/" + level_id + ".json";
+		System.out.println(name);
+		return JsonManager.class.getResourceAsStream(name);
 	}
 
-	public static void EnforceConfigFile(File config, TreeMap<Position, Field> pitch, List<Box> boxes, List<Worker> workers)
+	public static void EnforceConfigFile(InputStream inputStream, TreeMap<Position, Field> pitch, List<Box> boxes, List<Worker> workers)
 			throws FileNotFoundException, ClassCastException { // egyel�re m�k�dik negat�v koordin�t�kkal is
-		JsonReader jr = Json.createReader(new FileReader(config));
+		JsonReader jr = Json.createReader(inputStream);
 		JsonObject map = jr.readObject();
 		jr.close();
 		for (JsonValue preField : map.getJsonArray("fields")) {

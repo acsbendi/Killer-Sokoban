@@ -7,6 +7,7 @@ import common.util.Position;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -49,11 +50,11 @@ public class Room {
     }
 
     public void Initialize(int level_id) {
-        File file = JsonManager.ResolveFileId(level_id);
+        InputStream inputStream = JsonManager.ResolveFileId(level_id);
         TreeMap<Position, Field> pitch = new TreeMap<>();
         ArrayList<Box> boxes = new ArrayList<>();
         try {
-            JsonManager.EnforceConfigFile(file, pitch, boxes, workers);
+            JsonManager.EnforceConfigFile(inputStream, pitch, boxes, workers);
             warehouse = new Warehouse(pitch.values(), boxes);
             for(int i = 0; i < clients.size(); i++) {
                 map.put(clients.get(i), workers.get(i));

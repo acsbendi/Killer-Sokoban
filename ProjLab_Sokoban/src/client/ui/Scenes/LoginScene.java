@@ -55,7 +55,7 @@ public class LoginScene extends MenuScene {
      * */
     // STATIC CREATE
     public static LoginScene Create(Stage window, GUI gui) throws Exception {
-        return (LoginScene)SokobanScene.Create("/loginScene.fxml",window,gui);
+        return (LoginScene)SokobanScene.Create("/loginscene.fxml",window,gui);
     }
     /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
      * */

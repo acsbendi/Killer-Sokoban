@@ -1,4 +1,3 @@
-//TEST COMMIT - this text is meaningless
 package client.ui.Scenes;
 
 import client.ui.Camera;
@@ -21,6 +20,8 @@ import java.util.*;
  * 
  */
 public class GameScene extends SokobanScene {
+    private static final int MIN_WIDTH = 1130;
+    private static final int MIN_HEIGHT = 423;
 
     public void setWarehouseView(WarehouseView warehouseView) {
         this.warehouseView = warehouseView;
@@ -51,13 +52,13 @@ public class GameScene extends SokobanScene {
 
     @Override
     public void Load(){
-        System.out.println("started  !!!!");
-        window.setScene(scene);
+        super.Load();
         UpdateScreen();
     }
 
     @FXML
     private void OnKeyPressed(KeyEvent event){
+        System.out.println(event.getCode() + "pressed ");
         switch (event.getCode()){
             case W:
                 gui.GameScene_MoveWorker(Direction.Up);
@@ -130,7 +131,7 @@ public class GameScene extends SokobanScene {
     }
 
     public static GameScene Create(Stage window, GUI gui) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/gameScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/gamescene.fxml"));
         Parent root = fxmlLoader.load();
         GameScene gameScene = fxmlLoader.getController();
 
@@ -138,6 +139,7 @@ public class GameScene extends SokobanScene {
         gameScene.gui = gui;
         gameScene.camera = new Camera((int)gameScene.gamePane.getMinWidth(),(int)gameScene.gamePane.getMinHeight());
         gameScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
+        root.requestFocus();
 
         return gameScene;
     }

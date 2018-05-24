@@ -17,7 +17,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="226.0" prefWidth="360.0" style="-fx-spacing: 21;">
                      <children>
-                  <Button mnemonicParsing="false" onAction="#ResultButtonPressed" text="Show Results">
+                  <Button id="result-button" mnemonicParsing="false" onAction="#ResultButtonPressed" text="Show Results">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
@@ -28,8 +28,8 @@
                               <TextField fx:id="roomSizeText" />
                      </children>
                   </HBox>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#EnterButtonPressed" text="Enter" />
-                        <Button mnemonicParsing="false" onAction="#LogoutButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Logout">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#EnterButtonPressed" text="Enter" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#LogoutButtonPressed" text="Logout">
                            <effect>
                               <DropShadow />
                            </effect>

@@ -38,14 +38,14 @@
                         <TextField fx:id="repeatPasswordText" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="38.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="34.0">
                      <children>
                               <Button mnemonicParsing="false" onAction="#registerButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Register">
                                  <effect>
                                     <DropShadow />
                                  </effect>
                               </Button>
-                        <Button id="back-button" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
+                        <Button id="back-button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
                      </children>
                   </HBox>
                         <Label id="message-label" fx:id="message" text="(message)">
