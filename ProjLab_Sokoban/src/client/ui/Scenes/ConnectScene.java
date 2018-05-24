@@ -17,10 +17,14 @@ import java.util.*;
 /**
  * A kapcsolódási képernyőt reprezentáló osztály
  */
-public class ConnectScene extends SokobanScene {
+public class ConnectScene extends MenuScene {
 
-    private static final int MIN_WIDTH = 1000;
-    private static final int MIN_HEIGHT = 308;
+    private static final int MIN_WIDTH = 600;
+    private static final int MIN_HEIGHT = 400;
+
+    private static final String DEFAULT_IP = "vm.ik.bme.hu";
+    private static final String DEFAULT_PORT = "7305";
+    private static final String DEFAULT_MESSAGE = "Set IP address and port number.";
 
     /**
      * Default constructor
@@ -42,6 +46,7 @@ public class ConnectScene extends SokobanScene {
      * */
     @FXML
     private Label message;
+
     /**Létrehoz egy ConnectionScenet és beállítja a kezdőértékeket
      *
      * @param window - erre a Stage-re hozza létre
@@ -51,25 +56,18 @@ public class ConnectScene extends SokobanScene {
      * */
     // STATIC CREATE
     public static ConnectScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(ConnectScene.class.getResource("/connectscene.fxml"));
-        Parent root = fxmlLoader.load();
-        ConnectScene connectScene = fxmlLoader.getController();
-
-        connectScene.window = window;
-        connectScene.gui = gui;
-        connectScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
-
-        return connectScene;
+        return (ConnectScene)SokobanScene.Create("/connectscene.fxml",window,gui);
     }
+
     /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
      * */
     // Load method
     @Override
     public void Load() {
-        //IPtext.setText("");
-        //portText.setText("");
-        message.setText("Set IP address and port number.");
-        window.setScene(scene);
+        IPtext.setText(DEFAULT_IP);
+        portText.setText(DEFAULT_PORT);
+        message.setText(DEFAULT_MESSAGE);
+        super.Load();
     }
     /**A kapcsolódás gomb kattintásának eseménykezelője
      * */

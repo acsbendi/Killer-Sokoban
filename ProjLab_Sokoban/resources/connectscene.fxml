@@ -7,68 +7,70 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="831.0" style="-fx-background-image: url('metal-background.png');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.ConnectScene">
-   <center>
-      <VBox alignment="CENTER" prefHeight="293.0" prefWidth="387.0" style="-fx-spacing: 23;" BorderPane.alignment="CENTER_RIGHT">
-         <children>
-            <SplitPane dividerPositions="0.4696969696969697">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="123.0">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="92.0" text="IP address" textAlignment="CENTER" />
-                     </children>
-                  </AnchorPane>
-                  <TextField fx:id="IPtext" text="vm.ik.bme.hu" />
-              </items>
-            </SplitPane>
-            <SplitPane dividerPositions="0.4696969696969697">
-               <items>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="123.0">
-                     <children>
-                        <Label alignment="CENTER" layoutX="4.0" prefHeight="25.0" prefWidth="95.0" text="Port number" textAlignment="CENTER" />
-                     </children>
-                  </AnchorPane>
-                  <TextField fx:id="portText" text="7305" />
-               </items>
-            </SplitPane>
-            <Button mnemonicParsing="false" onAction="#connectButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Connect">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Label fx:id="message" text="(message)" />
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets left="50.0" right="50.0" />
-         </padding>
-      </VBox>
-   </center>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="318.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@warehouse-left.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </left>
-   <right>
-      <Pane BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="318.0" fitWidth="217.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@warehouse-right.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </right>
-</BorderPane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.ConnectScene">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@warehouse.png"/>
+            </image>
+        </ImageView>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                    prefHeight="226.0" prefWidth="360.0" styleClass="anchor-pane" StackPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" prefHeight="226.0" prefWidth="360.0" style="-fx-spacing: 21;">
+                    <children>
+                        <HBox>
+                            <children>
+                                <Label prefHeight="25.0" prefWidth="128.0" text="IP address" textAlignment="CENTER"/>
+                                <TextField fx:id="IPtext" text="vm.ik.bme.hu"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Label prefHeight="25.0" prefWidth="131.0" text="Port number" textAlignment="CENTER"/>
+                                <TextField fx:id="portText" text="7305"/>
+                            </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#connectButtonPressed" prefHeight="25.0"
+                                prefWidth="103.0" text="Connect">
+                            <effect>
+                                <DropShadow/>
+                            </effect>
+                        </Button>
+                        <Label id="message-label" fx:id="message" text="(message)">
+                            <VBox.margin>
+                                <Insets bottom="30.0"/>
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="50.0" right="50.0"/>
+                    </padding>
+                </VBox>
+                <ImageView fx:id="imageView2" fitHeight="182.0" fitWidth="156.0" layoutX="179.0" layoutY="22.0"
+                           nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@menu-background-inside-right.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="imageView1" fitHeight="182.0" fitWidth="155.0" layoutX="24.0" layoutY="22.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@menu-background-inside.png"/>
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="182.0" width="155.0"/>
+                    </viewport>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

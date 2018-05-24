@@ -15,13 +15,9 @@ import java.util.*;
 /**
  * 
  */
-public class LoginScene extends SokobanScene {
+public class LoginScene extends MenuScene {
 
-    /**
-     * Default constructor
-     */
-    public LoginScene() {
-    }
+    private static final String DEFAULT_MESSAGE = "Enter username and password.";
 
     /**
      * Szövegdoboz a felhasználói név megadására
@@ -59,23 +55,15 @@ public class LoginScene extends SokobanScene {
      * */
     // STATIC CREATE
     public static LoginScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/loginScene.fxml"));
-        Parent root = fxmlLoader.load();
-        LoginScene loginScene = fxmlLoader.getController();
-
-        loginScene.window = window;
-        loginScene.gui = gui;
-        loginScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
-
-        return loginScene;
+        return (LoginScene)SokobanScene.Create("/loginScene.fxml",window,gui);
     }
     /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
      * */
     public void Load() {
         //userNameText.setText("");
         //passwordText.setText("");
-        message.setText("Enter username and password.");
-        window.setScene(scene);
+        message.setText(DEFAULT_MESSAGE);
+        super.Load();
     }
     /**A bejelentkező gomb megnyomásának eseménykezelő függvénye.
      * Meghívja a felhaszálói felület megfelelő függvényét

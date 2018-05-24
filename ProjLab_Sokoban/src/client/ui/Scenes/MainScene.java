@@ -9,12 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
  *A főképernyőt reprezentáló osztály
  */
-public class MainScene extends SokobanScene {
+public class MainScene extends MenuScene {
 
     /**
      * Default constructor
@@ -53,22 +54,14 @@ public class MainScene extends SokobanScene {
      *@return a MainScenet  egy megfelelően alaphelyzetbe állított pldánya
      * */
     // STATIC CREATE
-    public static MainScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/mainScene.fxml"));
-        Parent root = fxmlLoader.load();
-        MainScene mainScene = fxmlLoader.getController();
-
-        mainScene.window = window;
-        mainScene.gui = gui;
-        mainScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
-
-        return mainScene;
+    public static MainScene Create(Stage window, GUI gui) throws IOException {
+        return (MainScene)SokobanScene.Create("/mainscene.fxml",window,gui);
     }
     /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
      * */
     public void Load() {
-        window.setScene(scene);
         roomSizeText.setText("");
+        super.Load();
     }
     /**Az eredmények gomb eseménykezelő függvénye.
      * Meghívja a felhasználói felület megfelelő függvényét.
@@ -94,7 +87,7 @@ public class MainScene extends SokobanScene {
             if(roomSize >= 2 && roomSize <=4)
                 gui.MainScene_enterButtonPressed(roomSize);
         } catch (NumberFormatException e){
-            System.err.println("wrong room sized given");
+
         }
 
     }

@@ -34,15 +34,7 @@ public class WaitScene extends SokobanScene {
      *@return a WaitScenet egy megfelelően alaphelyzetbe állított pldánya
      * */
     public static WaitScene Create(Stage window, GUI gui) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/waitScene.fxml"));
-        Parent root = fxmlLoader.load();
-        WaitScene waitScene = fxmlLoader.getController();
-
-        waitScene.window = window;
-        waitScene.gui = gui;
-        waitScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
-
-        return waitScene;
+        return (WaitScene)SokobanScene.Create("/waitscene.fxml",window,gui);
     }
 
     // private user event handlers

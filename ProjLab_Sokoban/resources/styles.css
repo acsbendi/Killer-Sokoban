@@ -1,0 +1,41 @@
+.button{
+    -fx-background-image: url('metal-texture2.jpg');
+    -fx-background-size: cover;
+    -fx-pref-width: 100px;
+    -fx-font-family: "Arial Black";
+
+    -fx-border-color: #555150;
+    -fx-border-width: 400%;
+    -fx-border-radius: 10;
+    -fx-border-insets: -4;
+
+    -fx-effect: innershadow( three-pass-box , rgba(30,30,30,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.button:hover{
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-border-color: #868281;
+}
+
+#back-button{
+    -fx-pref-width: 55px;
+    -fx-border-insets: -3;
+}
+
+.anchor-pane{
+    -fx-background-image:  url('menu-background.png');
+    -fx-background-repeat: stretch;
+    -fx-background-size: contain;
+}
+
+.anchor-pane-tall{
+    -fx-background-image:  url('menu-background-tall.png');
+    -fx-background-repeat: stretch;
+    -fx-background-size: contain;
+}
+
+.label{
+    -fx-text-fill: silver;
+    -fx-font-weight: bold;
+}

@@ -10,10 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 /**
  * A regisztrációs képernyőt reprezentáló osztály
  */
-public class RegisterScene extends SokobanScene {
+public class RegisterScene extends MenuScene {
 
     /**
      * Default constructor
@@ -54,24 +56,19 @@ public class RegisterScene extends SokobanScene {
      */
     @FXML
     private Label message;
+
     /**Létrehoz egy RegisterScenet és beállítja a kezdőértékeket
      *
      * @param window - erre a Stage-re hozza létre
      * @param gui - a felhasználói felület amihez tartozik
      *
      *@return a RegisterScenet egy megfelelően alaphelyzetbe állított pldánya
-     * */
-    public static RegisterScene Create(Stage window, GUI gui) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(GameScene.class.getResource("/registerScene.fxml"));
-        Parent root = fxmlLoader.load();
-        RegisterScene registerScene = fxmlLoader.getController();
-
-        registerScene.window = window;
-        registerScene.gui = gui;
-        registerScene.scene = new Scene(root,MIN_WIDTH,MIN_HEIGHT);
-
-        return registerScene;
+     */
+    public static RegisterScene Create(Stage window, GUI gui) throws IOException{
+        return (RegisterScene)SokobanScene.Create("/registerScene.fxml",window,gui);
     }
+
+
     /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
      * */
     @Override
@@ -80,7 +77,7 @@ public class RegisterScene extends SokobanScene {
         passwordText.setText("");
         repeatPasswordText.setText("");
         message.setText("");
-        window.setScene(scene);
+        super.Load();
     }
     /**A regisztráció gomb eseménykezelő függvénye.
      * Ellenőrzi, hogy a megadott értékek érvényesek-e és meghívja a felhasználói felület megfelelő függvényét.

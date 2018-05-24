@@ -7,69 +7,58 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="281.0" prefWidth="787.0" style="-fx-background-image: url(&quot;metal-background.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.MainScene">
-   <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 23;" BorderPane.alignment="CENTER_RIGHT">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.MainScene">
          <children>
-            <Button mnemonicParsing="false" onAction="#ResultButtonPressed" text="Show Results">
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <SplitPane dividerPositions="0.4696969696969697" prefHeight="160.0" prefWidth="200.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25.0" prefWidth="123.0">
+            <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@warehouse.png" />
+         </image></ImageView>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="360.0" styleClass="anchor-pane" StackPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="226.0" prefWidth="360.0" style="-fx-spacing: 21;">
                      <children>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="92.0" text="Room size" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#ResultButtonPressed" text="Show Results">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Button>
+                  <HBox>
+                     <children>
+                              <Label prefHeight="25.0" prefWidth="131.0" text="Room size" textAlignment="CENTER" />
+                              <TextField fx:id="roomSizeText" />
                      </children>
-                  </AnchorPane>
-                  <TextField fx:id="roomSizeText" />
-              </items>
-            </SplitPane>
-            <Button mnemonicParsing="false" onAction="#EnterButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Enter">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#LogoutButtonPressed" prefHeight="25.0" prefWidth="73.0" text="Logout">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </VBox>
-   </center>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <top>
-      <Pane prefHeight="177.0" prefWidth="630.0" BorderPane.alignment="CENTER" />
-   </top>
-   <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="460.0" fitWidth="176.0" layoutY="-178.0" pickOnBounds="true" preserveRatio="true">
+                  </HBox>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#EnterButtonPressed" text="Enter" />
+                        <Button mnemonicParsing="false" onAction="#LogoutButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Logout">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" right="50.0" />
+                     </padding>
+                  </VBox>
+            <ImageView fx:id="imageView2" fitHeight="182.0" fitWidth="156.0" layoutX="179.0" layoutY="22.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@warehouse-left.png" />
+                  <Image url="@menu-background-inside-right.png" />
                </image>
             </ImageView>
-         </children>
-      </Pane>
-   </left>
-   <right>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="286.0" fitWidth="191.0" layoutX="9.0" layoutY="-177.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageView1" fitHeight="182.0" fitWidth="155.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@warehouse-right.png" />
+                  <Image url="@menu-background-inside.png" />
                </image>
+               <viewport>
+                  <Rectangle2D height="182.0" width="155.0" />
+               </viewport>
             </ImageView>
+               </children>
+            </AnchorPane>
          </children>
-      </Pane>
-   </right>
-   <bottom>
-      <Pane prefHeight="122.0" prefWidth="783.0" BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+      </StackPane>

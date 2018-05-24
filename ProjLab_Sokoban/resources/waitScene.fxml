@@ -1,56 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="281.0" prefWidth="787.0" style="-fx-background-image: url(&quot;metal-background.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.WaitScene">
-   <center>
-      <VBox alignment="CENTER" prefHeight="224.0" prefWidth="387.0" style="-fx-spacing: 23;" BorderPane.alignment="CENTER_RIGHT">
-         <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#leaveButtonPressed" prefHeight="25.0" prefWidth="125.0" text="Leave">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </VBox>
-   </center>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <top>
-      <Pane prefHeight="140.0" prefWidth="630.0" BorderPane.alignment="CENTER" />
-   </top>
-   <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="288.0" fitWidth="175.0" layoutY="-141.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@warehouse-left.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </left>
-   <right>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="281.0" fitWidth="197.0" layoutX="9.0" layoutY="-140.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@warehouse-right.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </right>
-   <bottom>
-      <Pane prefHeight="122.0" prefWidth="783.0" BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.Scenes.WaitScene">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@warehouse.png" />
+            </image>
+        </ImageView>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="360.0" StackPane.alignment="CENTER">
+            <children>
+            <BorderPane prefHeight="226.0" prefWidth="360.0">
+               <center>
+                      <Button mnemonicParsing="false" onAction="#leaveButtonPressed" prefHeight="25.0" prefWidth="103.0" text="Leave" BorderPane.alignment="CENTER">
+                          <effect>
+                              <DropShadow />
+                          </effect>
+                      </Button>
+               </center>
+            </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
