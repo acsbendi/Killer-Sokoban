@@ -26,7 +26,12 @@ import common.model.Worker;
 public class JsonManager {
 
 	public static File ResolveFileId(int level_id){
-		return new File("maps/" + level_id + ".json");
+		try {
+			return new File( JsonManager.class.getResource("/" + level_id + ".json").toURI());
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public static void EnforceConfigFile(File config, TreeMap<Position, Field> pitch, List<Box> boxes, List<Worker> workers)

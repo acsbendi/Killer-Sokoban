@@ -18,7 +18,8 @@ public class DataBaseManager {
     private static final String connUserName = "server";
     private static final String connPassword = "server";
 
-    private Connection connection; /** Connection to the database in use */
+    /** Connection to the database in use */
+    private Connection connection;
 
     /**
      * Increments one of the stats of a specified user.
@@ -30,23 +31,23 @@ public class DataBaseManager {
                 + "SET "+ stat  + " = " + stat + " + 1 "
                 + "WHERE Name = ?";
         try {
+            OpenConnection();
+
             PreparedStatement preparedStatement = connection.prepareStatement(incrementWinsSQL);
             preparedStatement.setString(1, username);
             preparedStatement.executeUpdate();
+
+            CloseConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Constructs a new DataBaseManager, creating a connection to the database
+     * Constructs a new DataBaseManager,.
      */
-    public DataBaseManager(){
-        try {
-            connection = DriverManager.getConnection(connectionStr,connUserName,connPassword);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    DataBaseManager(){
+
     }
 
     /**
@@ -55,16 +56,21 @@ public class DataBaseManager {
      * @param passwordHash The hashed password of the new user.
      */
     public boolean Register(String username, long passwordHash) {
+
         String insertNewUserSQL = "INSERT INTO Users "
                 + "(Name, PasswordHash, Wins, Losses) VALUES "
                 + "(?,?,?,?)";
         try {
+            OpenConnection();
+
             PreparedStatement preparedStatement = connection.prepareStatement(insertNewUserSQL);
             preparedStatement.setString(1, username);
             preparedStatement.setLong(2, passwordHash);
             preparedStatement.setInt(3, 0);
             preparedStatement.setInt(4, 0);
             preparedStatement.executeUpdate();
+
+            CloseConnection();
             return true;
         } catch (SQLException e) {
             return false;
@@ -83,11 +89,14 @@ public class DataBaseManager {
                 + "WHERE Name = ? AND PasswordHash = ?";
 
         try {
+            OpenConnection();
+
             PreparedStatement preparedStatement = connection.prepareStatement(checkSQL);
             preparedStatement.setString(1, username);
             preparedStatement.setLong(2, passwordHash);
             ResultSet rs = preparedStatement.executeQuery();
 
+            CloseConnection();
             return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,7 +108,7 @@ public class DataBaseManager {
      * Increments the number of the total wins of a specified player.
      * @param username The name of the player.
      */
-    public void Win(String username){
+    void Win(String username){
         IncrementStat(username, "Wins");
     }
 
@@ -107,7 +116,7 @@ public class DataBaseManager {
      * Increments the number of the total losses of a specified player.
      * @param username The name of the player.
      */
-    public void Lose(String username){
+    void Lose(String username){
         IncrementStat(username, "Losses");
     }
 
@@ -124,6 +133,8 @@ public class DataBaseManager {
 
         ArrayList<Integer> result = new ArrayList<>(2);
         try {
+            OpenConnection();
+
             PreparedStatement preparedStatement = connection.prepareStatement(findResultSQL);
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
@@ -132,6 +143,8 @@ public class DataBaseManager {
             for (int i = 1; i < 3; i++) {
                 result.add(rs.getInt(i));
             }
+
+            CloseConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -149,15 +162,36 @@ public class DataBaseManager {
 
         ArrayList<String> result = new ArrayList<>(5);
         try {
+            OpenConnection();
+
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(findBestPlayersSQL);
 
             while(rs.next())
                 result.add(rs.getString(1));
 
+            CloseConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return result;
+    }
+
+    /**
+     * Opens the connection to the database.
+     * This method should be called before running any query so we only use the connection whenever needed.
+     * @throws SQLException Thrown when the connection was not successfully opened.
+     */
+    private void OpenConnection() throws SQLException {
+        connection = DriverManager.getConnection(connectionStr,connUserName,connPassword);
+    }
+
+    /**
+     * Closes the connection to the database.
+     * This method should be called after running any query so we only use the connection whenever needed.
+     * @throws SQLException Thrown when the connection was not successfully closed.
+     */
+    private void CloseConnection() throws SQLException {
+        connection.close();
     }
 }
