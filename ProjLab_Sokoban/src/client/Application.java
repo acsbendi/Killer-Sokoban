@@ -3,7 +3,9 @@ package client;
 import client.controller.SokobanClient;
 import client.ui.GUI;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,6 +33,13 @@ public class Application extends javafx.application.Application{
                 });
             }
         }, 0, 100);
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                timer.cancel();
+            }
+        });
     }
 
     public static void main(String[] args) {
