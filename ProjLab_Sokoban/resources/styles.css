@@ -43,3 +43,11 @@
     -fx-text-fill: silver;
     -fx-font-weight: bold;
 }
+
+.password-field{
+    -fx-font-size: 12px;
+}
+
+.text-field{
+    -fx-font-size: 12px;
+}

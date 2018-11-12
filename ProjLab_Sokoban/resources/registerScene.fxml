@@ -24,11 +24,11 @@
             </HBox>
             <HBox>
                 <Label prefHeight="25.0" prefWidth="131.0" text="Password" textAlignment="CENTER"/>
-                <TextField fx:id="passwordText"/>
+                <PasswordField fx:id="passwordText"/>
             </HBox>
             <HBox>
                 <Label prefHeight="25.0" prefWidth="131.0" text="Password again" textAlignment="CENTER"/>
-                <TextField fx:id="repeatPasswordText"/>
+                <PasswordField fx:id="repeatPasswordText"/>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="34.0">
                 <Button mnemonicParsing="false" onAction="#registerButtonPressed" prefHeight="25.0" prefWidth="103.0"
