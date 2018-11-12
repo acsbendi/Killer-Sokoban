@@ -51,3 +51,12 @@
 .text-field{
     -fx-font-size: 12px;
 }
+
+#message-label{
+    -fx-font-size: 10px;
+    -fx-text-alignment: center;
+}
+
+.register-hbox{
+    -fx-padding: 8 0 8 0;
+}

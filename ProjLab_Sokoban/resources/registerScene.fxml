@@ -14,23 +14,23 @@
     </ImageView>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0"
                 prefWidth="360.0" styleClass="anchor-pane-tall" StackPane.alignment="CENTER">
-        <VBox alignment="CENTER" prefHeight="257.0" prefWidth="360.0" style="-fx-spacing: 21;">
-            <HBox>
+        <VBox alignment="CENTER" prefHeight="260.0" prefWidth="360.0">
+            <HBox styleClass="register-hbox">
                 <Label prefHeight="25.0" prefWidth="128.0" text="Username" textAlignment="CENTER"/>
                 <TextField fx:id="userNameText"/>
                 <VBox.margin>
                     <Insets top="30.0"/>
                 </VBox.margin>
             </HBox>
-            <HBox>
+            <HBox styleClass="register-hbox">
                 <Label prefHeight="25.0" prefWidth="131.0" text="Password" textAlignment="CENTER"/>
                 <PasswordField fx:id="passwordText"/>
             </HBox>
-            <HBox>
+            <HBox styleClass="register-hbox">
                 <Label prefHeight="25.0" prefWidth="131.0" text="Password again" textAlignment="CENTER"/>
                 <PasswordField fx:id="repeatPasswordText"/>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="34.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="200.0" spacing="34.0">
                 <Button mnemonicParsing="false" onAction="#registerButtonPressed" prefHeight="25.0" prefWidth="103.0"
                         text="Register">
                     <effect>
@@ -40,9 +40,9 @@
                 <Button id="back-button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
                         onAction="#backButtonPressed" text="Back"/>
             </HBox>
-            <Label id="message-label" fx:id="message" text="(message)">
+            <Label id="message-label" fx:id="message" text="(message)" wrapText="true" maxWidth="300" minHeight="30">
                 <VBox.margin>
-                    <Insets bottom="30.0"/>
+                    <Insets bottom="25.0"/>
                 </VBox.margin>
             </Label>
             <opaqueInsets>
