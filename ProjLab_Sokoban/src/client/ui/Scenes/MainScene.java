@@ -55,7 +55,7 @@ public class MainScene extends MenuScene {
      * */
     // STATIC CREATE
     public static MainScene Create(Stage window, GUI gui) throws IOException {
-        return (MainScene)SokobanScene.Create("/mainscene.fxml",window,gui);
+        return (MainScene)SokobanScene.Create("/mainScene.fxml",window,gui);
     }
     /**A Scene betöltésekor beállítja a megjelenítendő objektumok paramétereit
      * */

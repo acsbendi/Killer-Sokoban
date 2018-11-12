@@ -34,7 +34,7 @@ public class WaitScene extends SokobanScene {
      *@return a WaitScenet egy megfelelően alaphelyzetbe állított pldánya
      * */
     public static WaitScene Create(Stage window, GUI gui) throws Exception {
-        return (WaitScene)SokobanScene.Create("/waitscene.fxml",window,gui);
+        return (WaitScene)SokobanScene.Create("/waitScene.fxml",window,gui);
     }
 
     // private user event handlers

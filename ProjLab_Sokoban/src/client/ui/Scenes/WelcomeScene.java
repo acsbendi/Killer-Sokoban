@@ -47,7 +47,7 @@ public class WelcomeScene extends MenuScene {
      *@return a WelcomeScenet   egy megfelelően alaphelyzetbe állított pldánya
      * */
     public static WelcomeScene Create(Stage window, GUI gui) throws IOException {
-        return (WelcomeScene)SokobanScene.Create("/welcomescene.fxml",window,gui);
+        return (WelcomeScene)SokobanScene.Create("/welcomeScene.fxml",window,gui);
     }
 
     // default Load() method is used
