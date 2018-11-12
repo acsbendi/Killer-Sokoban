@@ -1,23 +1,18 @@
 package common.util;
 
+import org.bouncycastle.jcajce.provider.digest.SHA3;
+
 import java.nio.ByteBuffer;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by bendi1 on 4/22/2018.
  */
 public class Hash {
     public static long GetHashFor(String password){
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        SHA3.DigestSHA3 digestSHA3 = new SHA3.Digest512();
 
-            byte[] encrypted = messageDigest.digest(password.getBytes());
-            ByteBuffer bb = ByteBuffer.wrap(encrypted);
-            return bb.getLong();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return 0;
+        byte[] encrypted = digestSHA3.digest(password.getBytes());
+        ByteBuffer bb = ByteBuffer.wrap(encrypted);
+        return bb.getLong();
     }
 }
